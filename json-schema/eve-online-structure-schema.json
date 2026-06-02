@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.com/json-schema/eve-online-structure-schema.json",
+  "title": "get_universe_structures_structure_id_ok",
+  "description": "200 ok object",
+  "type": "object",
+  "required": [
+    "name",
+    "solar_system_id",
+    "owner_id"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The full name of the structure",
+      "title": "get_universe_structures_structure_id_name"
+    },
+    "owner_id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The ID of the corporation who owns this particular structure",
+      "title": "get_universe_structures_structure_id_owner_id"
+    },
+    "position": {
+      "type": "object",
+      "description": "Coordinates of the structure in Cartesian space relative to the Sun, in metres.\n",
+      "title": "get_universe_structures_structure_id_position",
+      "required": [
+        "x",
+        "y",
+        "z"
+      ],
+      "properties": {
+        "x": {
+          "type": "number",
+          "format": "double",
+          "description": "x number",
+          "title": "get_universe_structures_structure_id_x"
+        },
+        "y": {
+          "type": "number",
+          "format": "double",
+          "description": "y number",
+          "title": "get_universe_structures_structure_id_y"
+        },
+        "z": {
+          "type": "number",
+          "format": "double",
+          "description": "z number",
+          "title": "get_universe_structures_structure_id_z"
+        }
+      }
+    },
+    "solar_system_id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "solar_system_id integer",
+      "title": "get_universe_structures_structure_id_solar_system_id"
+    },
+    "type_id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "type_id integer",
+      "title": "get_universe_structures_structure_id_type_id"
+    }
+  }
+}

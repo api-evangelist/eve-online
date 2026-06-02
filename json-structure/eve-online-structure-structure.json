@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://api-evangelist.com/json-structure/eve-online-structure-structure.json",
+  "name": "get_universe_structures_structure_id_ok",
+  "description": "200 ok object",
+  "type": "object",
+  "required": [
+    "name",
+    "solar_system_id",
+    "owner_id"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The full name of the structure",
+      "name": "get_universe_structures_structure_id_name"
+    },
+    "owner_id": {
+      "type": "int32",
+      "description": "The ID of the corporation who owns this particular structure",
+      "name": "get_universe_structures_structure_id_owner_id"
+    },
+    "position": {
+      "type": "object",
+      "description": "Coordinates of the structure in Cartesian space relative to the Sun, in metres.\n",
+      "name": "get_universe_structures_structure_id_position",
+      "required": [
+        "x",
+        "y",
+        "z"
+      ],
+      "properties": {
+        "x": {
+          "type": "double",
+          "description": "x number",
+          "name": "get_universe_structures_structure_id_x"
+        },
+        "y": {
+          "type": "double",
+          "description": "y number",
+          "name": "get_universe_structures_structure_id_y"
+        },
+        "z": {
+          "type": "double",
+          "description": "z number",
+          "name": "get_universe_structures_structure_id_z"
+        }
+      }
+    },
+    "solar_system_id": {
+      "type": "int32",
+      "description": "solar_system_id integer",
+      "name": "get_universe_structures_structure_id_solar_system_id"
+    },
+    "type_id": {
+      "type": "int32",
+      "description": "type_id integer",
+      "name": "get_universe_structures_structure_id_type_id"
+    }
+  }
+}

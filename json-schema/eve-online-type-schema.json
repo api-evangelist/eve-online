@@ -1,0 +1,152 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.com/json-schema/eve-online-inventorytype-schema.json",
+  "title": "get_universe_types_type_id_ok",
+  "description": "200 ok object",
+  "type": "object",
+  "required": [
+    "type_id",
+    "name",
+    "description",
+    "published",
+    "group_id"
+  ],
+  "properties": {
+    "capacity": {
+      "type": "number",
+      "format": "float",
+      "description": "capacity number",
+      "title": "get_universe_types_type_id_capacity"
+    },
+    "description": {
+      "type": "string",
+      "description": "description string",
+      "title": "get_universe_types_type_id_description"
+    },
+    "dogma_attributes": {
+      "type": "array",
+      "description": "dogma_attributes array",
+      "title": "get_universe_types_type_id_dogma_attributes",
+      "items": {
+        "type": "object",
+        "description": "dogma_attribute object",
+        "title": "get_universe_types_type_id_dogma_attribute",
+        "required": [
+          "attribute_id",
+          "value"
+        ],
+        "properties": {
+          "attribute_id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "attribute_id integer",
+            "title": "get_universe_types_type_id_attribute_id"
+          },
+          "value": {
+            "type": "number",
+            "format": "float",
+            "description": "value number",
+            "title": "get_universe_types_type_id_value"
+          }
+        }
+      }
+    },
+    "dogma_effects": {
+      "type": "array",
+      "description": "dogma_effects array",
+      "title": "get_universe_types_type_id_dogma_effects",
+      "items": {
+        "type": "object",
+        "description": "dogma_effect object",
+        "title": "get_universe_types_type_id_dogma_effect",
+        "required": [
+          "effect_id",
+          "is_default"
+        ],
+        "properties": {
+          "effect_id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "effect_id integer",
+            "title": "get_universe_types_type_id_effect_id"
+          },
+          "is_default": {
+            "type": "boolean",
+            "description": "is_default boolean",
+            "title": "get_universe_types_type_id_is_default"
+          }
+        }
+      }
+    },
+    "graphic_id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "graphic_id integer",
+      "title": "get_universe_types_type_id_graphic_id"
+    },
+    "group_id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "group_id integer",
+      "title": "get_universe_types_type_id_group_id"
+    },
+    "icon_id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "icon_id integer",
+      "title": "get_universe_types_type_id_icon_id"
+    },
+    "market_group_id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "This only exists for types that can be put on the market",
+      "title": "get_universe_types_type_id_market_group_id"
+    },
+    "mass": {
+      "type": "number",
+      "format": "float",
+      "description": "mass number",
+      "title": "get_universe_types_type_id_mass"
+    },
+    "name": {
+      "type": "string",
+      "description": "name string",
+      "title": "get_universe_types_type_id_name"
+    },
+    "packaged_volume": {
+      "type": "number",
+      "format": "float",
+      "description": "packaged_volume number",
+      "title": "get_universe_types_type_id_packaged_volume"
+    },
+    "portion_size": {
+      "type": "integer",
+      "format": "int32",
+      "description": "portion_size integer",
+      "title": "get_universe_types_type_id_portion_size"
+    },
+    "published": {
+      "type": "boolean",
+      "description": "published boolean",
+      "title": "get_universe_types_type_id_published"
+    },
+    "radius": {
+      "type": "number",
+      "format": "float",
+      "description": "radius number",
+      "title": "get_universe_types_type_id_radius"
+    },
+    "type_id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "type_id integer",
+      "title": "get_universe_types_type_id_type_id"
+    },
+    "volume": {
+      "type": "number",
+      "format": "float",
+      "description": "volume number",
+      "title": "get_universe_types_type_id_volume"
+    }
+  }
+}

@@ -1,0 +1,145 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.com/json-schema/eve-online-solarsystem-schema.json",
+  "title": "get_universe_systems_system_id_ok",
+  "description": "200 ok object",
+  "type": "object",
+  "required": [
+    "system_id",
+    "name",
+    "position",
+    "security_status",
+    "constellation_id"
+  ],
+  "properties": {
+    "constellation_id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The constellation this solar system is in",
+      "title": "get_universe_systems_system_id_constellation_id"
+    },
+    "name": {
+      "type": "string",
+      "description": "name string",
+      "title": "get_universe_systems_system_id_name"
+    },
+    "planets": {
+      "type": "array",
+      "description": "planets array",
+      "title": "get_universe_systems_system_id_planets",
+      "items": {
+        "type": "object",
+        "description": "planet object",
+        "title": "get_universe_systems_system_id_planet",
+        "required": [
+          "planet_id"
+        ],
+        "properties": {
+          "asteroid_belts": {
+            "type": "array",
+            "description": "asteroid_belts array",
+            "title": "get_universe_systems_system_id_asteroid_belts",
+            "items": {
+              "type": "integer",
+              "format": "int32",
+              "description": "asteroid_belt integer",
+              "title": "get_universe_systems_system_id_asteroid_belt"
+            }
+          },
+          "moons": {
+            "type": "array",
+            "description": "moons array",
+            "title": "get_universe_systems_system_id_moons",
+            "items": {
+              "type": "integer",
+              "format": "int32",
+              "description": "moon integer",
+              "title": "get_universe_systems_system_id_moon"
+            }
+          },
+          "planet_id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "planet_id integer",
+            "title": "get_universe_systems_system_id_planet_id"
+          }
+        }
+      }
+    },
+    "position": {
+      "type": "object",
+      "description": "position object",
+      "title": "get_universe_systems_system_id_position",
+      "required": [
+        "x",
+        "y",
+        "z"
+      ],
+      "properties": {
+        "x": {
+          "type": "number",
+          "format": "double",
+          "description": "x number",
+          "title": "get_universe_systems_system_id_x"
+        },
+        "y": {
+          "type": "number",
+          "format": "double",
+          "description": "y number",
+          "title": "get_universe_systems_system_id_y"
+        },
+        "z": {
+          "type": "number",
+          "format": "double",
+          "description": "z number",
+          "title": "get_universe_systems_system_id_z"
+        }
+      }
+    },
+    "security_class": {
+      "type": "string",
+      "description": "security_class string",
+      "title": "get_universe_systems_system_id_security_class"
+    },
+    "security_status": {
+      "type": "number",
+      "format": "float",
+      "description": "security_status number",
+      "title": "get_universe_systems_system_id_security_status"
+    },
+    "star_id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "star_id integer",
+      "title": "get_universe_systems_system_id_star_id"
+    },
+    "stargates": {
+      "type": "array",
+      "description": "stargates array",
+      "title": "get_universe_systems_system_id_stargates",
+      "items": {
+        "type": "integer",
+        "format": "int32",
+        "description": "stargate integer",
+        "title": "get_universe_systems_system_id_stargate"
+      }
+    },
+    "stations": {
+      "type": "array",
+      "description": "stations array",
+      "title": "get_universe_systems_system_id_stations",
+      "items": {
+        "type": "integer",
+        "format": "int32",
+        "description": "station integer",
+        "title": "get_universe_systems_system_id_station"
+      }
+    },
+    "system_id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "system_id integer",
+      "title": "get_universe_systems_system_id_system_id"
+    }
+  }
+}

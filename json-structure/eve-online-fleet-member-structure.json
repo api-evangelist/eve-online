@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://api-evangelist.com/json-structure/eve-online-fleetmember-structure.json",
+  "name": "get_fleets_fleet_id_members_200_ok",
+  "description": "200 ok object",
+  "type": "object",
+  "required": [
+    "character_id",
+    "ship_type_id",
+    "wing_id",
+    "squad_id",
+    "role",
+    "role_name",
+    "join_time",
+    "takes_fleet_warp",
+    "solar_system_id"
+  ],
+  "properties": {
+    "character_id": {
+      "type": "int32",
+      "description": "character_id integer",
+      "name": "get_fleets_fleet_id_members_character_id"
+    },
+    "join_time": {
+      "type": "datetime",
+      "description": "join_time string",
+      "name": "get_fleets_fleet_id_members_join_time"
+    },
+    "role": {
+      "type": "string",
+      "enum": [
+        "fleet_commander",
+        "wing_commander",
+        "squad_commander",
+        "squad_member"
+      ],
+      "description": "Member\u2019s role in fleet",
+      "name": "get_fleets_fleet_id_members_role"
+    },
+    "role_name": {
+      "type": "string",
+      "description": "Localized role names",
+      "name": "get_fleets_fleet_id_members_role_name"
+    },
+    "ship_type_id": {
+      "type": "int32",
+      "description": "ship_type_id integer",
+      "name": "get_fleets_fleet_id_members_ship_type_id"
+    },
+    "solar_system_id": {
+      "type": "int32",
+      "description": "Solar system the member is located in",
+      "name": "get_fleets_fleet_id_members_solar_system_id"
+    },
+    "squad_id": {
+      "type": "int64",
+      "description": "ID of the squad the member is in. If not applicable, will be set to -1",
+      "name": "get_fleets_fleet_id_members_squad_id"
+    },
+    "station_id": {
+      "type": "int64",
+      "description": "Station in which the member is docked in, if applicable",
+      "name": "get_fleets_fleet_id_members_station_id"
+    },
+    "takes_fleet_warp": {
+      "type": "boolean",
+      "description": "Whether the member take fleet warps",
+      "name": "get_fleets_fleet_id_members_takes_fleet_warp"
+    },
+    "wing_id": {
+      "type": "int64",
+      "description": "ID of the wing the member is in. If not applicable, will be set to -1",
+      "name": "get_fleets_fleet_id_members_wing_id"
+    }
+  }
+}

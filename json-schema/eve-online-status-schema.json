@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.com/json-schema/eve-online-serverstatus-schema.json",
+  "title": "get_status_ok",
+  "description": "200 ok object",
+  "type": "object",
+  "required": [
+    "start_time",
+    "players",
+    "server_version"
+  ],
+  "properties": {
+    "players": {
+      "type": "integer",
+      "description": "Current online player count",
+      "title": "get_status_players"
+    },
+    "server_version": {
+      "type": "string",
+      "description": "Running version as string",
+      "title": "get_status_server_version"
+    },
+    "start_time": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Server start timestamp",
+      "title": "get_status_start_time"
+    },
+    "vip": {
+      "type": "boolean",
+      "description": "If the server is in VIP mode",
+      "title": "get_status_vip"
+    }
+  }
+}

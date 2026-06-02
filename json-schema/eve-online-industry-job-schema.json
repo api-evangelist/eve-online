@@ -1,0 +1,164 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.com/json-schema/eve-online-industryjob-schema.json",
+  "title": "get_characters_character_id_industry_jobs_200_ok",
+  "description": "200 ok object",
+  "type": "object",
+  "required": [
+    "job_id",
+    "installer_id",
+    "facility_id",
+    "station_id",
+    "activity_id",
+    "blueprint_id",
+    "blueprint_type_id",
+    "blueprint_location_id",
+    "output_location_id",
+    "runs",
+    "status",
+    "duration",
+    "start_date",
+    "end_date"
+  ],
+  "properties": {
+    "activity_id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "Job activity ID",
+      "title": "get_characters_character_id_industry_jobs_activity_id"
+    },
+    "blueprint_id": {
+      "type": "integer",
+      "format": "int64",
+      "description": "blueprint_id integer",
+      "title": "get_characters_character_id_industry_jobs_blueprint_id"
+    },
+    "blueprint_location_id": {
+      "type": "integer",
+      "format": "int64",
+      "description": "Location ID of the location from which the blueprint was installed. Normally a station ID, but can also be an asset (e.g. container) or corporation facility",
+      "title": "get_characters_character_id_industry_jobs_blueprint_location_id"
+    },
+    "blueprint_type_id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "blueprint_type_id integer",
+      "title": "get_characters_character_id_industry_jobs_blueprint_type_id"
+    },
+    "completed_character_id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "ID of the character which completed this job",
+      "title": "get_characters_character_id_industry_jobs_completed_character_id"
+    },
+    "completed_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date and time when this job was completed",
+      "title": "get_characters_character_id_industry_jobs_completed_date"
+    },
+    "cost": {
+      "type": "number",
+      "format": "double",
+      "description": "The sume of job installation fee and industry facility tax",
+      "title": "get_characters_character_id_industry_jobs_cost"
+    },
+    "duration": {
+      "type": "integer",
+      "format": "int32",
+      "description": "Job duration in seconds",
+      "title": "get_characters_character_id_industry_jobs_duration"
+    },
+    "end_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date and time when this job finished",
+      "title": "get_characters_character_id_industry_jobs_end_date"
+    },
+    "facility_id": {
+      "type": "integer",
+      "format": "int64",
+      "description": "ID of the facility where this job is running",
+      "title": "get_characters_character_id_industry_jobs_facility_id"
+    },
+    "installer_id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "ID of the character which installed this job",
+      "title": "get_characters_character_id_industry_jobs_installer_id"
+    },
+    "job_id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "Unique job ID",
+      "title": "get_characters_character_id_industry_jobs_job_id"
+    },
+    "licensed_runs": {
+      "type": "integer",
+      "format": "int32",
+      "description": "Number of runs blueprint is licensed for",
+      "title": "get_characters_character_id_industry_jobs_licensed_runs"
+    },
+    "output_location_id": {
+      "type": "integer",
+      "format": "int64",
+      "description": "Location ID of the location to which the output of the job will be delivered. Normally a station ID, but can also be a corporation facility",
+      "title": "get_characters_character_id_industry_jobs_output_location_id"
+    },
+    "pause_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date and time when this job was paused (i.e. time when the facility where this job was installed went offline)",
+      "title": "get_characters_character_id_industry_jobs_pause_date"
+    },
+    "probability": {
+      "type": "number",
+      "format": "float",
+      "description": "Chance of success for invention",
+      "title": "get_characters_character_id_industry_jobs_probability"
+    },
+    "product_type_id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "Type ID of product (manufactured, copied or invented)",
+      "title": "get_characters_character_id_industry_jobs_product_type_id"
+    },
+    "runs": {
+      "type": "integer",
+      "format": "int32",
+      "description": "Number of runs for a manufacturing job, or number of copies to make for a blueprint copy",
+      "title": "get_characters_character_id_industry_jobs_runs"
+    },
+    "start_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date and time when this job started",
+      "title": "get_characters_character_id_industry_jobs_start_date"
+    },
+    "station_id": {
+      "type": "integer",
+      "format": "int64",
+      "description": "ID of the station where industry facility is located",
+      "title": "get_characters_character_id_industry_jobs_station_id"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "cancelled",
+        "delivered",
+        "paused",
+        "ready",
+        "reverted"
+      ],
+      "description": "status string",
+      "title": "get_characters_character_id_industry_jobs_status"
+    },
+    "successful_runs": {
+      "type": "integer",
+      "format": "int32",
+      "description": "Number of successful runs for this job. Equal to runs unless this is an invention job",
+      "title": "get_characters_character_id_industry_jobs_successful_runs"
+    }
+  }
+}

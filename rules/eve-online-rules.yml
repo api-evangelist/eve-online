@@ -1,0 +1,394 @@
+# EVE Online (ESI) Spectral Ruleset
+#
+# Opinionated rules derived from the EVE Swagger Interface (ESI) at
+# https://esi.evetech.net/latest/swagger.json. ESI is a Swagger 2.0 / OpenAPI 3
+# REST API hosted at esi.evetech.net with paths organized around in-game
+# concepts (Universe, Corporation, Character, Fleets, Market, Industry...),
+# snake_case path/query parameters and snake_case JSON property names,
+# operation IDs in snake_case (get_alliances, post_characters_character_id_mail),
+# and OAuth 2.0 (EVE SSO) scopes named esi-<resource>.<action>.<version>.
+#
+# Run: spectral lint openapi/eve-online-openapi.yml --ruleset rules/eve-online-rules.yml
+
+extends: [[spectral:oas, recommended]]
+
+functions: []
+
+rules:
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # INFO / METADATA
+  # ─────────────────────────────────────────────────────────────────────────────
+  info-title-eve-online:
+    description: "info.title must mention EVE or ESI to identify this as the EVE Swagger Interface."
+    message: "{{property}} should reference EVE / ESI (e.g. 'EVE Swagger Interface')"
+    given: $.info
+    severity: warn
+    then:
+      field: title
+      function: pattern
+      functionOptions:
+        match: "(EVE|ESI|Swagger Interface)"
+
+  info-description-required:
+    description: "info.description is required and should briefly describe the EVE Swagger Interface."
+    severity: error
+    given: $.info
+    then:
+      field: description
+      function: truthy
+
+  info-version-required:
+    description: "info.version is required so clients can pin against an X-Compatibility-Date."
+    severity: error
+    given: $.info
+    then:
+      field: version
+      function: truthy
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # SERVERS
+  # ─────────────────────────────────────────────────────────────────────────────
+  servers-https-only:
+    description: "ESI is HTTPS only."
+    message: "ESI server URLs must use https://"
+    severity: error
+    given: $.servers[*].url
+    then:
+      function: pattern
+      functionOptions:
+        match: "^https://"
+
+  servers-evetech-host:
+    description: "ESI servers should be hosted under evetech.net."
+    severity: info
+    given: $.servers[*].url
+    then:
+      function: pattern
+      functionOptions:
+        match: "evetech\\.net"
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # PATHS — NAMING CONVENTIONS
+  # ─────────────────────────────────────────────────────────────────────────────
+  paths-snake-case-segments:
+    description: "ESI uses snake_case path segments (e.g. /characters/{character_id}/skill_queue/)."
+    message: "Path segments should be snake_case: {{value}}"
+    severity: warn
+    given: $.paths[*]~
+    then:
+      function: pattern
+      functionOptions:
+        match: "^/([a-z0-9_]+|\\{[a-z0-9_]+\\})(/([a-z0-9_]+|\\{[a-z0-9_]+\\}))*/?$"
+
+  paths-trailing-slash:
+    description: "ESI canonically uses trailing slashes on paths (e.g. /alliances/)."
+    message: "ESI paths conventionally end with a trailing slash: {{value}}"
+    severity: info
+    given: $.paths[*]~
+    then:
+      function: pattern
+      functionOptions:
+        match: "/$"
+
+  paths-no-query-string:
+    description: "Path templates should not include a query string."
+    message: "Path should not contain '?': {{value}}"
+    severity: error
+    given: $.paths[*]~
+    then:
+      function: pattern
+      functionOptions:
+        notMatch: "\\?"
+
+  paths-id-parameter-naming:
+    description: "Path ID parameters should be {something_id} (snake_case)."
+    severity: warn
+    given: $.paths[*]~
+    then:
+      function: pattern
+      functionOptions:
+        notMatch: "\\{[a-z]+Id\\}"
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # OPERATIONS
+  # ─────────────────────────────────────────────────────────────────────────────
+  operation-operationid-required:
+    description: "Every operation must have an operationId (used by SDK generators)."
+    severity: error
+    given: "$.paths[*][get,post,put,delete,patch]"
+    then:
+      field: operationId
+      function: truthy
+
+  operation-operationid-snake-case:
+    description: "ESI operationIds are snake_case with verb prefix (get_, post_, put_, delete_)."
+    message: "operationId should be snake_case starting with a verb: {{value}}"
+    severity: warn
+    given: "$.paths[*][get,post,put,delete,patch].operationId"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^(get|post|put|delete|patch|head)_[a-z0-9_]+$"
+
+  operation-summary-required:
+    description: "Every operation must have a summary."
+    severity: error
+    given: "$.paths[*][get,post,put,delete,patch]"
+    then:
+      field: summary
+      function: truthy
+
+  operation-summary-eve-prefix:
+    description: "Summaries should start with 'EVE Online ' for consistent SDK doc strings."
+    severity: warn
+    given: "$.paths[*][get,post,put,delete,patch].summary"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^EVE Online "
+
+  operation-description-required:
+    description: "Every operation must have a description."
+    severity: warn
+    given: "$.paths[*][get,post,put,delete,patch]"
+    then:
+      field: description
+      function: truthy
+
+  operation-tags-required:
+    description: "Every operation must have at least one tag for grouping (Universe, Market, etc.)."
+    severity: error
+    given: "$.paths[*][get,post,put,delete,patch]"
+    then:
+      field: tags
+      function: length
+      functionOptions:
+        min: 1
+
+  operation-rate-limit-extension:
+    description: "Operations should declare x-rate-limit when the route belongs to a rate-limit group."
+    severity: info
+    given: "$.paths[*][get,post,put,delete,patch]"
+    then:
+      field: x-rate-limit
+      function: truthy
+
+  operation-cached-seconds-extension:
+    description: "GET operations should declare x-cached-seconds for cache-friendly clients."
+    severity: info
+    given: "$.paths[*].get"
+    then:
+      field: x-cached-seconds
+      function: truthy
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # PARAMETERS
+  # ─────────────────────────────────────────────────────────────────────────────
+  parameter-snake-case-names:
+    description: "Query/path/header parameter names should be snake_case (datasource, character_id, type_id)."
+    message: "parameter name should be snake_case: {{value}}"
+    severity: warn
+    given: "$.paths[*][get,post,put,delete,patch].parameters[*]"
+    then:
+      field: name
+      function: pattern
+      functionOptions:
+        match: "^[a-z][a-z0-9_-]*$"
+
+  parameter-description-required:
+    description: "Every parameter must have a description."
+    severity: warn
+    given: "$.paths[*][get,post,put,delete,patch].parameters[*]"
+    then:
+      field: description
+      function: truthy
+
+  parameter-datasource-enum:
+    description: "The datasource parameter must enumerate available shards (tranquility)."
+    severity: warn
+    given: "$.paths[*][get,post,put,delete,patch].parameters[?(@.name=='datasource')]"
+    then:
+      field: schema.enum
+      function: truthy
+
+  parameter-token-deprecation:
+    description: "The 'token' query parameter is deprecated; use the Authorization Bearer header."
+    severity: warn
+    given: "$.paths[*][get,post,put,delete,patch].parameters[?(@.name=='token')]"
+    then:
+      function: undefined
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # RESPONSES
+  # ─────────────────────────────────────────────────────────────────────────────
+  response-200-or-204:
+    description: "Mutating routes (POST/PUT/DELETE) should respond with 200, 201, or 204."
+    severity: warn
+    given: "$.paths[*][post,put,delete].responses"
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: object
+          anyOf:
+            - required: ['200']
+            - required: ['201']
+            - required: ['204']
+
+  response-error-shape:
+    description: "Error responses (4xx, 5xx) should include an 'error' string field."
+    severity: info
+    given: "$.paths[*][get,post,put,delete,patch].responses[?(@property.match(/4..|5../))].content.application/json.schema.properties"
+    then:
+      field: error
+      function: truthy
+
+  response-420-rate-limit:
+    description: "Public ESI routes should declare 420 Error Rate Limited (legacy) for parity."
+    severity: info
+    given: "$.paths[*][get,post,put,delete,patch].responses"
+    then:
+      field: '420'
+      function: truthy
+
+  response-content-application-json:
+    description: "ESI responses are application/json."
+    severity: error
+    given: "$.paths[*][get,post,put,delete,patch].responses[?(@property.match(/2../))].content"
+    then:
+      field: application/json
+      function: truthy
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # SCHEMAS — PROPERTY NAMING
+  # ─────────────────────────────────────────────────────────────────────────────
+  schema-property-snake-case:
+    description: "Schema property names should be snake_case (character_id, security_status)."
+    message: "Schema property should be snake_case: {{property}}"
+    severity: warn
+    given: "$.components.schemas[*].properties[*]~"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[a-z][a-z0-9_]*$"
+
+  schema-id-naming:
+    description: "ID properties should follow the {entity}_id convention (character_id, corporation_id)."
+    severity: info
+    given: "$.components.schemas[*].properties[*]~"
+    then:
+      function: pattern
+      functionOptions:
+        notMatch: "Id$"
+
+  schema-iso-date-time-format:
+    description: "Date-time properties should be ISO 8601 (format: date-time)."
+    severity: warn
+    given: "$.components.schemas[*].properties[?(@property.match(/_(at|date|time)$/))]"
+    then:
+      field: format
+      function: enumeration
+      functionOptions:
+        values: ["date-time", "date"]
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # SECURITY
+  # ─────────────────────────────────────────────────────────────────────────────
+  security-evesso-scheme:
+    description: "ESI must define the 'evesso' OAuth 2.0 security scheme."
+    severity: error
+    given: $.components.securitySchemes
+    then:
+      field: evesso
+      function: truthy
+
+  security-evesso-oauth2:
+    description: "The 'evesso' scheme must be type oauth2."
+    severity: error
+    given: $.components.securitySchemes.evesso
+    then:
+      field: type
+      function: enumeration
+      functionOptions:
+        values: ["oauth2"]
+
+  security-evesso-scope-naming:
+    description: "ESI OAuth2 scopes follow esi-<resource>.<read|write>_<thing>.v<n>."
+    severity: warn
+    given: "$.components.securitySchemes.evesso.flows[*].scopes[*]~"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^esi-[a-z]+\\.(read|write|respond)_[a-z0-9_]+\\.v[0-9]+$"
+
+  security-protected-route-declares-scope:
+    description: "Operations that require auth must list at least one esi-* scope under security."
+    severity: warn
+    given: "$.paths[*][get,post,put,delete,patch][?(@.security)].security[*].evesso"
+    then:
+      function: length
+      functionOptions:
+        min: 1
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # TAGS
+  # ─────────────────────────────────────────────────────────────────────────────
+  tag-title-case:
+    description: "Tag names should be Title Case (Universe, Faction Warfare, User Interface)."
+    severity: info
+    given: "$.tags[*].name"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[A-Z][A-Za-z]*( [A-Z][A-Za-z]*)*$"
+
+  tag-description:
+    description: "Every declared tag should have a description."
+    severity: info
+    given: $.tags[*]
+    then:
+      field: description
+      function: truthy
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # HTTP METHOD CONVENTIONS
+  # ─────────────────────────────────────────────────────────────────────────────
+  http-get-no-body:
+    description: "GET operations must not declare a requestBody."
+    severity: error
+    given: "$.paths[*].get"
+    then:
+      field: requestBody
+      function: undefined
+
+  http-delete-no-body:
+    description: "DELETE operations should not declare a requestBody."
+    severity: warn
+    given: "$.paths[*].delete"
+    then:
+      field: requestBody
+      function: undefined
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # GENERAL QUALITY / CACHING
+  # ─────────────────────────────────────────────────────────────────────────────
+  parameter-if-none-match-on-get:
+    description: "GET routes that are cacheable should accept the If-None-Match header."
+    severity: info
+    given: "$.paths[*].get"
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: object
+          properties:
+            parameters:
+              type: array
+              contains:
+                type: object
+                properties:
+                  name:
+                    enum: ["If-None-Match"]
+                required: ["name"]
+          required: ["parameters"]

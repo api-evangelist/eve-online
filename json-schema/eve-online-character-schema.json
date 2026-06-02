@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.com/json-schema/eve-online-character-schema.json",
+  "title": "get_characters_character_id_ok",
+  "description": "200 ok object",
+  "type": "object",
+  "required": [
+    "corporation_id",
+    "birthday",
+    "name",
+    "gender",
+    "race_id",
+    "bloodline_id"
+  ],
+  "properties": {
+    "alliance_id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The character's alliance ID",
+      "title": "get_characters_character_id_alliance_id"
+    },
+    "birthday": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Creation date of the character",
+      "title": "get_characters_character_id_birthday"
+    },
+    "bloodline_id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "bloodline_id integer",
+      "title": "get_characters_character_id_bloodline_id"
+    },
+    "corporation_id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The character's corporation ID",
+      "title": "get_characters_character_id_corporation_id"
+    },
+    "description": {
+      "type": "string",
+      "description": "description string",
+      "title": "get_characters_character_id_description"
+    },
+    "faction_id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "ID of the faction the character is fighting for, if the character is enlisted in Factional Warfare",
+      "title": "get_characters_character_id_faction_id"
+    },
+    "gender": {
+      "type": "string",
+      "enum": [
+        "female",
+        "male"
+      ],
+      "description": "gender string",
+      "title": "get_characters_character_id_gender"
+    },
+    "name": {
+      "type": "string",
+      "description": "name string",
+      "title": "get_characters_character_id_name"
+    },
+    "race_id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "race_id integer",
+      "title": "get_characters_character_id_race_id"
+    },
+    "security_status": {
+      "type": "number",
+      "format": "float",
+      "minimum": -10,
+      "maximum": 10,
+      "description": "security_status number",
+      "title": "get_characters_character_id_security_status"
+    },
+    "title": {
+      "type": "string",
+      "description": "The individual title of the character",
+      "title": "get_characters_character_id_title"
+    }
+  }
+}

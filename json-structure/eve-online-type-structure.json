@@ -1,0 +1,138 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://api-evangelist.com/json-structure/eve-online-inventorytype-structure.json",
+  "name": "get_universe_types_type_id_ok",
+  "description": "200 ok object",
+  "type": "object",
+  "required": [
+    "type_id",
+    "name",
+    "description",
+    "published",
+    "group_id"
+  ],
+  "properties": {
+    "capacity": {
+      "type": "float",
+      "description": "capacity number",
+      "name": "get_universe_types_type_id_capacity"
+    },
+    "description": {
+      "type": "string",
+      "description": "description string",
+      "name": "get_universe_types_type_id_description"
+    },
+    "dogma_attributes": {
+      "type": "array",
+      "description": "dogma_attributes array",
+      "name": "get_universe_types_type_id_dogma_attributes",
+      "items": {
+        "type": "object",
+        "description": "dogma_attribute object",
+        "name": "get_universe_types_type_id_dogma_attribute",
+        "required": [
+          "attribute_id",
+          "value"
+        ],
+        "properties": {
+          "attribute_id": {
+            "type": "int32",
+            "description": "attribute_id integer",
+            "name": "get_universe_types_type_id_attribute_id"
+          },
+          "value": {
+            "type": "float",
+            "description": "value number",
+            "name": "get_universe_types_type_id_value"
+          }
+        }
+      }
+    },
+    "dogma_effects": {
+      "type": "array",
+      "description": "dogma_effects array",
+      "name": "get_universe_types_type_id_dogma_effects",
+      "items": {
+        "type": "object",
+        "description": "dogma_effect object",
+        "name": "get_universe_types_type_id_dogma_effect",
+        "required": [
+          "effect_id",
+          "is_default"
+        ],
+        "properties": {
+          "effect_id": {
+            "type": "int32",
+            "description": "effect_id integer",
+            "name": "get_universe_types_type_id_effect_id"
+          },
+          "is_default": {
+            "type": "boolean",
+            "description": "is_default boolean",
+            "name": "get_universe_types_type_id_is_default"
+          }
+        }
+      }
+    },
+    "graphic_id": {
+      "type": "int32",
+      "description": "graphic_id integer",
+      "name": "get_universe_types_type_id_graphic_id"
+    },
+    "group_id": {
+      "type": "int32",
+      "description": "group_id integer",
+      "name": "get_universe_types_type_id_group_id"
+    },
+    "icon_id": {
+      "type": "int32",
+      "description": "icon_id integer",
+      "name": "get_universe_types_type_id_icon_id"
+    },
+    "market_group_id": {
+      "type": "int32",
+      "description": "This only exists for types that can be put on the market",
+      "name": "get_universe_types_type_id_market_group_id"
+    },
+    "mass": {
+      "type": "float",
+      "description": "mass number",
+      "name": "get_universe_types_type_id_mass"
+    },
+    "name": {
+      "type": "string",
+      "description": "name string",
+      "name": "get_universe_types_type_id_name"
+    },
+    "packaged_volume": {
+      "type": "float",
+      "description": "packaged_volume number",
+      "name": "get_universe_types_type_id_packaged_volume"
+    },
+    "portion_size": {
+      "type": "int32",
+      "description": "portion_size integer",
+      "name": "get_universe_types_type_id_portion_size"
+    },
+    "published": {
+      "type": "boolean",
+      "description": "published boolean",
+      "name": "get_universe_types_type_id_published"
+    },
+    "radius": {
+      "type": "float",
+      "description": "radius number",
+      "name": "get_universe_types_type_id_radius"
+    },
+    "type_id": {
+      "type": "int32",
+      "description": "type_id integer",
+      "name": "get_universe_types_type_id_type_id"
+    },
+    "volume": {
+      "type": "float",
+      "description": "volume number",
+      "name": "get_universe_types_type_id_volume"
+    }
+  }
+}

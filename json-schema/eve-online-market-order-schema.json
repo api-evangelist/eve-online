@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.com/json-schema/eve-online-marketorder-schema.json",
+  "title": "get_markets_region_id_orders_200_ok",
+  "description": "200 ok object",
+  "type": "object",
+  "required": [
+    "order_id",
+    "type_id",
+    "location_id",
+    "system_id",
+    "volume_total",
+    "volume_remain",
+    "min_volume",
+    "price",
+    "is_buy_order",
+    "duration",
+    "issued",
+    "range"
+  ],
+  "properties": {
+    "duration": {
+      "type": "integer",
+      "format": "int32",
+      "description": "duration integer",
+      "title": "get_markets_region_id_orders_duration"
+    },
+    "is_buy_order": {
+      "type": "boolean",
+      "description": "is_buy_order boolean",
+      "title": "get_markets_region_id_orders_is_buy_order"
+    },
+    "issued": {
+      "type": "string",
+      "format": "date-time",
+      "description": "issued string",
+      "title": "get_markets_region_id_orders_issued"
+    },
+    "location_id": {
+      "type": "integer",
+      "format": "int64",
+      "description": "location_id integer",
+      "title": "get_markets_region_id_orders_location_id"
+    },
+    "min_volume": {
+      "type": "integer",
+      "format": "int32",
+      "description": "min_volume integer",
+      "title": "get_markets_region_id_orders_min_volume"
+    },
+    "order_id": {
+      "type": "integer",
+      "format": "int64",
+      "description": "order_id integer",
+      "title": "get_markets_region_id_orders_order_id"
+    },
+    "price": {
+      "type": "number",
+      "format": "double",
+      "description": "price number",
+      "title": "get_markets_region_id_orders_price"
+    },
+    "range": {
+      "type": "string",
+      "enum": [
+        "station",
+        "region",
+        "solarsystem",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "10",
+        "20",
+        "30",
+        "40"
+      ],
+      "description": "range string",
+      "title": "get_markets_region_id_orders_range"
+    },
+    "system_id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The solar system this order was placed",
+      "title": "get_markets_region_id_orders_system_id"
+    },
+    "type_id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "type_id integer",
+      "title": "get_markets_region_id_orders_type_id"
+    },
+    "volume_remain": {
+      "type": "integer",
+      "format": "int32",
+      "description": "volume_remain integer",
+      "title": "get_markets_region_id_orders_volume_remain"
+    },
+    "volume_total": {
+      "type": "integer",
+      "format": "int32",
+      "description": "volume_total integer",
+      "title": "get_markets_region_id_orders_volume_total"
+    }
+  }
+}

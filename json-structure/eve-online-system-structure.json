@@ -1,0 +1,133 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://api-evangelist.com/json-structure/eve-online-solarsystem-structure.json",
+  "name": "get_universe_systems_system_id_ok",
+  "description": "200 ok object",
+  "type": "object",
+  "required": [
+    "system_id",
+    "name",
+    "position",
+    "security_status",
+    "constellation_id"
+  ],
+  "properties": {
+    "constellation_id": {
+      "type": "int32",
+      "description": "The constellation this solar system is in",
+      "name": "get_universe_systems_system_id_constellation_id"
+    },
+    "name": {
+      "type": "string",
+      "description": "name string",
+      "name": "get_universe_systems_system_id_name"
+    },
+    "planets": {
+      "type": "array",
+      "description": "planets array",
+      "name": "get_universe_systems_system_id_planets",
+      "items": {
+        "type": "object",
+        "description": "planet object",
+        "name": "get_universe_systems_system_id_planet",
+        "required": [
+          "planet_id"
+        ],
+        "properties": {
+          "asteroid_belts": {
+            "type": "array",
+            "description": "asteroid_belts array",
+            "name": "get_universe_systems_system_id_asteroid_belts",
+            "items": {
+              "type": "int32",
+              "description": "asteroid_belt integer",
+              "name": "get_universe_systems_system_id_asteroid_belt"
+            }
+          },
+          "moons": {
+            "type": "array",
+            "description": "moons array",
+            "name": "get_universe_systems_system_id_moons",
+            "items": {
+              "type": "int32",
+              "description": "moon integer",
+              "name": "get_universe_systems_system_id_moon"
+            }
+          },
+          "planet_id": {
+            "type": "int32",
+            "description": "planet_id integer",
+            "name": "get_universe_systems_system_id_planet_id"
+          }
+        }
+      }
+    },
+    "position": {
+      "type": "object",
+      "description": "position object",
+      "name": "get_universe_systems_system_id_position",
+      "required": [
+        "x",
+        "y",
+        "z"
+      ],
+      "properties": {
+        "x": {
+          "type": "double",
+          "description": "x number",
+          "name": "get_universe_systems_system_id_x"
+        },
+        "y": {
+          "type": "double",
+          "description": "y number",
+          "name": "get_universe_systems_system_id_y"
+        },
+        "z": {
+          "type": "double",
+          "description": "z number",
+          "name": "get_universe_systems_system_id_z"
+        }
+      }
+    },
+    "security_class": {
+      "type": "string",
+      "description": "security_class string",
+      "name": "get_universe_systems_system_id_security_class"
+    },
+    "security_status": {
+      "type": "float",
+      "description": "security_status number",
+      "name": "get_universe_systems_system_id_security_status"
+    },
+    "star_id": {
+      "type": "int32",
+      "description": "star_id integer",
+      "name": "get_universe_systems_system_id_star_id"
+    },
+    "stargates": {
+      "type": "array",
+      "description": "stargates array",
+      "name": "get_universe_systems_system_id_stargates",
+      "items": {
+        "type": "int32",
+        "description": "stargate integer",
+        "name": "get_universe_systems_system_id_stargate"
+      }
+    },
+    "stations": {
+      "type": "array",
+      "description": "stations array",
+      "name": "get_universe_systems_system_id_stations",
+      "items": {
+        "type": "int32",
+        "description": "station integer",
+        "name": "get_universe_systems_system_id_station"
+      }
+    },
+    "system_id": {
+      "type": "int32",
+      "description": "system_id integer",
+      "name": "get_universe_systems_system_id_system_id"
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.com/json-schema/eve-online-skillqueueentry-schema.json",
+  "title": "get_characters_character_id_skillqueue_200_ok",
+  "description": "200 ok object",
+  "type": "object",
+  "required": [
+    "skill_id",
+    "finished_level",
+    "queue_position"
+  ],
+  "properties": {
+    "finish_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date on which training of the skill will complete. Omitted if the skill queue is paused.",
+      "title": "get_characters_character_id_skillqueue_finish_date"
+    },
+    "finished_level": {
+      "type": "integer",
+      "format": "int32",
+      "minimum": 0,
+      "maximum": 5,
+      "description": "finished_level integer",
+      "title": "get_characters_character_id_skillqueue_finished_level"
+    },
+    "level_end_sp": {
+      "type": "integer",
+      "format": "int32",
+      "description": "level_end_sp integer",
+      "title": "get_characters_character_id_skillqueue_level_end_sp"
+    },
+    "level_start_sp": {
+      "type": "integer",
+      "format": "int32",
+      "description": "Amount of SP that was in the skill when it started training it's current level. Used to calculate % of current level complete.",
+      "title": "get_characters_character_id_skillqueue_level_start_sp"
+    },
+    "queue_position": {
+      "type": "integer",
+      "format": "int32",
+      "description": "queue_position integer",
+      "title": "get_characters_character_id_skillqueue_queue_position"
+    },
+    "skill_id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "skill_id integer",
+      "title": "get_characters_character_id_skillqueue_skill_id"
+    },
+    "start_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "start_date string",
+      "title": "get_characters_character_id_skillqueue_start_date"
+    },
+    "training_start_sp": {
+      "type": "integer",
+      "format": "int32",
+      "description": "training_start_sp integer",
+      "title": "get_characters_character_id_skillqueue_training_start_sp"
+    }
+  }
+}

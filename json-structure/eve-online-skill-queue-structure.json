@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://api-evangelist.com/json-structure/eve-online-skillqueueentry-structure.json",
+  "name": "get_characters_character_id_skillqueue_200_ok",
+  "description": "200 ok object",
+  "type": "object",
+  "required": [
+    "skill_id",
+    "finished_level",
+    "queue_position"
+  ],
+  "properties": {
+    "finish_date": {
+      "type": "datetime",
+      "description": "Date on which training of the skill will complete. Omitted if the skill queue is paused.",
+      "name": "get_characters_character_id_skillqueue_finish_date"
+    },
+    "finished_level": {
+      "type": "int32",
+      "minimum": 0,
+      "maximum": 5,
+      "description": "finished_level integer",
+      "name": "get_characters_character_id_skillqueue_finished_level"
+    },
+    "level_end_sp": {
+      "type": "int32",
+      "description": "level_end_sp integer",
+      "name": "get_characters_character_id_skillqueue_level_end_sp"
+    },
+    "level_start_sp": {
+      "type": "int32",
+      "description": "Amount of SP that was in the skill when it started training it's current level. Used to calculate % of current level complete.",
+      "name": "get_characters_character_id_skillqueue_level_start_sp"
+    },
+    "queue_position": {
+      "type": "int32",
+      "description": "queue_position integer",
+      "name": "get_characters_character_id_skillqueue_queue_position"
+    },
+    "skill_id": {
+      "type": "int32",
+      "description": "skill_id integer",
+      "name": "get_characters_character_id_skillqueue_skill_id"
+    },
+    "start_date": {
+      "type": "datetime",
+      "description": "start_date string",
+      "name": "get_characters_character_id_skillqueue_start_date"
+    },
+    "training_start_sp": {
+      "type": "int32",
+      "description": "training_start_sp integer",
+      "name": "get_characters_character_id_skillqueue_training_start_sp"
+    }
+  }
+}

@@ -1,0 +1,157 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://api-evangelist.com/json-structure/eve-online-contract-structure.json",
+  "name": "get_characters_character_id_contracts_200_ok",
+  "description": "200 ok object",
+  "type": "object",
+  "required": [
+    "contract_id",
+    "issuer_id",
+    "issuer_corporation_id",
+    "assignee_id",
+    "acceptor_id",
+    "type",
+    "status",
+    "for_corporation",
+    "availability",
+    "date_issued",
+    "date_expired"
+  ],
+  "properties": {
+    "acceptor_id": {
+      "type": "int32",
+      "description": "Who will accept the contract",
+      "name": "get_characters_character_id_contracts_acceptor_id"
+    },
+    "assignee_id": {
+      "type": "int32",
+      "description": "ID to whom the contract is assigned, can be alliance, corporation or character ID",
+      "name": "get_characters_character_id_contracts_assignee_id"
+    },
+    "availability": {
+      "type": "string",
+      "enum": [
+        "public",
+        "personal",
+        "corporation",
+        "alliance"
+      ],
+      "description": "To whom the contract is available",
+      "name": "get_characters_character_id_contracts_availability"
+    },
+    "buyout": {
+      "type": "double",
+      "description": "Buyout price (for Auctions only)",
+      "name": "get_characters_character_id_contracts_buyout"
+    },
+    "collateral": {
+      "type": "double",
+      "description": "Collateral price (for Couriers only)",
+      "name": "get_characters_character_id_contracts_collateral"
+    },
+    "contract_id": {
+      "type": "int32",
+      "description": "contract_id integer",
+      "name": "get_characters_character_id_contracts_contract_id"
+    },
+    "date_accepted": {
+      "type": "datetime",
+      "description": "Date of confirmation of contract",
+      "name": "get_characters_character_id_contracts_date_accepted"
+    },
+    "date_completed": {
+      "type": "datetime",
+      "description": "Date of completed of contract",
+      "name": "get_characters_character_id_contracts_date_completed"
+    },
+    "date_expired": {
+      "type": "datetime",
+      "description": "Expiration date of the contract",
+      "name": "get_characters_character_id_contracts_date_expired"
+    },
+    "date_issued": {
+      "type": "datetime",
+      "description": "\u0421reation date of the contract",
+      "name": "get_characters_character_id_contracts_date_issued"
+    },
+    "days_to_complete": {
+      "type": "int32",
+      "description": "Number of days to perform the contract",
+      "name": "get_characters_character_id_contracts_days_to_complete"
+    },
+    "end_location_id": {
+      "type": "int64",
+      "description": "End location ID (for Couriers contract)",
+      "name": "get_characters_character_id_contracts_end_location_id"
+    },
+    "for_corporation": {
+      "type": "boolean",
+      "description": "true if the contract was issued on behalf of the issuer's corporation",
+      "name": "get_characters_character_id_contracts_for_corporation"
+    },
+    "issuer_corporation_id": {
+      "type": "int32",
+      "description": "Character's corporation ID for the issuer",
+      "name": "get_characters_character_id_contracts_issuer_corporation_id"
+    },
+    "issuer_id": {
+      "type": "int32",
+      "description": "Character ID for the issuer",
+      "name": "get_characters_character_id_contracts_issuer_id"
+    },
+    "price": {
+      "type": "double",
+      "description": "Price of contract (for ItemsExchange and Auctions)",
+      "name": "get_characters_character_id_contracts_price"
+    },
+    "reward": {
+      "type": "double",
+      "description": "Remuneration for contract (for Couriers only)",
+      "name": "get_characters_character_id_contracts_reward"
+    },
+    "start_location_id": {
+      "type": "int64",
+      "description": "Start location ID (for Couriers contract)",
+      "name": "get_characters_character_id_contracts_start_location_id"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "outstanding",
+        "in_progress",
+        "finished_issuer",
+        "finished_contractor",
+        "finished",
+        "cancelled",
+        "rejected",
+        "failed",
+        "deleted",
+        "reversed"
+      ],
+      "description": "Status of the the contract",
+      "name": "get_characters_character_id_contracts_status"
+    },
+    "title": {
+      "type": "string",
+      "description": "Title of the contract",
+      "name": "get_characters_character_id_contracts_title"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "unknown",
+        "item_exchange",
+        "auction",
+        "courier",
+        "loan"
+      ],
+      "description": "Type of the contract",
+      "name": "get_characters_character_id_contracts_type"
+    },
+    "volume": {
+      "type": "double",
+      "description": "Volume of items in the contract",
+      "name": "get_characters_character_id_contracts_volume"
+    }
+  }
+}

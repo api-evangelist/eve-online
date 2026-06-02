@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.com/json-schema/eve-online-mailheader-schema.json",
+  "title": "get_characters_character_id_mail_200_ok",
+  "description": "200 ok object",
+  "type": "object",
+  "properties": {
+    "from": {
+      "type": "integer",
+      "format": "int32",
+      "description": "From whom the mail was sent",
+      "title": "get_characters_character_id_mail_from"
+    },
+    "is_read": {
+      "type": "boolean",
+      "description": "is_read boolean",
+      "title": "get_characters_character_id_mail_is_read"
+    },
+    "labels": {
+      "type": "array",
+      "minimum": 0,
+      "description": "labels array",
+      "title": "get_characters_character_id_mail_labels",
+      "items": {
+        "type": "integer",
+        "format": "int32",
+        "description": "label integer",
+        "title": "get_characters_character_id_mail_label"
+      }
+    },
+    "mail_id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "mail_id integer",
+      "title": "get_characters_character_id_mail_mail_id"
+    },
+    "recipients": {
+      "type": "array",
+      "description": "Recipients of the mail",
+      "title": "get_characters_character_id_mail_recipients",
+      "items": {
+        "type": "object",
+        "description": "recipient object",
+        "title": "get_characters_character_id_mail_recipient",
+        "required": [
+          "recipient_type",
+          "recipient_id"
+        ],
+        "properties": {
+          "recipient_id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "recipient_id integer",
+            "title": "get_characters_character_id_mail_recipient_id"
+          },
+          "recipient_type": {
+            "type": "string",
+            "enum": [
+              "alliance",
+              "character",
+              "corporation",
+              "mailing_list"
+            ],
+            "description": "recipient_type string",
+            "title": "get_characters_character_id_mail_recipient_type"
+          }
+        }
+      }
+    },
+    "subject": {
+      "type": "string",
+      "description": "Mail subject",
+      "title": "get_characters_character_id_mail_subject"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the mail was sent",
+      "title": "get_characters_character_id_mail_timestamp"
+    }
+  }
+}

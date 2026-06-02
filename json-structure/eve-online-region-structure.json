@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://api-evangelist.com/json-structure/eve-online-region-structure.json",
+  "name": "get_universe_regions_region_id_ok",
+  "description": "200 ok object",
+  "type": "object",
+  "required": [
+    "region_id",
+    "name",
+    "constellations"
+  ],
+  "properties": {
+    "constellations": {
+      "type": "array",
+      "description": "constellations array",
+      "name": "get_universe_regions_region_id_constellations",
+      "items": {
+        "type": "int32",
+        "description": "constellation integer",
+        "name": "get_universe_regions_region_id_constellation"
+      }
+    },
+    "description": {
+      "type": "string",
+      "description": "description string",
+      "name": "get_universe_regions_region_id_description"
+    },
+    "name": {
+      "type": "string",
+      "description": "name string",
+      "name": "get_universe_regions_region_id_name"
+    },
+    "region_id": {
+      "type": "int32",
+      "description": "region_id integer",
+      "name": "get_universe_regions_region_id_region_id"
+    }
+  }
+}

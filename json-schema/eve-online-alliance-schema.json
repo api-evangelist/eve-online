@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.com/json-schema/eve-online-alliance-schema.json",
+  "title": "get_alliances_alliance_id_ok",
+  "description": "200 ok object",
+  "type": "object",
+  "required": [
+    "name",
+    "creator_id",
+    "creator_corporation_id",
+    "ticker",
+    "date_founded"
+  ],
+  "properties": {
+    "creator_corporation_id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "ID of the corporation that created the alliance",
+      "title": "get_alliances_alliance_id_creator_corporation_id"
+    },
+    "creator_id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "ID of the character that created the alliance",
+      "title": "get_alliances_alliance_id_creator_id"
+    },
+    "date_founded": {
+      "type": "string",
+      "format": "date-time",
+      "description": "date_founded string",
+      "title": "get_alliances_alliance_id_date_founded"
+    },
+    "executor_corporation_id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "the executor corporation ID, if this alliance is not closed",
+      "title": "get_alliances_alliance_id_executor_corporation_id"
+    },
+    "faction_id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "Faction ID this alliance is fighting for, if this alliance is enlisted in factional warfare",
+      "title": "get_alliances_alliance_id_faction_id"
+    },
+    "name": {
+      "type": "string",
+      "description": "the full name of the alliance",
+      "title": "get_alliances_alliance_id_name"
+    },
+    "ticker": {
+      "type": "string",
+      "description": "the short name of the alliance",
+      "title": "get_alliances_alliance_id_ticker"
+    }
+  }
+}

@@ -1,0 +1,137 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://api-evangelist.com/json-structure/eve-online-station-structure.json",
+  "name": "get_universe_stations_station_id_ok",
+  "description": "200 ok object",
+  "type": "object",
+  "required": [
+    "station_id",
+    "name",
+    "type_id",
+    "position",
+    "system_id",
+    "reprocessing_efficiency",
+    "reprocessing_stations_take",
+    "max_dockable_ship_volume",
+    "office_rental_cost",
+    "services"
+  ],
+  "properties": {
+    "max_dockable_ship_volume": {
+      "type": "float",
+      "description": "max_dockable_ship_volume number",
+      "name": "get_universe_stations_station_id_max_dockable_ship_volume"
+    },
+    "name": {
+      "type": "string",
+      "description": "name string",
+      "name": "get_universe_stations_station_id_name"
+    },
+    "office_rental_cost": {
+      "type": "float",
+      "description": "office_rental_cost number",
+      "name": "get_universe_stations_station_id_office_rental_cost"
+    },
+    "owner": {
+      "type": "int32",
+      "description": "ID of the corporation that controls this station",
+      "name": "get_universe_stations_station_id_owner"
+    },
+    "position": {
+      "type": "object",
+      "description": "position object",
+      "name": "get_universe_stations_station_id_position",
+      "required": [
+        "x",
+        "y",
+        "z"
+      ],
+      "properties": {
+        "x": {
+          "type": "double",
+          "description": "x number",
+          "name": "get_universe_stations_station_id_x"
+        },
+        "y": {
+          "type": "double",
+          "description": "y number",
+          "name": "get_universe_stations_station_id_y"
+        },
+        "z": {
+          "type": "double",
+          "description": "z number",
+          "name": "get_universe_stations_station_id_z"
+        }
+      }
+    },
+    "race_id": {
+      "type": "int32",
+      "description": "race_id integer",
+      "name": "get_universe_stations_station_id_race_id"
+    },
+    "reprocessing_efficiency": {
+      "type": "float",
+      "description": "reprocessing_efficiency number",
+      "name": "get_universe_stations_station_id_reprocessing_efficiency"
+    },
+    "reprocessing_stations_take": {
+      "type": "float",
+      "description": "reprocessing_stations_take number",
+      "name": "get_universe_stations_station_id_reprocessing_stations_take"
+    },
+    "services": {
+      "type": "array",
+      "description": "services array",
+      "name": "get_universe_stations_station_id_services",
+      "items": {
+        "type": "string",
+        "enum": [
+          "bounty-missions",
+          "assasination-missions",
+          "courier-missions",
+          "interbus",
+          "reprocessing-plant",
+          "refinery",
+          "market",
+          "black-market",
+          "stock-exchange",
+          "cloning",
+          "surgery",
+          "dna-therapy",
+          "repair-facilities",
+          "factory",
+          "labratory",
+          "gambling",
+          "fitting",
+          "paintshop",
+          "news",
+          "storage",
+          "insurance",
+          "docking",
+          "office-rental",
+          "jump-clone-facility",
+          "loyalty-point-store",
+          "navy-offices",
+          "security-offices"
+        ],
+        "description": "service string",
+        "name": "get_universe_stations_station_id_service"
+      }
+    },
+    "station_id": {
+      "type": "int32",
+      "description": "station_id integer",
+      "name": "get_universe_stations_station_id_station_id"
+    },
+    "system_id": {
+      "type": "int32",
+      "description": "The solar system this station is in",
+      "name": "get_universe_stations_station_id_system_id"
+    },
+    "type_id": {
+      "type": "int32",
+      "description": "type_id integer",
+      "name": "get_universe_stations_station_id_type_id"
+    }
+  }
+}

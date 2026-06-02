@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://api-evangelist.com/json-structure/eve-online-sovereigntystatus-structure.json",
+  "name": "get_sovereignty_map_200_ok",
+  "description": "200 ok object",
+  "type": "object",
+  "required": [
+    "system_id"
+  ],
+  "properties": {
+    "alliance_id": {
+      "type": "int32",
+      "description": "alliance_id integer",
+      "name": "get_sovereignty_map_alliance_id"
+    },
+    "corporation_id": {
+      "type": "int32",
+      "description": "corporation_id integer",
+      "name": "get_sovereignty_map_corporation_id"
+    },
+    "faction_id": {
+      "type": "int32",
+      "description": "faction_id integer",
+      "name": "get_sovereignty_map_faction_id"
+    },
+    "system_id": {
+      "type": "int32",
+      "description": "system_id integer",
+      "name": "get_sovereignty_map_system_id"
+    }
+  }
+}

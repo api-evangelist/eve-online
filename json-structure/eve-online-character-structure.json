@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://api-evangelist.com/json-structure/eve-online-character-structure.json",
+  "name": "get_characters_character_id_ok",
+  "description": "200 ok object",
+  "type": "object",
+  "required": [
+    "corporation_id",
+    "birthday",
+    "name",
+    "gender",
+    "race_id",
+    "bloodline_id"
+  ],
+  "properties": {
+    "alliance_id": {
+      "type": "int32",
+      "description": "The character's alliance ID",
+      "name": "get_characters_character_id_alliance_id"
+    },
+    "birthday": {
+      "type": "datetime",
+      "description": "Creation date of the character",
+      "name": "get_characters_character_id_birthday"
+    },
+    "bloodline_id": {
+      "type": "int32",
+      "description": "bloodline_id integer",
+      "name": "get_characters_character_id_bloodline_id"
+    },
+    "corporation_id": {
+      "type": "int32",
+      "description": "The character's corporation ID",
+      "name": "get_characters_character_id_corporation_id"
+    },
+    "description": {
+      "type": "string",
+      "description": "description string",
+      "name": "get_characters_character_id_description"
+    },
+    "faction_id": {
+      "type": "int32",
+      "description": "ID of the faction the character is fighting for, if the character is enlisted in Factional Warfare",
+      "name": "get_characters_character_id_faction_id"
+    },
+    "gender": {
+      "type": "string",
+      "enum": [
+        "female",
+        "male"
+      ],
+      "description": "gender string",
+      "name": "get_characters_character_id_gender"
+    },
+    "name": {
+      "type": "string",
+      "description": "name string",
+      "name": "get_characters_character_id_name"
+    },
+    "race_id": {
+      "type": "int32",
+      "description": "race_id integer",
+      "name": "get_characters_character_id_race_id"
+    },
+    "security_status": {
+      "type": "float",
+      "minimum": -10,
+      "maximum": 10,
+      "description": "security_status number",
+      "name": "get_characters_character_id_security_status"
+    },
+    "title": {
+      "type": "string",
+      "description": "The individual title of the character",
+      "name": "get_characters_character_id_title"
+    }
+  }
+}

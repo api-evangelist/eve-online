@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://api-evangelist.com/json-structure/eve-online-corporation-structure.json",
+  "name": "get_corporations_corporation_id_ok",
+  "description": "200 ok object",
+  "type": "object",
+  "required": [
+    "name",
+    "ticker",
+    "member_count",
+    "ceo_id",
+    "tax_rate",
+    "creator_id"
+  ],
+  "properties": {
+    "alliance_id": {
+      "type": "int32",
+      "description": "ID of the alliance that corporation is a member of, if any",
+      "name": "get_corporations_corporation_id_alliance_id"
+    },
+    "ceo_id": {
+      "type": "int32",
+      "description": "ceo_id integer",
+      "name": "get_corporations_corporation_id_ceo_id"
+    },
+    "creator_id": {
+      "type": "int32",
+      "description": "creator_id integer",
+      "name": "get_corporations_corporation_id_creator_id"
+    },
+    "date_founded": {
+      "type": "datetime",
+      "description": "date_founded string",
+      "name": "get_corporations_corporation_id_date_founded"
+    },
+    "description": {
+      "type": "string",
+      "description": "description string",
+      "name": "get_corporations_corporation_id_description"
+    },
+    "faction_id": {
+      "type": "int32",
+      "description": "faction_id integer",
+      "name": "get_corporations_corporation_id_faction_id"
+    },
+    "home_station_id": {
+      "type": "int32",
+      "description": "home_station_id integer",
+      "name": "get_corporations_corporation_id_home_station_id"
+    },
+    "member_count": {
+      "type": "int32",
+      "description": "member_count integer",
+      "name": "get_corporations_corporation_id_member_count"
+    },
+    "name": {
+      "type": "string",
+      "description": "the full name of the corporation",
+      "name": "get_corporations_corporation_id_name"
+    },
+    "shares": {
+      "type": "int64",
+      "description": "shares integer",
+      "name": "get_corporations_corporation_id_shares"
+    },
+    "tax_rate": {
+      "type": "float",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "tax_rate number",
+      "name": "get_corporations_corporation_id_tax_rate"
+    },
+    "ticker": {
+      "type": "string",
+      "description": "the short name of the corporation",
+      "name": "get_corporations_corporation_id_ticker"
+    },
+    "url": {
+      "type": "string",
+      "description": "url string",
+      "name": "get_corporations_corporation_id_url"
+    },
+    "war_eligible": {
+      "type": "boolean",
+      "description": "war_eligible boolean",
+      "name": "get_corporations_corporation_id_war_eligible"
+    }
+  }
+}

@@ -1,0 +1,287 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.com/json-schema/eve-online-killmail-schema.json",
+  "title": "get_killmails_killmail_id_killmail_hash_ok",
+  "description": "200 ok object",
+  "type": "object",
+  "required": [
+    "killmail_id",
+    "killmail_time",
+    "victim",
+    "attackers",
+    "solar_system_id"
+  ],
+  "properties": {
+    "attackers": {
+      "type": "array",
+      "description": "attackers array",
+      "title": "get_killmails_killmail_id_killmail_hash_attackers",
+      "items": {
+        "type": "object",
+        "description": "attacker object",
+        "title": "get_killmails_killmail_id_killmail_hash_attacker",
+        "required": [
+          "security_status",
+          "final_blow",
+          "damage_done"
+        ],
+        "properties": {
+          "alliance_id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "alliance_id integer",
+            "title": "get_killmails_killmail_id_killmail_hash_alliance_id"
+          },
+          "character_id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "character_id integer",
+            "title": "get_killmails_killmail_id_killmail_hash_character_id"
+          },
+          "corporation_id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "corporation_id integer",
+            "title": "get_killmails_killmail_id_killmail_hash_corporation_id"
+          },
+          "damage_done": {
+            "type": "integer",
+            "format": "int32",
+            "description": "damage_done integer",
+            "title": "get_killmails_killmail_id_killmail_hash_damage_done"
+          },
+          "faction_id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "faction_id integer",
+            "title": "get_killmails_killmail_id_killmail_hash_faction_id"
+          },
+          "final_blow": {
+            "type": "boolean",
+            "description": "Was the attacker the one to achieve the final blow\n",
+            "title": "get_killmails_killmail_id_killmail_hash_final_blow"
+          },
+          "security_status": {
+            "type": "number",
+            "format": "float",
+            "description": "Security status for the attacker\n",
+            "title": "get_killmails_killmail_id_killmail_hash_security_status"
+          },
+          "ship_type_id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "What ship was the attacker flying\n",
+            "title": "get_killmails_killmail_id_killmail_hash_ship_type_id"
+          },
+          "weapon_type_id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "What weapon was used by the attacker for the kill\n",
+            "title": "get_killmails_killmail_id_killmail_hash_weapon_type_id"
+          }
+        }
+      }
+    },
+    "killmail_id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "ID of the killmail",
+      "title": "get_killmails_killmail_id_killmail_hash_killmail_id"
+    },
+    "killmail_time": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Time that the victim was killed and the killmail generated\n",
+      "title": "get_killmails_killmail_id_killmail_hash_killmail_time"
+    },
+    "moon_id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "Moon if the kill took place at one",
+      "title": "get_killmails_killmail_id_killmail_hash_moon_id"
+    },
+    "solar_system_id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "Solar system that the kill took place in\n",
+      "title": "get_killmails_killmail_id_killmail_hash_solar_system_id"
+    },
+    "victim": {
+      "type": "object",
+      "description": "victim object",
+      "title": "get_killmails_killmail_id_killmail_hash_victim",
+      "required": [
+        "damage_taken",
+        "ship_type_id"
+      ],
+      "properties": {
+        "alliance_id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "alliance_id integer",
+          "title": "get_killmails_killmail_id_killmail_hash_victim_alliance_id"
+        },
+        "character_id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "character_id integer",
+          "title": "get_killmails_killmail_id_killmail_hash_victim_character_id"
+        },
+        "corporation_id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "corporation_id integer",
+          "title": "get_killmails_killmail_id_killmail_hash_victim_corporation_id"
+        },
+        "damage_taken": {
+          "type": "integer",
+          "format": "int32",
+          "description": "How much total damage was taken by the victim\n",
+          "title": "get_killmails_killmail_id_killmail_hash_damage_taken"
+        },
+        "faction_id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "faction_id integer",
+          "title": "get_killmails_killmail_id_killmail_hash_victim_faction_id"
+        },
+        "items": {
+          "type": "array",
+          "description": "items array",
+          "title": "get_killmails_killmail_id_killmail_hash_items",
+          "items": {
+            "type": "object",
+            "description": "item object",
+            "title": "get_killmails_killmail_id_killmail_hash_item",
+            "required": [
+              "item_type_id",
+              "singleton",
+              "flag"
+            ],
+            "properties": {
+              "flag": {
+                "type": "integer",
+                "format": "int32",
+                "description": "Flag for the location of the item\n",
+                "title": "get_killmails_killmail_id_killmail_hash_flag"
+              },
+              "item_type_id": {
+                "type": "integer",
+                "format": "int32",
+                "description": "item_type_id integer",
+                "title": "get_killmails_killmail_id_killmail_hash_item_type_id"
+              },
+              "items": {
+                "type": "array",
+                "description": "items array",
+                "title": "get_killmails_killmail_id_killmail_hash_item_items",
+                "items": {
+                  "type": "object",
+                  "description": "item object",
+                  "title": "get_killmails_killmail_id_killmail_hash_items_item",
+                  "required": [
+                    "item_type_id",
+                    "singleton",
+                    "flag"
+                  ],
+                  "properties": {
+                    "flag": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "flag integer",
+                      "title": "get_killmails_killmail_id_killmail_hash_item_flag"
+                    },
+                    "item_type_id": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "item_type_id integer",
+                      "title": "get_killmails_killmail_id_killmail_hash_item_item_type_id"
+                    },
+                    "quantity_destroyed": {
+                      "type": "integer",
+                      "format": "int64",
+                      "description": "quantity_destroyed integer",
+                      "title": "get_killmails_killmail_id_killmail_hash_item_quantity_destroyed"
+                    },
+                    "quantity_dropped": {
+                      "type": "integer",
+                      "format": "int64",
+                      "description": "quantity_dropped integer",
+                      "title": "get_killmails_killmail_id_killmail_hash_item_quantity_dropped"
+                    },
+                    "singleton": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "singleton integer",
+                      "title": "get_killmails_killmail_id_killmail_hash_item_singleton"
+                    }
+                  }
+                }
+              },
+              "quantity_destroyed": {
+                "type": "integer",
+                "format": "int64",
+                "description": "How many of the item were destroyed if any\n",
+                "title": "get_killmails_killmail_id_killmail_hash_quantity_destroyed"
+              },
+              "quantity_dropped": {
+                "type": "integer",
+                "format": "int64",
+                "description": "How many of the item were dropped if any\n",
+                "title": "get_killmails_killmail_id_killmail_hash_quantity_dropped"
+              },
+              "singleton": {
+                "type": "integer",
+                "format": "int32",
+                "description": "singleton integer",
+                "title": "get_killmails_killmail_id_killmail_hash_singleton"
+              }
+            }
+          }
+        },
+        "position": {
+          "type": "object",
+          "description": "Coordinates of the victim in Cartesian space relative to the Sun\n",
+          "title": "get_killmails_killmail_id_killmail_hash_position",
+          "required": [
+            "x",
+            "y",
+            "z"
+          ],
+          "properties": {
+            "x": {
+              "type": "number",
+              "format": "double",
+              "description": "x number",
+              "title": "get_killmails_killmail_id_killmail_hash_x"
+            },
+            "y": {
+              "type": "number",
+              "format": "double",
+              "description": "y number",
+              "title": "get_killmails_killmail_id_killmail_hash_y"
+            },
+            "z": {
+              "type": "number",
+              "format": "double",
+              "description": "z number",
+              "title": "get_killmails_killmail_id_killmail_hash_z"
+            }
+          }
+        },
+        "ship_type_id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The ship that the victim was piloting and was destroyed\n",
+          "title": "get_killmails_killmail_id_killmail_hash_victim_ship_type_id"
+        }
+      }
+    },
+    "war_id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "War if the killmail is generated in relation to an official war\n",
+      "title": "get_killmails_killmail_id_killmail_hash_war_id"
+    }
+  }
+}

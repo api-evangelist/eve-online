@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://api-evangelist.com/json-structure/eve-online-marketorder-structure.json",
+  "name": "get_markets_region_id_orders_200_ok",
+  "description": "200 ok object",
+  "type": "object",
+  "required": [
+    "order_id",
+    "type_id",
+    "location_id",
+    "system_id",
+    "volume_total",
+    "volume_remain",
+    "min_volume",
+    "price",
+    "is_buy_order",
+    "duration",
+    "issued",
+    "range"
+  ],
+  "properties": {
+    "duration": {
+      "type": "int32",
+      "description": "duration integer",
+      "name": "get_markets_region_id_orders_duration"
+    },
+    "is_buy_order": {
+      "type": "boolean",
+      "description": "is_buy_order boolean",
+      "name": "get_markets_region_id_orders_is_buy_order"
+    },
+    "issued": {
+      "type": "datetime",
+      "description": "issued string",
+      "name": "get_markets_region_id_orders_issued"
+    },
+    "location_id": {
+      "type": "int64",
+      "description": "location_id integer",
+      "name": "get_markets_region_id_orders_location_id"
+    },
+    "min_volume": {
+      "type": "int32",
+      "description": "min_volume integer",
+      "name": "get_markets_region_id_orders_min_volume"
+    },
+    "order_id": {
+      "type": "int64",
+      "description": "order_id integer",
+      "name": "get_markets_region_id_orders_order_id"
+    },
+    "price": {
+      "type": "double",
+      "description": "price number",
+      "name": "get_markets_region_id_orders_price"
+    },
+    "range": {
+      "type": "string",
+      "enum": [
+        "station",
+        "region",
+        "solarsystem",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "10",
+        "20",
+        "30",
+        "40"
+      ],
+      "description": "range string",
+      "name": "get_markets_region_id_orders_range"
+    },
+    "system_id": {
+      "type": "int32",
+      "description": "The solar system this order was placed",
+      "name": "get_markets_region_id_orders_system_id"
+    },
+    "type_id": {
+      "type": "int32",
+      "description": "type_id integer",
+      "name": "get_markets_region_id_orders_type_id"
+    },
+    "volume_remain": {
+      "type": "int32",
+      "description": "volume_remain integer",
+      "name": "get_markets_region_id_orders_volume_remain"
+    },
+    "volume_total": {
+      "type": "int32",
+      "description": "volume_total integer",
+      "name": "get_markets_region_id_orders_volume_total"
+    }
+  }
+}
