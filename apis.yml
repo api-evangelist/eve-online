@@ -1,28 +1,27 @@
 aid: eve-online
 name: EVE Online
-description: EVE Online is a massively multiplayer online (MMO) space game published by CCP Games.
-  The EVE Online third-party developer ecosystem is built around the EVE Swagger Interface (ESI),
-  a RESTful HTTP API hosted at esi.evetech.net that exposes the game state for capsuleers
-  to read and write programmatically, the EVE Single Sign-On (SSO) OAuth 2.0 service hosted at
-  login.eveonline.com for delegated authorization with per-scope consent, the Image Server hosted
-  at images.evetech.net for character portraits, corporation logos and item renders, and the
-  Static Data Export (SDE) for the bulk universe, type, and dogma data that does not change
-  between server downtimes.
+description: >-
+  EVE Online is a massively multiplayer online (MMO) space game published by CCP Games. The EVE Online third-party
+  developer ecosystem is built around the EVE Swagger Interface (ESI), a RESTful HTTP API hosted at esi.evetech.net that
+  exposes the game state for capsuleers to read and write programmatically, the EVE Single Sign-On (SSO) OAuth 2.0
+  service hosted at login.eveonline.com for delegated authorization with per-scope consent, the Image Server hosted at
+  images.evetech.net for character portraits, corporation logos and item renders, and the Static Data Export (SDE) for
+  the bulk universe, type, and dogma data that does not change between server downtimes.
 url: https://raw.githubusercontent.com/api-evangelist/eve-online/refs/heads/main/apis.yml
 type: Index
 position: Consumer
 access: 3rd-Party
 image: https://web.ccpgamescdn.com/eveonlineassets/developers/eve-sso-login-black-large.png
 tags:
-- Authentication
-- Authorization
-- Gaming
-- Images
-- MMO
-- OAuth2
-- REST
-- SSO
-- Static Data
+  - Authentication
+  - Authorization
+  - Gaming
+  - Images
+  - MMO
+  - OAuth2
+  - REST
+  - SSO
+  - Static Data
 created: '2026-05-28'
 modified: '2026-05-30'
 specificationVersion: '0.20'
@@ -32,69 +31,217 @@ x-tier-reason: official-developer-program-public-openapi
 x-source: public-apis/public-apis
 x-category: Games & Comics
 apis:
-- aid: eve-online:eve-swagger-interface
-  name: EVE Swagger Interface (ESI)
-  description: The EVE Swagger Interface (ESI) is the official RESTful HTTP API for EVE Online
-    third-party development. It covers roughly 180 endpoints across 30 resource families including
-    Universe, Corporation, Character, Fleets, Market, Industry, Contracts, Mail, Assets, Wallet,
-    Killmails, Sovereignty, Wars, Planetary Interaction, Faction Warfare, Dogma, and User Interface.
-    Every request can carry an X-Compatibility-Date header (ISO YYYY-MM-DD) so that clients
-    pin themselves to a known API behavior. Authentication is delegated to EVE SSO using
-    fine-grained OAuth 2.0 scopes (one scope per route family, e.g. esi-wallet.read_character_wallet.v1).
-    Public routes are anonymous; authenticated routes require a JWT access token whose scopes
-    must cover the route. The API enforces a sliding-window per-bucket rate limit and an
-    error rate limit, surfaces caching via Expires/Last-Modified/ETag, and pages large
-    collections with X-Pages headers.
-  humanURL: https://developers.eveonline.com/docs/services/esi/
-  baseURL: https://esi.evetech.net/latest
-  version: '1.36'
-  tags:
-  - Alliance
-  - Assets
-  - Calendar
-  - Character
-  - Clones
-  - Contacts
-  - Contracts
-  - Corporation
-  - Dogma
-  - Faction Warfare
-  - Fittings
-  - Fleets
-  - Incursions
-  - Industry
-  - Insurance
-  - Killmails
-  - Location
-  - Loyalty
-  - Mail
-  - Market
-  - Planetary Interaction
-  - REST
-  - Routes
-  - Search
-  - Skills
-  - Sovereignty
-  - Status
-  - Universe
-  - User Interface
-  - Wallet
-  - Wars
-  properties:
+  - aid: eve-online:eve-swagger-interface
+    name: EVE Swagger Interface (ESI)
+    description: >-
+      The EVE Swagger Interface (ESI) is the official RESTful HTTP API for EVE Online third-party development. It covers
+      roughly 180 endpoints across 30 resource families including Universe, Corporation, Character, Fleets, Market,
+      Industry, Contracts, Mail, Assets, Wallet, Killmails, Sovereignty, Wars, Planetary Interaction, Faction Warfare,
+      Dogma, and User Interface. Every request can carry an X-Compatibility-Date header (ISO YYYY-MM-DD) so that clients
+      pin themselves to a known API behavior. Authentication is delegated to EVE SSO using fine-grained OAuth 2.0 scopes
+      (one scope per route family, e.g. esi-wallet.read_character_wallet.v1). Public routes are anonymous; authenticated
+      routes require a JWT access token whose scopes must cover the route. The API enforces a sliding-window per-bucket
+      rate limit and an error rate limit, surfaces caching via Expires/Last-Modified/ETag, and pages large collections
+      with X-Pages headers.
+    humanURL: https://developers.eveonline.com/docs/services/esi/
+    baseURL: https://esi.evetech.net/latest
+    version: '1.36'
+    tags:
+      - Alliance
+      - Assets
+      - Calendar
+      - Character
+      - Clones
+      - Contacts
+      - Contracts
+      - Corporation
+      - Dogma
+      - Faction Warfare
+      - Fittings
+      - Fleets
+      - Incursions
+      - Industry
+      - Insurance
+      - Killmails
+      - Location
+      - Loyalty
+      - Mail
+      - Market
+      - Planetary Interaction
+      - REST
+      - Routes
+      - Search
+      - Skills
+      - Sovereignty
+      - Status
+      - Universe
+      - User Interface
+      - Wallet
+      - Wars
+    properties:
+      - type: Documentation
+        url: https://developers.eveonline.com/docs/services/esi/
+      - type: APIExplorer
+        url: https://developers.eveonline.com/api-explorer
+      - type: OpenAPI
+        url: https://esi.evetech.net/latest/swagger.json
+      - type: OpenAPI
+        url: openapi/eve-online-openapi.yml
+      - type: Swagger
+        url: https://esi.evetech.net/ui
+      - type: BestPractices
+        url: https://developers.eveonline.com/docs/services/esi/best-practices/
+      - type: RateLimits
+        url: https://developers.eveonline.com/docs/services/esi/rate-limiting/
+      - type: GitHubRepo
+        url: https://github.com/esi/esi-docs
+      - type: GitHubRepo
+        url: https://github.com/esi/esi-issues
+      - type: GitHubRepo
+        url: https://github.com/esi/esi-routes
+      - type: GitHubRepo
+        url: https://github.com/esi/eve-glue
+      - type: SupportIssues
+        url: https://github.com/esi/esi-issues
+    contact:
+      - FN: ESI Developers
+        url: https://developers.eveonline.com/
+  - aid: eve-online:eve-sso
+    name: EVE Single Sign-On (SSO)
+    description: >-
+      EVE Single Sign-On (SSO) is the OAuth 2.0 authorization service for EVE Online third-party applications, hosted at
+      login.eveonline.com. It supports the Authorization Code flow for confidential (server-side) applications and
+      Authorization Code with PKCE for native and single-page apps that cannot keep a client secret. Access tokens are
+      issued as RS256-signed JWTs whose sub claim is CHARACTER:EVE:<character-id>, whose aud must contain both the
+      application client_id and the literal "EVE Online", and whose scp claim lists the granted ESI scopes. The service
+      publishes RFC 8414 metadata at /.well-known/oauth-authorization-server, including authorization, token,
+      revocation, and JWKS endpoints.
+    humanURL: https://developers.eveonline.com/docs/services/sso/
+    baseURL: https://login.eveonline.com
+    tags:
+      - Authentication
+      - Authorization
+      - JWT
+      - OAuth2
+      - OpenID
+      - PKCE
+      - SSO
+    properties:
+      - type: Documentation
+        url: https://developers.eveonline.com/docs/services/sso/
+      - type: OAuth2Metadata
+        url: https://login.eveonline.com/.well-known/oauth-authorization-server
+        title: OAuth 2.0 Authorization Server Metadata
+      - type: AuthorizationEndpoint
+        url: https://login.eveonline.com/v2/oauth/authorize
+      - type: TokenEndpoint
+        url: https://login.eveonline.com/v2/oauth/token
+      - type: JWKS
+        url: https://login.eveonline.com/oauth/jwks
+      - type: Branding
+        url: https://web.ccpgamescdn.com/eveonlineassets/developers/eve-sso-login-black-large.png
+    contact:
+      - FN: ESI Developers
+        url: https://developers.eveonline.com/
+  - aid: eve-online:image-server
+    name: EVE Image Server (IEC)
+    description: >-
+      The EVE Image Server (also referred to as IEC, the Image Export Collection) is a public, anonymous HTTP service
+      hosted at images.evetech.net that returns portraits and renders for in-game entities. Supported resources include
+      character portraits, corporation and alliance logos, type icons and renders, and faction logos. Image size
+      variants are requested via the size query parameter (32, 64, 128, 256, 512, 1024) and the service is backed by a
+      CDN with strong cache headers.
+    humanURL: https://developers.eveonline.com/docs/services/image-server/
+    baseURL: https://images.evetech.net
+    tags:
+      - CDN
+      - Images
+      - Portraits
+      - Renders
+    properties:
+      - type: Documentation
+        url: https://developers.eveonline.com/docs/services/image-server/
+    contact:
+      - FN: ESI Developers
+        url: https://developers.eveonline.com/
+  - aid: eve-online:static-data-export
+    name: EVE Static Data Export (SDE)
+    description: >-
+      The EVE Static Data Export (SDE) is the bulk download of all the static reference data behind the EVE universe —
+      types, groups, categories, market groups, dogma attributes, blueprints, regions, constellations, solar systems,
+      stations, certificates, and translations. It is the dataset most third-party developers cache locally rather than
+      calling ESI for every universe lookup. CCP publishes the SDE as YAML, with community projects converting it to
+      SQLite, MySQL, PostgreSQL, MS SQL, JSON, and Parquet for different workloads.
+    humanURL: https://developers.eveonline.com/docs/services/sde/
+    baseURL: https://developers.eveonline.com/static-data
+    tags:
+      - Bulk Data
+      - Reference Data
+      - SDE
+      - Static Data
+    properties:
+      - type: Documentation
+        url: https://developers.eveonline.com/docs/services/sde/
+      - type: Download
+        url: https://developers.eveonline.com/static-data
+      - type: CommunityConversions
+        url: https://developers.eveonline.com/docs/community/sde-conversion/
+    contact:
+      - FN: ESI Developers
+        url: https://developers.eveonline.com/
+  - aid: eve-online:eve-online-game
+    name: EVE Online Game Client
+    description: >-
+      EVE Online is the underlying massively multiplayer online (MMO) space game from CCP Games. The game client is the
+      consumer of the third-party developer ecosystem — it is where capsuleers actually fly ships, run corporations, and
+      trade on the market that ESI surfaces. The official launcher, client downloads, account management, and game patch
+      notes live on eveonline.com.
+    humanURL: https://www.eveonline.com
+    tags:
+      - Game
+      - MMO
+      - Space
+    properties:
+      - type: Website
+        url: https://www.eveonline.com
+      - type: Download
+        url: https://www.eveonline.com/download
+      - type: AccountManagement
+        url: https://secure.eveonline.com/account
+    contact:
+      - FN: CCP Games
+        url: https://www.ccpgames.com/
+maintainers:
+  - FN: Kin Lane
+    url: http://apievangelist.com
+    email: kin@apievangelist.com
+  - FN: CCP Games
+    url: https://www.ccpgames.com/
+common:
+  - type: Website
+    url: https://www.eveonline.com
+  - type: DeveloperPortal
+    url: https://developers.eveonline.com/
   - type: Documentation
-    url: https://developers.eveonline.com/docs/services/esi/
+    url: https://developers.eveonline.com/docs/
+  - type: GettingStarted
+    url: https://developers.eveonline.com/docs/services/esi/overview/
   - type: APIExplorer
     url: https://developers.eveonline.com/api-explorer
-  - type: OpenAPI
-    url: https://esi.evetech.net/latest/swagger.json
-  - type: OpenAPI
-    url: openapi/eve-online-openapi.yml
   - type: Swagger
     url: https://esi.evetech.net/ui
-  - type: BestPractices
-    url: https://developers.eveonline.com/docs/services/esi/best-practices/
-  - type: RateLimits
-    url: https://developers.eveonline.com/docs/services/esi/rate-limiting/
+  - type: OpenAPI
+    url: https://esi.evetech.net/latest/swagger.json
+  - type: Blog
+    url: https://developers.eveonline.com/blog
+  - type: ChangeLog
+    url: https://developers.eveonline.com/blog
+  - type: Support
+    url: https://developers.eveonline.com/support/
+  - type: SupportIssues
+    url: https://github.com/esi/esi-issues
+  - type: GitHubOrg
+    url: https://github.com/esi
   - type: GitHubRepo
     url: https://github.com/esi/esi-docs
   - type: GitHubRepo
@@ -103,306 +250,100 @@ apis:
     url: https://github.com/esi/esi-routes
   - type: GitHubRepo
     url: https://github.com/esi/eve-glue
-  - type: SupportIssues
-    url: https://github.com/esi/esi-issues
-  - type: NaftikoCapability
-    url: capabilities/eve-online-alliance.yaml
-  - type: NaftikoCapability
-    url: capabilities/eve-online-assets.yaml
-  - type: NaftikoCapability
-    url: capabilities/eve-online-calendar.yaml
-  - type: NaftikoCapability
-    url: capabilities/eve-online-character.yaml
-  - type: NaftikoCapability
-    url: capabilities/eve-online-clones.yaml
-  - type: NaftikoCapability
-    url: capabilities/eve-online-contacts.yaml
-  - type: NaftikoCapability
-    url: capabilities/eve-online-contracts.yaml
-  - type: NaftikoCapability
-    url: capabilities/eve-online-corporation.yaml
-  - type: NaftikoCapability
-    url: capabilities/eve-online-dogma.yaml
-  - type: NaftikoCapability
-    url: capabilities/eve-online-faction-warfare.yaml
-  - type: NaftikoCapability
-    url: capabilities/eve-online-fittings.yaml
-  - type: NaftikoCapability
-    url: capabilities/eve-online-fleets.yaml
-  - type: NaftikoCapability
-    url: capabilities/eve-online-incursions.yaml
-  - type: NaftikoCapability
-    url: capabilities/eve-online-industry.yaml
-  - type: NaftikoCapability
-    url: capabilities/eve-online-insurance.yaml
-  - type: NaftikoCapability
-    url: capabilities/eve-online-killmails.yaml
-  - type: NaftikoCapability
-    url: capabilities/eve-online-location.yaml
-  - type: NaftikoCapability
-    url: capabilities/eve-online-loyalty.yaml
-  - type: NaftikoCapability
-    url: capabilities/eve-online-mail.yaml
-  - type: NaftikoCapability
-    url: capabilities/eve-online-market.yaml
-  - type: NaftikoCapability
-    url: capabilities/eve-online-planetary-interaction.yaml
-  - type: NaftikoCapability
-    url: capabilities/eve-online-routes.yaml
-  - type: NaftikoCapability
-    url: capabilities/eve-online-search.yaml
-  - type: NaftikoCapability
-    url: capabilities/eve-online-skills.yaml
-  - type: NaftikoCapability
-    url: capabilities/eve-online-sovereignty.yaml
-  - type: NaftikoCapability
-    url: capabilities/eve-online-status.yaml
-  - type: NaftikoCapability
-    url: capabilities/eve-online-universe.yaml
-  - type: NaftikoCapability
-    url: capabilities/eve-online-user-interface.yaml
-  - type: NaftikoCapability
-    url: capabilities/eve-online-wallet.yaml
-  - type: NaftikoCapability
-    url: capabilities/eve-online-wars.yaml
-  contact:
-  - FN: ESI Developers
-    url: https://developers.eveonline.com/
-- aid: eve-online:eve-sso
-  name: EVE Single Sign-On (SSO)
-  description: EVE Single Sign-On (SSO) is the OAuth 2.0 authorization service for EVE Online
-    third-party applications, hosted at login.eveonline.com. It supports the Authorization Code
-    flow for confidential (server-side) applications and Authorization Code with PKCE for native
-    and single-page apps that cannot keep a client secret. Access tokens are issued as RS256-signed
-    JWTs whose sub claim is CHARACTER:EVE:<character-id>, whose aud must contain both the application
-    client_id and the literal "EVE Online", and whose scp claim lists the granted ESI scopes.
-    The service publishes RFC 8414 metadata at /.well-known/oauth-authorization-server, including
-    authorization, token, revocation, and JWKS endpoints.
-  humanURL: https://developers.eveonline.com/docs/services/sso/
-  baseURL: https://login.eveonline.com
-  tags:
-  - Authentication
-  - Authorization
-  - JWT
-  - OAuth2
-  - OpenID
-  - PKCE
-  - SSO
-  properties:
-  - type: Documentation
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-swagger-ui
+  - type: Authentication
     url: https://developers.eveonline.com/docs/services/sso/
-  - type: OAuth2Metadata
+  - type: OAuth2
     url: https://login.eveonline.com/.well-known/oauth-authorization-server
-    title: OAuth 2.0 Authorization Server Metadata
-  - type: AuthorizationEndpoint
-    url: https://login.eveonline.com/v2/oauth/authorize
-  - type: TokenEndpoint
-    url: https://login.eveonline.com/v2/oauth/token
-  - type: JWKS
-    url: https://login.eveonline.com/oauth/jwks
+  - type: RateLimits
+    url: https://developers.eveonline.com/docs/services/esi/rate-limiting/
+  - type: BestPractices
+    url: https://developers.eveonline.com/docs/services/esi/best-practices/
+  - type: Pagination
+    url: https://developers.eveonline.com/docs/services/esi/pagination/
+  - type: TermsOfService
+    url: https://community.eveonline.com/support/policies/terms-of-service-en/
+  - type: PrivacyPolicy
+    url: https://www.eveonline.com/privacy-policy
+  - type: License
+    url: https://developers.eveonline.com/license-agreement
+    title: EVE Online Developer License Agreement
+  - type: Community
+    url: https://developers.eveonline.com/docs/community/
+  - type: Discord
+    url: https://www.eveonline.com/discord
+  - type: Forum
+    url: https://forums.eveonline.com/
+  - type: SDK
+    url: https://gitlab.com/allianceauth/django-esi
+    title: Django-ESI (Python)
+  - type: SDK
+    url: https://www.npmjs.com/package/@lgriffin/esi.ts
+    title: ESI.ts (TypeScript)
+  - type: SDK
+    url: https://github.com/antihax/goesi
+    title: goesi (Go)
+  - type: SDK
+    url: https://github.com/eseunghwan/eveonline-php
+    title: eveonline-php (PHP)
+  - type: SDK
+    url: https://github.com/ueberauth/ueberauth_eve_online
+    title: Ueberauth EVE Online (Elixir)
+  - type: Tools
+    url: https://github.com/tweetfleet/neucore
+    title: Neucore - alliance core services
+  - type: Tools
+    url: https://github.com/eveseat/seat
+    title: SeAT - Services, Engagement and Tracking
+  - type: Tools
+    url: https://gitlab.com/allianceauth/allianceauth
+    title: Alliance Auth
+  - type: Tools
+    url: https://github.com/wandererltd/community-edition
+    title: Wanderer - wormhole mapping
+  - type: Tools
+    url: https://github.com/kongyo2/eve-online-mcp
+    title: EVE Online Market MCP Server (community)
+  - type: Tools
+    url: https://github.com/Berman510/EOE_MCP
+    title: EOE MCP - EVE Online ESI MCP (community)
+  - type: Tools
+    url: https://github.com/pfh59/eve-mcp-server
+    title: EVE MCP Server (community, C#)
+  - type: CommunityResources
+    url: https://developers.eveonline.com/docs/community/
+  - type: StatusPage
+    url: https://www.eveonline.com/news/announcements
   - type: Branding
     url: https://web.ccpgamescdn.com/eveonlineassets/developers/eve-sso-login-black-large.png
-  contact:
-  - FN: ESI Developers
-    url: https://developers.eveonline.com/
-- aid: eve-online:image-server
-  name: EVE Image Server (IEC)
-  description: The EVE Image Server (also referred to as IEC, the Image Export Collection) is
-    a public, anonymous HTTP service hosted at images.evetech.net that returns portraits and
-    renders for in-game entities. Supported resources include character portraits, corporation
-    and alliance logos, type icons and renders, and faction logos. Image size variants are
-    requested via the size query parameter (32, 64, 128, 256, 512, 1024) and the service is
-    backed by a CDN with strong cache headers.
-  humanURL: https://developers.eveonline.com/docs/services/image-server/
-  baseURL: https://images.evetech.net
-  tags:
-  - CDN
-  - Images
-  - Portraits
-  - Renders
-  properties:
-  - type: Documentation
-    url: https://developers.eveonline.com/docs/services/image-server/
-  contact:
-  - FN: ESI Developers
-    url: https://developers.eveonline.com/
-- aid: eve-online:static-data-export
-  name: EVE Static Data Export (SDE)
-  description: The EVE Static Data Export (SDE) is the bulk download of all the static reference
-    data behind the EVE universe — types, groups, categories, market groups, dogma attributes,
-    blueprints, regions, constellations, solar systems, stations, certificates, and translations.
-    It is the dataset most third-party developers cache locally rather than calling ESI for every
-    universe lookup. CCP publishes the SDE as YAML, with community projects converting it to
-    SQLite, MySQL, PostgreSQL, MS SQL, JSON, and Parquet for different workloads.
-  humanURL: https://developers.eveonline.com/docs/services/sde/
-  baseURL: https://developers.eveonline.com/static-data
-  tags:
-  - Bulk Data
-  - Reference Data
-  - SDE
-  - Static Data
-  properties:
-  - type: Documentation
-    url: https://developers.eveonline.com/docs/services/sde/
-  - type: Download
-    url: https://developers.eveonline.com/static-data
-  - type: CommunityConversions
-    url: https://developers.eveonline.com/docs/community/sde-conversion/
-  contact:
-  - FN: ESI Developers
-    url: https://developers.eveonline.com/
-- aid: eve-online:eve-online-game
-  name: EVE Online Game Client
-  description: EVE Online is the underlying massively multiplayer online (MMO) space game from
-    CCP Games. The game client is the consumer of the third-party developer ecosystem — it is
-    where capsuleers actually fly ships, run corporations, and trade on the market that ESI
-    surfaces. The official launcher, client downloads, account management, and game patch notes
-    live on eveonline.com.
-  humanURL: https://www.eveonline.com
-  tags:
-  - Game
-  - MMO
-  - Space
-  properties:
-  - type: Website
-    url: https://www.eveonline.com
-  - type: Download
-    url: https://www.eveonline.com/download
-  - type: AccountManagement
-    url: https://secure.eveonline.com/account
-  contact:
-  - FN: CCP Games
-    url: https://www.ccpgames.com/
-maintainers:
-- FN: Kin Lane
-  url: http://apievangelist.com
-  email: kin@apievangelist.com
-- FN: CCP Games
-  url: https://www.ccpgames.com/
-common:
-- type: Website
-  url: https://www.eveonline.com
-- type: DeveloperPortal
-  url: https://developers.eveonline.com/
-- type: Documentation
-  url: https://developers.eveonline.com/docs/
-- type: GettingStarted
-  url: https://developers.eveonline.com/docs/services/esi/overview/
-- type: APIExplorer
-  url: https://developers.eveonline.com/api-explorer
-- type: Swagger
-  url: https://esi.evetech.net/ui
-- type: OpenAPI
-  url: https://esi.evetech.net/latest/swagger.json
-- type: Blog
-  url: https://developers.eveonline.com/blog
-- type: ChangeLog
-  url: https://developers.eveonline.com/blog
-- type: Support
-  url: https://developers.eveonline.com/support/
-- type: SupportIssues
-  url: https://github.com/esi/esi-issues
-- type: GitHubOrg
-  url: https://github.com/esi
-- type: GitHubRepo
-  url: https://github.com/esi/esi-docs
-- type: GitHubRepo
-  url: https://github.com/esi/esi-issues
-- type: GitHubRepo
-  url: https://github.com/esi/esi-routes
-- type: GitHubRepo
-  url: https://github.com/esi/eve-glue
-- type: GitHubRepo
-  url: https://github.com/esi/esi-swagger-ui
-- type: Authentication
-  url: https://developers.eveonline.com/docs/services/sso/
-- type: OAuth2
-  url: https://login.eveonline.com/.well-known/oauth-authorization-server
-- type: RateLimits
-  url: https://developers.eveonline.com/docs/services/esi/rate-limiting/
-- type: BestPractices
-  url: https://developers.eveonline.com/docs/services/esi/best-practices/
-- type: Pagination
-  url: https://developers.eveonline.com/docs/services/esi/pagination/
-- type: TermsOfService
-  url: https://community.eveonline.com/support/policies/terms-of-service-en/
-- type: PrivacyPolicy
-  url: https://www.eveonline.com/privacy-policy
-- type: License
-  url: https://developers.eveonline.com/license-agreement
-  title: EVE Online Developer License Agreement
-- type: Community
-  url: https://developers.eveonline.com/docs/community/
-- type: Discord
-  url: https://www.eveonline.com/discord
-- type: Forum
-  url: https://forums.eveonline.com/
-- type: SDK
-  url: https://gitlab.com/allianceauth/django-esi
-  title: Django-ESI (Python)
-- type: SDK
-  url: https://www.npmjs.com/package/@lgriffin/esi.ts
-  title: ESI.ts (TypeScript)
-- type: SDK
-  url: https://github.com/antihax/goesi
-  title: goesi (Go)
-- type: SDK
-  url: https://github.com/eseunghwan/eveonline-php
-  title: eveonline-php (PHP)
-- type: SDK
-  url: https://github.com/ueberauth/ueberauth_eve_online
-  title: Ueberauth EVE Online (Elixir)
-- type: Tools
-  url: https://github.com/tweetfleet/neucore
-  title: Neucore - alliance core services
-- type: Tools
-  url: https://github.com/eveseat/seat
-  title: SeAT - Services, Engagement and Tracking
-- type: Tools
-  url: https://gitlab.com/allianceauth/allianceauth
-  title: Alliance Auth
-- type: Tools
-  url: https://github.com/wandererltd/community-edition
-  title: Wanderer - wormhole mapping
-- type: Tools
-  url: https://github.com/kongyo2/eve-online-mcp
-  title: EVE Online Market MCP Server (community)
-- type: Tools
-  url: https://github.com/Berman510/EOE_MCP
-  title: EOE MCP - EVE Online ESI MCP (community)
-- type: Tools
-  url: https://github.com/pfh59/eve-mcp-server
-  title: EVE MCP Server (community, C#)
-- type: CommunityResources
-  url: https://developers.eveonline.com/docs/community/
-- type: StatusPage
-  url: https://www.eveonline.com/news/announcements
-- type: Branding
-  url: https://web.ccpgamescdn.com/eveonlineassets/developers/eve-sso-login-black-large.png
-- type: PublicAPIsListing
-  url: https://github.com/public-apis/public-apis
-- type: Features
-  data:
-  - EVE Online is free-to-play under the Alpha account model with paid Omega subscriptions
-    starting at roughly $19.99/month for full ship and skill access
-  - The ESI third-party API is completely free to use; CCP does not charge for API calls
-  - 'ESI rate limit (sliding window, per route + per applicationID:characterID bucket):
-    around 100 requests/second sustained for most public routes, with route-specific token
-    budgets advertised in X-Ratelimit-Limit headers'
-  - 'Token cost per response: 2xx = 2 tokens, 3xx = 1 token, 4xx = 5 tokens, 5xx = 0 tokens'
-  - 'Error rate limit on legacy routes: 100 non-2xx/3xx responses per minute, after which
-    420 is returned across all ESI routes'
-  - Roughly 180 ESI endpoints across 30 resource tags (Universe, Corporation, Character, Fleets,
-    Market, Industry, Contracts, Mail, Assets, Wallet, Killmails, Sovereignty, Wars, and more)
-  - OAuth 2.0 (Authorization Code + PKCE) via EVE SSO with around 60 fine-grained scopes
-  - JWT (RS256) access tokens validated against the SSO JWKS, with sub = CHARACTER:EVE:<id>
-  - X-Compatibility-Date header for pinning API behavior to a known date
-  - ETag, Last-Modified, Expires, and X-Pages caching/pagination headers on every cached route
-  - Anonymous Image Server (images.evetech.net) for portraits, corp/alliance logos and item renders
-  - Static Data Export (SDE) for bulk universe/type/dogma data, refreshed roughly twice a year
-  sources:
-  - https://developers.eveonline.com/docs/services/esi/rate-limiting/
-  - https://developers.eveonline.com/docs/services/esi/best-practices/
-  - https://developers.eveonline.com/docs/services/esi/overview/
-  - https://www.eveonline.com/recruit/free
-  updated: '2026-05-30'
+  - type: PublicAPIsListing
+    url: https://github.com/public-apis/public-apis
+  - type: Features
+    data:
+      - >-
+        EVE Online is free-to-play under the Alpha account model with paid Omega subscriptions starting at roughly
+        $19.99/month for full ship and skill access
+      - The ESI third-party API is completely free to use; CCP does not charge for API calls
+      - >-
+        ESI rate limit (sliding window, per route + per applicationID:characterID bucket): around 100 requests/second
+        sustained for most public routes, with route-specific token budgets advertised in X-Ratelimit-Limit headers
+      - 'Token cost per response: 2xx = 2 tokens, 3xx = 1 token, 4xx = 5 tokens, 5xx = 0 tokens'
+      - >-
+        Error rate limit on legacy routes: 100 non-2xx/3xx responses per minute, after which 420 is returned across all
+        ESI routes
+      - >-
+        Roughly 180 ESI endpoints across 30 resource tags (Universe, Corporation, Character, Fleets, Market, Industry,
+        Contracts, Mail, Assets, Wallet, Killmails, Sovereignty, Wars, and more)
+      - OAuth 2.0 (Authorization Code + PKCE) via EVE SSO with around 60 fine-grained scopes
+      - JWT (RS256) access tokens validated against the SSO JWKS, with sub = CHARACTER:EVE:<id>
+      - X-Compatibility-Date header for pinning API behavior to a known date
+      - ETag, Last-Modified, Expires, and X-Pages caching/pagination headers on every cached route
+      - Anonymous Image Server (images.evetech.net) for portraits, corp/alliance logos and item renders
+      - Static Data Export (SDE) for bulk universe/type/dogma data, refreshed roughly twice a year
+    sources:
+      - https://developers.eveonline.com/docs/services/esi/rate-limiting/
+      - https://developers.eveonline.com/docs/services/esi/best-practices/
+      - https://developers.eveonline.com/docs/services/esi/overview/
+      - https://www.eveonline.com/recruit/free
+    updated: '2026-05-30'
