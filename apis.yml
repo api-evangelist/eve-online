@@ -273,21 +273,21 @@ common:
     url: https://developers.eveonline.com/docs/community/
   - type: Discord
     url: https://www.eveonline.com/discord
-  - type: Forum
+  - type: Forums
     url: https://forums.eveonline.com/
-  - type: SDK
+  - type: SDKs
     url: https://gitlab.com/allianceauth/django-esi
     title: Django-ESI (Python)
-  - type: SDK
+  - type: SDKs
     url: https://www.npmjs.com/package/@lgriffin/esi.ts
     title: ESI.ts (TypeScript)
-  - type: SDK
+  - type: SDKs
     url: https://github.com/antihax/goesi
     title: goesi (Go)
-  - type: SDK
+  - type: SDKs
     url: https://github.com/eseunghwan/eveonline-php
     title: eveonline-php (PHP)
-  - type: SDK
+  - type: SDKs
     url: https://github.com/ueberauth/ueberauth_eve_online
     title: Ueberauth EVE Online (Elixir)
   - type: Tools
