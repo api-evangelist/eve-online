@@ -218,6 +218,8 @@ maintainers:
   - FN: CCP Games
     url: https://www.ccpgames.com/
 common:
+  - type: OAuthScopes
+    url: scopes/eve-online-scopes.yml
   - type: Website
     url: https://www.eveonline.com
   - type: DeveloperPortal
