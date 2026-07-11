@@ -1,0 +1,17 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/eve-online-openapi.yml
+summary:
+  types:
+  - oauth2
+  oauth2_flows:
+  - implicit
+schemes:
+- name: evesso
+  type: oauth2
+  flows:
+  - flow: implicit
+    authorizationUrl: https://login.eveonline.com/v2/oauth/authorize
+    scopes: 63
+  sources:
+  - openapi/eve-online-openapi.yml
