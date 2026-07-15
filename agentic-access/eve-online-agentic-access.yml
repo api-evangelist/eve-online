@@ -1,0 +1,2413 @@
+generated: '2026-07-15'
+method: generated
+source: openapi/eve-online-openapi.yml
+description: Recommended x-agentic-access execution contracts, classified heuristically from
+  the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
+  audience per deployment. See research/curity/agentic-governance/.
+summary:
+  operations: 195
+  by_action_class:
+    connected: 161
+    acting: 34
+  by_consequence:
+    read: 161
+    write: 32
+    physical: 2
+  human_in_the_loop_required: 0
+operations:
+- path: /alliances/
+  method: get
+  operationId: get_alliances
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /alliances/{alliance_id}/
+  method: get
+  operationId: get_alliances_alliance_id
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /alliances/{alliance_id}/contacts/
+  method: get
+  operationId: get_alliances_alliance_id_contacts
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-alliances.read_contacts.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /alliances/{alliance_id}/contacts/labels/
+  method: get
+  operationId: get_alliances_alliance_id_contacts_labels
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-alliances.read_contacts.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /alliances/{alliance_id}/corporations/
+  method: get
+  operationId: get_alliances_alliance_id_corporations
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /alliances/{alliance_id}/icons/
+  method: get
+  operationId: get_alliances_alliance_id_icons
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /characters/affiliation/
+  method: post
+  operationId: post_characters_affiliation
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /characters/{character_id}/
+  method: get
+  operationId: get_characters_character_id
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /characters/{character_id}/agents_research/
+  method: get
+  operationId: get_characters_character_id_agents_research
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-characters.read_agents_research.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /characters/{character_id}/assets/
+  method: get
+  operationId: get_characters_character_id_assets
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-assets.read_assets.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /characters/{character_id}/assets/locations/
+  method: post
+  operationId: post_characters_character_id_assets_locations
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - esi-assets.read_assets.v1
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /characters/{character_id}/assets/names/
+  method: post
+  operationId: post_characters_character_id_assets_names
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - esi-assets.read_assets.v1
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /characters/{character_id}/attributes/
+  method: get
+  operationId: get_characters_character_id_attributes
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-skills.read_skills.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /characters/{character_id}/blueprints/
+  method: get
+  operationId: get_characters_character_id_blueprints
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-characters.read_blueprints.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /characters/{character_id}/calendar/
+  method: get
+  operationId: get_characters_character_id_calendar
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-calendar.read_calendar_events.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /characters/{character_id}/calendar/{event_id}/
+  method: get
+  operationId: get_characters_character_id_calendar_event_id
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-calendar.read_calendar_events.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /characters/{character_id}/calendar/{event_id}/
+  method: put
+  operationId: put_characters_character_id_calendar_event_id
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - esi-calendar.respond_calendar_events.v1
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /characters/{character_id}/calendar/{event_id}/attendees/
+  method: get
+  operationId: get_characters_character_id_calendar_event_id_attendees
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-calendar.read_calendar_events.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /characters/{character_id}/clones/
+  method: get
+  operationId: get_characters_character_id_clones
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-clones.read_clones.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /characters/{character_id}/contacts/
+  method: delete
+  operationId: delete_characters_character_id_contacts
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - esi-characters.write_contacts.v1
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /characters/{character_id}/contacts/
+  method: get
+  operationId: get_characters_character_id_contacts
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-characters.read_contacts.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /characters/{character_id}/contacts/
+  method: post
+  operationId: post_characters_character_id_contacts
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - esi-characters.write_contacts.v1
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /characters/{character_id}/contacts/
+  method: put
+  operationId: put_characters_character_id_contacts
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - esi-characters.write_contacts.v1
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /characters/{character_id}/contacts/labels/
+  method: get
+  operationId: get_characters_character_id_contacts_labels
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-characters.read_contacts.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /characters/{character_id}/contracts/
+  method: get
+  operationId: get_characters_character_id_contracts
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-contracts.read_character_contracts.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /characters/{character_id}/contracts/{contract_id}/bids/
+  method: get
+  operationId: get_characters_character_id_contracts_contract_id_bids
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-contracts.read_character_contracts.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /characters/{character_id}/contracts/{contract_id}/items/
+  method: get
+  operationId: get_characters_character_id_contracts_contract_id_items
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-contracts.read_character_contracts.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /characters/{character_id}/corporationhistory/
+  method: get
+  operationId: get_characters_character_id_corporationhistory
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /characters/{character_id}/cspa/
+  method: post
+  operationId: post_characters_character_id_cspa
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    scope:
+    - esi-characters.read_contacts.v1
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /characters/{character_id}/fatigue/
+  method: get
+  operationId: get_characters_character_id_fatigue
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-characters.read_fatigue.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /characters/{character_id}/fittings/
+  method: get
+  operationId: get_characters_character_id_fittings
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-fittings.read_fittings.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /characters/{character_id}/fittings/
+  method: post
+  operationId: post_characters_character_id_fittings
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - esi-fittings.write_fittings.v1
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /characters/{character_id}/fittings/{fitting_id}/
+  method: delete
+  operationId: delete_characters_character_id_fittings_fitting_id
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - esi-fittings.write_fittings.v1
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /characters/{character_id}/fleet/
+  method: get
+  operationId: get_characters_character_id_fleet
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-fleets.read_fleet.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /characters/{character_id}/fw/stats/
+  method: get
+  operationId: get_characters_character_id_fw_stats
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-characters.read_fw_stats.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /characters/{character_id}/implants/
+  method: get
+  operationId: get_characters_character_id_implants
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-clones.read_implants.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /characters/{character_id}/industry/jobs/
+  method: get
+  operationId: get_characters_character_id_industry_jobs
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-industry.read_character_jobs.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /characters/{character_id}/killmails/recent/
+  method: get
+  operationId: get_characters_character_id_killmails_recent
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-killmails.read_killmails.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /characters/{character_id}/location/
+  method: get
+  operationId: get_characters_character_id_location
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-location.read_location.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /characters/{character_id}/loyalty/points/
+  method: get
+  operationId: get_characters_character_id_loyalty_points
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-characters.read_loyalty.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /characters/{character_id}/mail/
+  method: get
+  operationId: get_characters_character_id_mail
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-mail.read_mail.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /characters/{character_id}/mail/
+  method: post
+  operationId: post_characters_character_id_mail
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    scope:
+    - esi-mail.send_mail.v1
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /characters/{character_id}/mail/labels/
+  method: get
+  operationId: get_characters_character_id_mail_labels
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-mail.read_mail.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /characters/{character_id}/mail/labels/
+  method: post
+  operationId: post_characters_character_id_mail_labels
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - esi-mail.organize_mail.v1
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /characters/{character_id}/mail/labels/{label_id}/
+  method: delete
+  operationId: delete_characters_character_id_mail_labels_label_id
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - esi-mail.organize_mail.v1
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /characters/{character_id}/mail/lists/
+  method: get
+  operationId: get_characters_character_id_mail_lists
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-mail.read_mail.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /characters/{character_id}/mail/{mail_id}/
+  method: delete
+  operationId: delete_characters_character_id_mail_mail_id
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - esi-mail.organize_mail.v1
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /characters/{character_id}/mail/{mail_id}/
+  method: get
+  operationId: get_characters_character_id_mail_mail_id
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-mail.read_mail.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /characters/{character_id}/mail/{mail_id}/
+  method: put
+  operationId: put_characters_character_id_mail_mail_id
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - esi-mail.organize_mail.v1
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /characters/{character_id}/medals/
+  method: get
+  operationId: get_characters_character_id_medals
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-characters.read_medals.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /characters/{character_id}/mining/
+  method: get
+  operationId: get_characters_character_id_mining
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-industry.read_character_mining.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /characters/{character_id}/notifications/
+  method: get
+  operationId: get_characters_character_id_notifications
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-characters.read_notifications.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /characters/{character_id}/notifications/contacts/
+  method: get
+  operationId: get_characters_character_id_notifications_contacts
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-characters.read_notifications.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /characters/{character_id}/online/
+  method: get
+  operationId: get_characters_character_id_online
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-location.read_online.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /characters/{character_id}/orders/
+  method: get
+  operationId: get_characters_character_id_orders
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-markets.read_character_orders.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /characters/{character_id}/orders/history/
+  method: get
+  operationId: get_characters_character_id_orders_history
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-markets.read_character_orders.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /characters/{character_id}/planets/
+  method: get
+  operationId: get_characters_character_id_planets
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-planets.manage_planets.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /characters/{character_id}/planets/{planet_id}/
+  method: get
+  operationId: get_characters_character_id_planets_planet_id
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-planets.manage_planets.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /characters/{character_id}/portrait/
+  method: get
+  operationId: get_characters_character_id_portrait
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /characters/{character_id}/roles/
+  method: get
+  operationId: get_characters_character_id_roles
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-characters.read_corporation_roles.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /characters/{character_id}/search/
+  method: get
+  operationId: get_characters_character_id_search
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-search.search_structures.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /characters/{character_id}/ship/
+  method: get
+  operationId: get_characters_character_id_ship
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-location.read_ship_type.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /characters/{character_id}/skillqueue/
+  method: get
+  operationId: get_characters_character_id_skillqueue
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-skills.read_skillqueue.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /characters/{character_id}/skills/
+  method: get
+  operationId: get_characters_character_id_skills
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-skills.read_skills.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /characters/{character_id}/standings/
+  method: get
+  operationId: get_characters_character_id_standings
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-characters.read_standings.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /characters/{character_id}/titles/
+  method: get
+  operationId: get_characters_character_id_titles
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-characters.read_titles.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /characters/{character_id}/wallet/
+  method: get
+  operationId: get_characters_character_id_wallet
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-wallet.read_character_wallet.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /characters/{character_id}/wallet/journal/
+  method: get
+  operationId: get_characters_character_id_wallet_journal
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-wallet.read_character_wallet.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /characters/{character_id}/wallet/transactions/
+  method: get
+  operationId: get_characters_character_id_wallet_transactions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-wallet.read_character_wallet.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /contracts/public/bids/{contract_id}/
+  method: get
+  operationId: get_contracts_public_bids_contract_id
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /contracts/public/items/{contract_id}/
+  method: get
+  operationId: get_contracts_public_items_contract_id
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /contracts/public/{region_id}/
+  method: get
+  operationId: get_contracts_public_region_id
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /corporation/{corporation_id}/mining/extractions/
+  method: get
+  operationId: get_corporation_corporation_id_mining_extractions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-industry.read_corporation_mining.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /corporation/{corporation_id}/mining/observers/
+  method: get
+  operationId: get_corporation_corporation_id_mining_observers
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-industry.read_corporation_mining.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /corporation/{corporation_id}/mining/observers/{observer_id}/
+  method: get
+  operationId: get_corporation_corporation_id_mining_observers_observer_id
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-industry.read_corporation_mining.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /corporations/npccorps/
+  method: get
+  operationId: get_corporations_npccorps
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /corporations/{corporation_id}/
+  method: get
+  operationId: get_corporations_corporation_id
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /corporations/{corporation_id}/alliancehistory/
+  method: get
+  operationId: get_corporations_corporation_id_alliancehistory
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /corporations/{corporation_id}/assets/
+  method: get
+  operationId: get_corporations_corporation_id_assets
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-assets.read_corporation_assets.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /corporations/{corporation_id}/assets/locations/
+  method: post
+  operationId: post_corporations_corporation_id_assets_locations
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - esi-assets.read_corporation_assets.v1
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /corporations/{corporation_id}/assets/names/
+  method: post
+  operationId: post_corporations_corporation_id_assets_names
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - esi-assets.read_corporation_assets.v1
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /corporations/{corporation_id}/blueprints/
+  method: get
+  operationId: get_corporations_corporation_id_blueprints
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-corporations.read_blueprints.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /corporations/{corporation_id}/contacts/
+  method: get
+  operationId: get_corporations_corporation_id_contacts
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-corporations.read_contacts.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /corporations/{corporation_id}/contacts/labels/
+  method: get
+  operationId: get_corporations_corporation_id_contacts_labels
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-corporations.read_contacts.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /corporations/{corporation_id}/containers/logs/
+  method: get
+  operationId: get_corporations_corporation_id_containers_logs
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-corporations.read_container_logs.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /corporations/{corporation_id}/contracts/
+  method: get
+  operationId: get_corporations_corporation_id_contracts
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-contracts.read_corporation_contracts.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /corporations/{corporation_id}/contracts/{contract_id}/bids/
+  method: get
+  operationId: get_corporations_corporation_id_contracts_contract_id_bids
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-contracts.read_corporation_contracts.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /corporations/{corporation_id}/contracts/{contract_id}/items/
+  method: get
+  operationId: get_corporations_corporation_id_contracts_contract_id_items
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-contracts.read_corporation_contracts.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /corporations/{corporation_id}/customs_offices/
+  method: get
+  operationId: get_corporations_corporation_id_customs_offices
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-planets.read_customs_offices.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /corporations/{corporation_id}/divisions/
+  method: get
+  operationId: get_corporations_corporation_id_divisions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-corporations.read_divisions.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /corporations/{corporation_id}/facilities/
+  method: get
+  operationId: get_corporations_corporation_id_facilities
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-corporations.read_facilities.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /corporations/{corporation_id}/fw/stats/
+  method: get
+  operationId: get_corporations_corporation_id_fw_stats
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-corporations.read_fw_stats.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /corporations/{corporation_id}/icons/
+  method: get
+  operationId: get_corporations_corporation_id_icons
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /corporations/{corporation_id}/industry/jobs/
+  method: get
+  operationId: get_corporations_corporation_id_industry_jobs
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-industry.read_corporation_jobs.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /corporations/{corporation_id}/killmails/recent/
+  method: get
+  operationId: get_corporations_corporation_id_killmails_recent
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-killmails.read_corporation_killmails.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /corporations/{corporation_id}/medals/
+  method: get
+  operationId: get_corporations_corporation_id_medals
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-corporations.read_medals.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /corporations/{corporation_id}/medals/issued/
+  method: get
+  operationId: get_corporations_corporation_id_medals_issued
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-corporations.read_medals.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /corporations/{corporation_id}/members/
+  method: get
+  operationId: get_corporations_corporation_id_members
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-corporations.read_corporation_membership.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /corporations/{corporation_id}/members/limit/
+  method: get
+  operationId: get_corporations_corporation_id_members_limit
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-corporations.track_members.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /corporations/{corporation_id}/members/titles/
+  method: get
+  operationId: get_corporations_corporation_id_members_titles
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-corporations.read_titles.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /corporations/{corporation_id}/membertracking/
+  method: get
+  operationId: get_corporations_corporation_id_membertracking
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-corporations.track_members.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /corporations/{corporation_id}/orders/
+  method: get
+  operationId: get_corporations_corporation_id_orders
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-markets.read_corporation_orders.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /corporations/{corporation_id}/orders/history/
+  method: get
+  operationId: get_corporations_corporation_id_orders_history
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-markets.read_corporation_orders.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /corporations/{corporation_id}/roles/
+  method: get
+  operationId: get_corporations_corporation_id_roles
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-corporations.read_corporation_membership.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /corporations/{corporation_id}/roles/history/
+  method: get
+  operationId: get_corporations_corporation_id_roles_history
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-corporations.read_corporation_membership.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /corporations/{corporation_id}/shareholders/
+  method: get
+  operationId: get_corporations_corporation_id_shareholders
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-wallet.read_corporation_wallets.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /corporations/{corporation_id}/standings/
+  method: get
+  operationId: get_corporations_corporation_id_standings
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-corporations.read_standings.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /corporations/{corporation_id}/starbases/
+  method: get
+  operationId: get_corporations_corporation_id_starbases
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-corporations.read_starbases.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /corporations/{corporation_id}/starbases/{starbase_id}/
+  method: get
+  operationId: get_corporations_corporation_id_starbases_starbase_id
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-corporations.read_starbases.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /corporations/{corporation_id}/structures/
+  method: get
+  operationId: get_corporations_corporation_id_structures
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-corporations.read_structures.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /corporations/{corporation_id}/titles/
+  method: get
+  operationId: get_corporations_corporation_id_titles
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-corporations.read_titles.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /corporations/{corporation_id}/wallets/
+  method: get
+  operationId: get_corporations_corporation_id_wallets
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-wallet.read_corporation_wallets.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /corporations/{corporation_id}/wallets/{division}/journal/
+  method: get
+  operationId: get_corporations_corporation_id_wallets_division_journal
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-wallet.read_corporation_wallets.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /corporations/{corporation_id}/wallets/{division}/transactions/
+  method: get
+  operationId: get_corporations_corporation_id_wallets_division_transactions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-wallet.read_corporation_wallets.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /dogma/attributes/
+  method: get
+  operationId: get_dogma_attributes
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /dogma/attributes/{attribute_id}/
+  method: get
+  operationId: get_dogma_attributes_attribute_id
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /dogma/dynamic/items/{type_id}/{item_id}/
+  method: get
+  operationId: get_dogma_dynamic_items_type_id_item_id
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /dogma/effects/
+  method: get
+  operationId: get_dogma_effects
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /dogma/effects/{effect_id}/
+  method: get
+  operationId: get_dogma_effects_effect_id
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /fleets/{fleet_id}/
+  method: get
+  operationId: get_fleets_fleet_id
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-fleets.read_fleet.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /fleets/{fleet_id}/
+  method: put
+  operationId: put_fleets_fleet_id
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - esi-fleets.write_fleet.v1
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /fleets/{fleet_id}/members/
+  method: get
+  operationId: get_fleets_fleet_id_members
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-fleets.read_fleet.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /fleets/{fleet_id}/members/
+  method: post
+  operationId: post_fleets_fleet_id_members
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - esi-fleets.write_fleet.v1
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /fleets/{fleet_id}/members/{member_id}/
+  method: delete
+  operationId: delete_fleets_fleet_id_members_member_id
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - esi-fleets.write_fleet.v1
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /fleets/{fleet_id}/members/{member_id}/
+  method: put
+  operationId: put_fleets_fleet_id_members_member_id
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - esi-fleets.write_fleet.v1
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /fleets/{fleet_id}/squads/{squad_id}/
+  method: delete
+  operationId: delete_fleets_fleet_id_squads_squad_id
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - esi-fleets.write_fleet.v1
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /fleets/{fleet_id}/squads/{squad_id}/
+  method: put
+  operationId: put_fleets_fleet_id_squads_squad_id
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - esi-fleets.write_fleet.v1
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /fleets/{fleet_id}/wings/
+  method: get
+  operationId: get_fleets_fleet_id_wings
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-fleets.read_fleet.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /fleets/{fleet_id}/wings/
+  method: post
+  operationId: post_fleets_fleet_id_wings
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - esi-fleets.write_fleet.v1
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /fleets/{fleet_id}/wings/{wing_id}/
+  method: delete
+  operationId: delete_fleets_fleet_id_wings_wing_id
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - esi-fleets.write_fleet.v1
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /fleets/{fleet_id}/wings/{wing_id}/
+  method: put
+  operationId: put_fleets_fleet_id_wings_wing_id
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - esi-fleets.write_fleet.v1
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /fleets/{fleet_id}/wings/{wing_id}/squads/
+  method: post
+  operationId: post_fleets_fleet_id_wings_wing_id_squads
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - esi-fleets.write_fleet.v1
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /fw/leaderboards/
+  method: get
+  operationId: get_fw_leaderboards
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /fw/leaderboards/characters/
+  method: get
+  operationId: get_fw_leaderboards_characters
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /fw/leaderboards/corporations/
+  method: get
+  operationId: get_fw_leaderboards_corporations
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /fw/stats/
+  method: get
+  operationId: get_fw_stats
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /fw/systems/
+  method: get
+  operationId: get_fw_systems
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /fw/wars/
+  method: get
+  operationId: get_fw_wars
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /incursions/
+  method: get
+  operationId: get_incursions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /industry/facilities/
+  method: get
+  operationId: get_industry_facilities
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /industry/systems/
+  method: get
+  operationId: get_industry_systems
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /insurance/prices/
+  method: get
+  operationId: get_insurance_prices
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /killmails/{killmail_id}/{killmail_hash}/
+  method: get
+  operationId: get_killmails_killmail_id_killmail_hash
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /loyalty/stores/{corporation_id}/offers/
+  method: get
+  operationId: get_loyalty_stores_corporation_id_offers
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /markets/groups/
+  method: get
+  operationId: get_markets_groups
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /markets/groups/{market_group_id}/
+  method: get
+  operationId: get_markets_groups_market_group_id
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /markets/prices/
+  method: get
+  operationId: get_markets_prices
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /markets/structures/{structure_id}/
+  method: get
+  operationId: get_markets_structures_structure_id
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-markets.structure_markets.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /markets/{region_id}/history/
+  method: get
+  operationId: get_markets_region_id_history
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /markets/{region_id}/orders/
+  method: get
+  operationId: get_markets_region_id_orders
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /markets/{region_id}/types/
+  method: get
+  operationId: get_markets_region_id_types
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /route/{origin}/{destination}/
+  method: get
+  operationId: get_route_origin_destination
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /sovereignty/campaigns/
+  method: get
+  operationId: get_sovereignty_campaigns
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /sovereignty/map/
+  method: get
+  operationId: get_sovereignty_map
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /sovereignty/structures/
+  method: get
+  operationId: get_sovereignty_structures
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /status/
+  method: get
+  operationId: get_status
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /ui/autopilot/waypoint/
+  method: post
+  operationId: post_ui_autopilot_waypoint
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - esi-ui.write_waypoint.v1
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /ui/openwindow/contract/
+  method: post
+  operationId: post_ui_openwindow_contract
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - esi-ui.open_window.v1
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /ui/openwindow/information/
+  method: post
+  operationId: post_ui_openwindow_information
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - esi-ui.open_window.v1
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /ui/openwindow/marketdetails/
+  method: post
+  operationId: post_ui_openwindow_marketdetails
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - esi-ui.open_window.v1
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /ui/openwindow/newmail/
+  method: post
+  operationId: post_ui_openwindow_newmail
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - esi-ui.open_window.v1
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /universe/ancestries/
+  method: get
+  operationId: get_universe_ancestries
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /universe/asteroid_belts/{asteroid_belt_id}/
+  method: get
+  operationId: get_universe_asteroid_belts_asteroid_belt_id
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /universe/bloodlines/
+  method: get
+  operationId: get_universe_bloodlines
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /universe/categories/
+  method: get
+  operationId: get_universe_categories
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /universe/categories/{category_id}/
+  method: get
+  operationId: get_universe_categories_category_id
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /universe/constellations/
+  method: get
+  operationId: get_universe_constellations
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /universe/constellations/{constellation_id}/
+  method: get
+  operationId: get_universe_constellations_constellation_id
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /universe/factions/
+  method: get
+  operationId: get_universe_factions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /universe/graphics/
+  method: get
+  operationId: get_universe_graphics
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /universe/graphics/{graphic_id}/
+  method: get
+  operationId: get_universe_graphics_graphic_id
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /universe/groups/
+  method: get
+  operationId: get_universe_groups
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /universe/groups/{group_id}/
+  method: get
+  operationId: get_universe_groups_group_id
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /universe/ids/
+  method: post
+  operationId: post_universe_ids
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /universe/moons/{moon_id}/
+  method: get
+  operationId: get_universe_moons_moon_id
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /universe/names/
+  method: post
+  operationId: post_universe_names
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /universe/planets/{planet_id}/
+  method: get
+  operationId: get_universe_planets_planet_id
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /universe/races/
+  method: get
+  operationId: get_universe_races
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /universe/regions/
+  method: get
+  operationId: get_universe_regions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /universe/regions/{region_id}/
+  method: get
+  operationId: get_universe_regions_region_id
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /universe/schematics/{schematic_id}/
+  method: get
+  operationId: get_universe_schematics_schematic_id
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /universe/stargates/{stargate_id}/
+  method: get
+  operationId: get_universe_stargates_stargate_id
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /universe/stars/{star_id}/
+  method: get
+  operationId: get_universe_stars_star_id
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /universe/stations/{station_id}/
+  method: get
+  operationId: get_universe_stations_station_id
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /universe/structures/
+  method: get
+  operationId: get_universe_structures
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /universe/structures/{structure_id}/
+  method: get
+  operationId: get_universe_structures_structure_id
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - esi-universe.read_structures.v1
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /universe/system_jumps/
+  method: get
+  operationId: get_universe_system_jumps
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /universe/system_kills/
+  method: get
+  operationId: get_universe_system_kills
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /universe/systems/
+  method: get
+  operationId: get_universe_systems
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /universe/systems/{system_id}/
+  method: get
+  operationId: get_universe_systems_system_id
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /universe/types/
+  method: get
+  operationId: get_universe_types
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /universe/types/{type_id}/
+  method: get
+  operationId: get_universe_types_type_id
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /wars/
+  method: get
+  operationId: get_wars
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /wars/{war_id}/
+  method: get
+  operationId: get_wars_war_id
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /wars/{war_id}/killmails/
+  method: get
+  operationId: get_wars_war_id_killmails
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none

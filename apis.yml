@@ -218,6 +218,8 @@ maintainers:
   - FN: CCP Games
     url: https://www.ccpgames.com/
 common:
+  - type: AgenticAccess
+    url: agentic-access/eve-online-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/eve-online-vulnerability-disclosure.yml
   - type: DomainSecurity
