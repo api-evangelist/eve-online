@@ -1,0 +1,1389 @@
+openapi: 3.0.0
+info:
+  description: An OpenAPI for EVE Online
+  title: EVE Swagger Interface Alliance User Interface API
+  version: '1.36'
+servers:
+- url: https://esi.evetech.net/latest
+tags:
+- name: User Interface
+paths:
+  /ui/autopilot/waypoint/:
+    post:
+      description: 'Set a solar system as autopilot waypoint
+
+
+        ---
+
+        Alternate route: `/dev/ui/autopilot/waypoint/`
+
+
+        Alternate route: `/legacy/ui/autopilot/waypoint/`
+
+
+        Alternate route: `/v2/ui/autopilot/waypoint/`
+
+        '
+      operationId: post_ui_autopilot_waypoint
+      parameters:
+      - description: Whether this solar system should be added to the beginning of all waypoints
+        in: query
+        name: add_to_beginning
+        required: true
+        schema:
+          type: boolean
+          default: false
+        example: false
+      - description: Whether clean other waypoints beforing adding this one
+        in: query
+        name: clear_other_waypoints
+        required: true
+        schema:
+          type: boolean
+          default: false
+        example: false
+      - $ref: '#/components/parameters/datasource'
+      - description: The destination to travel to, can be solar system, station or structure's id
+        in: query
+        name: destination_id
+        required: true
+        schema:
+          type: integer
+          format: int64
+        example: 1001
+      - $ref: '#/components/parameters/token'
+      responses:
+        '204':
+          description: Open window request received
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bad_request'
+              examples:
+                response:
+                  value:
+                    error: Bad request message
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+              examples:
+                response:
+                  value:
+                    error: Unauthorized message
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+              examples:
+                response:
+                  value:
+                    error: Forbidden message
+        '420':
+          description: Error limited
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_limited'
+              examples:
+                response:
+                  value:
+                    error: Error limited message
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/internal_server_error'
+              examples:
+                response:
+                  value:
+                    error: Internal server error message
+        '503':
+          description: Service unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/service_unavailable'
+              examples:
+                response:
+                  value:
+                    error: Service unavailable message
+        '504':
+          description: Gateway timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gateway_timeout'
+              examples:
+                response:
+                  value:
+                    error: Gateway timeout message
+      security:
+      - evesso:
+        - esi-ui.write_waypoint.v1
+      summary: EVE Online Set Autopilot Waypoint
+      tags:
+      - User Interface
+      x-alternate-versions:
+      - dev
+      - legacy
+      - v2
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /ui/openwindow/contract/:
+    post:
+      description: 'Open the contract window inside the client
+
+
+        ---
+
+        Alternate route: `/dev/ui/openwindow/contract/`
+
+
+        Alternate route: `/legacy/ui/openwindow/contract/`
+
+
+        Alternate route: `/v1/ui/openwindow/contract/`
+
+        '
+      operationId: post_ui_openwindow_contract
+      parameters:
+      - description: The contract to open
+        in: query
+        name: contract_id
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 1001
+      - $ref: '#/components/parameters/datasource'
+      - $ref: '#/components/parameters/token'
+      responses:
+        '204':
+          description: Open window request received
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bad_request'
+              examples:
+                response:
+                  value:
+                    error: Bad request message
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+              examples:
+                response:
+                  value:
+                    error: Unauthorized message
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+              examples:
+                response:
+                  value:
+                    error: Forbidden message
+        '420':
+          description: Error limited
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_limited'
+              examples:
+                response:
+                  value:
+                    error: Error limited message
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/internal_server_error'
+              examples:
+                response:
+                  value:
+                    error: Internal server error message
+        '503':
+          description: Service unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/service_unavailable'
+              examples:
+                response:
+                  value:
+                    error: Service unavailable message
+        '504':
+          description: Gateway timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gateway_timeout'
+              examples:
+                response:
+                  value:
+                    error: Gateway timeout message
+      security:
+      - evesso:
+        - esi-ui.open_window.v1
+      summary: EVE Online Open Contract Window
+      tags:
+      - User Interface
+      x-alternate-versions:
+      - dev
+      - legacy
+      - v1
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /ui/openwindow/information/:
+    post:
+      description: 'Open the information window for a character, corporation or alliance inside the client
+
+
+        ---
+
+        Alternate route: `/dev/ui/openwindow/information/`
+
+
+        Alternate route: `/legacy/ui/openwindow/information/`
+
+
+        Alternate route: `/v1/ui/openwindow/information/`
+
+        '
+      operationId: post_ui_openwindow_information
+      parameters:
+      - $ref: '#/components/parameters/datasource'
+      - description: The target to open
+        in: query
+        name: target_id
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 1001
+      - $ref: '#/components/parameters/token'
+      responses:
+        '204':
+          description: Open window request received
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bad_request'
+              examples:
+                response:
+                  value:
+                    error: Bad request message
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+              examples:
+                response:
+                  value:
+                    error: Unauthorized message
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+              examples:
+                response:
+                  value:
+                    error: Forbidden message
+        '420':
+          description: Error limited
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_limited'
+              examples:
+                response:
+                  value:
+                    error: Error limited message
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/internal_server_error'
+              examples:
+                response:
+                  value:
+                    error: Internal server error message
+        '503':
+          description: Service unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/service_unavailable'
+              examples:
+                response:
+                  value:
+                    error: Service unavailable message
+        '504':
+          description: Gateway timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gateway_timeout'
+              examples:
+                response:
+                  value:
+                    error: Gateway timeout message
+      security:
+      - evesso:
+        - esi-ui.open_window.v1
+      summary: EVE Online Open Information Window
+      tags:
+      - User Interface
+      x-alternate-versions:
+      - dev
+      - legacy
+      - v1
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /ui/openwindow/marketdetails/:
+    post:
+      description: 'Open the market details window for a specific typeID inside the client
+
+
+        ---
+
+        Alternate route: `/dev/ui/openwindow/marketdetails/`
+
+
+        Alternate route: `/legacy/ui/openwindow/marketdetails/`
+
+
+        Alternate route: `/v1/ui/openwindow/marketdetails/`
+
+        '
+      operationId: post_ui_openwindow_marketdetails
+      parameters:
+      - $ref: '#/components/parameters/datasource'
+      - $ref: '#/components/parameters/token'
+      - description: The item type to open in market window
+        in: query
+        name: type_id
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 587
+      responses:
+        '204':
+          description: Open window request received
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bad_request'
+              examples:
+                response:
+                  value:
+                    error: Bad request message
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+              examples:
+                response:
+                  value:
+                    error: Unauthorized message
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+              examples:
+                response:
+                  value:
+                    error: Forbidden message
+        '420':
+          description: Error limited
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_limited'
+              examples:
+                response:
+                  value:
+                    error: Error limited message
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/internal_server_error'
+              examples:
+                response:
+                  value:
+                    error: Internal server error message
+        '503':
+          description: Service unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/service_unavailable'
+              examples:
+                response:
+                  value:
+                    error: Service unavailable message
+        '504':
+          description: Gateway timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gateway_timeout'
+              examples:
+                response:
+                  value:
+                    error: Gateway timeout message
+      security:
+      - evesso:
+        - esi-ui.open_window.v1
+      summary: EVE Online Open Market Details
+      tags:
+      - User Interface
+      x-alternate-versions:
+      - dev
+      - legacy
+      - v1
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /ui/openwindow/newmail/:
+    post:
+      description: 'Open the New Mail window, according to settings from the request if applicable
+
+
+        ---
+
+        Alternate route: `/dev/ui/openwindow/newmail/`
+
+
+        Alternate route: `/legacy/ui/openwindow/newmail/`
+
+
+        Alternate route: `/v1/ui/openwindow/newmail/`
+
+        '
+      operationId: post_ui_openwindow_newmail
+      parameters:
+      - $ref: '#/components/parameters/datasource'
+      - $ref: '#/components/parameters/token'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              description: new_mail object
+              properties:
+                body:
+                  description: body string
+                  maxLength: 10000
+                  title: post_ui_openwindow_newmail_body
+                  type: string
+                recipients:
+                  description: recipients array
+                  items:
+                    description: recipient integer
+                    format: int32
+                    title: post_ui_openwindow_newmail_recipient
+                    type: integer
+                  maxItems: 50
+                  minItems: 1
+                  title: post_ui_openwindow_newmail_recipients
+                  type: array
+                subject:
+                  description: subject string
+                  maxLength: 1000
+                  title: post_ui_openwindow_newmail_subject
+                  type: string
+                to_corp_or_alliance_id:
+                  description: to_corp_or_alliance_id integer
+                  format: int32
+                  title: post_ui_openwindow_newmail_to_corp_or_alliance_id
+                  type: integer
+                to_mailing_list_id:
+                  description: Corporations, alliances and mailing lists are all types of mailing groups. You may only send to one mailing group, at a time, so you may fill out either this field or the to_corp_or_alliance_ids field
+                  format: int32
+                  title: post_ui_openwindow_newmail_to_mailing_list_id
+                  type: integer
+              required:
+              - subject
+              - body
+              - recipients
+              title: post_ui_openwindow_newmail_new_mail
+              type: object
+            examples:
+              PostUiOpenwindowNewmailRequestExample:
+                summary: Default post_ui_openwindow_newmail request
+                x-microcks-default: true
+                value:
+                  body: example
+                  recipients:
+                  - 1
+                  subject: example
+                  to_corp_or_alliance_id: 99005338
+                  to_mailing_list_id: 1001
+        description: The details of mail to create
+        required: true
+      responses:
+        '204':
+          description: Open window request received
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bad_request'
+              examples:
+                response:
+                  value:
+                    error: Bad request message
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+              examples:
+                response:
+                  value:
+                    error: Unauthorized message
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+              examples:
+                response:
+                  value:
+                    error: Forbidden message
+        '420':
+          description: Error limited
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_limited'
+              examples:
+                response:
+                  value:
+                    error: Error limited message
+        '422':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                description: Unprocessable entity
+                properties:
+                  error:
+                    description: Unprocessable entity message
+                    title: post_ui_openwindow_newmail_422_unprocessable_entity
+                    type: string
+                title: post_ui_openwindow_newmail_unprocessable_entity
+                type: object
+              examples:
+                response:
+                  value:
+                    error: Unprocessable entity message
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/internal_server_error'
+              examples:
+                response:
+                  value:
+                    error: Internal server error message
+        '503':
+          description: Service unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/service_unavailable'
+              examples:
+                response:
+                  value:
+                    error: Service unavailable message
+        '504':
+          description: Gateway timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gateway_timeout'
+              examples:
+                response:
+                  value:
+                    error: Gateway timeout message
+      security:
+      - evesso:
+        - esi-ui.open_window.v1
+      summary: EVE Online Open New Mail Window
+      tags:
+      - User Interface
+      x-alternate-versions:
+      - dev
+      - legacy
+      - v1
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v1/ui/openwindow/contract/:
+    post:
+      description: 'Open the contract window inside the client
+
+
+        ---
+
+        '
+      operationId: post_ui_openwindow_contract
+      parameters:
+      - description: The contract to open
+        format: int32
+        in: query
+        name: contract_id
+        required: true
+        type: integer
+      - $ref: '#/parameters/datasource'
+      - $ref: '#/parameters/token'
+      responses:
+        '204':
+          description: Open window request received
+        '400':
+          description: Bad request
+          examples:
+            application/json:
+              error: Bad request message
+          schema:
+            $ref: '#/definitions/bad_request'
+        '401':
+          description: Unauthorized
+          examples:
+            application/json:
+              error: Unauthorized message
+          schema:
+            $ref: '#/definitions/unauthorized'
+        '403':
+          description: Forbidden
+          examples:
+            application/json:
+              error: Forbidden message
+          schema:
+            $ref: '#/definitions/forbidden'
+        '420':
+          description: Error limited
+          examples:
+            application/json:
+              error: Error limited message
+          schema:
+            $ref: '#/definitions/error_limited'
+        '500':
+          description: Internal server error
+          examples:
+            application/json:
+              error: Internal server error message
+          schema:
+            $ref: '#/definitions/internal_server_error'
+        '503':
+          description: Service unavailable
+          examples:
+            application/json:
+              error: Service unavailable message
+          schema:
+            $ref: '#/definitions/service_unavailable'
+        '504':
+          description: Gateway timeout
+          examples:
+            application/json:
+              error: Gateway timeout message
+          schema:
+            $ref: '#/definitions/gateway_timeout'
+      security:
+      - evesso:
+        - esi-ui.open_window.v1
+      summary: Open Contract Window
+      tags:
+      - User Interface
+      x-alternate-versions:
+      - latest
+      - legacy
+      - v1
+  /v1/ui/openwindow/information/:
+    post:
+      description: 'Open the information window for a character, corporation or alliance inside the client
+
+
+        ---
+
+        '
+      operationId: post_ui_openwindow_information
+      parameters:
+      - $ref: '#/parameters/datasource'
+      - description: The target to open
+        format: int32
+        in: query
+        name: target_id
+        required: true
+        type: integer
+      - $ref: '#/parameters/token'
+      responses:
+        '204':
+          description: Open window request received
+        '400':
+          description: Bad request
+          examples:
+            application/json:
+              error: Bad request message
+          schema:
+            $ref: '#/definitions/bad_request'
+        '401':
+          description: Unauthorized
+          examples:
+            application/json:
+              error: Unauthorized message
+          schema:
+            $ref: '#/definitions/unauthorized'
+        '403':
+          description: Forbidden
+          examples:
+            application/json:
+              error: Forbidden message
+          schema:
+            $ref: '#/definitions/forbidden'
+        '420':
+          description: Error limited
+          examples:
+            application/json:
+              error: Error limited message
+          schema:
+            $ref: '#/definitions/error_limited'
+        '500':
+          description: Internal server error
+          examples:
+            application/json:
+              error: Internal server error message
+          schema:
+            $ref: '#/definitions/internal_server_error'
+        '503':
+          description: Service unavailable
+          examples:
+            application/json:
+              error: Service unavailable message
+          schema:
+            $ref: '#/definitions/service_unavailable'
+        '504':
+          description: Gateway timeout
+          examples:
+            application/json:
+              error: Gateway timeout message
+          schema:
+            $ref: '#/definitions/gateway_timeout'
+      security:
+      - evesso:
+        - esi-ui.open_window.v1
+      summary: Open Information Window
+      tags:
+      - User Interface
+      x-alternate-versions:
+      - latest
+      - legacy
+      - v1
+  /v1/ui/openwindow/marketdetails/:
+    post:
+      description: 'Open the market details window for a specific typeID inside the client
+
+
+        ---
+
+        '
+      operationId: post_ui_openwindow_marketdetails
+      parameters:
+      - $ref: '#/parameters/datasource'
+      - $ref: '#/parameters/token'
+      - description: The item type to open in market window
+        format: int32
+        in: query
+        name: type_id
+        required: true
+        type: integer
+      responses:
+        '204':
+          description: Open window request received
+        '400':
+          description: Bad request
+          examples:
+            application/json:
+              error: Bad request message
+          schema:
+            $ref: '#/definitions/bad_request'
+        '401':
+          description: Unauthorized
+          examples:
+            application/json:
+              error: Unauthorized message
+          schema:
+            $ref: '#/definitions/unauthorized'
+        '403':
+          description: Forbidden
+          examples:
+            application/json:
+              error: Forbidden message
+          schema:
+            $ref: '#/definitions/forbidden'
+        '420':
+          description: Error limited
+          examples:
+            application/json:
+              error: Error limited message
+          schema:
+            $ref: '#/definitions/error_limited'
+        '500':
+          description: Internal server error
+          examples:
+            application/json:
+              error: Internal server error message
+          schema:
+            $ref: '#/definitions/internal_server_error'
+        '503':
+          description: Service unavailable
+          examples:
+            application/json:
+              error: Service unavailable message
+          schema:
+            $ref: '#/definitions/service_unavailable'
+        '504':
+          description: Gateway timeout
+          examples:
+            application/json:
+              error: Gateway timeout message
+          schema:
+            $ref: '#/definitions/gateway_timeout'
+      security:
+      - evesso:
+        - esi-ui.open_window.v1
+      summary: Open Market Details
+      tags:
+      - User Interface
+      x-alternate-versions:
+      - latest
+      - legacy
+      - v1
+  /v1/ui/openwindow/newmail/:
+    post:
+      description: 'Open the New Mail window, according to settings from the request if applicable
+
+
+        ---
+
+        '
+      operationId: post_ui_openwindow_newmail
+      parameters:
+      - $ref: '#/parameters/datasource'
+      - description: The details of mail to create
+        in: body
+        name: new_mail
+        required: true
+        schema:
+          description: new_mail object
+          properties:
+            body:
+              description: body string
+              maxLength: 10000
+              title: post_ui_openwindow_newmail_body
+              type: string
+            recipients:
+              description: recipients array
+              items:
+                description: recipient integer
+                format: int32
+                title: post_ui_openwindow_newmail_recipient
+                type: integer
+              maxItems: 50
+              minItems: 1
+              title: post_ui_openwindow_newmail_recipients
+              type: array
+            subject:
+              description: subject string
+              maxLength: 1000
+              title: post_ui_openwindow_newmail_subject
+              type: string
+            to_corp_or_alliance_id:
+              description: to_corp_or_alliance_id integer
+              format: int32
+              title: post_ui_openwindow_newmail_to_corp_or_alliance_id
+              type: integer
+            to_mailing_list_id:
+              description: Corporations, alliances and mailing lists are all types of mailing groups. You may only send to one mailing group, at a time, so you may fill out either this field or the to_corp_or_alliance_ids field
+              format: int32
+              title: post_ui_openwindow_newmail_to_mailing_list_id
+              type: integer
+          required:
+          - subject
+          - body
+          - recipients
+          title: post_ui_openwindow_newmail_new_mail
+          type: object
+      - $ref: '#/parameters/token'
+      responses:
+        '204':
+          description: Open window request received
+        '400':
+          description: Bad request
+          examples:
+            application/json:
+              error: Bad request message
+          schema:
+            $ref: '#/definitions/bad_request'
+        '401':
+          description: Unauthorized
+          examples:
+            application/json:
+              error: Unauthorized message
+          schema:
+            $ref: '#/definitions/unauthorized'
+        '403':
+          description: Forbidden
+          examples:
+            application/json:
+              error: Forbidden message
+          schema:
+            $ref: '#/definitions/forbidden'
+        '420':
+          description: Error limited
+          examples:
+            application/json:
+              error: Error limited message
+          schema:
+            $ref: '#/definitions/error_limited'
+        '422':
+          description: Invalid request
+          examples:
+            application/json:
+              error: Unprocessable entity message
+          schema:
+            description: Unprocessable entity
+            properties:
+              error:
+                description: Unprocessable entity message
+                title: post_ui_openwindow_newmail_422_unprocessable_entity
+                type: string
+            title: post_ui_openwindow_newmail_unprocessable_entity
+            type: object
+        '500':
+          description: Internal server error
+          examples:
+            application/json:
+              error: Internal server error message
+          schema:
+            $ref: '#/definitions/internal_server_error'
+        '503':
+          description: Service unavailable
+          examples:
+            application/json:
+              error: Service unavailable message
+          schema:
+            $ref: '#/definitions/service_unavailable'
+        '504':
+          description: Gateway timeout
+          examples:
+            application/json:
+              error: Gateway timeout message
+          schema:
+            $ref: '#/definitions/gateway_timeout'
+      security:
+      - evesso:
+        - esi-ui.open_window.v1
+      summary: Open New Mail Window
+      tags:
+      - User Interface
+      x-alternate-versions:
+      - latest
+      - legacy
+      - v1
+  /v2/ui/autopilot/waypoint/:
+    post:
+      description: 'Set a solar system as autopilot waypoint
+
+
+        ---
+
+        '
+      operationId: post_ui_autopilot_waypoint
+      parameters:
+      - default: false
+        description: Whether this solar system should be added to the beginning of all waypoints
+        in: query
+        name: add_to_beginning
+        required: true
+        type: boolean
+      - default: false
+        description: Whether clean other waypoints beforing adding this one
+        in: query
+        name: clear_other_waypoints
+        required: true
+        type: boolean
+      - $ref: '#/parameters/datasource'
+      - description: The destination to travel to, can be solar system, station or structure's id
+        format: int64
+        in: query
+        name: destination_id
+        required: true
+        type: integer
+      - $ref: '#/parameters/token'
+      responses:
+        '204':
+          description: Open window request received
+        '400':
+          description: Bad request
+          examples:
+            application/json:
+              error: Bad request message
+          schema:
+            $ref: '#/definitions/bad_request'
+        '401':
+          description: Unauthorized
+          examples:
+            application/json:
+              error: Unauthorized message
+          schema:
+            $ref: '#/definitions/unauthorized'
+        '403':
+          description: Forbidden
+          examples:
+            application/json:
+              error: Forbidden message
+          schema:
+            $ref: '#/definitions/forbidden'
+        '420':
+          description: Error limited
+          examples:
+            application/json:
+              error: Error limited message
+          schema:
+            $ref: '#/definitions/error_limited'
+        '500':
+          description: Internal server error
+          examples:
+            application/json:
+              error: Internal server error message
+          schema:
+            $ref: '#/definitions/internal_server_error'
+        '503':
+          description: Service unavailable
+          examples:
+            application/json:
+              error: Service unavailable message
+          schema:
+            $ref: '#/definitions/service_unavailable'
+        '504':
+          description: Gateway timeout
+          examples:
+            application/json:
+              error: Gateway timeout message
+          schema:
+            $ref: '#/definitions/gateway_timeout'
+      security:
+      - evesso:
+        - esi-ui.write_waypoint.v1
+      summary: Set Autopilot Waypoint
+      tags:
+      - User Interface
+      x-alternate-versions:
+      - latest
+      - legacy
+      - v2
+components:
+  schemas:
+    internal_server_error:
+      description: Internal server error model
+      properties:
+        error:
+          description: Internal server error message
+          type: string
+          example: example
+      required:
+      - error
+      title: Internal server error
+      type: object
+    forbidden:
+      description: Forbidden model
+      properties:
+        error:
+          description: Forbidden message
+          type: string
+          example: example
+        sso_status:
+          description: status code received from SSO
+          type: integer
+          example: 1
+      required:
+      - error
+      title: Forbidden
+      type: object
+    service_unavailable:
+      description: Service unavailable model
+      properties:
+        error:
+          description: Service unavailable message
+          type: string
+          example: example
+      required:
+      - error
+      title: Service unavailable
+      type: object
+    bad_request:
+      description: Bad request model
+      properties:
+        error:
+          description: Bad request message
+          type: string
+          example: example
+      required:
+      - error
+      title: Bad request
+      type: object
+    unauthorized:
+      description: Unauthorized model
+      properties:
+        error:
+          description: Unauthorized message
+          type: string
+          example: example
+      required:
+      - error
+      title: Unauthorized
+      type: object
+    gateway_timeout:
+      description: Gateway timeout model
+      properties:
+        error:
+          description: Gateway timeout message
+          type: string
+          example: example
+        timeout:
+          description: number of seconds the request was given
+          type: integer
+          example: 1
+      required:
+      - error
+      title: Gateway timeout
+      type: object
+    error_limited:
+      description: Error limited model
+      properties:
+        error:
+          description: Error limited message
+          type: string
+          example: example
+      required:
+      - error
+      title: Error limited
+      type: object
+  parameters:
+    datasource:
+      description: The server name you would like data from
+      in: query
+      name: datasource
+      schema:
+        type: string
+        enum:
+        - tranquility
+        default: tranquility
+    token:
+      description: Access token to use if unable to set a header
+      in: query
+      name: token
+      schema:
+        type: string
+  securitySchemes:
+    evesso:
+      type: oauth2
+      flows:
+        implicit:
+          authorizationUrl: https://login.eveonline.com/v2/oauth/authorize
+          scopes:
+            esi-alliances.read_contacts.v1: EVE SSO scope esi-alliances.read_contacts.v1
+            esi-assets.read_assets.v1: EVE SSO scope esi-assets.read_assets.v1
+            esi-assets.read_corporation_assets.v1: EVE SSO scope esi-assets.read_corporation_assets.v1
+            esi-calendar.read_calendar_events.v1: EVE SSO scope esi-calendar.read_calendar_events.v1
+            esi-calendar.respond_calendar_events.v1: EVE SSO scope esi-calendar.respond_calendar_events.v1
+            esi-characters.read_agents_research.v1: EVE SSO scope esi-characters.read_agents_research.v1
+            esi-characters.read_blueprints.v1: EVE SSO scope esi-characters.read_blueprints.v1
+            esi-characters.read_contacts.v1: EVE SSO scope esi-characters.read_contacts.v1
+            esi-characters.read_corporation_roles.v1: EVE SSO scope esi-characters.read_corporation_roles.v1
+            esi-characters.read_fatigue.v1: EVE SSO scope esi-characters.read_fatigue.v1
+            esi-characters.read_fw_stats.v1: EVE SSO scope esi-characters.read_fw_stats.v1
+            esi-characters.read_loyalty.v1: EVE SSO scope esi-characters.read_loyalty.v1
+            esi-characters.read_medals.v1: EVE SSO scope esi-characters.read_medals.v1
+            esi-characters.read_notifications.v1: EVE SSO scope esi-characters.read_notifications.v1
+            esi-characters.read_standings.v1: EVE SSO scope esi-characters.read_standings.v1
+            esi-characters.read_titles.v1: EVE SSO scope esi-characters.read_titles.v1
+            esi-characters.write_contacts.v1: EVE SSO scope esi-characters.write_contacts.v1
+            esi-clones.read_clones.v1: EVE SSO scope esi-clones.read_clones.v1
+            esi-clones.read_implants.v1: EVE SSO scope esi-clones.read_implants.v1
+            esi-contracts.read_character_contracts.v1: EVE SSO scope esi-contracts.read_character_contracts.v1
+            esi-contracts.read_corporation_contracts.v1: EVE SSO scope esi-contracts.read_corporation_contracts.v1
+            esi-corporations.read_blueprints.v1: EVE SSO scope esi-corporations.read_blueprints.v1
+            esi-corporations.read_contacts.v1: EVE SSO scope esi-corporations.read_contacts.v1
+            esi-corporations.read_container_logs.v1: EVE SSO scope esi-corporations.read_container_logs.v1
+            esi-corporations.read_corporation_membership.v1: EVE SSO scope esi-corporations.read_corporation_membership.v1
+            esi-corporations.read_divisions.v1: EVE SSO scope esi-corporations.read_divisions.v1
+            esi-corporations.read_facilities.v1: EVE SSO scope esi-corporations.read_facilities.v1
+            esi-corporations.read_fw_stats.v1: EVE SSO scope esi-corporations.read_fw_stats.v1
+            esi-corporations.read_medals.v1: EVE SSO scope esi-corporations.read_medals.v1
+            esi-corporations.read_standings.v1: EVE SSO scope esi-corporations.read_standings.v1
+            esi-corporations.read_starbases.v1: EVE SSO scope esi-corporations.read_starbases.v1
+            esi-corporations.read_structures.v1: EVE SSO scope esi-corporations.read_structures.v1
+            esi-corporations.read_titles.v1: EVE SSO scope esi-corporations.read_titles.v1
+            esi-corporations.track_members.v1: EVE SSO scope esi-corporations.track_members.v1
+            esi-fittings.read_fittings.v1: EVE SSO scope esi-fittings.read_fittings.v1
+            esi-fittings.write_fittings.v1: EVE SSO scope esi-fittings.write_fittings.v1
+            esi-fleets.read_fleet.v1: EVE SSO scope esi-fleets.read_fleet.v1
+            esi-fleets.write_fleet.v1: EVE SSO scope esi-fleets.write_fleet.v1
+            esi-industry.read_character_jobs.v1: EVE SSO scope esi-industry.read_character_jobs.v1
+            esi-industry.read_character_mining.v1: EVE SSO scope esi-industry.read_character_mining.v1
+            esi-industry.read_corporation_jobs.v1: EVE SSO scope esi-industry.read_corporation_jobs.v1
+            esi-industry.read_corporation_mining.v1: EVE SSO scope esi-industry.read_corporation_mining.v1
+            esi-killmails.read_corporation_killmails.v1: EVE SSO scope esi-killmails.read_corporation_killmails.v1
+            esi-killmails.read_killmails.v1: EVE SSO scope esi-killmails.read_killmails.v1
+            esi-location.read_location.v1: EVE SSO scope esi-location.read_location.v1
+            esi-location.read_online.v1: EVE SSO scope esi-location.read_online.v1
+            esi-location.read_ship_type.v1: EVE SSO scope esi-location.read_ship_type.v1
+            esi-mail.organize_mail.v1: EVE SSO scope esi-mail.organize_mail.v1
+            esi-mail.read_mail.v1: EVE SSO scope esi-mail.read_mail.v1
+            esi-mail.send_mail.v1: EVE SSO scope esi-mail.send_mail.v1
+            esi-markets.read_character_orders.v1: EVE SSO scope esi-markets.read_character_orders.v1
+            esi-markets.read_corporation_orders.v1: EVE SSO scope esi-markets.read_corporation_orders.v1
+            esi-markets.structure_markets.v1: EVE SSO scope esi-markets.structure_markets.v1
+            esi-planets.manage_planets.v1: EVE SSO scope esi-planets.manage_planets.v1
+            esi-planets.read_customs_offices.v1: EVE SSO scope esi-planets.read_customs_offices.v1
+            esi-search.search_structures.v1: EVE SSO scope esi-search.search_structures.v1
+            esi-skills.read_skillqueue.v1: EVE SSO scope esi-skills.read_skillqueue.v1
+            esi-skills.read_skills.v1: EVE SSO scope esi-skills.read_skills.v1
+            esi-ui.open_window.v1: EVE SSO scope esi-ui.open_window.v1
+            esi-ui.write_waypoint.v1: EVE SSO scope esi-ui.write_waypoint.v1
+            esi-universe.read_structures.v1: EVE SSO scope esi-universe.read_structures.v1
+            esi-wallet.read_character_wallet.v1: EVE SSO scope esi-wallet.read_character_wallet.v1
+            esi-wallet.read_corporation_wallets.v1: EVE SSO scope esi-wallet.read_corporation_wallets.v1
+definitions:
+  internal_server_error:
+    description: Internal server error model
+    properties:
+      error:
+        description: Internal server error message
+        type: string
+    required:
+    - error
+    title: Internal server error
+    type: object
+  error_limited:
+    description: Error limited model
+    properties:
+      error:
+        description: Error limited message
+        type: string
+    required:
+    - error
+    title: Error limited
+    type: object
+  unauthorized:
+    description: Unauthorized model
+    properties:
+      error:
+        description: Unauthorized message
+        type: string
+    required:
+    - error
+    title: Unauthorized
+    type: object
+  service_unavailable:
+    description: Service unavailable model
+    properties:
+      error:
+        description: Service unavailable message
+        type: string
+    required:
+    - error
+    title: Service unavailable
+    type: object
+  forbidden:
+    description: Forbidden model
+    properties:
+      error:
+        description: Forbidden message
+        type: string
+      sso_status:
+        description: status code received from SSO
+        type: integer
+    required:
+    - error
+    title: Forbidden
+    type: object
+  bad_request:
+    description: Bad request model
+    properties:
+      error:
+        description: Bad request message
+        type: string
+    required:
+    - error
+    title: Bad request
+    type: object
+  gateway_timeout:
+    description: Gateway timeout model
+    properties:
+      error:
+        description: Gateway timeout message
+        type: string
+      timeout:
+        description: number of seconds the request was given
+        type: integer
+    required:
+    - error
+    title: Gateway timeout
+    type: object
+parameters:
+  token:
+    description: Access token to use if unable to set a header
+    in: query
+    name: token
+    type: string
+  datasource:
+    default: tranquility
+    description: The server name you would like data from
+    enum:
+    - tranquility
+    in: query
+    name: datasource
+    type: string

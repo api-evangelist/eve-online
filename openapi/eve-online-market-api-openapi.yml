@@ -1,0 +1,5206 @@
+openapi: 3.0.0
+info:
+  description: An OpenAPI for EVE Online
+  title: EVE Swagger Interface Alliance Market API
+  version: '1.36'
+servers:
+- url: https://esi.evetech.net/latest
+tags:
+- name: Market
+paths:
+  /characters/{character_id}/orders/:
+    get:
+      description: 'List open market orders placed by a character
+
+
+        ---
+
+        Alternate route: `/dev/characters/{character_id}/orders/`
+
+
+        Alternate route: `/v2/characters/{character_id}/orders/`
+
+
+        ---
+
+        This route is cached for up to 1200 seconds'
+      operationId: get_characters_character_id_orders
+      parameters:
+      - $ref: '#/components/parameters/character_id'
+      - $ref: '#/components/parameters/datasource'
+      - $ref: '#/components/parameters/If-None-Match'
+      - $ref: '#/components/parameters/token'
+      responses:
+        '200':
+          description: Open market orders placed by a character
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              schema:
+                type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              schema:
+                type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                description: 200 ok array
+                items:
+                  description: 200 ok object
+                  properties:
+                    duration:
+                      description: Number of days for which order is valid (starting from the issued date). An order expires at time issued + duration
+                      format: int32
+                      title: get_characters_character_id_orders_duration
+                      type: integer
+                    escrow:
+                      description: For buy orders, the amount of ISK in escrow
+                      format: double
+                      title: get_characters_character_id_orders_escrow
+                      type: number
+                    is_buy_order:
+                      description: True if the order is a bid (buy) order
+                      title: get_characters_character_id_orders_is_buy_order
+                      type: boolean
+                    is_corporation:
+                      description: Signifies whether the buy/sell order was placed on behalf of a corporation.
+                      title: get_characters_character_id_orders_is_corporation
+                      type: boolean
+                    issued:
+                      description: Date and time when this order was issued
+                      format: date-time
+                      title: get_characters_character_id_orders_issued
+                      type: string
+                    location_id:
+                      description: ID of the location where order was placed
+                      format: int64
+                      title: get_characters_character_id_orders_location_id
+                      type: integer
+                    min_volume:
+                      description: For buy orders, the minimum quantity that will be accepted in a matching sell order
+                      format: int32
+                      title: get_characters_character_id_orders_min_volume
+                      type: integer
+                    order_id:
+                      description: Unique order ID
+                      format: int64
+                      title: get_characters_character_id_orders_order_id
+                      type: integer
+                    price:
+                      description: Cost per unit for this order
+                      format: double
+                      title: get_characters_character_id_orders_price
+                      type: number
+                    range:
+                      description: Valid order range, numbers are ranges in jumps
+                      enum:
+                      - '1'
+                      - '10'
+                      - '2'
+                      - '20'
+                      - '3'
+                      - '30'
+                      - '4'
+                      - '40'
+                      - '5'
+                      - region
+                      - solarsystem
+                      - station
+                      title: get_characters_character_id_orders_range
+                      type: string
+                    region_id:
+                      description: ID of the region where order was placed
+                      format: int32
+                      title: get_characters_character_id_orders_region_id
+                      type: integer
+                    type_id:
+                      description: The type ID of the item transacted in this order
+                      format: int32
+                      title: get_characters_character_id_orders_type_id
+                      type: integer
+                    volume_remain:
+                      description: Quantity of items still required or offered
+                      format: int32
+                      title: get_characters_character_id_orders_volume_remain
+                      type: integer
+                    volume_total:
+                      description: Quantity of items required or offered at time order was placed
+                      format: int32
+                      title: get_characters_character_id_orders_volume_total
+                      type: integer
+                  required:
+                  - is_corporation
+                  - duration
+                  - order_id
+                  - type_id
+                  - region_id
+                  - location_id
+                  - range
+                  - price
+                  - volume_total
+                  - volume_remain
+                  - issued
+                  title: get_characters_character_id_orders_200_ok
+                  type: object
+                maxItems: 305
+                title: get_characters_character_id_orders_ok
+                type: array
+              examples:
+                response:
+                  value:
+                  - duration: 30
+                    escrow: 45.6
+                    is_buy_order: true
+                    is_corporation: false
+                    issued: 2016-09-03 05:12:25+00:00
+                    location_id: 456
+                    min_volume: 1
+                    order_id: 123
+                    price: 33.3
+                    range: station
+                    region_id: 123
+                    type_id: 456
+                    volume_remain: 4422
+                    volume_total: 123456
+        '304':
+          description: Not modified
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              schema:
+                type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              schema:
+                type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bad_request'
+              examples:
+                response:
+                  value:
+                    error: Bad request message
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+              examples:
+                response:
+                  value:
+                    error: Unauthorized message
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+              examples:
+                response:
+                  value:
+                    error: Forbidden message
+        '420':
+          description: Error limited
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_limited'
+              examples:
+                response:
+                  value:
+                    error: Error limited message
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/internal_server_error'
+              examples:
+                response:
+                  value:
+                    error: Internal server error message
+        '503':
+          description: Service unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/service_unavailable'
+              examples:
+                response:
+                  value:
+                    error: Service unavailable message
+        '504':
+          description: Gateway timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gateway_timeout'
+              examples:
+                response:
+                  value:
+                    error: Gateway timeout message
+      security:
+      - evesso:
+        - esi-markets.read_character_orders.v1
+      summary: EVE Online List Open Orders from a Character
+      tags:
+      - Market
+      x-alternate-versions:
+      - dev
+      - v2
+      x-cached-seconds: 1200
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /characters/{character_id}/orders/history/:
+    get:
+      description: 'List cancelled and expired market orders placed by a character up to 90 days in the past.
+
+
+        ---
+
+        Alternate route: `/dev/characters/{character_id}/orders/history/`
+
+
+        Alternate route: `/legacy/characters/{character_id}/orders/history/`
+
+
+        Alternate route: `/v1/characters/{character_id}/orders/history/`
+
+
+        ---
+
+        This route is cached for up to 3600 seconds'
+      operationId: get_characters_character_id_orders_history
+      parameters:
+      - $ref: '#/components/parameters/character_id'
+      - $ref: '#/components/parameters/datasource'
+      - $ref: '#/components/parameters/If-None-Match'
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/token'
+      responses:
+        '200':
+          description: Expired and cancelled market orders placed by a character
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              schema:
+                type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              schema:
+                type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+            X-Pages:
+              description: Maximum page number
+              schema:
+                type: integer
+                format: int32
+                default: 1
+          content:
+            application/json:
+              schema:
+                description: 200 ok array
+                items:
+                  description: 200 ok object
+                  properties:
+                    duration:
+                      description: Number of days the order was valid for (starting from the issued date). An order expires at time issued + duration
+                      format: int32
+                      title: get_characters_character_id_orders_history_duration
+                      type: integer
+                    escrow:
+                      description: For buy orders, the amount of ISK in escrow
+                      format: double
+                      title: get_characters_character_id_orders_history_escrow
+                      type: number
+                    is_buy_order:
+                      description: True if the order is a bid (buy) order
+                      title: get_characters_character_id_orders_history_is_buy_order
+                      type: boolean
+                    is_corporation:
+                      description: Signifies whether the buy/sell order was placed on behalf of a corporation.
+                      title: get_characters_character_id_orders_history_is_corporation
+                      type: boolean
+                    issued:
+                      description: Date and time when this order was issued
+                      format: date-time
+                      title: get_characters_character_id_orders_history_issued
+                      type: string
+                    location_id:
+                      description: ID of the location where order was placed
+                      format: int64
+                      title: get_characters_character_id_orders_history_location_id
+                      type: integer
+                    min_volume:
+                      description: For buy orders, the minimum quantity that will be accepted in a matching sell order
+                      format: int32
+                      title: get_characters_character_id_orders_history_min_volume
+                      type: integer
+                    order_id:
+                      description: Unique order ID
+                      format: int64
+                      title: get_characters_character_id_orders_history_order_id
+                      type: integer
+                    price:
+                      description: Cost per unit for this order
+                      format: double
+                      title: get_characters_character_id_orders_history_price
+                      type: number
+                    range:
+                      description: Valid order range, numbers are ranges in jumps
+                      enum:
+                      - '1'
+                      - '10'
+                      - '2'
+                      - '20'
+                      - '3'
+                      - '30'
+                      - '4'
+                      - '40'
+                      - '5'
+                      - region
+                      - solarsystem
+                      - station
+                      title: get_characters_character_id_orders_history_range
+                      type: string
+                    region_id:
+                      description: ID of the region where order was placed
+                      format: int32
+                      title: get_characters_character_id_orders_history_region_id
+                      type: integer
+                    state:
+                      description: Current order state
+                      enum:
+                      - cancelled
+                      - expired
+                      title: get_characters_character_id_orders_history_state
+                      type: string
+                    type_id:
+                      description: The type ID of the item transacted in this order
+                      format: int32
+                      title: get_characters_character_id_orders_history_type_id
+                      type: integer
+                    volume_remain:
+                      description: Quantity of items still required or offered
+                      format: int32
+                      title: get_characters_character_id_orders_history_volume_remain
+                      type: integer
+                    volume_total:
+                      description: Quantity of items required or offered at time order was placed
+                      format: int32
+                      title: get_characters_character_id_orders_history_volume_total
+                      type: integer
+                  required:
+                  - is_corporation
+                  - duration
+                  - state
+                  - order_id
+                  - type_id
+                  - region_id
+                  - location_id
+                  - range
+                  - price
+                  - volume_total
+                  - volume_remain
+                  - issued
+                  title: get_characters_character_id_orders_history_200_ok
+                  type: object
+                maxItems: 1000
+                title: get_characters_character_id_orders_history_ok
+                type: array
+              examples:
+                response:
+                  value:
+                  - duration: 30
+                    escrow: 45.6
+                    is_buy_order: true
+                    is_corporation: false
+                    issued: 2016-09-03 05:12:25+00:00
+                    location_id: 456
+                    min_volume: 1
+                    order_id: 123
+                    price: 33.3
+                    range: station
+                    region_id: 123
+                    state: expired
+                    type_id: 456
+                    volume_remain: 4422
+                    volume_total: 123456
+        '304':
+          description: Not modified
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              schema:
+                type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              schema:
+                type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bad_request'
+              examples:
+                response:
+                  value:
+                    error: Bad request message
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+              examples:
+                response:
+                  value:
+                    error: Unauthorized message
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+              examples:
+                response:
+                  value:
+                    error: Forbidden message
+        '420':
+          description: Error limited
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_limited'
+              examples:
+                response:
+                  value:
+                    error: Error limited message
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/internal_server_error'
+              examples:
+                response:
+                  value:
+                    error: Internal server error message
+        '503':
+          description: Service unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/service_unavailable'
+              examples:
+                response:
+                  value:
+                    error: Service unavailable message
+        '504':
+          description: Gateway timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gateway_timeout'
+              examples:
+                response:
+                  value:
+                    error: Gateway timeout message
+      security:
+      - evesso:
+        - esi-markets.read_character_orders.v1
+      summary: EVE Online List Historical Orders by a Character
+      tags:
+      - Market
+      x-alternate-versions:
+      - dev
+      - legacy
+      - v1
+      x-cached-seconds: 3600
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /corporations/{corporation_id}/orders/:
+    get:
+      description: 'List open market orders placed on behalf of a corporation
+
+
+        ---
+
+        Alternate route: `/dev/corporations/{corporation_id}/orders/`
+
+
+        Alternate route: `/legacy/corporations/{corporation_id}/orders/`
+
+
+        Alternate route: `/v2/corporations/{corporation_id}/orders/`
+
+
+        Alternate route: `/v3/corporations/{corporation_id}/orders/`
+
+
+        ---
+
+        This route is cached for up to 1200 seconds
+
+
+        ---
+
+        Requires one of the following EVE corporation role(s): Accountant, Trader
+
+        '
+      operationId: get_corporations_corporation_id_orders
+      parameters:
+      - $ref: '#/components/parameters/corporation_id'
+      - $ref: '#/components/parameters/datasource'
+      - $ref: '#/components/parameters/If-None-Match'
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/token'
+      responses:
+        '200':
+          description: A list of open market orders
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              schema:
+                type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              schema:
+                type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+            X-Pages:
+              description: Maximum page number
+              schema:
+                type: integer
+                format: int32
+                default: 1
+          content:
+            application/json:
+              schema:
+                description: 200 ok array
+                items:
+                  description: 200 ok object
+                  properties:
+                    duration:
+                      description: Number of days for which order is valid (starting from the issued date). An order expires at time issued + duration
+                      format: int32
+                      title: get_corporations_corporation_id_orders_duration
+                      type: integer
+                    escrow:
+                      description: For buy orders, the amount of ISK in escrow
+                      format: double
+                      title: get_corporations_corporation_id_orders_escrow
+                      type: number
+                    is_buy_order:
+                      description: True if the order is a bid (buy) order
+                      title: get_corporations_corporation_id_orders_is_buy_order
+                      type: boolean
+                    issued:
+                      description: Date and time when this order was issued
+                      format: date-time
+                      title: get_corporations_corporation_id_orders_issued
+                      type: string
+                    issued_by:
+                      description: The character who issued this order
+                      format: int32
+                      title: get_corporations_corporation_id_orders_issued_by
+                      type: integer
+                    location_id:
+                      description: ID of the location where order was placed
+                      format: int64
+                      title: get_corporations_corporation_id_orders_location_id
+                      type: integer
+                    min_volume:
+                      description: For buy orders, the minimum quantity that will be accepted in a matching sell order
+                      format: int32
+                      title: get_corporations_corporation_id_orders_min_volume
+                      type: integer
+                    order_id:
+                      description: Unique order ID
+                      format: int64
+                      title: get_corporations_corporation_id_orders_order_id
+                      type: integer
+                    price:
+                      description: Cost per unit for this order
+                      format: double
+                      title: get_corporations_corporation_id_orders_price
+                      type: number
+                    range:
+                      description: Valid order range, numbers are ranges in jumps
+                      enum:
+                      - '1'
+                      - '10'
+                      - '2'
+                      - '20'
+                      - '3'
+                      - '30'
+                      - '4'
+                      - '40'
+                      - '5'
+                      - region
+                      - solarsystem
+                      - station
+                      title: get_corporations_corporation_id_orders_range
+                      type: string
+                    region_id:
+                      description: ID of the region where order was placed
+                      format: int32
+                      title: get_corporations_corporation_id_orders_region_id
+                      type: integer
+                    type_id:
+                      description: The type ID of the item transacted in this order
+                      format: int32
+                      title: get_corporations_corporation_id_orders_type_id
+                      type: integer
+                    volume_remain:
+                      description: Quantity of items still required or offered
+                      format: int32
+                      title: get_corporations_corporation_id_orders_volume_remain
+                      type: integer
+                    volume_total:
+                      description: Quantity of items required or offered at time order was placed
+                      format: int32
+                      title: get_corporations_corporation_id_orders_volume_total
+                      type: integer
+                    wallet_division:
+                      description: The corporation wallet division used for this order.
+                      format: int32
+                      maximum: 7
+                      minimum: 1
+                      title: get_corporations_corporation_id_orders_wallet_division
+                      type: integer
+                  required:
+                  - duration
+                  - wallet_division
+                  - order_id
+                  - type_id
+                  - region_id
+                  - location_id
+                  - range
+                  - price
+                  - volume_total
+                  - volume_remain
+                  - issued
+                  - issued_by
+                  title: get_corporations_corporation_id_orders_200_ok
+                  type: object
+                maxItems: 1000
+                title: get_corporations_corporation_id_orders_ok
+                type: array
+              examples:
+                response:
+                  value:
+                  - duration: 30
+                    escrow: 45.6
+                    is_buy_order: true
+                    issued: 2016-09-03 05:12:25+00:00
+                    issued_by: 2112625428
+                    location_id: 456
+                    min_volume: 1
+                    order_id: 123
+                    price: 33.3
+                    range: station
+                    region_id: 123
+                    type_id: 456
+                    volume_remain: 4422
+                    volume_total: 123456
+                    wallet_division: 1
+        '304':
+          description: Not modified
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              schema:
+                type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              schema:
+                type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bad_request'
+              examples:
+                response:
+                  value:
+                    error: Bad request message
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+              examples:
+                response:
+                  value:
+                    error: Unauthorized message
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+              examples:
+                response:
+                  value:
+                    error: Forbidden message
+        '420':
+          description: Error limited
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_limited'
+              examples:
+                response:
+                  value:
+                    error: Error limited message
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/internal_server_error'
+              examples:
+                response:
+                  value:
+                    error: Internal server error message
+        '503':
+          description: Service unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/service_unavailable'
+              examples:
+                response:
+                  value:
+                    error: Service unavailable message
+        '504':
+          description: Gateway timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gateway_timeout'
+              examples:
+                response:
+                  value:
+                    error: Gateway timeout message
+      security:
+      - evesso:
+        - esi-markets.read_corporation_orders.v1
+      summary: EVE Online List Open Orders from a Corporation
+      tags:
+      - Market
+      x-alternate-versions:
+      - dev
+      - legacy
+      - v2
+      - v3
+      x-cached-seconds: 1200
+      x-required-roles:
+      - Accountant
+      - Trader
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /corporations/{corporation_id}/orders/history/:
+    get:
+      description: 'List cancelled and expired market orders placed on behalf of a corporation up to 90 days in the past.
+
+
+        ---
+
+        Alternate route: `/dev/corporations/{corporation_id}/orders/history/`
+
+
+        Alternate route: `/legacy/corporations/{corporation_id}/orders/history/`
+
+
+        Alternate route: `/v1/corporations/{corporation_id}/orders/history/`
+
+
+        Alternate route: `/v2/corporations/{corporation_id}/orders/history/`
+
+
+        ---
+
+        This route is cached for up to 3600 seconds
+
+
+        ---
+
+        Requires one of the following EVE corporation role(s): Accountant, Trader
+
+        '
+      operationId: get_corporations_corporation_id_orders_history
+      parameters:
+      - $ref: '#/components/parameters/corporation_id'
+      - $ref: '#/components/parameters/datasource'
+      - $ref: '#/components/parameters/If-None-Match'
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/token'
+      responses:
+        '200':
+          description: Expired and cancelled market orders placed on behalf of a corporation
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              schema:
+                type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              schema:
+                type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+            X-Pages:
+              description: Maximum page number
+              schema:
+                type: integer
+                format: int32
+                default: 1
+          content:
+            application/json:
+              schema:
+                description: 200 ok array
+                items:
+                  description: 200 ok object
+                  properties:
+                    duration:
+                      description: Number of days the order was valid for (starting from the issued date). An order expires at time issued + duration
+                      format: int32
+                      title: get_corporations_corporation_id_orders_history_duration
+                      type: integer
+                    escrow:
+                      description: For buy orders, the amount of ISK in escrow
+                      format: double
+                      title: get_corporations_corporation_id_orders_history_escrow
+                      type: number
+                    is_buy_order:
+                      description: True if the order is a bid (buy) order
+                      title: get_corporations_corporation_id_orders_history_is_buy_order
+                      type: boolean
+                    issued:
+                      description: Date and time when this order was issued
+                      format: date-time
+                      title: get_corporations_corporation_id_orders_history_issued
+                      type: string
+                    issued_by:
+                      description: The character who issued this order
+                      format: int32
+                      title: get_corporations_corporation_id_orders_history_issued_by
+                      type: integer
+                    location_id:
+                      description: ID of the location where order was placed
+                      format: int64
+                      title: get_corporations_corporation_id_orders_history_location_id
+                      type: integer
+                    min_volume:
+                      description: For buy orders, the minimum quantity that will be accepted in a matching sell order
+                      format: int32
+                      title: get_corporations_corporation_id_orders_history_min_volume
+                      type: integer
+                    order_id:
+                      description: Unique order ID
+                      format: int64
+                      title: get_corporations_corporation_id_orders_history_order_id
+                      type: integer
+                    price:
+                      description: Cost per unit for this order
+                      format: double
+                      title: get_corporations_corporation_id_orders_history_price
+                      type: number
+                    range:
+                      description: Valid order range, numbers are ranges in jumps
+                      enum:
+                      - '1'
+                      - '10'
+                      - '2'
+                      - '20'
+                      - '3'
+                      - '30'
+                      - '4'
+                      - '40'
+                      - '5'
+                      - region
+                      - solarsystem
+                      - station
+                      title: get_corporations_corporation_id_orders_history_range
+                      type: string
+                    region_id:
+                      description: ID of the region where order was placed
+                      format: int32
+                      title: get_corporations_corporation_id_orders_history_region_id
+                      type: integer
+                    state:
+                      description: Current order state
+                      enum:
+                      - cancelled
+                      - expired
+                      title: get_corporations_corporation_id_orders_history_state
+                      type: string
+                    type_id:
+                      description: The type ID of the item transacted in this order
+                      format: int32
+                      title: get_corporations_corporation_id_orders_history_type_id
+                      type: integer
+                    volume_remain:
+                      description: Quantity of items still required or offered
+                      format: int32
+                      title: get_corporations_corporation_id_orders_history_volume_remain
+                      type: integer
+                    volume_total:
+                      description: Quantity of items required or offered at time order was placed
+                      format: int32
+                      title: get_corporations_corporation_id_orders_history_volume_total
+                      type: integer
+                    wallet_division:
+                      description: The corporation wallet division used for this order
+                      format: int32
+                      maximum: 7
+                      minimum: 1
+                      title: get_corporations_corporation_id_orders_history_wallet_division
+                      type: integer
+                  required:
+                  - wallet_division
+                  - duration
+                  - state
+                  - order_id
+                  - type_id
+                  - region_id
+                  - location_id
+                  - range
+                  - price
+                  - volume_total
+                  - volume_remain
+                  - issued
+                  title: get_corporations_corporation_id_orders_history_200_ok
+                  type: object
+                maxItems: 1000
+                title: get_corporations_corporation_id_orders_history_ok
+                type: array
+              examples:
+                response:
+                  value:
+                  - duration: 30
+                    escrow: 45.6
+                    is_buy_order: true
+                    issued: 2016-09-03 05:12:25+00:00
+                    issued_by: 2112625428
+                    location_id: 456
+                    min_volume: 1
+                    order_id: 123
+                    price: 33.3
+                    range: station
+                    region_id: 123
+                    state: expired
+                    type_id: 456
+                    volume_remain: 4422
+                    volume_total: 123456
+                    wallet_division: 1
+        '304':
+          description: Not modified
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              schema:
+                type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              schema:
+                type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bad_request'
+              examples:
+                response:
+                  value:
+                    error: Bad request message
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+              examples:
+                response:
+                  value:
+                    error: Unauthorized message
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+              examples:
+                response:
+                  value:
+                    error: Forbidden message
+        '420':
+          description: Error limited
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_limited'
+              examples:
+                response:
+                  value:
+                    error: Error limited message
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/internal_server_error'
+              examples:
+                response:
+                  value:
+                    error: Internal server error message
+        '503':
+          description: Service unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/service_unavailable'
+              examples:
+                response:
+                  value:
+                    error: Service unavailable message
+        '504':
+          description: Gateway timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gateway_timeout'
+              examples:
+                response:
+                  value:
+                    error: Gateway timeout message
+      security:
+      - evesso:
+        - esi-markets.read_corporation_orders.v1
+      summary: EVE Online List Historical Orders from a Corporation
+      tags:
+      - Market
+      x-alternate-versions:
+      - dev
+      - legacy
+      - v1
+      - v2
+      x-cached-seconds: 3600
+      x-required-roles:
+      - Accountant
+      - Trader
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /markets/groups/:
+    get:
+      description: 'Get a list of item groups
+
+
+        ---
+
+        Alternate route: `/dev/markets/groups/`
+
+
+        Alternate route: `/legacy/markets/groups/`
+
+
+        Alternate route: `/v1/markets/groups/`
+
+
+        ---
+
+        This route expires daily at 11:05'
+      operationId: get_markets_groups
+      parameters:
+      - $ref: '#/components/parameters/datasource'
+      - $ref: '#/components/parameters/If-None-Match'
+      responses:
+        '200':
+          description: A list of item group ids
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              schema:
+                type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              schema:
+                type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                description: 200 ok array
+                items:
+                  description: 200 ok integer
+                  format: int32
+                  title: get_markets_groups_200_ok
+                  type: integer
+                maxItems: 5000
+                title: get_markets_groups_ok
+                type: array
+              examples:
+                response:
+                  value:
+                  - 1
+                  - 2
+                  - 3
+        '304':
+          description: Not modified
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              schema:
+                type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              schema:
+                type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bad_request'
+              examples:
+                response:
+                  value:
+                    error: Bad request message
+        '420':
+          description: Error limited
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_limited'
+              examples:
+                response:
+                  value:
+                    error: Error limited message
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/internal_server_error'
+              examples:
+                response:
+                  value:
+                    error: Internal server error message
+        '503':
+          description: Service unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/service_unavailable'
+              examples:
+                response:
+                  value:
+                    error: Service unavailable message
+        '504':
+          description: Gateway timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gateway_timeout'
+              examples:
+                response:
+                  value:
+                    error: Gateway timeout message
+      summary: EVE Online Get Item Groups
+      tags:
+      - Market
+      x-alternate-versions:
+      - dev
+      - legacy
+      - v1
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /markets/groups/{market_group_id}/:
+    get:
+      description: 'Get information on an item group
+
+
+        ---
+
+        Alternate route: `/dev/markets/groups/{market_group_id}/`
+
+
+        Alternate route: `/legacy/markets/groups/{market_group_id}/`
+
+
+        Alternate route: `/v1/markets/groups/{market_group_id}/`
+
+
+        ---
+
+        This route expires daily at 11:05'
+      operationId: get_markets_groups_market_group_id
+      parameters:
+      - $ref: '#/components/parameters/Accept-Language'
+      - $ref: '#/components/parameters/datasource'
+      - $ref: '#/components/parameters/If-None-Match'
+      - $ref: '#/components/parameters/language'
+      - description: An Eve item group ID
+        in: path
+        name: market_group_id
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 1001
+      responses:
+        '200':
+          description: Information about an item group
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              schema:
+                type: string
+            Content-Language:
+              description: The language used in the response
+              schema:
+                type: string
+                enum:
+                - en
+                - de
+                - fr
+                - ja
+                - ru
+                - zh
+                - ko
+                - es
+            ETag:
+              description: RFC7232 compliant entity tag
+              schema:
+                type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                description: 200 ok object
+                properties:
+                  description:
+                    description: description string
+                    title: get_markets_groups_market_group_id_description
+                    type: string
+                  market_group_id:
+                    description: market_group_id integer
+                    format: int32
+                    title: get_markets_groups_market_group_id_market_group_id
+                    type: integer
+                  name:
+                    description: name string
+                    title: get_markets_groups_market_group_id_name
+                    type: string
+                  parent_group_id:
+                    description: parent_group_id integer
+                    format: int32
+                    title: get_markets_groups_market_group_id_parent_group_id
+                    type: integer
+                  types:
+                    description: types array
+                    items:
+                      description: type integer
+                      format: int32
+                      title: get_markets_groups_market_group_id_type
+                      type: integer
+                    maxItems: 5000
+                    title: get_markets_groups_market_group_id_types
+                    type: array
+                required:
+                - market_group_id
+                - name
+                - description
+                - types
+                title: get_markets_groups_market_group_id_ok
+                type: object
+              examples:
+                response:
+                  value:
+                    description: Small, fast vessels suited to a variety of purposes.
+                    market_group_id: 5
+                    name: Standard Frigates
+                    parent_group_id: 1361
+                    types:
+                    - 582
+                    - 583
+        '304':
+          description: Not modified
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              schema:
+                type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              schema:
+                type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bad_request'
+              examples:
+                response:
+                  value:
+                    error: Bad request message
+        '404':
+          description: Market group not found
+          content:
+            application/json:
+              schema:
+                description: Not found
+                properties:
+                  error:
+                    description: Not found message
+                    title: get_markets_groups_market_group_id_404_not_found
+                    type: string
+                title: get_markets_groups_market_group_id_not_found
+                type: object
+              examples:
+                response:
+                  value:
+                    error: Not found message
+        '420':
+          description: Error limited
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_limited'
+              examples:
+                response:
+                  value:
+                    error: Error limited message
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/internal_server_error'
+              examples:
+                response:
+                  value:
+                    error: Internal server error message
+        '503':
+          description: Service unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/service_unavailable'
+              examples:
+                response:
+                  value:
+                    error: Service unavailable message
+        '504':
+          description: Gateway timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gateway_timeout'
+              examples:
+                response:
+                  value:
+                    error: Gateway timeout message
+      summary: EVE Online Get Item Group Information
+      tags:
+      - Market
+      x-alternate-versions:
+      - dev
+      - legacy
+      - v1
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /markets/prices/:
+    get:
+      description: 'Return a list of prices
+
+
+        ---
+
+        Alternate route: `/dev/markets/prices/`
+
+
+        Alternate route: `/legacy/markets/prices/`
+
+
+        Alternate route: `/v1/markets/prices/`
+
+
+        ---
+
+        This route is cached for up to 3600 seconds'
+      operationId: get_markets_prices
+      parameters:
+      - $ref: '#/components/parameters/datasource'
+      - $ref: '#/components/parameters/If-None-Match'
+      responses:
+        '200':
+          description: A list of prices
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              schema:
+                type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              schema:
+                type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                description: 200 ok array
+                items:
+                  description: 200 ok object
+                  properties:
+                    adjusted_price:
+                      description: adjusted_price number
+                      format: double
+                      title: get_markets_prices_adjusted_price
+                      type: number
+                    average_price:
+                      description: average_price number
+                      format: double
+                      title: get_markets_prices_average_price
+                      type: number
+                    type_id:
+                      description: type_id integer
+                      format: int32
+                      title: get_markets_prices_type_id
+                      type: integer
+                  required:
+                  - type_id
+                  title: get_markets_prices_200_ok
+                  type: object
+                maxItems: 20000
+                title: get_markets_prices_ok
+                type: array
+              examples:
+                response:
+                  value:
+                  - adjusted_price: 306988.09
+                    average_price: 306292.67
+                    type_id: 32772
+        '304':
+          description: Not modified
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              schema:
+                type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              schema:
+                type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bad_request'
+              examples:
+                response:
+                  value:
+                    error: Bad request message
+        '420':
+          description: Error limited
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_limited'
+              examples:
+                response:
+                  value:
+                    error: Error limited message
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/internal_server_error'
+              examples:
+                response:
+                  value:
+                    error: Internal server error message
+        '503':
+          description: Service unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/service_unavailable'
+              examples:
+                response:
+                  value:
+                    error: Service unavailable message
+        '504':
+          description: Gateway timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gateway_timeout'
+              examples:
+                response:
+                  value:
+                    error: Gateway timeout message
+      summary: EVE Online List Market Prices
+      tags:
+      - Market
+      x-alternate-versions:
+      - dev
+      - legacy
+      - v1
+      x-cached-seconds: 3600
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /markets/structures/{structure_id}/:
+    get:
+      description: 'Return all orders in a structure
+
+
+        ---
+
+        Alternate route: `/dev/markets/structures/{structure_id}/`
+
+
+        Alternate route: `/legacy/markets/structures/{structure_id}/`
+
+
+        Alternate route: `/v1/markets/structures/{structure_id}/`
+
+
+        ---
+
+        This route is cached for up to 300 seconds'
+      operationId: get_markets_structures_structure_id
+      parameters:
+      - $ref: '#/components/parameters/datasource'
+      - $ref: '#/components/parameters/If-None-Match'
+      - $ref: '#/components/parameters/page'
+      - description: Return orders in this structure
+        in: path
+        name: structure_id
+        required: true
+        schema:
+          type: integer
+          format: int64
+        example: 1023774736901
+      - $ref: '#/components/parameters/token'
+      responses:
+        '200':
+          description: A list of orders
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              schema:
+                type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              schema:
+                type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+            X-Pages:
+              description: Maximum page number
+              schema:
+                type: integer
+                format: int32
+                default: 1
+          content:
+            application/json:
+              schema:
+                description: 200 ok array
+                items:
+                  description: 200 ok object
+                  properties:
+                    duration:
+                      description: duration integer
+                      format: int32
+                      title: get_markets_structures_structure_id_duration
+                      type: integer
+                    is_buy_order:
+                      description: is_buy_order boolean
+                      title: get_markets_structures_structure_id_is_buy_order
+                      type: boolean
+                    issued:
+                      description: issued string
+                      format: date-time
+                      title: get_markets_structures_structure_id_issued
+                      type: string
+                    location_id:
+                      description: location_id integer
+                      format: int64
+                      title: get_markets_structures_structure_id_location_id
+                      type: integer
+                    min_volume:
+                      description: min_volume integer
+                      format: int32
+                      title: get_markets_structures_structure_id_min_volume
+                      type: integer
+                    order_id:
+                      description: order_id integer
+                      format: int64
+                      title: get_markets_structures_structure_id_order_id
+                      type: integer
+                    price:
+                      description: price number
+                      format: double
+                      title: get_markets_structures_structure_id_price
+                      type: number
+                    range:
+                      description: range string
+                      enum:
+                      - station
+                      - region
+                      - solarsystem
+                      - '1'
+                      - '2'
+                      - '3'
+                      - '4'
+                      - '5'
+                      - '10'
+                      - '20'
+                      - '30'
+                      - '40'
+                      title: get_markets_structures_structure_id_range
+                      type: string
+                    type_id:
+                      description: type_id integer
+                      format: int32
+                      title: get_markets_structures_structure_id_type_id
+                      type: integer
+                    volume_remain:
+                      description: volume_remain integer
+                      format: int32
+                      title: get_markets_structures_structure_id_volume_remain
+                      type: integer
+                    volume_total:
+                      description: volume_total integer
+                      format: int32
+                      title: get_markets_structures_structure_id_volume_total
+                      type: integer
+                  required:
+                  - order_id
+                  - type_id
+                  - location_id
+                  - volume_total
+                  - volume_remain
+                  - min_volume
+                  - price
+                  - is_buy_order
+                  - duration
+                  - issued
+                  - range
+                  title: get_markets_structures_structure_id_200_ok
+                  type: object
+                maxItems: 1000
+                title: get_markets_structures_structure_id_ok
+                type: array
+              examples:
+                response:
+                  value:
+                  - duration: 90
+                    is_buy_order: false
+                    issued: 2016-09-03 05:12:25+00:00
+                    location_id: 1020988381992
+                    min_volume: 1
+                    order_id: 4623824223
+                    price: 9.9
+                    range: region
+                    type_id: 34
+                    volume_remain: 1296000
+                    volume_total: 2000000
+        '304':
+          description: Not modified
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              schema:
+                type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              schema:
+                type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bad_request'
+              examples:
+                response:
+                  value:
+                    error: Bad request message
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+              examples:
+                response:
+                  value:
+                    error: Unauthorized message
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+              examples:
+                response:
+                  value:
+                    error: Forbidden message
+        '420':
+          description: Error limited
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_limited'
+              examples:
+                response:
+                  value:
+                    error: Error limited message
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/internal_server_error'
+              examples:
+                response:
+                  value:
+                    error: Internal server error message
+        '503':
+          description: Service unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/service_unavailable'
+              examples:
+                response:
+                  value:
+                    error: Service unavailable message
+        '504':
+          description: Gateway timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gateway_timeout'
+              examples:
+                response:
+                  value:
+                    error: Gateway timeout message
+      security:
+      - evesso:
+        - esi-markets.structure_markets.v1
+      summary: EVE Online List Orders in a Structure
+      tags:
+      - Market
+      x-alternate-versions:
+      - dev
+      - legacy
+      - v1
+      x-cached-seconds: 300
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /markets/{region_id}/history/:
+    get:
+      description: 'Return a list of historical market statistics for the specified type in a region
+
+
+        ---
+
+        Alternate route: `/dev/markets/{region_id}/history/`
+
+
+        Alternate route: `/legacy/markets/{region_id}/history/`
+
+
+        Alternate route: `/v1/markets/{region_id}/history/`
+
+
+        ---
+
+        This route expires daily at 11:05'
+      operationId: get_markets_region_id_history
+      parameters:
+      - $ref: '#/components/parameters/datasource'
+      - $ref: '#/components/parameters/If-None-Match'
+      - description: Return statistics in this region
+        in: path
+        name: region_id
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 10000002
+      - description: Return statistics for this type
+        in: query
+        name: type_id
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 587
+      responses:
+        '200':
+          description: A list of historical market statistics
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              schema:
+                type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              schema:
+                type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                description: 200 ok array
+                items:
+                  description: 200 ok object
+                  properties:
+                    average:
+                      description: average number
+                      format: double
+                      title: get_markets_region_id_history_average
+                      type: number
+                    date:
+                      description: The date of this historical statistic entry
+                      format: date
+                      title: get_markets_region_id_history_date
+                      type: string
+                    highest:
+                      description: highest number
+                      format: double
+                      title: get_markets_region_id_history_highest
+                      type: number
+                    lowest:
+                      description: lowest number
+                      format: double
+                      title: get_markets_region_id_history_lowest
+                      type: number
+                    order_count:
+                      description: Total number of orders happened that day
+                      format: int64
+                      title: get_markets_region_id_history_order_count
+                      type: integer
+                    volume:
+                      description: Total
+                      format: int64
+                      title: get_markets_region_id_history_volume
+                      type: integer
+                  required:
+                  - date
+                  - order_count
+                  - volume
+                  - highest
+                  - average
+                  - lowest
+                  title: get_markets_region_id_history_200_ok
+                  type: object
+                maxItems: 500
+                title: get_markets_region_id_history_ok
+                type: array
+              examples:
+                response:
+                  value:
+                  - average: 5.25
+                    date: 2015-05-01
+                    highest: 5.27
+                    lowest: 5.11
+                    order_count: 2267
+                    volume: 16276782035
+        '304':
+          description: Not modified
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              schema:
+                type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              schema:
+                type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bad_request'
+              examples:
+                response:
+                  value:
+                    error: Bad request message
+        '404':
+          description: Type not found
+          content:
+            application/json:
+              schema:
+                description: Not found
+                properties:
+                  error:
+                    description: Not found message
+                    title: get_markets_region_id_history_404_not_found
+                    type: string
+                title: get_markets_region_id_history_not_found
+                type: object
+              examples:
+                response:
+                  value:
+                    error: Not found message
+        '420':
+          description: Error limited
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_limited'
+              examples:
+                response:
+                  value:
+                    error: Error limited message
+        '422':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                description: Unprocessable entity
+                properties:
+                  error:
+                    description: Unprocessable entity message
+                    title: get_markets_region_id_history_422_unprocessable_entity
+                    type: string
+                title: get_markets_region_id_history_unprocessable_entity
+                type: object
+              examples:
+                response:
+                  value:
+                    error: Unprocessable entity message
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/internal_server_error'
+              examples:
+                response:
+                  value:
+                    error: Internal server error message
+        '503':
+          description: Service unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/service_unavailable'
+              examples:
+                response:
+                  value:
+                    error: Service unavailable message
+        '504':
+          description: Gateway timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gateway_timeout'
+              examples:
+                response:
+                  value:
+                    error: Gateway timeout message
+        '520':
+          description: Internal error thrown from the EVE server
+          content:
+            application/json:
+              schema:
+                description: Error 520
+                properties:
+                  error:
+                    description: Error 520 message
+                    title: get_markets_region_id_history_520_error_520
+                    type: string
+                title: get_markets_region_id_history_error_520
+                type: object
+              examples:
+                response:
+                  value:
+                    error: Error 520 message
+      summary: EVE Online List Historical Market Statistics in a Region
+      tags:
+      - Market
+      x-alternate-versions:
+      - dev
+      - legacy
+      - v1
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /markets/{region_id}/orders/:
+    get:
+      description: 'Return a list of orders in a region
+
+
+        ---
+
+        Alternate route: `/dev/markets/{region_id}/orders/`
+
+
+        Alternate route: `/legacy/markets/{region_id}/orders/`
+
+
+        Alternate route: `/v1/markets/{region_id}/orders/`
+
+
+        ---
+
+        This route is cached for up to 300 seconds'
+      operationId: get_markets_region_id_orders
+      parameters:
+      - $ref: '#/components/parameters/datasource'
+      - $ref: '#/components/parameters/If-None-Match'
+      - description: Filter buy/sell orders, return all orders by default. If you query without type_id, we always return both buy and sell orders
+        in: query
+        name: order_type
+        required: true
+        schema:
+          type: string
+          enum:
+          - buy
+          - sell
+          - all
+          default: all
+        example: buy
+      - $ref: '#/components/parameters/page'
+      - description: Return orders in this region
+        in: path
+        name: region_id
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 10000002
+      - description: Return orders only for this type
+        in: query
+        name: type_id
+        required: false
+        schema:
+          type: integer
+          format: int32
+        example: 587
+      responses:
+        '200':
+          description: A list of orders
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              schema:
+                type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              schema:
+                type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+            X-Pages:
+              description: Maximum page number
+              schema:
+                type: integer
+                format: int32
+                default: 1
+          content:
+            application/json:
+              schema:
+                description: 200 ok array
+                items:
+                  description: 200 ok object
+                  properties:
+                    duration:
+                      description: duration integer
+                      format: int32
+                      title: get_markets_region_id_orders_duration
+                      type: integer
+                    is_buy_order:
+                      description: is_buy_order boolean
+                      title: get_markets_region_id_orders_is_buy_order
+                      type: boolean
+                    issued:
+                      description: issued string
+                      format: date-time
+                      title: get_markets_region_id_orders_issued
+                      type: string
+                    location_id:
+                      description: location_id integer
+                      format: int64
+                      title: get_markets_region_id_orders_location_id
+                      type: integer
+                    min_volume:
+                      description: min_volume integer
+                      format: int32
+                      title: get_markets_region_id_orders_min_volume
+                      type: integer
+                    order_id:
+                      description: order_id integer
+                      format: int64
+                      title: get_markets_region_id_orders_order_id
+                      type: integer
+                    price:
+                      description: price number
+                      format: double
+                      title: get_markets_region_id_orders_price
+                      type: number
+                    range:
+                      description: range string
+                      enum:
+                      - station
+                      - region
+                      - solarsystem
+                      - '1'
+                      - '2'
+                      - '3'
+                      - '4'
+                      - '5'
+                      - '10'
+                      - '20'
+                      - '30'
+                      - '40'
+                      title: get_markets_region_id_orders_range
+                      type: string
+                    system_id:
+                      description: The solar system this order was placed
+                      format: int32
+                      title: get_markets_region_id_orders_system_id
+                      type: integer
+                    type_id:
+                      description: type_id integer
+                      format: int32
+                      title: get_markets_region_id_orders_type_id
+                      type: integer
+                    volume_remain:
+                      description: volume_remain integer
+                      format: int32
+                      title: get_markets_region_id_orders_volume_remain
+                      type: integer
+                    volume_total:
+                      description: volume_total integer
+                      format: int32
+                      title: get_markets_region_id_orders_volume_total
+                      type: integer
+                  required:
+                  - order_id
+                  - type_id
+                  - location_id
+                  - system_id
+                  - volume_total
+                  - volume_remain
+                  - min_volume
+                  - price
+                  - is_buy_order
+                  - duration
+                  - issued
+                  - range
+                  title: get_markets_region_id_orders_200_ok
+                  type: object
+                maxItems: 1000
+                title: get_markets_region_id_orders_ok
+                type: array
+              examples:
+                response:
+                  value:
+                  - duration: 90
+                    is_buy_order: false
+                    issued: 2016-09-03 05:12:25+00:00
+                    location_id: 60005599
+                    min_volume: 1
+                    order_id: 4623824223
+                    price: 9.9
+                    range: region
+                    system_id: 30000053
+                    type_id: 34
+                    volume_remain: 1296000
+                    volume_total: 2000000
+        '304':
+          description: Not modified
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              schema:
+                type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              schema:
+                type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bad_request'
+              examples:
+                response:
+                  value:
+                    error: Bad request message
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                description: Not found
+                properties:
+                  error:
+                    description: Not found message
+                    title: get_markets_region_id_orders_404_not_found
+                    type: string
+                title: get_markets_region_id_orders_not_found
+                type: object
+              examples:
+                response:
+                  value:
+                    error: Not found message
+        '420':
+          description: Error limited
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_limited'
+              examples:
+                response:
+                  value:
+                    error: Error limited message
+        '422':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                description: Unprocessable entity
+                properties:
+                  error:
+                    description: Unprocessable entity message
+                    title: get_markets_region_id_orders_422_unprocessable_entity
+                    type: string
+                title: get_markets_region_id_orders_unprocessable_entity
+                type: object
+              examples:
+                response:
+                  value:
+                    error: Unprocessable entity message
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/internal_server_error'
+              examples:
+                response:
+                  value:
+                    error: Internal server error message
+        '503':
+          description: Service unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/service_unavailable'
+              examples:
+                response:
+                  value:
+                    error: Service unavailable message
+        '504':
+          description: Gateway timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gateway_timeout'
+              examples:
+                response:
+                  value:
+                    error: Gateway timeout message
+      summary: EVE Online List Orders in a Region
+      tags:
+      - Market
+      x-alternate-versions:
+      - dev
+      - legacy
+      - v1
+      x-cached-seconds: 300
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /markets/{region_id}/types/:
+    get:
+      description: 'Return a list of type IDs that have active orders in the region, for efficient market indexing.
+
+
+        ---
+
+        Alternate route: `/dev/markets/{region_id}/types/`
+
+
+        Alternate route: `/legacy/markets/{region_id}/types/`
+
+
+        Alternate route: `/v1/markets/{region_id}/types/`
+
+
+        ---
+
+        This route is cached for up to 600 seconds'
+      operationId: get_markets_region_id_types
+      parameters:
+      - $ref: '#/components/parameters/datasource'
+      - $ref: '#/components/parameters/If-None-Match'
+      - $ref: '#/components/parameters/page'
+      - description: Return statistics in this region
+        in: path
+        name: region_id
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 10000002
+      responses:
+        '200':
+          description: A list of type IDs
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              schema:
+                type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              schema:
+                type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+            X-Pages:
+              description: Maximum page number
+              schema:
+                type: integer
+                format: int32
+                default: 1
+          content:
+            application/json:
+              schema:
+                description: 200 ok array
+                items:
+                  description: 200 ok integer
+                  format: int32
+                  title: get_markets_region_id_types_200_ok
+                  type: integer
+                maxItems: 1000
+                title: get_markets_region_id_types_ok
+                type: array
+              examples:
+                response:
+                  value:
+                  - 587
+                  - 593
+                  - 597
+        '304':
+          description: Not modified
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              schema:
+                type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              schema:
+                type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bad_request'
+              examples:
+                response:
+                  value:
+                    error: Bad request message
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                description: Not found
+                properties:
+                  error:
+                    description: Not found message
+                    title: get_markets_region_id_types_404_not_found
+                    type: string
+                title: get_markets_region_id_types_not_found
+                type: object
+              examples:
+                response:
+                  value:
+                    error: Not found message
+        '420':
+          description: Error limited
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_limited'
+              examples:
+                response:
+                  value:
+                    error: Error limited message
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/internal_server_error'
+              examples:
+                response:
+                  value:
+                    error: Internal server error message
+        '503':
+          description: Service unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/service_unavailable'
+              examples:
+                response:
+                  value:
+                    error: Service unavailable message
+        '504':
+          description: Gateway timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gateway_timeout'
+              examples:
+                response:
+                  value:
+                    error: Gateway timeout message
+      summary: EVE Online List Type IDs Relevant to a Market
+      tags:
+      - Market
+      x-alternate-versions:
+      - dev
+      - legacy
+      - v1
+      x-cached-seconds: 600
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v1/characters/{character_id}/orders/history/:
+    get:
+      description: 'List cancelled and expired market orders placed by a character up to 90 days in the past.
+
+
+        ---
+
+
+        This route is cached for up to 3600 seconds'
+      operationId: get_characters_character_id_orders_history
+      parameters:
+      - $ref: '#/parameters/character_id'
+      - $ref: '#/parameters/datasource'
+      - $ref: '#/parameters/If-None-Match'
+      - $ref: '#/parameters/page'
+      - $ref: '#/parameters/token'
+      responses:
+        '200':
+          description: Expired and cancelled market orders placed by a character
+          examples:
+            application/json:
+            - duration: 30
+              escrow: 45.6
+              is_buy_order: true
+              is_corporation: false
+              issued: '2016-09-03T05:12:25Z'
+              location_id: 456
+              min_volume: 1
+              order_id: 123
+              price: 33.3
+              range: station
+              region_id: 123
+              state: expired
+              type_id: 456
+              volume_remain: 4422
+              volume_total: 123456
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              type: string
+            X-Pages:
+              default: 1
+              description: Maximum page number
+              format: int32
+              type: integer
+          schema:
+            description: 200 ok array
+            items:
+              description: 200 ok object
+              properties:
+                duration:
+                  description: Number of days the order was valid for (starting from the issued date). An order expires at time issued + duration
+                  format: int32
+                  title: get_characters_character_id_orders_history_duration
+                  type: integer
+                escrow:
+                  description: For buy orders, the amount of ISK in escrow
+                  format: double
+                  title: get_characters_character_id_orders_history_escrow
+                  type: number
+                is_buy_order:
+                  description: True if the order is a bid (buy) order
+                  title: get_characters_character_id_orders_history_is_buy_order
+                  type: boolean
+                is_corporation:
+                  description: Signifies whether the buy/sell order was placed on behalf of a corporation.
+                  title: get_characters_character_id_orders_history_is_corporation
+                  type: boolean
+                issued:
+                  description: Date and time when this order was issued
+                  format: date-time
+                  title: get_characters_character_id_orders_history_issued
+                  type: string
+                location_id:
+                  description: ID of the location where order was placed
+                  format: int64
+                  title: get_characters_character_id_orders_history_location_id
+                  type: integer
+                min_volume:
+                  description: For buy orders, the minimum quantity that will be accepted in a matching sell order
+                  format: int32
+                  title: get_characters_character_id_orders_history_min_volume
+                  type: integer
+                order_id:
+                  description: Unique order ID
+                  format: int64
+                  title: get_characters_character_id_orders_history_order_id
+                  type: integer
+                price:
+                  description: Cost per unit for this order
+                  format: double
+                  title: get_characters_character_id_orders_history_price
+                  type: number
+                range:
+                  description: Valid order range, numbers are ranges in jumps
+                  enum:
+                  - '1'
+                  - '10'
+                  - '2'
+                  - '20'
+                  - '3'
+                  - '30'
+                  - '4'
+                  - '40'
+                  - '5'
+                  - region
+                  - solarsystem
+                  - station
+                  title: get_characters_character_id_orders_history_range
+                  type: string
+                region_id:
+                  description: ID of the region where order was placed
+                  format: int32
+                  title: get_characters_character_id_orders_history_region_id
+                  type: integer
+                state:
+                  description: Current order state
+                  enum:
+                  - cancelled
+                  - expired
+                  title: get_characters_character_id_orders_history_state
+                  type: string
+                type_id:
+                  description: The type ID of the item transacted in this order
+                  format: int32
+                  title: get_characters_character_id_orders_history_type_id
+                  type: integer
+                volume_remain:
+                  description: Quantity of items still required or offered
+                  format: int32
+                  title: get_characters_character_id_orders_history_volume_remain
+                  type: integer
+                volume_total:
+                  description: Quantity of items required or offered at time order was placed
+                  format: int32
+                  title: get_characters_character_id_orders_history_volume_total
+                  type: integer
+              required:
+              - is_corporation
+              - duration
+              - state
+              - order_id
+              - type_id
+              - region_id
+              - location_id
+              - range
+              - price
+              - volume_total
+              - volume_remain
+              - issued
+              title: get_characters_character_id_orders_history_200_ok
+              type: object
+            maxItems: 1000
+            title: get_characters_character_id_orders_history_ok
+            type: array
+        '304':
+          description: Not modified
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              type: string
+        '400':
+          description: Bad request
+          examples:
+            application/json:
+              error: Bad request message
+          schema:
+            $ref: '#/definitions/bad_request'
+        '401':
+          description: Unauthorized
+          examples:
+            application/json:
+              error: Unauthorized message
+          schema:
+            $ref: '#/definitions/unauthorized'
+        '403':
+          description: Forbidden
+          examples:
+            application/json:
+              error: Forbidden message
+          schema:
+            $ref: '#/definitions/forbidden'
+        '420':
+          description: Error limited
+          examples:
+            application/json:
+              error: Error limited message
+          schema:
+            $ref: '#/definitions/error_limited'
+        '500':
+          description: Internal server error
+          examples:
+            application/json:
+              error: Internal server error message
+          schema:
+            $ref: '#/definitions/internal_server_error'
+        '503':
+          description: Service unavailable
+          examples:
+            application/json:
+              error: Service unavailable message
+          schema:
+            $ref: '#/definitions/service_unavailable'
+        '504':
+          description: Gateway timeout
+          examples:
+            application/json:
+              error: Gateway timeout message
+          schema:
+            $ref: '#/definitions/gateway_timeout'
+      security:
+      - evesso:
+        - esi-markets.read_character_orders.v1
+      summary: List historical orders by a character
+      tags:
+      - Market
+      x-alternate-versions:
+      - latest
+      - legacy
+      - v1
+      x-cached-seconds: 3600
+  /v1/corporations/{corporation_id}/orders/history/:
+    get:
+      description: 'List cancelled and expired market orders placed on behalf of a corporation up to 90 days in the past.
+
+
+        ---
+
+
+        This route is cached for up to 3600 seconds
+
+
+        ---
+
+        Requires one of the following EVE corporation role(s): Accountant, Trader'
+      operationId: get_corporations_corporation_id_orders_history
+      parameters:
+      - $ref: '#/parameters/corporation_id'
+      - $ref: '#/parameters/datasource'
+      - $ref: '#/parameters/If-None-Match'
+      - $ref: '#/parameters/page'
+      - $ref: '#/parameters/token'
+      responses:
+        '200':
+          description: Expired and cancelled market orders placed on behalf of a corporation
+          examples:
+            application/json:
+            - duration: 30
+              escrow: 45.6
+              is_buy_order: true
+              issued: '2016-09-03T05:12:25Z'
+              issued_by: 2112625428
+              location_id: 456
+              min_volume: 1
+              order_id: 123
+              price: 33.3
+              range: station
+              region_id: 123
+              state: expired
+              type_id: 456
+              volume_remain: 4422
+              volume_total: 123456
+              wallet_division: 1
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              type: string
+            X-Pages:
+              default: 1
+              description: Maximum page number
+              format: int32
+              type: integer
+          schema:
+            description: 200 ok array
+            items:
+              description: 200 ok object
+              properties:
+                duration:
+                  description: Number of days the order was valid for (starting from the issued date). An order expires at time issued + duration
+                  format: int32
+                  title: get_corporations_corporation_id_orders_history_duration
+                  type: integer
+                escrow:
+                  description: For buy orders, the amount of ISK in escrow
+                  format: double
+                  title: get_corporations_corporation_id_orders_history_escrow
+                  type: number
+                is_buy_order:
+                  description: True if the order is a bid (buy) order
+                  title: get_corporations_corporation_id_orders_history_is_buy_order
+                  type: boolean
+                issued:
+                  description: Date and time when this order was issued
+                  format: date-time
+                  title: get_corporations_corporation_id_orders_history_issued
+                  type: string
+                issued_by:
+                  description: The character who issued this order
+                  format: int32
+                  title: get_corporations_corporation_id_orders_history_issued_by
+                  type: integer
+                location_id:
+                  description: ID of the location where order was placed
+                  format: int64
+                  title: get_corporations_corporation_id_orders_history_location_id
+                  type: integer
+                min_volume:
+                  description: For buy orders, the minimum quantity that will be accepted in a matching sell order
+                  format: int32
+                  title: get_corporations_corporation_id_orders_history_min_volume
+                  type: integer
+                order_id:
+                  description: Unique order ID
+                  format: int64
+                  title: get_corporations_corporation_id_orders_history_order_id
+                  type: integer
+                price:
+                  description: Cost per unit for this order
+                  format: double
+                  title: get_corporations_corporation_id_orders_history_price
+                  type: number
+                range:
+                  description: Valid order range, numbers are ranges in jumps
+                  enum:
+                  - '1'
+                  - '10'
+                  - '2'
+                  - '20'
+                  - '3'
+                  - '30'
+                  - '4'
+                  - '40'
+                  - '5'
+                  - region
+                  - solarsystem
+                  - station
+                  title: get_corporations_corporation_id_orders_history_range
+                  type: string
+                region_id:
+                  description: ID of the region where order was placed
+                  format: int32
+                  title: get_corporations_corporation_id_orders_history_region_id
+                  type: integer
+                state:
+                  description: Current order state
+                  enum:
+                  - cancelled
+                  - expired
+                  title: get_corporations_corporation_id_orders_history_state
+                  type: string
+                type_id:
+                  description: The type ID of the item transacted in this order
+                  format: int32
+                  title: get_corporations_corporation_id_orders_history_type_id
+                  type: integer
+                volume_remain:
+                  description: Quantity of items still required or offered
+                  format: int32
+                  title: get_corporations_corporation_id_orders_history_volume_remain
+                  type: integer
+                volume_total:
+                  description: Quantity of items required or offered at time order was placed
+                  format: int32
+                  title: get_corporations_corporation_id_orders_history_volume_total
+                  type: integer
+                wallet_division:
+                  description: The corporation wallet division used for this order
+                  format: int32
+                  maximum: 7
+                  minimum: 1
+                  title: get_corporations_corporation_id_orders_history_wallet_division
+                  type: integer
+              required:
+              - wallet_division
+              - duration
+              - state
+              - order_id
+              - type_id
+              - region_id
+              - location_id
+              - range
+              - price
+              - volume_total
+              - volume_remain
+              - issued
+              title: get_corporations_corporation_id_orders_history_200_ok
+              type: object
+            maxItems: 1000
+            title: get_corporations_corporation_id_orders_history_ok
+            type: array
+        '304':
+          description: Not modified
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              type: string
+        '400':
+          description: Bad request
+          examples:
+            application/json:
+              error: Bad request message
+          schema:
+            $ref: '#/definitions/bad_request'
+        '401':
+          description: Unauthorized
+          examples:
+            application/json:
+              error: Unauthorized message
+          schema:
+            $ref: '#/definitions/unauthorized'
+        '403':
+          description: Forbidden
+          examples:
+            application/json:
+              error: Forbidden message
+          schema:
+            $ref: '#/definitions/forbidden'
+        '420':
+          description: Error limited
+          examples:
+            application/json:
+              error: Error limited message
+          schema:
+            $ref: '#/definitions/error_limited'
+        '500':
+          description: Internal server error
+          examples:
+            application/json:
+              error: Internal server error message
+          schema:
+            $ref: '#/definitions/internal_server_error'
+        '503':
+          description: Service unavailable
+          examples:
+            application/json:
+              error: Service unavailable message
+          schema:
+            $ref: '#/definitions/service_unavailable'
+        '504':
+          description: Gateway timeout
+          examples:
+            application/json:
+              error: Gateway timeout message
+          schema:
+            $ref: '#/definitions/gateway_timeout'
+      security:
+      - evesso:
+        - esi-markets.read_corporation_orders.v1
+      summary: List historical orders from a corporation
+      tags:
+      - Market
+      x-alternate-versions:
+      - latest
+      - legacy
+      - v1
+      - v2
+      x-cached-seconds: 3600
+      x-required-roles:
+      - Accountant
+      - Trader
+  /v1/markets/groups/:
+    get:
+      description: 'Get a list of item groups
+
+
+        ---
+
+
+        This route expires daily at 11:05'
+      operationId: get_markets_groups
+      parameters:
+      - $ref: '#/parameters/datasource'
+      - $ref: '#/parameters/If-None-Match'
+      responses:
+        '200':
+          description: A list of item group ids
+          examples:
+            application/json:
+            - 1
+            - 2
+            - 3
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              type: string
+          schema:
+            description: 200 ok array
+            items:
+              description: 200 ok integer
+              format: int32
+              title: get_markets_groups_200_ok
+              type: integer
+            maxItems: 5000
+            title: get_markets_groups_ok
+            type: array
+        '304':
+          description: Not modified
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              type: string
+        '400':
+          description: Bad request
+          examples:
+            application/json:
+              error: Bad request message
+          schema:
+            $ref: '#/definitions/bad_request'
+        '420':
+          description: Error limited
+          examples:
+            application/json:
+              error: Error limited message
+          schema:
+            $ref: '#/definitions/error_limited'
+        '500':
+          description: Internal server error
+          examples:
+            application/json:
+              error: Internal server error message
+          schema:
+            $ref: '#/definitions/internal_server_error'
+        '503':
+          description: Service unavailable
+          examples:
+            application/json:
+              error: Service unavailable message
+          schema:
+            $ref: '#/definitions/service_unavailable'
+        '504':
+          description: Gateway timeout
+          examples:
+            application/json:
+              error: Gateway timeout message
+          schema:
+            $ref: '#/definitions/gateway_timeout'
+      summary: Get item groups
+      tags:
+      - Market
+      x-alternate-versions:
+      - latest
+      - legacy
+      - v1
+  /v1/markets/groups/{market_group_id}/:
+    get:
+      description: 'Get information on an item group
+
+
+        ---
+
+
+        This route expires daily at 11:05'
+      operationId: get_markets_groups_market_group_id
+      parameters:
+      - $ref: '#/parameters/Accept-Language'
+      - $ref: '#/parameters/datasource'
+      - $ref: '#/parameters/If-None-Match'
+      - $ref: '#/parameters/language'
+      - description: An Eve item group ID
+        format: int32
+        in: path
+        name: market_group_id
+        required: true
+        type: integer
+      responses:
+        '200':
+          description: Information about an item group
+          examples:
+            application/json:
+              description: Small, fast vessels suited to a variety of purposes.
+              market_group_id: 5
+              name: Standard Frigates
+              parent_group_id: 1361
+              types:
+              - 582
+              - 583
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              type: string
+            Content-Language:
+              description: The language used in the response
+              enum:
+              - en
+              - de
+              - fr
+              - ja
+              - ru
+              - zh
+              - ko
+              - es
+              type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              type: string
+          schema:
+            description: 200 ok object
+            properties:
+              description:
+                description: description string
+                title: get_markets_groups_market_group_id_description
+                type: string
+              market_group_id:
+                description: market_group_id integer
+                format: int32
+                title: get_markets_groups_market_group_id_market_group_id
+                type: integer
+              name:
+                description: name string
+                title: get_markets_groups_market_group_id_name
+                type: string
+              parent_group_id:
+                description: parent_group_id integer
+                format: int32
+                title: get_markets_groups_market_group_id_parent_group_id
+                type: integer
+              types:
+                description: types array
+                items:
+                  description: type integer
+                  format: int32
+                  title: get_markets_groups_market_group_id_type
+                  type: integer
+                maxItems: 5000
+                title: get_markets_groups_market_group_id_types
+                type: array
+            required:
+            - market_group_id
+            - name
+            - description
+            - types
+            title: get_markets_groups_market_group_id_ok
+            type: object
+        '304':
+          description: Not modified
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              type: string
+        '400':
+          description: Bad request
+          examples:
+            application/json:
+              error: Bad request message
+          schema:
+            $ref: '#/definitions/bad_request'
+        '404':
+          description: Market group not found
+          examples:
+            application/json:
+              error: Not found message
+          schema:
+            description: Not found
+            properties:
+              error:
+                description: Not found message
+                title: get_markets_groups_market_group_id_404_not_found
+                type: string
+            title: get_markets_groups_market_group_id_not_found
+            type: object
+        '420':
+          description: Error limited
+          examples:
+            application/json:
+              error: Error limited message
+          schema:
+            $ref: '#/definitions/error_limited'
+        '500':
+          description: Internal server error
+          examples:
+            application/json:
+              error: Internal server error message
+          schema:
+            $ref: '#/definitions/internal_server_error'
+        '503':
+          description: Service unavailable
+          examples:
+            application/json:
+              error: Service unavailable message
+          schema:
+            $ref: '#/definitions/service_unavailable'
+        '504':
+          description: Gateway timeout
+          examples:
+            application/json:
+              error: Gateway timeout message
+          schema:
+            $ref: '#/definitions/gateway_timeout'
+      summary: Get item group information
+      tags:
+      - Market
+      x-alternate-versions:
+      - latest
+      - legacy
+      - v1
+  /v1/markets/prices/:
+    get:
+      description: 'Return a list of prices
+
+
+        ---
+
+
+        This route is cached for up to 3600 seconds'
+      operationId: get_markets_prices
+      parameters:
+      - $ref: '#/parameters/datasource'
+      - $ref: '#/parameters/If-None-Match'
+      responses:
+        '200':
+          description: A list of prices
+          examples:
+            application/json:
+            - adjusted_price: 306988.09
+              average_price: 306292.67
+              type_id: 32772
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              type: string
+          schema:
+            description: 200 ok array
+            items:
+              description: 200 ok object
+              properties:
+                adjusted_price:
+                  description: adjusted_price number
+                  format: double
+                  title: get_markets_prices_adjusted_price
+                  type: number
+                average_price:
+                  description: average_price number
+                  format: double
+                  title: get_markets_prices_average_price
+                  type: number
+                type_id:
+                  description: type_id integer
+                  format: int32
+                  title: get_markets_prices_type_id
+                  type: integer
+              required:
+              - type_id
+              title: get_markets_prices_200_ok
+              type: object
+            maxItems: 20000
+            title: get_markets_prices_ok
+            type: array
+        '304':
+          description: Not modified
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              type: string
+        '400':
+          description: Bad request
+          examples:
+            application/json:
+              error: Bad request message
+          schema:
+            $ref: '#/definitions/bad_request'
+        '420':
+          description: Error limited
+          examples:
+            application/json:
+              error: Error limited message
+          schema:
+            $ref: '#/definitions/error_limited'
+        '500':
+          description: Internal server error
+          examples:
+            application/json:
+              error: Internal server error message
+          schema:
+            $ref: '#/definitions/internal_server_error'
+        '503':
+          description: Service unavailable
+          examples:
+            application/json:
+              error: Service unavailable message
+          schema:
+            $ref: '#/definitions/service_unavailable'
+        '504':
+          description: Gateway timeout
+          examples:
+            application/json:
+              error: Gateway timeout message
+          schema:
+            $ref: '#/definitions/gateway_timeout'
+      summary: List market prices
+      tags:
+      - Market
+      x-alternate-versions:
+      - latest
+      - legacy
+      - v1
+      x-cached-seconds: 3600
+  /v1/markets/structures/{structure_id}/:
+    get:
+      description: 'Return all orders in a structure
+
+
+        ---
+
+
+        This route is cached for up to 300 seconds'
+      operationId: get_markets_structures_structure_id
+      parameters:
+      - $ref: '#/parameters/datasource'
+      - $ref: '#/parameters/If-None-Match'
+      - $ref: '#/parameters/page'
+      - description: Return orders in this structure
+        format: int64
+        in: path
+        name: structure_id
+        required: true
+        type: integer
+      - $ref: '#/parameters/token'
+      responses:
+        '200':
+          description: A list of orders
+          examples:
+            application/json:
+            - duration: 90
+              is_buy_order: false
+              issued: '2016-09-03T05:12:25Z'
+              location_id: 1020988381992
+              min_volume: 1
+              order_id: 4623824223
+              price: 9.9
+              range: region
+              type_id: 34
+              volume_remain: 1296000
+              volume_total: 2000000
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              type: string
+            X-Pages:
+              default: 1
+              description: Maximum page number
+              format: int32
+              type: integer
+          schema:
+            description: 200 ok array
+            items:
+              description: 200 ok object
+              properties:
+                duration:
+                  description: duration integer
+                  format: int32
+                  title: get_markets_structures_structure_id_duration
+                  type: integer
+                is_buy_order:
+                  description: is_buy_order boolean
+                  title: get_markets_structures_structure_id_is_buy_order
+                  type: boolean
+                issued:
+                  description: issued string
+                  format: date-time
+                  title: get_markets_structures_structure_id_issued
+                  type: string
+                location_id:
+                  description: location_id integer
+                  format: int64
+                  title: get_markets_structures_structure_id_location_id
+                  type: integer
+                min_volume:
+                  description: min_volume integer
+                  format: int32
+                  title: get_markets_structures_structure_id_min_volume
+                  type: integer
+                order_id:
+                  description: order_id integer
+                  format: int64
+                  title: get_markets_structures_structure_id_order_id
+                  type: integer
+                price:
+                  description: price number
+                  format: double
+                  title: get_markets_structures_structure_id_price
+                  type: number
+                range:
+                  description: range string
+                  enum:
+                  - station
+                  - region
+                  - solarsystem
+                  - '1'
+                  - '2'
+                  - '3'
+                  - '4'
+                  - '5'
+                  - '10'
+                  - '20'
+                  - '30'
+                  - '40'
+                  title: get_markets_structures_structure_id_range
+                  type: string
+                type_id:
+                  description: type_id integer
+                  format: int32
+                  title: get_markets_structures_structure_id_type_id
+                  type: integer
+                volume_remain:
+                  description: volume_remain integer
+                  format: int32
+                  title: get_markets_structures_structure_id_volume_remain
+                  type: integer
+                volume_total:
+                  description: volume_total integer
+                  format: int32
+                  title: get_markets_structures_structure_id_volume_total
+                  type: integer
+              required:
+              - order_id
+              - type_id
+              - location_id
+              - volume_total
+              - volume_remain
+              - min_volume
+              - price
+              - is_buy_order
+              - duration
+              - issued
+              - range
+              title: get_markets_structures_structure_id_200_ok
+              type: object
+            maxItems: 1000
+            title: get_markets_structures_structure_id_ok
+            type: array
+        '304':
+          description: Not modified
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              type: string
+        '400':
+          description: Bad request
+          examples:
+            application/json:
+              error: Bad request message
+          schema:
+            $ref: '#/definitions/bad_request'
+        '401':
+          description: Unauthorized
+          examples:
+            application/json:
+              error: Unauthorized message
+          schema:
+            $ref: '#/definitions/unauthorized'
+        '403':
+          description: Forbidden
+          examples:
+            application/json:
+              error: Forbidden message
+          schema:
+            $ref: '#/definitions/forbidden'
+        '420':
+          description: Error limited
+          examples:
+            application/json:
+              error: Error limited message
+          schema:
+            $ref: '#/definitions/error_limited'
+        '500':
+          description: Internal server error
+          examples:
+            application/json:
+              error: Internal server error message
+          schema:
+            $ref: '#/definitions/internal_server_error'
+        '503':
+          description: Service unavailable
+          examples:
+            application/json:
+              error: Service unavailable message
+          schema:
+            $ref: '#/definitions/service_unavailable'
+        '504':
+          description: Gateway timeout
+          examples:
+            application/json:
+              error: Gateway timeout message
+          schema:
+            $ref: '#/definitions/gateway_timeout'
+      security:
+      - evesso:
+        - esi-markets.structure_markets.v1
+      summary: List orders in a structure
+      tags:
+      - Market
+      x-alternate-versions:
+      - latest
+      - legacy
+      - v1
+      x-cached-seconds: 300
+  /v1/markets/{region_id}/history/:
+    get:
+      description: 'Return a list of historical market statistics for the specified type in a region
+
+
+        ---
+
+
+        This route expires daily at 11:05'
+      operationId: get_markets_region_id_history
+      parameters:
+      - $ref: '#/parameters/datasource'
+      - $ref: '#/parameters/If-None-Match'
+      - description: Return statistics in this region
+        format: int32
+        in: path
+        name: region_id
+        required: true
+        type: integer
+      - description: Return statistics for this type
+        format: int32
+        in: query
+        name: type_id
+        required: true
+        type: integer
+      responses:
+        '200':
+          description: A list of historical market statistics
+          examples:
+            application/json:
+            - average: 5.25
+              date: '2015-05-01'
+              highest: 5.27
+              lowest: 5.11
+              order_count: 2267
+              volume: 16276782035
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              type: string
+          schema:
+            description: 200 ok array
+            items:
+              description: 200 ok object
+              properties:
+                average:
+                  description: average number
+                  format: double
+                  title: get_markets_region_id_history_average
+                  type: number
+                date:
+                  description: The date of this historical statistic entry
+                  format: date
+                  title: get_markets_region_id_history_date
+                  type: string
+                highest:
+                  description: highest number
+                  format: double
+                  title: get_markets_region_id_history_highest
+                  type: number
+                lowest:
+                  description: lowest number
+                  format: double
+                  title: get_markets_region_id_history_lowest
+                  type: number
+                order_count:
+                  description: Total number of orders happened that day
+                  format: int64
+                  title: get_markets_region_id_history_order_count
+                  type: integer
+                volume:
+                  description: Total
+                  format: int64
+                  title: get_markets_region_id_history_volume
+                  type: integer
+              required:
+              - date
+              - order_count
+              - volume
+              - highest
+              - average
+              - lowest
+              title: get_markets_region_id_history_200_ok
+              type: object
+            maxItems: 500
+            title: get_markets_region_id_history_ok
+            type: array
+        '304':
+          description: Not modified
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              type: string
+        '400':
+          description: Bad request
+          examples:
+            application/json:
+              error: Bad request message
+          schema:
+            $ref: '#/definitions/bad_request'
+        '404':
+          description: Type not found
+          examples:
+            application/json:
+              error: Not found message
+          schema:
+            description: Not found
+            properties:
+              error:
+                description: Not found message
+                title: get_markets_region_id_history_404_not_found
+                type: string
+            title: get_markets_region_id_history_not_found
+            type: object
+        '420':
+          description: Error limited
+          examples:
+            application/json:
+              error: Error limited message
+          schema:
+            $ref: '#/definitions/error_limited'
+        '422':
+          description: Not found
+          examples:
+            application/json:
+              error: Unprocessable entity message
+          schema:
+            description: Unprocessable entity
+            properties:
+              error:
+                description: Unprocessable entity message
+                title: get_markets_region_id_history_422_unprocessable_entity
+                type: string
+            title: get_markets_region_id_history_unprocessable_entity
+            type: object
+        '500':
+          description: Internal server error
+          examples:
+            application/json:
+              error: Internal server error message
+          schema:
+            $ref: '#/definitions/internal_server_error'
+        '503':
+          description: Service unavailable
+          examples:
+            application/json:
+              error: Service unavailable message
+          schema:
+            $ref: '#/definitions/service_unavailable'
+        '504':
+          description: Gateway timeout
+          examples:
+            application/json:
+              error: Gateway timeout message
+          schema:
+            $ref: '#/definitions/gateway_timeout'
+        '520':
+          description: Internal error thrown from the EVE server
+          examples:
+            application/json:
+              error: Error 520 message
+          schema:
+            description: Error 520
+            properties:
+              error:
+                description: Error 520 message
+                title: get_markets_region_id_history_520_error_520
+                type: string
+            title: get_markets_region_id_history_error_520
+            type: object
+      summary: List historical market statistics in a region
+      tags:
+      - Market
+      x-alternate-versions:
+      - latest
+      - legacy
+      - v1
+  /v1/markets/{region_id}/orders/:
+    get:
+      description: 'Return a list of orders in a region
+
+
+        ---
+
+
+        This route is cached for up to 300 seconds'
+      operationId: get_markets_region_id_orders
+      parameters:
+      - $ref: '#/parameters/datasource'
+      - $ref: '#/parameters/If-None-Match'
+      - default: all
+        description: Filter buy/sell orders, return all orders by default. If you query without type_id, we always return both buy and sell orders
+        enum:
+        - buy
+        - sell
+        - all
+        in: query
+        name: order_type
+        required: true
+        type: string
+      - $ref: '#/parameters/page'
+      - description: Return orders in this region
+        format: int32
+        in: path
+        name: region_id
+        required: true
+        type: integer
+      - description: Return orders only for this type
+        format: int32
+        in: query
+        name: type_id
+        required: false
+        type: integer
+      responses:
+        '200':
+          description: A list of orders
+          examples:
+            application/json:
+            - duration: 90
+              is_buy_order: false
+              issued: '2016-09-03T05:12:25Z'
+              location_id: 60005599
+              min_volume: 1
+              order_id: 4623824223
+              price: 9.9
+              range: region
+              system_id: 30000053
+              type_id: 34
+              volume_remain: 1296000
+              volume_total: 2000000
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              type: string
+            X-Pages:
+              default: 1
+              description: Maximum page number
+              format: int32
+              type: integer
+          schema:
+            description: 200 ok array
+            items:
+              description: 200 ok object
+              properties:
+                duration:
+                  description: duration integer
+                  format: int32
+                  title: get_markets_region_id_orders_duration
+                  type: integer
+                is_buy_order:
+                  description: is_buy_order boolean
+                  title: get_markets_region_id_orders_is_buy_order
+                  type: boolean
+                issued:
+                  description: issued string
+                  format: date-time
+                  title: get_markets_region_id_orders_issued
+                  type: string
+                location_id:
+                  description: location_id integer
+                  format: int64
+                  title: get_markets_region_id_orders_location_id
+                  type: integer
+                min_volume:
+                  description: min_volume integer
+                  format: int32
+                  title: get_markets_region_id_orders_min_volume
+                  type: integer
+                order_id:
+                  description: order_id integer
+                  format: int64
+                  title: get_markets_region_id_orders_order_id
+                  type: integer
+                price:
+                  description: price number
+                  format: double
+                  title: get_markets_region_id_orders_price
+                  type: number
+                range:
+                  description: range string
+                  enum:
+                  - station
+                  - region
+                  - solarsystem
+                  - '1'
+                  - '2'
+                  - '3'
+                  - '4'
+                  - '5'
+                  - '10'
+                  - '20'
+                  - '30'
+                  - '40'
+                  title: get_markets_region_id_orders_range
+                  type: string
+                system_id:
+                  description: The solar system this order was placed
+                  format: int32
+                  title: get_markets_region_id_orders_system_id
+                  type: integer
+                type_id:
+                  description: type_id integer
+                  format: int32
+                  title: get_markets_region_id_orders_type_id
+                  type: integer
+                volume_remain:
+                  description: volume_remain integer
+                  format: int32
+                  title: get_markets_region_id_orders_volume_remain
+                  type: integer
+                volume_total:
+                  description: volume_total integer
+                  format: int32
+                  title: get_markets_region_id_orders_volume_total
+                  type: integer
+              required:
+              - order_id
+              - type_id
+              - location_id
+              - system_id
+              - volume_total
+              - volume_remain
+              - min_volume
+              - price
+              - is_buy_order
+              - duration
+              - issued
+              - range
+              title: get_markets_region_id_orders_200_ok
+              type: object
+            maxItems: 1000
+            title: get_markets_region_id_orders_ok
+            type: array
+        '304':
+          description: Not modified
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              type: string
+        '400':
+          description: Bad request
+          examples:
+            application/json:
+              error: Bad request message
+          schema:
+            $ref: '#/definitions/bad_request'
+        '404':
+          description: Not found
+          examples:
+            application/json:
+              error: Not found message
+          schema:
+            description: Not found
+            properties:
+              error:
+                description: Not found message
+                title: get_markets_region_id_orders_404_not_found
+                type: string
+            title: get_markets_region_id_orders_not_found
+            type: object
+        '420':
+          description: Error limited
+          examples:
+            application/json:
+              error: Error limited message
+          schema:
+            $ref: '#/definitions/error_limited'
+        '422':
+          description: Not found
+          examples:
+            application/json:
+              error: Unprocessable entity message
+          schema:
+            description: Unprocessable entity
+            properties:
+              error:
+                description: Unprocessable entity message
+                title: get_markets_region_id_orders_422_unprocessable_entity
+                type: string
+            title: get_markets_region_id_orders_unprocessable_entity
+            type: object
+        '500':
+          description: Internal server error
+          examples:
+            application/json:
+              error: Internal server error message
+          schema:
+            $ref: '#/definitions/internal_server_error'
+        '503':
+          description: Service unavailable
+          examples:
+            application/json:
+              error: Service unavailable message
+          schema:
+            $ref: '#/definitions/service_unavailable'
+        '504':
+          description: Gateway timeout
+          examples:
+            application/json:
+              error: Gateway timeout message
+          schema:
+            $ref: '#/definitions/gateway_timeout'
+      summary: List orders in a region
+      tags:
+      - Market
+      x-alternate-versions:
+      - latest
+      - legacy
+      - v1
+      x-cached-seconds: 300
+  /v1/markets/{region_id}/types/:
+    get:
+      description: 'Return a list of type IDs that have active orders in the region, for efficient market indexing.
+
+
+        ---
+
+
+        This route is cached for up to 600 seconds'
+      operationId: get_markets_region_id_types
+      parameters:
+      - $ref: '#/parameters/datasource'
+      - $ref: '#/parameters/If-None-Match'
+      - $ref: '#/parameters/page'
+      - description: Return statistics in this region
+        format: int32
+        in: path
+        name: region_id
+        required: true
+        type: integer
+      responses:
+        '200':
+          description: A list of type IDs
+          examples:
+            application/json:
+            - 587
+            - 593
+            - 597
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              type: string
+            X-Pages:
+              default: 1
+              description: Maximum page number
+              format: int32
+              type: integer
+          schema:
+            description: 200 ok array
+            items:
+              description: 200 ok integer
+              format: int32
+              title: get_markets_region_id_types_200_ok
+              type: integer
+            maxItems: 1000
+            title: get_markets_region_id_types_ok
+            type: array
+        '304':
+          description: Not modified
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              type: string
+        '400':
+          description: Bad request
+          examples:
+            application/json:
+              error: Bad request message
+          schema:
+            $ref: '#/definitions/bad_request'
+        '404':
+          description: Not found
+          examples:
+            application/json:
+              error: Not found message
+          schema:
+            description: Not found
+            properties:
+              error:
+                description: Not found message
+                title: get_markets_region_id_types_404_not_found
+                type: string
+            title: get_markets_region_id_types_not_found
+            type: object
+        '420':
+          description: Error limited
+          examples:
+            application/json:
+              error: Error limited message
+          schema:
+            $ref: '#/definitions/error_limited'
+        '500':
+          description: Internal server error
+          examples:
+            application/json:
+              error: Internal server error message
+          schema:
+            $ref: '#/definitions/internal_server_error'
+        '503':
+          description: Service unavailable
+          examples:
+            application/json:
+              error: Service unavailable message
+          schema:
+            $ref: '#/definitions/service_unavailable'
+        '504':
+          description: Gateway timeout
+          examples:
+            application/json:
+              error: Gateway timeout message
+          schema:
+            $ref: '#/definitions/gateway_timeout'
+      summary: List type IDs relevant to a market
+      tags:
+      - Market
+      x-alternate-versions:
+      - latest
+      - legacy
+      - v1
+      x-cached-seconds: 600
+  /v2/characters/{character_id}/orders/:
+    get:
+      description: 'List open market orders placed by a character
+
+
+        ---
+
+
+        This route is cached for up to 1200 seconds'
+      operationId: get_characters_character_id_orders
+      parameters:
+      - $ref: '#/parameters/character_id'
+      - $ref: '#/parameters/datasource'
+      - $ref: '#/parameters/If-None-Match'
+      - $ref: '#/parameters/token'
+      responses:
+        '200':
+          description: Open market orders placed by a character
+          examples:
+            application/json:
+            - duration: 30
+              escrow: 45.6
+              is_buy_order: true
+              is_corporation: false
+              issued: '2016-09-03T05:12:25Z'
+              location_id: 456
+              min_volume: 1
+              order_id: 123
+              price: 33.3
+              range: station
+              region_id: 123
+              type_id: 456
+              volume_remain: 4422
+              volume_total: 123456
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              type: string
+          schema:
+            description: 200 ok array
+            items:
+              description: 200 ok object
+              properties:
+                duration:
+                  description: Number of days for which order is valid (starting from the issued date). An order expires at time issued + duration
+                  format: int32
+                  title: get_characters_character_id_orders_duration
+                  type: integer
+                escrow:
+                  description: For buy orders, the amount of ISK in escrow
+                  format: double
+                  title: get_characters_character_id_orders_escrow
+                  type: number
+                is_buy_order:
+                  description: True if the order is a bid (buy) order
+                  title: get_characters_character_id_orders_is_buy_order
+                  type: boolean
+                is_corporation:
+                  description: Signifies whether the buy/sell order was placed on behalf of a corporation.
+                  title: get_characters_character_id_orders_is_corporation
+                  type: boolean
+                issued:
+                  description: Date and time when this order was issued
+                  format: date-time
+                  title: get_characters_character_id_orders_issued
+                  type: string
+                location_id:
+                  description: ID of the location where order was placed
+                  format: int64
+                  title: get_characters_character_id_orders_location_id
+                  type: integer
+                min_volume:
+                  description: For buy orders, the minimum quantity that will be accepted in a matching sell order
+                  format: int32
+                  title: get_characters_character_id_orders_min_volume
+                  type: integer
+                order_id:
+                  description: Unique order ID
+                  format: int64
+                  title: get_characters_character_id_orders_order_id
+                  type: integer
+                price:
+                  description: Cost per unit for this order
+                  format: double
+                  title: get_characters_character_id_orders_price
+                  type: number
+                range:
+                  description: Valid order range, numbers are ranges in jumps
+                  enum:
+                  - '1'
+                  - '10'
+                  - '2'
+                  - '20'
+                  - '3'
+                  - '30'
+                  - '4'
+                  - '40'
+                  - '5'
+                  - region
+                  - solarsystem
+                  - station
+                  title: get_characters_character_id_orders_range
+                  type: string
+                region_id:
+                  description: ID of the region where order was placed
+                  format: int32
+                  title: get_characters_character_id_orders_region_id
+                  type: integer
+                type_id:
+                  description: The type ID of the item transacted in this order
+                  format: int32
+                  title: get_characters_character_id_orders_type_id
+                  type: integer
+                volume_remain:
+                  description: Quantity of items still required or offered
+                  format: int32
+                  title: get_characters_character_id_orders_volume_remain
+                  type: integer
+                volume_total:
+                  description: Quantity of items required or offered at time order was placed
+                  format: int32
+                  title: get_characters_character_id_orders_volume_total
+                  type: integer
+              required:
+              - is_corporation
+              - duration
+              - order_id
+              - type_id
+              - region_id
+              - location_id
+              - range
+              - price
+              - volume_total
+              - volume_remain
+              - issued
+              title: get_characters_character_id_orders_200_ok
+              type: object
+            maxItems: 305
+            title: get_characters_character_id_orders_ok
+            type: array
+        '304':
+          description: Not modified
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              type: string
+        '400':
+          description: Bad request
+          examples:
+            application/json:
+              error: Bad request message
+          schema:
+            $ref: '#/definitions/bad_request'
+        '401':
+          description: Unauthorized
+          examples:
+            application/json:
+              error: Unauthorized message
+          schema:
+            $ref: '#/definitions/unauthorized'
+        '403':
+          description: Forbidden
+          examples:
+            application/json:
+              error: Forbidden message
+          schema:
+            $ref: '#/definitions/forbidden'
+        '420':
+          description: Error limited
+          examples:
+            application/json:
+              error: Error limited message
+          schema:
+            $ref: '#/definitions/error_limited'
+        '500':
+          description: Internal server error
+          examples:
+            application/json:
+              error: Internal server error message
+          schema:
+            $ref: '#/definitions/internal_server_error'
+        '503':
+          description: Service unavailable
+          examples:
+            application/json:
+              error: Service unavailable message
+          schema:
+            $ref: '#/definitions/service_unavailable'
+        '504':
+          description: Gateway timeout
+          examples:
+            application/json:
+              error: Gateway timeout message
+          schema:
+            $ref: '#/definitions/gateway_timeout'
+      security:
+      - evesso:
+        - esi-markets.read_character_orders.v1
+      summary: List open orders from a character
+      tags:
+      - Market
+      x-alternate-versions:
+      - latest
+      - v2
+      x-cached-seconds: 1200
+  /v2/corporations/{corporation_id}/orders/:
+    get:
+      description: 'List open market orders placed on behalf of a corporation
+
+
+        ---
+
+
+        This route is cached for up to 1200 seconds
+
+
+        ---
+
+        Requires one of the following EVE corporation role(s): Accountant, Trader'
+      operationId: get_corporations_corporation_id_orders
+      parameters:
+      - $ref: '#/parameters/corporation_id'
+      - $ref: '#/parameters/datasource'
+      - $ref: '#/parameters/If-None-Match'
+      - $ref: '#/parameters/page'
+      - $ref: '#/parameters/token'
+      responses:
+        '200':
+          description: A list of open market orders
+          examples:
+            application/json:
+            - duration: 30
+              escrow: 45.6
+              is_buy_order: true
+              issued: '2016-09-03T05:12:25Z'
+              issued_by: 2112625428
+              location_id: 456
+              min_volume: 1
+              order_id: 123
+              price: 33.3
+              range: station
+              region_id: 123
+              type_id: 456
+              volume_remain: 4422
+              volume_total: 123456
+              wallet_division: 1
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              type: string
+            X-Pages:
+              default: 1
+              description: Maximum page number
+              format: int32
+              type: integer
+          schema:
+            description: 200 ok array
+            items:
+              description: 200 ok object
+              properties:
+                duration:
+                  description: Number of days for which order is valid (starting from the issued date). An order expires at time issued + duration
+                  format: int32
+                  title: get_corporations_corporation_id_orders_duration
+                  type: integer
+                escrow:
+                  description: For buy orders, the amount of ISK in escrow
+                  format: double
+                  title: get_corporations_corporation_id_orders_escrow
+                  type: number
+                is_buy_order:
+                  description: True if the order is a bid (buy) order
+                  title: get_corporations_corporation_id_orders_is_buy_order
+                  type: boolean
+                issued:
+                  description: Date and time when this order was issued
+                  format: date-time
+                  title: get_corporations_corporation_id_orders_issued
+                  type: string
+                issued_by:
+                  description: The character who issued this order
+                  format: int32
+                  title: get_corporations_corporation_id_orders_issued_by
+                  type: integer
+                location_id:
+                  description: ID of the location where order was placed
+                  format: int64
+                  title: get_corporations_corporation_id_orders_location_id
+                  type: integer
+                min_volume:
+                  description: For buy orders, the minimum quantity that will be accepted in a matching sell order
+                  format: int32
+                  title: get_corporations_corporation_id_orders_min_volume
+                  type: integer
+                order_id:
+                  description: Unique order ID
+                  format: int64
+                  title: get_corporations_corporation_id_orders_order_id
+                  type: integer
+                price:
+                  description: Cost per unit for this order
+                  format: double
+                  title: get_corporations_corporation_id_orders_price
+                  type: number
+                range:
+                  description: Valid order range, numbers are ranges in jumps
+                  enum:
+                  - '1'
+                  - '10'
+                  - '2'
+                  - '20'
+                  - '3'
+                  - '30'
+                  - '4'
+                  - '40'
+                  - '5'
+                  - region
+                  - solarsystem
+                  - station
+                  title: get_corporations_corporation_id_orders_range
+                  type: string
+                region_id:
+                  description: ID of the region where order was placed
+                  format: int32
+                  title: get_corporations_corporation_id_orders_region_id
+                  type: integer
+                type_id:
+                  description: The type ID of the item transacted in this order
+                  format: int32
+                  title: get_corporations_corporation_id_orders_type_id
+                  type: integer
+                volume_remain:
+                  description: Quantity of items still required or offered
+                  format: int32
+                  title: get_corporations_corporation_id_orders_volume_remain
+                  type: integer
+                volume_total:
+                  description: Quantity of items required or offered at time order was placed
+                  format: int32
+                  title: get_corporations_corporation_id_orders_volume_total
+                  type: integer
+                wallet_division:
+                  description: The corporation wallet division used for this order.
+                  format: int32
+                  maximum: 7
+                  minimum: 1
+                  title: get_corporations_corporation_id_orders_wallet_division
+                  type: integer
+              required:
+              - duration
+              - wallet_division
+              - order_id
+              - type_id
+              - region_id
+              - location_id
+              - range
+              - price
+              - volume_total
+              - volume_remain
+              - issued
+              - issued_by
+              title: get_corporations_corporation_id_orders_200_ok
+              type: object
+            maxItems: 1000
+            title: get_corporations_corporation_id_orders_ok
+            type: array
+        '304':
+          description: Not modified
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              type: string
+        '400':
+          description: Bad request
+          examples:
+            application/json:
+              error: Bad request message
+          schema:
+            $ref: '#/definitions/bad_request'
+        '401':
+          description: Unauthorized
+          examples:
+            application/json:
+              error: Unauthorized message
+          schema:
+            $ref: '#/definitions/unauthorized'
+        '403':
+          description: Forbidden
+          examples:
+            application/json:
+              error: Forbidden message
+          schema:
+            $ref: '#/definitions/forbidden'
+        '420':
+          description: Error limited
+          examples:
+            application/json:
+              error: Error limited message
+          schema:
+            $ref: '#/definitions/error_limited'
+        '500':
+          description: Internal server error
+          examples:
+            application/json:
+              error: Internal server error message
+          schema:
+            $ref: '#/definitions/internal_server_error'
+        '503':
+          description: Service unavailable
+          examples:
+            application/json:
+              error: Service unavailable message
+          schema:
+            $ref: '#/definitions/service_unavailable'
+        '504':
+          description: Gateway timeout
+          examples:
+            application/json:
+              error: Gateway timeout message
+          schema:
+            $ref: '#/definitions/gateway_timeout'
+      security:
+      - evesso:
+        - esi-markets.read_corporation_orders.v1
+      summary: List open orders from a corporation
+      tags:
+      - Market
+      x-alternate-versions:
+      - latest
+      - legacy
+      - v2
+      - v3
+      x-cached-seconds: 1200
+      x-required-roles:
+      - Accountant
+      - Trader
+components:
+  schemas:
+    internal_server_error:
+      description: Internal server error model
+      properties:
+        error:
+          description: Internal server error message
+          type: string
+          example: example
+      required:
+      - error
+      title: Internal server error
+      type: object
+    forbidden:
+      description: Forbidden model
+      properties:
+        error:
+          description: Forbidden message
+          type: string
+          example: example
+        sso_status:
+          description: status code received from SSO
+          type: integer
+          example: 1
+      required:
+      - error
+      title: Forbidden
+      type: object
+    bad_request:
+      description: Bad request model
+      properties:
+        error:
+          description: Bad request message
+          type: string
+          example: example
+      required:
+      - error
+      title: Bad request
+      type: object
+    service_unavailable:
+      description: Service unavailable model
+      properties:
+        error:
+          description: Service unavailable message
+          type: string
+          example: example
+      required:
+      - error
+      title: Service unavailable
+      type: object
+    unauthorized:
+      description: Unauthorized model
+      properties:
+        error:
+          description: Unauthorized message
+          type: string
+          example: example
+      required:
+      - error
+      title: Unauthorized
+      type: object
+    gateway_timeout:
+      description: Gateway timeout model
+      properties:
+        error:
+          description: Gateway timeout message
+          type: string
+          example: example
+        timeout:
+          description: number of seconds the request was given
+          type: integer
+          example: 1
+      required:
+      - error
+      title: Gateway timeout
+      type: object
+    error_limited:
+      description: Error limited model
+      properties:
+        error:
+          description: Error limited message
+          type: string
+          example: example
+      required:
+      - error
+      title: Error limited
+      type: object
+  parameters:
+    language:
+      description: Language to use in the response, takes precedence over Accept-Language
+      in: query
+      name: language
+      schema:
+        type: string
+        enum:
+        - en
+        - en-us
+        - de
+        - fr
+        - ja
+        - ru
+        - zh
+        - ko
+        - es
+        default: en
+    corporation_id:
+      description: An EVE corporation ID
+      in: path
+      name: corporation_id
+      required: true
+      schema:
+        type: integer
+        format: int32
+        minimum: 1
+    page:
+      description: Which page of results to return
+      in: query
+      name: page
+      schema:
+        type: integer
+        format: int32
+        minimum: 1
+        default: 1
+    datasource:
+      description: The server name you would like data from
+      in: query
+      name: datasource
+      schema:
+        type: string
+        enum:
+        - tranquility
+        default: tranquility
+    character_id:
+      description: An EVE character ID
+      in: path
+      name: character_id
+      required: true
+      schema:
+        type: integer
+        format: int32
+        minimum: 1
+    Accept-Language:
+      description: Language to use in the response
+      in: header
+      name: Accept-Language
+      schema:
+        type: string
+        enum:
+        - en
+        - en-us
+        - de
+        - fr
+        - ja
+        - ru
+        - zh
+        - ko
+        - es
+        default: en
+    token:
+      description: Access token to use if unable to set a header
+      in: query
+      name: token
+      schema:
+        type: string
+    If-None-Match:
+      description: ETag from a previous request. A 304 will be returned if this matches the current ETag
+      in: header
+      name: If-None-Match
+      schema:
+        type: string
+  securitySchemes:
+    evesso:
+      type: oauth2
+      flows:
+        implicit:
+          authorizationUrl: https://login.eveonline.com/v2/oauth/authorize
+          scopes:
+            esi-alliances.read_contacts.v1: EVE SSO scope esi-alliances.read_contacts.v1
+            esi-assets.read_assets.v1: EVE SSO scope esi-assets.read_assets.v1
+            esi-assets.read_corporation_assets.v1: EVE SSO scope esi-assets.read_corporation_assets.v1
+            esi-calendar.read_calendar_events.v1: EVE SSO scope esi-calendar.read_calendar_events.v1
+            esi-calendar.respond_calendar_events.v1: EVE SSO scope esi-calendar.respond_calendar_events.v1
+            esi-characters.read_agents_research.v1: EVE SSO scope esi-characters.read_agents_research.v1
+            esi-characters.read_blueprints.v1: EVE SSO scope esi-characters.read_blueprints.v1
+            esi-characters.read_contacts.v1: EVE SSO scope esi-characters.read_contacts.v1
+            esi-characters.read_corporation_roles.v1: EVE SSO scope esi-characters.read_corporation_roles.v1
+            esi-characters.read_fatigue.v1: EVE SSO scope esi-characters.read_fatigue.v1
+            esi-characters.read_fw_stats.v1: EVE SSO scope esi-characters.read_fw_stats.v1
+            esi-characters.read_loyalty.v1: EVE SSO scope esi-characters.read_loyalty.v1
+            esi-characters.read_medals.v1: EVE SSO scope esi-characters.read_medals.v1
+            esi-characters.read_notifications.v1: EVE SSO scope esi-characters.read_notifications.v1
+            esi-characters.read_standings.v1: EVE SSO scope esi-characters.read_standings.v1
+            esi-characters.read_titles.v1: EVE SSO scope esi-characters.read_titles.v1
+            esi-characters.write_contacts.v1: EVE SSO scope esi-characters.write_contacts.v1
+            esi-clones.read_clones.v1: EVE SSO scope esi-clones.read_clones.v1
+            esi-clones.read_implants.v1: EVE SSO scope esi-clones.read_implants.v1
+            esi-contracts.read_character_contracts.v1: EVE SSO scope esi-contracts.read_character_contracts.v1
+            esi-contracts.read_corporation_contracts.v1: EVE SSO scope esi-contracts.read_corporation_contracts.v1
+            esi-corporations.read_blueprints.v1: EVE SSO scope esi-corporations.read_blueprints.v1
+            esi-corporations.read_contacts.v1: EVE SSO scope esi-corporations.read_contacts.v1
+            esi-corporations.read_container_logs.v1: EVE SSO scope esi-corporations.read_container_logs.v1
+            esi-corporations.read_corporation_membership.v1: EVE SSO scope esi-corporations.read_corporation_membership.v1
+            esi-corporations.read_divisions.v1: EVE SSO scope esi-corporations.read_divisions.v1
+            esi-corporations.read_facilities.v1: EVE SSO scope esi-corporations.read_facilities.v1
+            esi-corporations.read_fw_stats.v1: EVE SSO scope esi-corporations.read_fw_stats.v1
+            esi-corporations.read_medals.v1: EVE SSO scope esi-corporations.read_medals.v1
+            esi-corporations.read_standings.v1: EVE SSO scope esi-corporations.read_standings.v1
+            esi-corporations.read_starbases.v1: EVE SSO scope esi-corporations.read_starbases.v1
+            esi-corporations.read_structures.v1: EVE SSO scope esi-corporations.read_structures.v1
+            esi-corporations.read_titles.v1: EVE SSO scope esi-corporations.read_titles.v1
+            esi-corporations.track_members.v1: EVE SSO scope esi-corporations.track_members.v1
+            esi-fittings.read_fittings.v1: EVE SSO scope esi-fittings.read_fittings.v1
+            esi-fittings.write_fittings.v1: EVE SSO scope esi-fittings.write_fittings.v1
+            esi-fleets.read_fleet.v1: EVE SSO scope esi-fleets.read_fleet.v1
+            esi-fleets.write_fleet.v1: EVE SSO scope esi-fleets.write_fleet.v1
+            esi-industry.read_character_jobs.v1: EVE SSO scope esi-industry.read_character_jobs.v1
+            esi-industry.read_character_mining.v1: EVE SSO scope esi-industry.read_character_mining.v1
+            esi-industry.read_corporation_jobs.v1: EVE SSO scope esi-industry.read_corporation_jobs.v1
+            esi-industry.read_corporation_mining.v1: EVE SSO scope esi-industry.read_corporation_mining.v1
+            esi-killmails.read_corporation_killmails.v1: EVE SSO scope esi-killmails.read_corporation_killmails.v1
+            esi-killmails.read_killmails.v1: EVE SSO scope esi-killmails.read_killmails.v1
+            esi-location.read_location.v1: EVE SSO scope esi-location.read_location.v1
+            esi-location.read_online.v1: EVE SSO scope esi-location.read_online.v1
+            esi-location.read_ship_type.v1: EVE SSO scope esi-location.read_ship_type.v1
+            esi-mail.organize_mail.v1: EVE SSO scope esi-mail.organize_mail.v1
+            esi-mail.read_mail.v1: EVE SSO scope esi-mail.read_mail.v1
+            esi-mail.send_mail.v1: EVE SSO scope esi-mail.send_mail.v1
+            esi-markets.read_character_orders.v1: EVE SSO scope esi-markets.read_character_orders.v1
+            esi-markets.read_corporation_orders.v1: EVE SSO scope esi-markets.read_corporation_orders.v1
+            esi-markets.structure_markets.v1: EVE SSO scope esi-markets.structure_markets.v1
+            esi-planets.manage_planets.v1: EVE SSO scope esi-planets.manage_planets.v1
+            esi-planets.read_customs_offices.v1: EVE SSO scope esi-planets.read_customs_offices.v1
+            esi-search.search_structures.v1: EVE SSO scope esi-search.search_structures.v1
+            esi-skills.read_skillqueue.v1: EVE SSO scope esi-skills.read_skillqueue.v1
+            esi-skills.read_skills.v1: EVE SSO scope esi-skills.read_skills.v1
+            esi-ui.open_window.v1: EVE SSO scope esi-ui.open_window.v1
+            esi-ui.write_waypoint.v1: EVE SSO scope esi-ui.write_waypoint.v1
+            esi-universe.read_structures.v1: EVE SSO scope esi-universe.read_structures.v1
+            esi-wallet.read_character_wallet.v1: EVE SSO scope esi-wallet.read_character_wallet.v1
+            esi-wallet.read_corporation_wallets.v1: EVE SSO scope esi-wallet.read_corporation_wallets.v1
+definitions:
+  internal_server_error:
+    description: Internal server error model
+    properties:
+      error:
+        description: Internal server error message
+        type: string
+    required:
+    - error
+    title: Internal server error
+    type: object
+  error_limited:
+    description: Error limited model
+    properties:
+      error:
+        description: Error limited message
+        type: string
+    required:
+    - error
+    title: Error limited
+    type: object
+  unauthorized:
+    description: Unauthorized model
+    properties:
+      error:
+        description: Unauthorized message
+        type: string
+    required:
+    - error
+    title: Unauthorized
+    type: object
+  service_unavailable:
+    description: Service unavailable model
+    properties:
+      error:
+        description: Service unavailable message
+        type: string
+    required:
+    - error
+    title: Service unavailable
+    type: object
+  forbidden:
+    description: Forbidden model
+    properties:
+      error:
+        description: Forbidden message
+        type: string
+      sso_status:
+        description: status code received from SSO
+        type: integer
+    required:
+    - error
+    title: Forbidden
+    type: object
+  bad_request:
+    description: Bad request model
+    properties:
+      error:
+        description: Bad request message
+        type: string
+    required:
+    - error
+    title: Bad request
+    type: object
+  gateway_timeout:
+    description: Gateway timeout model
+    properties:
+      error:
+        description: Gateway timeout message
+        type: string
+      timeout:
+        description: number of seconds the request was given
+        type: integer
+    required:
+    - error
+    title: Gateway timeout
+    type: object
+parameters:
+  Accept-Language:
+    default: en
+    description: Language to use in the response
+    enum:
+    - en
+    - en-us
+    - de
+    - fr
+    - ja
+    - ru
+    - zh
+    - ko
+    - es
+    in: header
+    name: Accept-Language
+    type: string
+  corporation_id:
+    description: An EVE corporation ID
+    format: int32
+    in: path
+    minimum: 1
+    name: corporation_id
+    required: true
+    type: integer
+  token:
+    description: Access token to use if unable to set a header
+    in: query
+    name: token
+    type: string
+  If-None-Match:
+    description: ETag from a previous request. A 304 will be returned if this matches the current ETag
+    in: header
+    name: If-None-Match
+    type: string
+  datasource:
+    default: tranquility
+    description: The server name you would like data from
+    enum:
+    - tranquility
+    in: query
+    name: datasource
+    type: string
+  page:
+    default: 1
+    description: Which page of results to return
+    format: int32
+    in: query
+    minimum: 1
+    name: page
+    type: integer
+  character_id:
+    description: An EVE character ID
+    format: int32
+    in: path
+    minimum: 1
+    name: character_id
+    required: true
+    type: integer
+  language:
+    default: en
+    description: Language to use in the response, takes precedence over Accept-Language
+    enum:
+    - en
+    - en-us
+    - de
+    - fr
+    - ja
+    - ru
+    - zh
+    - ko
+    - es
+    in: query
+    name: language
+    type: string

@@ -1,0 +1,3202 @@
+openapi: 3.0.0
+info:
+  description: An OpenAPI for EVE Online
+  title: EVE Swagger Interface Alliance Contacts API
+  version: '1.36'
+servers:
+- url: https://esi.evetech.net/latest
+tags:
+- name: Contacts
+paths:
+  /alliances/{alliance_id}/contacts/:
+    get:
+      description: 'Return contacts of an alliance
+
+
+        ---
+
+        Alternate route: `/dev/alliances/{alliance_id}/contacts/`
+
+
+        Alternate route: `/v2/alliances/{alliance_id}/contacts/`
+
+
+        ---
+
+        This route is cached for up to 300 seconds'
+      operationId: get_alliances_alliance_id_contacts
+      parameters:
+      - $ref: '#/components/parameters/alliance_id'
+      - $ref: '#/components/parameters/datasource'
+      - $ref: '#/components/parameters/If-None-Match'
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/token'
+      responses:
+        '200':
+          description: A list of contacts
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              schema:
+                type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              schema:
+                type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+            X-Pages:
+              description: Maximum page number
+              schema:
+                type: integer
+                format: int32
+                default: 1
+          content:
+            application/json:
+              schema:
+                description: 200 ok array
+                items:
+                  description: 200 ok object
+                  properties:
+                    contact_id:
+                      description: contact_id integer
+                      format: int32
+                      title: get_alliances_alliance_id_contacts_contact_id
+                      type: integer
+                    contact_type:
+                      description: contact_type string
+                      enum:
+                      - character
+                      - corporation
+                      - alliance
+                      - faction
+                      title: get_alliances_alliance_id_contacts_contact_type
+                      type: string
+                    label_ids:
+                      description: label_ids array
+                      items:
+                        description: Label IDs applied to the contact
+                        format: int64
+                        title: get_alliances_alliance_id_contacts_label_id
+                        type: integer
+                      maxItems: 63
+                      title: get_alliances_alliance_id_contacts_label_ids
+                      type: array
+                    standing:
+                      description: Standing of the contact
+                      format: float
+                      title: get_alliances_alliance_id_contacts_standing
+                      type: number
+                  required:
+                  - standing
+                  - contact_type
+                  - contact_id
+                  title: get_alliances_alliance_id_contacts_200_ok
+                  type: object
+                maxItems: 1000
+                title: get_alliances_alliance_id_contacts_ok
+                type: array
+              examples:
+                response:
+                  value:
+                  - contact_id: 2112625428
+                    contact_type: character
+                    standing: 9.9
+        '304':
+          description: Not modified
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              schema:
+                type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              schema:
+                type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bad_request'
+              examples:
+                response:
+                  value:
+                    error: Bad request message
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+              examples:
+                response:
+                  value:
+                    error: Unauthorized message
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+              examples:
+                response:
+                  value:
+                    error: Forbidden message
+        '420':
+          description: Error limited
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_limited'
+              examples:
+                response:
+                  value:
+                    error: Error limited message
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/internal_server_error'
+              examples:
+                response:
+                  value:
+                    error: Internal server error message
+        '503':
+          description: Service unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/service_unavailable'
+              examples:
+                response:
+                  value:
+                    error: Service unavailable message
+        '504':
+          description: Gateway timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gateway_timeout'
+              examples:
+                response:
+                  value:
+                    error: Gateway timeout message
+      security:
+      - evesso:
+        - esi-alliances.read_contacts.v1
+      summary: EVE Online Get Alliance Contacts
+      tags:
+      - Contacts
+      x-alternate-versions:
+      - dev
+      - v2
+      x-cached-seconds: 300
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /alliances/{alliance_id}/contacts/labels/:
+    get:
+      description: 'Return custom labels for an alliance''s contacts
+
+
+        ---
+
+        Alternate route: `/dev/alliances/{alliance_id}/contacts/labels/`
+
+
+        Alternate route: `/legacy/alliances/{alliance_id}/contacts/labels/`
+
+
+        Alternate route: `/v1/alliances/{alliance_id}/contacts/labels/`
+
+
+        ---
+
+        This route is cached for up to 300 seconds'
+      operationId: get_alliances_alliance_id_contacts_labels
+      parameters:
+      - $ref: '#/components/parameters/alliance_id'
+      - $ref: '#/components/parameters/datasource'
+      - $ref: '#/components/parameters/If-None-Match'
+      - $ref: '#/components/parameters/token'
+      responses:
+        '200':
+          description: A list of alliance contact labels
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              schema:
+                type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              schema:
+                type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                description: 200 ok array
+                items:
+                  description: 200 ok object
+                  properties:
+                    label_id:
+                      description: label_id integer
+                      format: int64
+                      title: get_alliances_alliance_id_contacts_labels_label_id
+                      type: integer
+                    label_name:
+                      description: label_name string
+                      title: get_alliances_alliance_id_contacts_labels_label_name
+                      type: string
+                  required:
+                  - label_id
+                  - label_name
+                  title: get_alliances_alliance_id_contacts_labels_200_ok
+                  type: object
+                maxItems: 64
+                title: get_alliances_alliance_id_contacts_labels_ok
+                type: array
+              examples:
+                response:
+                  value:
+                  - label_id: 1
+                    label_name: Alliance Friends
+        '304':
+          description: Not modified
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              schema:
+                type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              schema:
+                type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bad_request'
+              examples:
+                response:
+                  value:
+                    error: Bad request message
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+              examples:
+                response:
+                  value:
+                    error: Unauthorized message
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+              examples:
+                response:
+                  value:
+                    error: Forbidden message
+        '420':
+          description: Error limited
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_limited'
+              examples:
+                response:
+                  value:
+                    error: Error limited message
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/internal_server_error'
+              examples:
+                response:
+                  value:
+                    error: Internal server error message
+        '503':
+          description: Service unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/service_unavailable'
+              examples:
+                response:
+                  value:
+                    error: Service unavailable message
+        '504':
+          description: Gateway timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gateway_timeout'
+              examples:
+                response:
+                  value:
+                    error: Gateway timeout message
+      security:
+      - evesso:
+        - esi-alliances.read_contacts.v1
+      summary: EVE Online Get Alliance Contact Labels
+      tags:
+      - Contacts
+      x-alternate-versions:
+      - dev
+      - legacy
+      - v1
+      x-cached-seconds: 300
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /characters/{character_id}/contacts/:
+    delete:
+      description: 'Bulk delete contacts
+
+
+        ---
+
+        Alternate route: `/dev/characters/{character_id}/contacts/`
+
+
+        Alternate route: `/legacy/characters/{character_id}/contacts/`
+
+
+        Alternate route: `/v1/characters/{character_id}/contacts/`
+
+
+        Alternate route: `/v2/characters/{character_id}/contacts/`
+
+        '
+      operationId: delete_characters_character_id_contacts
+      parameters:
+      - $ref: '#/components/parameters/character_id'
+      - description: A list of contacts to delete
+        in: query
+        name: contact_ids
+        required: true
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            format: int32
+            type: integer
+          minItems: 1
+          maxItems: 20
+        example:
+        - 1
+      - $ref: '#/components/parameters/datasource'
+      - $ref: '#/components/parameters/token'
+      responses:
+        '204':
+          description: Contacts deleted
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bad_request'
+              examples:
+                response:
+                  value:
+                    error: Bad request message
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+              examples:
+                response:
+                  value:
+                    error: Unauthorized message
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+              examples:
+                response:
+                  value:
+                    error: Forbidden message
+        '420':
+          description: Error limited
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_limited'
+              examples:
+                response:
+                  value:
+                    error: Error limited message
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/internal_server_error'
+              examples:
+                response:
+                  value:
+                    error: Internal server error message
+        '503':
+          description: Service unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/service_unavailable'
+              examples:
+                response:
+                  value:
+                    error: Service unavailable message
+        '504':
+          description: Gateway timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gateway_timeout'
+              examples:
+                response:
+                  value:
+                    error: Gateway timeout message
+      security:
+      - evesso:
+        - esi-characters.write_contacts.v1
+      summary: EVE Online Delete Contacts
+      tags:
+      - Contacts
+      x-alternate-versions:
+      - dev
+      - legacy
+      - v1
+      - v2
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    get:
+      description: 'Return contacts of a character
+
+
+        ---
+
+        Alternate route: `/dev/characters/{character_id}/contacts/`
+
+
+        Alternate route: `/v2/characters/{character_id}/contacts/`
+
+
+        ---
+
+        This route is cached for up to 300 seconds'
+      operationId: get_characters_character_id_contacts
+      parameters:
+      - $ref: '#/components/parameters/character_id'
+      - $ref: '#/components/parameters/datasource'
+      - $ref: '#/components/parameters/If-None-Match'
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/token'
+      responses:
+        '200':
+          description: A list of contacts
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              schema:
+                type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              schema:
+                type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+            X-Pages:
+              description: Maximum page number
+              schema:
+                type: integer
+                format: int32
+                default: 1
+          content:
+            application/json:
+              schema:
+                description: 200 ok array
+                items:
+                  description: 200 ok object
+                  properties:
+                    contact_id:
+                      description: contact_id integer
+                      format: int32
+                      title: get_characters_character_id_contacts_contact_id
+                      type: integer
+                    contact_type:
+                      description: contact_type string
+                      enum:
+                      - character
+                      - corporation
+                      - alliance
+                      - faction
+                      title: get_characters_character_id_contacts_contact_type
+                      type: string
+                    is_blocked:
+                      description: Whether this contact is in the blocked list. Note a missing value denotes unknown, not true or false
+                      title: get_characters_character_id_contacts_is_blocked
+                      type: boolean
+                    is_watched:
+                      description: Whether this contact is being watched
+                      title: get_characters_character_id_contacts_is_watched
+                      type: boolean
+                    label_ids:
+                      description: label_ids array
+                      items:
+                        description: Label IDs applied to the contact
+                        format: int64
+                        title: get_characters_character_id_contacts_label_id
+                        type: integer
+                      maxItems: 63
+                      title: get_characters_character_id_contacts_label_ids
+                      type: array
+                    standing:
+                      description: Standing of the contact
+                      format: float
+                      title: get_characters_character_id_contacts_standing
+                      type: number
+                  required:
+                  - standing
+                  - contact_type
+                  - contact_id
+                  title: get_characters_character_id_contacts_200_ok
+                  type: object
+                maxItems: 1024
+                title: get_characters_character_id_contacts_ok
+                type: array
+              examples:
+                response:
+                  value:
+                  - contact_id: 123
+                    contact_type: character
+                    is_blocked: true
+                    is_watched: true
+                    standing: 9.9
+        '304':
+          description: Not modified
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              schema:
+                type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              schema:
+                type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bad_request'
+              examples:
+                response:
+                  value:
+                    error: Bad request message
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+              examples:
+                response:
+                  value:
+                    error: Unauthorized message
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+              examples:
+                response:
+                  value:
+                    error: Forbidden message
+        '420':
+          description: Error limited
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_limited'
+              examples:
+                response:
+                  value:
+                    error: Error limited message
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/internal_server_error'
+              examples:
+                response:
+                  value:
+                    error: Internal server error message
+        '503':
+          description: Service unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/service_unavailable'
+              examples:
+                response:
+                  value:
+                    error: Service unavailable message
+        '504':
+          description: Gateway timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gateway_timeout'
+              examples:
+                response:
+                  value:
+                    error: Gateway timeout message
+      security:
+      - evesso:
+        - esi-characters.read_contacts.v1
+      summary: EVE Online Get Contacts
+      tags:
+      - Contacts
+      x-alternate-versions:
+      - dev
+      - v2
+      x-cached-seconds: 300
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      description: 'Bulk add contacts with same settings
+
+
+        ---
+
+        Alternate route: `/dev/characters/{character_id}/contacts/`
+
+
+        Alternate route: `/v2/characters/{character_id}/contacts/`
+
+        '
+      operationId: post_characters_character_id_contacts
+      parameters:
+      - $ref: '#/components/parameters/character_id'
+      - $ref: '#/components/parameters/datasource'
+      - description: Add custom labels to the new contact
+        in: query
+        name: label_ids
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            format: int64
+            type: integer
+          maxItems: 63
+        example:
+        - 1
+      - description: Standing for the contact
+        in: query
+        name: standing
+        required: true
+        schema:
+          type: number
+          format: float
+          minimum: -10
+          maximum: 10
+        example: 0.0
+      - $ref: '#/components/parameters/token'
+      - description: Whether the contact should be watched, note this is only effective on characters
+        in: query
+        name: watched
+        required: false
+        schema:
+          type: boolean
+          default: false
+        example: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              description: contact_ids array
+              items:
+                description: ID of the contact to edit
+                format: int32
+                title: post_characters_character_id_contacts_contact_id
+                type: integer
+              maxItems: 100
+              minItems: 1
+              title: post_characters_character_id_contacts_contact_ids
+              type: array
+            examples:
+              PostCharactersCharacterIdContactsRequestExample:
+                summary: Default post_characters_character_id_contacts request
+                x-microcks-default: true
+                value: {}
+        description: A list of contacts
+        required: true
+      responses:
+        '201':
+          description: A list of contact ids that successfully created
+          content:
+            application/json:
+              schema:
+                description: 201 created array
+                items:
+                  description: 201 created integer
+                  format: int32
+                  title: post_characters_character_id_contacts_201_created
+                  type: integer
+                maxItems: 100
+                title: post_characters_character_id_contacts_created
+                type: array
+              examples:
+                response:
+                  value:
+                  - 123
+                  - 456
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bad_request'
+              examples:
+                response:
+                  value:
+                    error: Bad request message
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+              examples:
+                response:
+                  value:
+                    error: Unauthorized message
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+              examples:
+                response:
+                  value:
+                    error: Forbidden message
+        '420':
+          description: Error limited
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_limited'
+              examples:
+                response:
+                  value:
+                    error: Error limited message
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/internal_server_error'
+              examples:
+                response:
+                  value:
+                    error: Internal server error message
+        '503':
+          description: Service unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/service_unavailable'
+              examples:
+                response:
+                  value:
+                    error: Service unavailable message
+        '504':
+          description: Gateway timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gateway_timeout'
+              examples:
+                response:
+                  value:
+                    error: Gateway timeout message
+        '520':
+          description: Internal error thrown from the EVE server
+          content:
+            application/json:
+              schema:
+                description: Error 520
+                properties:
+                  error:
+                    description: Error 520 message
+                    title: post_characters_character_id_contacts_520_error_520
+                    type: string
+                title: post_characters_character_id_contacts_error_520
+                type: object
+              examples:
+                response:
+                  value:
+                    error: Error 520 message
+      security:
+      - evesso:
+        - esi-characters.write_contacts.v1
+      summary: EVE Online Add Contacts
+      tags:
+      - Contacts
+      x-alternate-versions:
+      - dev
+      - v2
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    put:
+      description: 'Bulk edit contacts with same settings
+
+
+        ---
+
+        Alternate route: `/dev/characters/{character_id}/contacts/`
+
+
+        Alternate route: `/v2/characters/{character_id}/contacts/`
+
+        '
+      operationId: put_characters_character_id_contacts
+      parameters:
+      - $ref: '#/components/parameters/character_id'
+      - $ref: '#/components/parameters/datasource'
+      - description: Add custom labels to the contact
+        in: query
+        name: label_ids
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            format: int64
+            type: integer
+          maxItems: 63
+        example:
+        - 1
+      - description: Standing for the contact
+        in: query
+        name: standing
+        required: true
+        schema:
+          type: number
+          format: float
+          minimum: -10
+          maximum: 10
+        example: 0.0
+      - $ref: '#/components/parameters/token'
+      - description: Whether the contact should be watched, note this is only effective on characters
+        in: query
+        name: watched
+        required: false
+        schema:
+          type: boolean
+          default: false
+        example: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              description: contact_ids array
+              items:
+                description: ID of the contact to edit
+                format: int32
+                title: put_characters_character_id_contacts_contact_id
+                type: integer
+              maxItems: 100
+              minItems: 1
+              title: put_characters_character_id_contacts_contact_ids
+              type: array
+            examples:
+              PutCharactersCharacterIdContactsRequestExample:
+                summary: Default put_characters_character_id_contacts request
+                x-microcks-default: true
+                value: {}
+        description: A list of contacts
+        required: true
+      responses:
+        '204':
+          description: Contacts updated
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bad_request'
+              examples:
+                response:
+                  value:
+                    error: Bad request message
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+              examples:
+                response:
+                  value:
+                    error: Unauthorized message
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+              examples:
+                response:
+                  value:
+                    error: Forbidden message
+        '420':
+          description: Error limited
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_limited'
+              examples:
+                response:
+                  value:
+                    error: Error limited message
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/internal_server_error'
+              examples:
+                response:
+                  value:
+                    error: Internal server error message
+        '503':
+          description: Service unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/service_unavailable'
+              examples:
+                response:
+                  value:
+                    error: Service unavailable message
+        '504':
+          description: Gateway timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gateway_timeout'
+              examples:
+                response:
+                  value:
+                    error: Gateway timeout message
+      security:
+      - evesso:
+        - esi-characters.write_contacts.v1
+      summary: EVE Online Edit Contacts
+      tags:
+      - Contacts
+      x-alternate-versions:
+      - dev
+      - v2
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /characters/{character_id}/contacts/labels/:
+    get:
+      description: 'Return custom labels for a character''s contacts
+
+
+        ---
+
+        Alternate route: `/dev/characters/{character_id}/contacts/labels/`
+
+
+        Alternate route: `/legacy/characters/{character_id}/contacts/labels/`
+
+
+        Alternate route: `/v1/characters/{character_id}/contacts/labels/`
+
+
+        ---
+
+        This route is cached for up to 300 seconds'
+      operationId: get_characters_character_id_contacts_labels
+      parameters:
+      - $ref: '#/components/parameters/character_id'
+      - $ref: '#/components/parameters/datasource'
+      - $ref: '#/components/parameters/If-None-Match'
+      - $ref: '#/components/parameters/token'
+      responses:
+        '200':
+          description: A list of contact labels
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              schema:
+                type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              schema:
+                type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                description: 200 ok array
+                items:
+                  description: 200 ok object
+                  properties:
+                    label_id:
+                      description: label_id integer
+                      format: int64
+                      title: get_characters_character_id_contacts_labels_label_id
+                      type: integer
+                    label_name:
+                      description: label_name string
+                      title: get_characters_character_id_contacts_labels_label_name
+                      type: string
+                  required:
+                  - label_id
+                  - label_name
+                  title: get_characters_character_id_contacts_labels_200_ok
+                  type: object
+                maxItems: 64
+                title: get_characters_character_id_contacts_labels_ok
+                type: array
+              examples:
+                response:
+                  value:
+                  - label_id: 123
+                    label_name: Friends
+        '304':
+          description: Not modified
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              schema:
+                type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              schema:
+                type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bad_request'
+              examples:
+                response:
+                  value:
+                    error: Bad request message
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+              examples:
+                response:
+                  value:
+                    error: Unauthorized message
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+              examples:
+                response:
+                  value:
+                    error: Forbidden message
+        '420':
+          description: Error limited
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_limited'
+              examples:
+                response:
+                  value:
+                    error: Error limited message
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/internal_server_error'
+              examples:
+                response:
+                  value:
+                    error: Internal server error message
+        '503':
+          description: Service unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/service_unavailable'
+              examples:
+                response:
+                  value:
+                    error: Service unavailable message
+        '504':
+          description: Gateway timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gateway_timeout'
+              examples:
+                response:
+                  value:
+                    error: Gateway timeout message
+      security:
+      - evesso:
+        - esi-characters.read_contacts.v1
+      summary: EVE Online Get Contact Labels
+      tags:
+      - Contacts
+      x-alternate-versions:
+      - dev
+      - legacy
+      - v1
+      x-cached-seconds: 300
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /corporations/{corporation_id}/contacts/:
+    get:
+      description: 'Return contacts of a corporation
+
+
+        ---
+
+        Alternate route: `/dev/corporations/{corporation_id}/contacts/`
+
+
+        Alternate route: `/v2/corporations/{corporation_id}/contacts/`
+
+
+        ---
+
+        This route is cached for up to 300 seconds'
+      operationId: get_corporations_corporation_id_contacts
+      parameters:
+      - $ref: '#/components/parameters/corporation_id'
+      - $ref: '#/components/parameters/datasource'
+      - $ref: '#/components/parameters/If-None-Match'
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/token'
+      responses:
+        '200':
+          description: A list of contacts
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              schema:
+                type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              schema:
+                type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+            X-Pages:
+              description: Maximum page number
+              schema:
+                type: integer
+                format: int32
+                default: 1
+          content:
+            application/json:
+              schema:
+                description: 200 ok array
+                items:
+                  description: 200 ok object
+                  properties:
+                    contact_id:
+                      description: contact_id integer
+                      format: int32
+                      title: get_corporations_corporation_id_contacts_contact_id
+                      type: integer
+                    contact_type:
+                      description: contact_type string
+                      enum:
+                      - character
+                      - corporation
+                      - alliance
+                      - faction
+                      title: get_corporations_corporation_id_contacts_contact_type
+                      type: string
+                    is_watched:
+                      description: Whether this contact is being watched
+                      title: get_corporations_corporation_id_contacts_is_watched
+                      type: boolean
+                    label_ids:
+                      description: label_ids array
+                      items:
+                        description: Label IDs applied to the contact
+                        format: int64
+                        title: get_corporations_corporation_id_contacts_label_id
+                        type: integer
+                      maxItems: 63
+                      title: get_corporations_corporation_id_contacts_label_ids
+                      type: array
+                    standing:
+                      description: Standing of the contact
+                      format: float
+                      title: get_corporations_corporation_id_contacts_standing
+                      type: number
+                  required:
+                  - standing
+                  - contact_type
+                  - contact_id
+                  title: get_corporations_corporation_id_contacts_200_ok
+                  type: object
+                maxItems: 200
+                title: get_corporations_corporation_id_contacts_ok
+                type: array
+              examples:
+                response:
+                  value:
+                  - contact_id: 123
+                    contact_type: character
+                    is_watched: true
+                    standing: 9.9
+        '304':
+          description: Not modified
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              schema:
+                type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              schema:
+                type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bad_request'
+              examples:
+                response:
+                  value:
+                    error: Bad request message
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+              examples:
+                response:
+                  value:
+                    error: Unauthorized message
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+              examples:
+                response:
+                  value:
+                    error: Forbidden message
+        '420':
+          description: Error limited
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_limited'
+              examples:
+                response:
+                  value:
+                    error: Error limited message
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/internal_server_error'
+              examples:
+                response:
+                  value:
+                    error: Internal server error message
+        '503':
+          description: Service unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/service_unavailable'
+              examples:
+                response:
+                  value:
+                    error: Service unavailable message
+        '504':
+          description: Gateway timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gateway_timeout'
+              examples:
+                response:
+                  value:
+                    error: Gateway timeout message
+      security:
+      - evesso:
+        - esi-corporations.read_contacts.v1
+      summary: EVE Online Get Corporation Contacts
+      tags:
+      - Contacts
+      x-alternate-versions:
+      - dev
+      - v2
+      x-cached-seconds: 300
+      x-required-roles: []
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /corporations/{corporation_id}/contacts/labels/:
+    get:
+      description: 'Return custom labels for a corporation''s contacts
+
+
+        ---
+
+        Alternate route: `/dev/corporations/{corporation_id}/contacts/labels/`
+
+
+        Alternate route: `/legacy/corporations/{corporation_id}/contacts/labels/`
+
+
+        Alternate route: `/v1/corporations/{corporation_id}/contacts/labels/`
+
+
+        ---
+
+        This route is cached for up to 300 seconds'
+      operationId: get_corporations_corporation_id_contacts_labels
+      parameters:
+      - $ref: '#/components/parameters/corporation_id'
+      - $ref: '#/components/parameters/datasource'
+      - $ref: '#/components/parameters/If-None-Match'
+      - $ref: '#/components/parameters/token'
+      responses:
+        '200':
+          description: A list of corporation contact labels
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              schema:
+                type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              schema:
+                type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                description: 200 ok array
+                items:
+                  description: 200 ok object
+                  properties:
+                    label_id:
+                      description: label_id integer
+                      format: int64
+                      title: get_corporations_corporation_id_contacts_labels_label_id
+                      type: integer
+                    label_name:
+                      description: label_name string
+                      title: get_corporations_corporation_id_contacts_labels_label_name
+                      type: string
+                  required:
+                  - label_id
+                  - label_name
+                  title: get_corporations_corporation_id_contacts_labels_200_ok
+                  type: object
+                maxItems: 64
+                title: get_corporations_corporation_id_contacts_labels_ok
+                type: array
+              examples:
+                response:
+                  value:
+                  - label_id: 2
+                    label_name: Corporation Friends
+        '304':
+          description: Not modified
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              schema:
+                type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              schema:
+                type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              schema:
+                type: string
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bad_request'
+              examples:
+                response:
+                  value:
+                    error: Bad request message
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+              examples:
+                response:
+                  value:
+                    error: Unauthorized message
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+              examples:
+                response:
+                  value:
+                    error: Forbidden message
+        '420':
+          description: Error limited
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_limited'
+              examples:
+                response:
+                  value:
+                    error: Error limited message
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/internal_server_error'
+              examples:
+                response:
+                  value:
+                    error: Internal server error message
+        '503':
+          description: Service unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/service_unavailable'
+              examples:
+                response:
+                  value:
+                    error: Service unavailable message
+        '504':
+          description: Gateway timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gateway_timeout'
+              examples:
+                response:
+                  value:
+                    error: Gateway timeout message
+      security:
+      - evesso:
+        - esi-corporations.read_contacts.v1
+      summary: EVE Online Get Corporation Contact Labels
+      tags:
+      - Contacts
+      x-alternate-versions:
+      - dev
+      - legacy
+      - v1
+      x-cached-seconds: 300
+      x-required-roles: []
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v1/alliances/{alliance_id}/contacts/labels/:
+    get:
+      description: 'Return custom labels for an alliance''s contacts
+
+
+        ---
+
+
+        This route is cached for up to 300 seconds'
+      operationId: get_alliances_alliance_id_contacts_labels
+      parameters:
+      - $ref: '#/parameters/alliance_id'
+      - $ref: '#/parameters/datasource'
+      - $ref: '#/parameters/If-None-Match'
+      - $ref: '#/parameters/token'
+      responses:
+        '200':
+          description: A list of alliance contact labels
+          examples:
+            application/json:
+            - label_id: 1
+              label_name: Alliance Friends
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              type: string
+          schema:
+            description: 200 ok array
+            items:
+              description: 200 ok object
+              properties:
+                label_id:
+                  description: label_id integer
+                  format: int64
+                  title: get_alliances_alliance_id_contacts_labels_label_id
+                  type: integer
+                label_name:
+                  description: label_name string
+                  title: get_alliances_alliance_id_contacts_labels_label_name
+                  type: string
+              required:
+              - label_id
+              - label_name
+              title: get_alliances_alliance_id_contacts_labels_200_ok
+              type: object
+            maxItems: 64
+            title: get_alliances_alliance_id_contacts_labels_ok
+            type: array
+        '304':
+          description: Not modified
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              type: string
+        '400':
+          description: Bad request
+          examples:
+            application/json:
+              error: Bad request message
+          schema:
+            $ref: '#/definitions/bad_request'
+        '401':
+          description: Unauthorized
+          examples:
+            application/json:
+              error: Unauthorized message
+          schema:
+            $ref: '#/definitions/unauthorized'
+        '403':
+          description: Forbidden
+          examples:
+            application/json:
+              error: Forbidden message
+          schema:
+            $ref: '#/definitions/forbidden'
+        '420':
+          description: Error limited
+          examples:
+            application/json:
+              error: Error limited message
+          schema:
+            $ref: '#/definitions/error_limited'
+        '500':
+          description: Internal server error
+          examples:
+            application/json:
+              error: Internal server error message
+          schema:
+            $ref: '#/definitions/internal_server_error'
+        '503':
+          description: Service unavailable
+          examples:
+            application/json:
+              error: Service unavailable message
+          schema:
+            $ref: '#/definitions/service_unavailable'
+        '504':
+          description: Gateway timeout
+          examples:
+            application/json:
+              error: Gateway timeout message
+          schema:
+            $ref: '#/definitions/gateway_timeout'
+      security:
+      - evesso:
+        - esi-alliances.read_contacts.v1
+      summary: Get alliance contact labels
+      tags:
+      - Contacts
+      x-alternate-versions:
+      - latest
+      - legacy
+      - v1
+      x-cached-seconds: 300
+  /v1/characters/{character_id}/contacts/:
+    delete:
+      description: 'Bulk delete contacts
+
+
+        ---
+
+        '
+      operationId: delete_characters_character_id_contacts
+      parameters:
+      - $ref: '#/parameters/character_id'
+      - description: A list of contacts to delete
+        in: query
+        items:
+          format: int32
+          type: integer
+        maxItems: 20
+        minItems: 1
+        name: contact_ids
+        required: true
+        type: array
+      - $ref: '#/parameters/datasource'
+      - $ref: '#/parameters/token'
+      responses:
+        '204':
+          description: Contacts deleted
+        '400':
+          description: Bad request
+          examples:
+            application/json:
+              error: Bad request message
+          schema:
+            $ref: '#/definitions/bad_request'
+        '401':
+          description: Unauthorized
+          examples:
+            application/json:
+              error: Unauthorized message
+          schema:
+            $ref: '#/definitions/unauthorized'
+        '403':
+          description: Forbidden
+          examples:
+            application/json:
+              error: Forbidden message
+          schema:
+            $ref: '#/definitions/forbidden'
+        '420':
+          description: Error limited
+          examples:
+            application/json:
+              error: Error limited message
+          schema:
+            $ref: '#/definitions/error_limited'
+        '500':
+          description: Internal server error
+          examples:
+            application/json:
+              error: Internal server error message
+          schema:
+            $ref: '#/definitions/internal_server_error'
+        '503':
+          description: Service unavailable
+          examples:
+            application/json:
+              error: Service unavailable message
+          schema:
+            $ref: '#/definitions/service_unavailable'
+        '504':
+          description: Gateway timeout
+          examples:
+            application/json:
+              error: Gateway timeout message
+          schema:
+            $ref: '#/definitions/gateway_timeout'
+      security:
+      - evesso:
+        - esi-characters.write_contacts.v1
+      summary: Delete contacts
+      tags:
+      - Contacts
+      x-alternate-versions:
+      - latest
+      - legacy
+      - v1
+      - v2
+  /v1/characters/{character_id}/contacts/labels/:
+    get:
+      description: 'Return custom labels for a character''s contacts
+
+
+        ---
+
+
+        This route is cached for up to 300 seconds'
+      operationId: get_characters_character_id_contacts_labels
+      parameters:
+      - $ref: '#/parameters/character_id'
+      - $ref: '#/parameters/datasource'
+      - $ref: '#/parameters/If-None-Match'
+      - $ref: '#/parameters/token'
+      responses:
+        '200':
+          description: A list of contact labels
+          examples:
+            application/json:
+            - label_id: 123
+              label_name: Friends
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              type: string
+          schema:
+            description: 200 ok array
+            items:
+              description: 200 ok object
+              properties:
+                label_id:
+                  description: label_id integer
+                  format: int64
+                  title: get_characters_character_id_contacts_labels_label_id
+                  type: integer
+                label_name:
+                  description: label_name string
+                  title: get_characters_character_id_contacts_labels_label_name
+                  type: string
+              required:
+              - label_id
+              - label_name
+              title: get_characters_character_id_contacts_labels_200_ok
+              type: object
+            maxItems: 64
+            title: get_characters_character_id_contacts_labels_ok
+            type: array
+        '304':
+          description: Not modified
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              type: string
+        '400':
+          description: Bad request
+          examples:
+            application/json:
+              error: Bad request message
+          schema:
+            $ref: '#/definitions/bad_request'
+        '401':
+          description: Unauthorized
+          examples:
+            application/json:
+              error: Unauthorized message
+          schema:
+            $ref: '#/definitions/unauthorized'
+        '403':
+          description: Forbidden
+          examples:
+            application/json:
+              error: Forbidden message
+          schema:
+            $ref: '#/definitions/forbidden'
+        '420':
+          description: Error limited
+          examples:
+            application/json:
+              error: Error limited message
+          schema:
+            $ref: '#/definitions/error_limited'
+        '500':
+          description: Internal server error
+          examples:
+            application/json:
+              error: Internal server error message
+          schema:
+            $ref: '#/definitions/internal_server_error'
+        '503':
+          description: Service unavailable
+          examples:
+            application/json:
+              error: Service unavailable message
+          schema:
+            $ref: '#/definitions/service_unavailable'
+        '504':
+          description: Gateway timeout
+          examples:
+            application/json:
+              error: Gateway timeout message
+          schema:
+            $ref: '#/definitions/gateway_timeout'
+      security:
+      - evesso:
+        - esi-characters.read_contacts.v1
+      summary: Get contact labels
+      tags:
+      - Contacts
+      x-alternate-versions:
+      - latest
+      - legacy
+      - v1
+      x-cached-seconds: 300
+  /v1/corporations/{corporation_id}/contacts/labels/:
+    get:
+      description: 'Return custom labels for a corporation''s contacts
+
+
+        ---
+
+
+        This route is cached for up to 300 seconds'
+      operationId: get_corporations_corporation_id_contacts_labels
+      parameters:
+      - $ref: '#/parameters/corporation_id'
+      - $ref: '#/parameters/datasource'
+      - $ref: '#/parameters/If-None-Match'
+      - $ref: '#/parameters/token'
+      responses:
+        '200':
+          description: A list of corporation contact labels
+          examples:
+            application/json:
+            - label_id: 2
+              label_name: Corporation Friends
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              type: string
+          schema:
+            description: 200 ok array
+            items:
+              description: 200 ok object
+              properties:
+                label_id:
+                  description: label_id integer
+                  format: int64
+                  title: get_corporations_corporation_id_contacts_labels_label_id
+                  type: integer
+                label_name:
+                  description: label_name string
+                  title: get_corporations_corporation_id_contacts_labels_label_name
+                  type: string
+              required:
+              - label_id
+              - label_name
+              title: get_corporations_corporation_id_contacts_labels_200_ok
+              type: object
+            maxItems: 64
+            title: get_corporations_corporation_id_contacts_labels_ok
+            type: array
+        '304':
+          description: Not modified
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              type: string
+        '400':
+          description: Bad request
+          examples:
+            application/json:
+              error: Bad request message
+          schema:
+            $ref: '#/definitions/bad_request'
+        '401':
+          description: Unauthorized
+          examples:
+            application/json:
+              error: Unauthorized message
+          schema:
+            $ref: '#/definitions/unauthorized'
+        '403':
+          description: Forbidden
+          examples:
+            application/json:
+              error: Forbidden message
+          schema:
+            $ref: '#/definitions/forbidden'
+        '420':
+          description: Error limited
+          examples:
+            application/json:
+              error: Error limited message
+          schema:
+            $ref: '#/definitions/error_limited'
+        '500':
+          description: Internal server error
+          examples:
+            application/json:
+              error: Internal server error message
+          schema:
+            $ref: '#/definitions/internal_server_error'
+        '503':
+          description: Service unavailable
+          examples:
+            application/json:
+              error: Service unavailable message
+          schema:
+            $ref: '#/definitions/service_unavailable'
+        '504':
+          description: Gateway timeout
+          examples:
+            application/json:
+              error: Gateway timeout message
+          schema:
+            $ref: '#/definitions/gateway_timeout'
+      security:
+      - evesso:
+        - esi-corporations.read_contacts.v1
+      summary: Get corporation contact labels
+      tags:
+      - Contacts
+      x-alternate-versions:
+      - latest
+      - legacy
+      - v1
+      x-cached-seconds: 300
+      x-required-roles: []
+  /v2/alliances/{alliance_id}/contacts/:
+    get:
+      description: 'Return contacts of an alliance
+
+
+        ---
+
+
+        This route is cached for up to 300 seconds'
+      operationId: get_alliances_alliance_id_contacts
+      parameters:
+      - $ref: '#/parameters/alliance_id'
+      - $ref: '#/parameters/datasource'
+      - $ref: '#/parameters/If-None-Match'
+      - $ref: '#/parameters/page'
+      - $ref: '#/parameters/token'
+      responses:
+        '200':
+          description: A list of contacts
+          examples:
+            application/json:
+            - contact_id: 2112625428
+              contact_type: character
+              standing: 9.9
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              type: string
+            X-Pages:
+              default: 1
+              description: Maximum page number
+              format: int32
+              type: integer
+          schema:
+            description: 200 ok array
+            items:
+              description: 200 ok object
+              properties:
+                contact_id:
+                  description: contact_id integer
+                  format: int32
+                  title: get_alliances_alliance_id_contacts_contact_id
+                  type: integer
+                contact_type:
+                  description: contact_type string
+                  enum:
+                  - character
+                  - corporation
+                  - alliance
+                  - faction
+                  title: get_alliances_alliance_id_contacts_contact_type
+                  type: string
+                label_ids:
+                  description: label_ids array
+                  items:
+                    description: Label IDs applied to the contact
+                    format: int64
+                    title: get_alliances_alliance_id_contacts_label_id
+                    type: integer
+                  maxItems: 63
+                  title: get_alliances_alliance_id_contacts_label_ids
+                  type: array
+                standing:
+                  description: Standing of the contact
+                  format: float
+                  title: get_alliances_alliance_id_contacts_standing
+                  type: number
+              required:
+              - standing
+              - contact_type
+              - contact_id
+              title: get_alliances_alliance_id_contacts_200_ok
+              type: object
+            maxItems: 1000
+            title: get_alliances_alliance_id_contacts_ok
+            type: array
+        '304':
+          description: Not modified
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              type: string
+        '400':
+          description: Bad request
+          examples:
+            application/json:
+              error: Bad request message
+          schema:
+            $ref: '#/definitions/bad_request'
+        '401':
+          description: Unauthorized
+          examples:
+            application/json:
+              error: Unauthorized message
+          schema:
+            $ref: '#/definitions/unauthorized'
+        '403':
+          description: Forbidden
+          examples:
+            application/json:
+              error: Forbidden message
+          schema:
+            $ref: '#/definitions/forbidden'
+        '420':
+          description: Error limited
+          examples:
+            application/json:
+              error: Error limited message
+          schema:
+            $ref: '#/definitions/error_limited'
+        '500':
+          description: Internal server error
+          examples:
+            application/json:
+              error: Internal server error message
+          schema:
+            $ref: '#/definitions/internal_server_error'
+        '503':
+          description: Service unavailable
+          examples:
+            application/json:
+              error: Service unavailable message
+          schema:
+            $ref: '#/definitions/service_unavailable'
+        '504':
+          description: Gateway timeout
+          examples:
+            application/json:
+              error: Gateway timeout message
+          schema:
+            $ref: '#/definitions/gateway_timeout'
+      security:
+      - evesso:
+        - esi-alliances.read_contacts.v1
+      summary: Get alliance contacts
+      tags:
+      - Contacts
+      x-alternate-versions:
+      - latest
+      - v2
+      x-cached-seconds: 300
+  /v2/characters/{character_id}/contacts/:
+    get:
+      description: 'Return contacts of a character
+
+
+        ---
+
+
+        This route is cached for up to 300 seconds'
+      operationId: get_characters_character_id_contacts
+      parameters:
+      - $ref: '#/parameters/character_id'
+      - $ref: '#/parameters/datasource'
+      - $ref: '#/parameters/If-None-Match'
+      - $ref: '#/parameters/page'
+      - $ref: '#/parameters/token'
+      responses:
+        '200':
+          description: A list of contacts
+          examples:
+            application/json:
+            - contact_id: 123
+              contact_type: character
+              is_blocked: true
+              is_watched: true
+              standing: 9.9
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              type: string
+            X-Pages:
+              default: 1
+              description: Maximum page number
+              format: int32
+              type: integer
+          schema:
+            description: 200 ok array
+            items:
+              description: 200 ok object
+              properties:
+                contact_id:
+                  description: contact_id integer
+                  format: int32
+                  title: get_characters_character_id_contacts_contact_id
+                  type: integer
+                contact_type:
+                  description: contact_type string
+                  enum:
+                  - character
+                  - corporation
+                  - alliance
+                  - faction
+                  title: get_characters_character_id_contacts_contact_type
+                  type: string
+                is_blocked:
+                  description: Whether this contact is in the blocked list. Note a missing value denotes unknown, not true or false
+                  title: get_characters_character_id_contacts_is_blocked
+                  type: boolean
+                is_watched:
+                  description: Whether this contact is being watched
+                  title: get_characters_character_id_contacts_is_watched
+                  type: boolean
+                label_ids:
+                  description: label_ids array
+                  items:
+                    description: Label IDs applied to the contact
+                    format: int64
+                    title: get_characters_character_id_contacts_label_id
+                    type: integer
+                  maxItems: 63
+                  title: get_characters_character_id_contacts_label_ids
+                  type: array
+                standing:
+                  description: Standing of the contact
+                  format: float
+                  title: get_characters_character_id_contacts_standing
+                  type: number
+              required:
+              - standing
+              - contact_type
+              - contact_id
+              title: get_characters_character_id_contacts_200_ok
+              type: object
+            maxItems: 1024
+            title: get_characters_character_id_contacts_ok
+            type: array
+        '304':
+          description: Not modified
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              type: string
+        '400':
+          description: Bad request
+          examples:
+            application/json:
+              error: Bad request message
+          schema:
+            $ref: '#/definitions/bad_request'
+        '401':
+          description: Unauthorized
+          examples:
+            application/json:
+              error: Unauthorized message
+          schema:
+            $ref: '#/definitions/unauthorized'
+        '403':
+          description: Forbidden
+          examples:
+            application/json:
+              error: Forbidden message
+          schema:
+            $ref: '#/definitions/forbidden'
+        '420':
+          description: Error limited
+          examples:
+            application/json:
+              error: Error limited message
+          schema:
+            $ref: '#/definitions/error_limited'
+        '500':
+          description: Internal server error
+          examples:
+            application/json:
+              error: Internal server error message
+          schema:
+            $ref: '#/definitions/internal_server_error'
+        '503':
+          description: Service unavailable
+          examples:
+            application/json:
+              error: Service unavailable message
+          schema:
+            $ref: '#/definitions/service_unavailable'
+        '504':
+          description: Gateway timeout
+          examples:
+            application/json:
+              error: Gateway timeout message
+          schema:
+            $ref: '#/definitions/gateway_timeout'
+      security:
+      - evesso:
+        - esi-characters.read_contacts.v1
+      summary: Get contacts
+      tags:
+      - Contacts
+      x-alternate-versions:
+      - latest
+      - v2
+      x-cached-seconds: 300
+    post:
+      description: 'Bulk add contacts with same settings
+
+
+        ---
+
+        '
+      operationId: post_characters_character_id_contacts
+      parameters:
+      - $ref: '#/parameters/character_id'
+      - description: A list of contacts
+        in: body
+        name: contact_ids
+        required: true
+        schema:
+          description: contact_ids array
+          items:
+            description: ID of the contact to edit
+            format: int32
+            title: post_characters_character_id_contacts_contact_id
+            type: integer
+          maxItems: 100
+          minItems: 1
+          title: post_characters_character_id_contacts_contact_ids
+          type: array
+      - $ref: '#/parameters/datasource'
+      - description: Add custom labels to the new contact
+        in: query
+        items:
+          format: int64
+          type: integer
+        maxItems: 63
+        name: label_ids
+        required: false
+        type: array
+      - description: Standing for the contact
+        format: float
+        in: query
+        maximum: 10
+        minimum: -10
+        name: standing
+        required: true
+        type: number
+      - $ref: '#/parameters/token'
+      - default: false
+        description: Whether the contact should be watched, note this is only effective on characters
+        in: query
+        name: watched
+        required: false
+        type: boolean
+      responses:
+        '201':
+          description: A list of contact ids that successfully created
+          examples:
+            application/json:
+            - 123
+            - 456
+          schema:
+            description: 201 created array
+            items:
+              description: 201 created integer
+              format: int32
+              title: post_characters_character_id_contacts_201_created
+              type: integer
+            maxItems: 100
+            title: post_characters_character_id_contacts_created
+            type: array
+        '400':
+          description: Bad request
+          examples:
+            application/json:
+              error: Bad request message
+          schema:
+            $ref: '#/definitions/bad_request'
+        '401':
+          description: Unauthorized
+          examples:
+            application/json:
+              error: Unauthorized message
+          schema:
+            $ref: '#/definitions/unauthorized'
+        '403':
+          description: Forbidden
+          examples:
+            application/json:
+              error: Forbidden message
+          schema:
+            $ref: '#/definitions/forbidden'
+        '420':
+          description: Error limited
+          examples:
+            application/json:
+              error: Error limited message
+          schema:
+            $ref: '#/definitions/error_limited'
+        '500':
+          description: Internal server error
+          examples:
+            application/json:
+              error: Internal server error message
+          schema:
+            $ref: '#/definitions/internal_server_error'
+        '503':
+          description: Service unavailable
+          examples:
+            application/json:
+              error: Service unavailable message
+          schema:
+            $ref: '#/definitions/service_unavailable'
+        '504':
+          description: Gateway timeout
+          examples:
+            application/json:
+              error: Gateway timeout message
+          schema:
+            $ref: '#/definitions/gateway_timeout'
+        '520':
+          description: Internal error thrown from the EVE server
+          examples:
+            application/json:
+              error: Error 520 message
+          schema:
+            description: Error 520
+            properties:
+              error:
+                description: Error 520 message
+                title: post_characters_character_id_contacts_520_error_520
+                type: string
+            title: post_characters_character_id_contacts_error_520
+            type: object
+      security:
+      - evesso:
+        - esi-characters.write_contacts.v1
+      summary: Add contacts
+      tags:
+      - Contacts
+      x-alternate-versions:
+      - latest
+      - v2
+    put:
+      description: 'Bulk edit contacts with same settings
+
+
+        ---
+
+        '
+      operationId: put_characters_character_id_contacts
+      parameters:
+      - $ref: '#/parameters/character_id'
+      - description: A list of contacts
+        in: body
+        name: contact_ids
+        required: true
+        schema:
+          description: contact_ids array
+          items:
+            description: ID of the contact to edit
+            format: int32
+            title: put_characters_character_id_contacts_contact_id
+            type: integer
+          maxItems: 100
+          minItems: 1
+          title: put_characters_character_id_contacts_contact_ids
+          type: array
+      - $ref: '#/parameters/datasource'
+      - description: Add custom labels to the contact
+        in: query
+        items:
+          format: int64
+          type: integer
+        maxItems: 63
+        name: label_ids
+        required: false
+        type: array
+      - description: Standing for the contact
+        format: float
+        in: query
+        maximum: 10
+        minimum: -10
+        name: standing
+        required: true
+        type: number
+      - $ref: '#/parameters/token'
+      - default: false
+        description: Whether the contact should be watched, note this is only effective on characters
+        in: query
+        name: watched
+        required: false
+        type: boolean
+      responses:
+        '204':
+          description: Contacts updated
+        '400':
+          description: Bad request
+          examples:
+            application/json:
+              error: Bad request message
+          schema:
+            $ref: '#/definitions/bad_request'
+        '401':
+          description: Unauthorized
+          examples:
+            application/json:
+              error: Unauthorized message
+          schema:
+            $ref: '#/definitions/unauthorized'
+        '403':
+          description: Forbidden
+          examples:
+            application/json:
+              error: Forbidden message
+          schema:
+            $ref: '#/definitions/forbidden'
+        '420':
+          description: Error limited
+          examples:
+            application/json:
+              error: Error limited message
+          schema:
+            $ref: '#/definitions/error_limited'
+        '500':
+          description: Internal server error
+          examples:
+            application/json:
+              error: Internal server error message
+          schema:
+            $ref: '#/definitions/internal_server_error'
+        '503':
+          description: Service unavailable
+          examples:
+            application/json:
+              error: Service unavailable message
+          schema:
+            $ref: '#/definitions/service_unavailable'
+        '504':
+          description: Gateway timeout
+          examples:
+            application/json:
+              error: Gateway timeout message
+          schema:
+            $ref: '#/definitions/gateway_timeout'
+      security:
+      - evesso:
+        - esi-characters.write_contacts.v1
+      summary: Edit contacts
+      tags:
+      - Contacts
+      x-alternate-versions:
+      - latest
+      - v2
+  /v2/corporations/{corporation_id}/contacts/:
+    get:
+      description: 'Return contacts of a corporation
+
+
+        ---
+
+
+        This route is cached for up to 300 seconds'
+      operationId: get_corporations_corporation_id_contacts
+      parameters:
+      - $ref: '#/parameters/corporation_id'
+      - $ref: '#/parameters/datasource'
+      - $ref: '#/parameters/If-None-Match'
+      - $ref: '#/parameters/page'
+      - $ref: '#/parameters/token'
+      responses:
+        '200':
+          description: A list of contacts
+          examples:
+            application/json:
+            - contact_id: 123
+              contact_type: character
+              is_watched: true
+              standing: 9.9
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              type: string
+            X-Pages:
+              default: 1
+              description: Maximum page number
+              format: int32
+              type: integer
+          schema:
+            description: 200 ok array
+            items:
+              description: 200 ok object
+              properties:
+                contact_id:
+                  description: contact_id integer
+                  format: int32
+                  title: get_corporations_corporation_id_contacts_contact_id
+                  type: integer
+                contact_type:
+                  description: contact_type string
+                  enum:
+                  - character
+                  - corporation
+                  - alliance
+                  - faction
+                  title: get_corporations_corporation_id_contacts_contact_type
+                  type: string
+                is_watched:
+                  description: Whether this contact is being watched
+                  title: get_corporations_corporation_id_contacts_is_watched
+                  type: boolean
+                label_ids:
+                  description: label_ids array
+                  items:
+                    description: Label IDs applied to the contact
+                    format: int64
+                    title: get_corporations_corporation_id_contacts_label_id
+                    type: integer
+                  maxItems: 63
+                  title: get_corporations_corporation_id_contacts_label_ids
+                  type: array
+                standing:
+                  description: Standing of the contact
+                  format: float
+                  title: get_corporations_corporation_id_contacts_standing
+                  type: number
+              required:
+              - standing
+              - contact_type
+              - contact_id
+              title: get_corporations_corporation_id_contacts_200_ok
+              type: object
+            maxItems: 200
+            title: get_corporations_corporation_id_contacts_ok
+            type: array
+        '304':
+          description: Not modified
+          headers:
+            Cache-Control:
+              description: The caching mechanism used
+              type: string
+            ETag:
+              description: RFC7232 compliant entity tag
+              type: string
+            Expires:
+              description: RFC7231 formatted datetime string
+              type: string
+            Last-Modified:
+              description: RFC7231 formatted datetime string
+              type: string
+        '400':
+          description: Bad request
+          examples:
+            application/json:
+              error: Bad request message
+          schema:
+            $ref: '#/definitions/bad_request'
+        '401':
+          description: Unauthorized
+          examples:
+            application/json:
+              error: Unauthorized message
+          schema:
+            $ref: '#/definitions/unauthorized'
+        '403':
+          description: Forbidden
+          examples:
+            application/json:
+              error: Forbidden message
+          schema:
+            $ref: '#/definitions/forbidden'
+        '420':
+          description: Error limited
+          examples:
+            application/json:
+              error: Error limited message
+          schema:
+            $ref: '#/definitions/error_limited'
+        '500':
+          description: Internal server error
+          examples:
+            application/json:
+              error: Internal server error message
+          schema:
+            $ref: '#/definitions/internal_server_error'
+        '503':
+          description: Service unavailable
+          examples:
+            application/json:
+              error: Service unavailable message
+          schema:
+            $ref: '#/definitions/service_unavailable'
+        '504':
+          description: Gateway timeout
+          examples:
+            application/json:
+              error: Gateway timeout message
+          schema:
+            $ref: '#/definitions/gateway_timeout'
+      security:
+      - evesso:
+        - esi-corporations.read_contacts.v1
+      summary: Get corporation contacts
+      tags:
+      - Contacts
+      x-alternate-versions:
+      - latest
+      - v2
+      x-cached-seconds: 300
+      x-required-roles: []
+components:
+  schemas:
+    internal_server_error:
+      description: Internal server error model
+      properties:
+        error:
+          description: Internal server error message
+          type: string
+          example: example
+      required:
+      - error
+      title: Internal server error
+      type: object
+    forbidden:
+      description: Forbidden model
+      properties:
+        error:
+          description: Forbidden message
+          type: string
+          example: example
+        sso_status:
+          description: status code received from SSO
+          type: integer
+          example: 1
+      required:
+      - error
+      title: Forbidden
+      type: object
+    service_unavailable:
+      description: Service unavailable model
+      properties:
+        error:
+          description: Service unavailable message
+          type: string
+          example: example
+      required:
+      - error
+      title: Service unavailable
+      type: object
+    bad_request:
+      description: Bad request model
+      properties:
+        error:
+          description: Bad request message
+          type: string
+          example: example
+      required:
+      - error
+      title: Bad request
+      type: object
+    unauthorized:
+      description: Unauthorized model
+      properties:
+        error:
+          description: Unauthorized message
+          type: string
+          example: example
+      required:
+      - error
+      title: Unauthorized
+      type: object
+    gateway_timeout:
+      description: Gateway timeout model
+      properties:
+        error:
+          description: Gateway timeout message
+          type: string
+          example: example
+        timeout:
+          description: number of seconds the request was given
+          type: integer
+          example: 1
+      required:
+      - error
+      title: Gateway timeout
+      type: object
+    error_limited:
+      description: Error limited model
+      properties:
+        error:
+          description: Error limited message
+          type: string
+          example: example
+      required:
+      - error
+      title: Error limited
+      type: object
+  parameters:
+    corporation_id:
+      description: An EVE corporation ID
+      in: path
+      name: corporation_id
+      required: true
+      schema:
+        type: integer
+        format: int32
+        minimum: 1
+    datasource:
+      description: The server name you would like data from
+      in: query
+      name: datasource
+      schema:
+        type: string
+        enum:
+        - tranquility
+        default: tranquility
+    character_id:
+      description: An EVE character ID
+      in: path
+      name: character_id
+      required: true
+      schema:
+        type: integer
+        format: int32
+        minimum: 1
+    page:
+      description: Which page of results to return
+      in: query
+      name: page
+      schema:
+        type: integer
+        format: int32
+        minimum: 1
+        default: 1
+    token:
+      description: Access token to use if unable to set a header
+      in: query
+      name: token
+      schema:
+        type: string
+    If-None-Match:
+      description: ETag from a previous request. A 304 will be returned if this matches the current ETag
+      in: header
+      name: If-None-Match
+      schema:
+        type: string
+    alliance_id:
+      description: An EVE alliance ID
+      in: path
+      name: alliance_id
+      required: true
+      schema:
+        type: integer
+        format: int32
+        minimum: 1
+  securitySchemes:
+    evesso:
+      type: oauth2
+      flows:
+        implicit:
+          authorizationUrl: https://login.eveonline.com/v2/oauth/authorize
+          scopes:
+            esi-alliances.read_contacts.v1: EVE SSO scope esi-alliances.read_contacts.v1
+            esi-assets.read_assets.v1: EVE SSO scope esi-assets.read_assets.v1
+            esi-assets.read_corporation_assets.v1: EVE SSO scope esi-assets.read_corporation_assets.v1
+            esi-calendar.read_calendar_events.v1: EVE SSO scope esi-calendar.read_calendar_events.v1
+            esi-calendar.respond_calendar_events.v1: EVE SSO scope esi-calendar.respond_calendar_events.v1
+            esi-characters.read_agents_research.v1: EVE SSO scope esi-characters.read_agents_research.v1
+            esi-characters.read_blueprints.v1: EVE SSO scope esi-characters.read_blueprints.v1
+            esi-characters.read_contacts.v1: EVE SSO scope esi-characters.read_contacts.v1
+            esi-characters.read_corporation_roles.v1: EVE SSO scope esi-characters.read_corporation_roles.v1
+            esi-characters.read_fatigue.v1: EVE SSO scope esi-characters.read_fatigue.v1
+            esi-characters.read_fw_stats.v1: EVE SSO scope esi-characters.read_fw_stats.v1
+            esi-characters.read_loyalty.v1: EVE SSO scope esi-characters.read_loyalty.v1
+            esi-characters.read_medals.v1: EVE SSO scope esi-characters.read_medals.v1
+            esi-characters.read_notifications.v1: EVE SSO scope esi-characters.read_notifications.v1
+            esi-characters.read_standings.v1: EVE SSO scope esi-characters.read_standings.v1
+            esi-characters.read_titles.v1: EVE SSO scope esi-characters.read_titles.v1
+            esi-characters.write_contacts.v1: EVE SSO scope esi-characters.write_contacts.v1
+            esi-clones.read_clones.v1: EVE SSO scope esi-clones.read_clones.v1
+            esi-clones.read_implants.v1: EVE SSO scope esi-clones.read_implants.v1
+            esi-contracts.read_character_contracts.v1: EVE SSO scope esi-contracts.read_character_contracts.v1
+            esi-contracts.read_corporation_contracts.v1: EVE SSO scope esi-contracts.read_corporation_contracts.v1
+            esi-corporations.read_blueprints.v1: EVE SSO scope esi-corporations.read_blueprints.v1
+            esi-corporations.read_contacts.v1: EVE SSO scope esi-corporations.read_contacts.v1
+            esi-corporations.read_container_logs.v1: EVE SSO scope esi-corporations.read_container_logs.v1
+            esi-corporations.read_corporation_membership.v1: EVE SSO scope esi-corporations.read_corporation_membership.v1
+            esi-corporations.read_divisions.v1: EVE SSO scope esi-corporations.read_divisions.v1
+            esi-corporations.read_facilities.v1: EVE SSO scope esi-corporations.read_facilities.v1
+            esi-corporations.read_fw_stats.v1: EVE SSO scope esi-corporations.read_fw_stats.v1
+            esi-corporations.read_medals.v1: EVE SSO scope esi-corporations.read_medals.v1
+            esi-corporations.read_standings.v1: EVE SSO scope esi-corporations.read_standings.v1
+            esi-corporations.read_starbases.v1: EVE SSO scope esi-corporations.read_starbases.v1
+            esi-corporations.read_structures.v1: EVE SSO scope esi-corporations.read_structures.v1
+            esi-corporations.read_titles.v1: EVE SSO scope esi-corporations.read_titles.v1
+            esi-corporations.track_members.v1: EVE SSO scope esi-corporations.track_members.v1
+            esi-fittings.read_fittings.v1: EVE SSO scope esi-fittings.read_fittings.v1
+            esi-fittings.write_fittings.v1: EVE SSO scope esi-fittings.write_fittings.v1
+            esi-fleets.read_fleet.v1: EVE SSO scope esi-fleets.read_fleet.v1
+            esi-fleets.write_fleet.v1: EVE SSO scope esi-fleets.write_fleet.v1
+            esi-industry.read_character_jobs.v1: EVE SSO scope esi-industry.read_character_jobs.v1
+            esi-industry.read_character_mining.v1: EVE SSO scope esi-industry.read_character_mining.v1
+            esi-industry.read_corporation_jobs.v1: EVE SSO scope esi-industry.read_corporation_jobs.v1
+            esi-industry.read_corporation_mining.v1: EVE SSO scope esi-industry.read_corporation_mining.v1
+            esi-killmails.read_corporation_killmails.v1: EVE SSO scope esi-killmails.read_corporation_killmails.v1
+            esi-killmails.read_killmails.v1: EVE SSO scope esi-killmails.read_killmails.v1
+            esi-location.read_location.v1: EVE SSO scope esi-location.read_location.v1
+            esi-location.read_online.v1: EVE SSO scope esi-location.read_online.v1
+            esi-location.read_ship_type.v1: EVE SSO scope esi-location.read_ship_type.v1
+            esi-mail.organize_mail.v1: EVE SSO scope esi-mail.organize_mail.v1
+            esi-mail.read_mail.v1: EVE SSO scope esi-mail.read_mail.v1
+            esi-mail.send_mail.v1: EVE SSO scope esi-mail.send_mail.v1
+            esi-markets.read_character_orders.v1: EVE SSO scope esi-markets.read_character_orders.v1
+            esi-markets.read_corporation_orders.v1: EVE SSO scope esi-markets.read_corporation_orders.v1
+            esi-markets.structure_markets.v1: EVE SSO scope esi-markets.structure_markets.v1
+            esi-planets.manage_planets.v1: EVE SSO scope esi-planets.manage_planets.v1
+            esi-planets.read_customs_offices.v1: EVE SSO scope esi-planets.read_customs_offices.v1
+            esi-search.search_structures.v1: EVE SSO scope esi-search.search_structures.v1
+            esi-skills.read_skillqueue.v1: EVE SSO scope esi-skills.read_skillqueue.v1
+            esi-skills.read_skills.v1: EVE SSO scope esi-skills.read_skills.v1
+            esi-ui.open_window.v1: EVE SSO scope esi-ui.open_window.v1
+            esi-ui.write_waypoint.v1: EVE SSO scope esi-ui.write_waypoint.v1
+            esi-universe.read_structures.v1: EVE SSO scope esi-universe.read_structures.v1
+            esi-wallet.read_character_wallet.v1: EVE SSO scope esi-wallet.read_character_wallet.v1
+            esi-wallet.read_corporation_wallets.v1: EVE SSO scope esi-wallet.read_corporation_wallets.v1
+definitions:
+  internal_server_error:
+    description: Internal server error model
+    properties:
+      error:
+        description: Internal server error message
+        type: string
+    required:
+    - error
+    title: Internal server error
+    type: object
+  error_limited:
+    description: Error limited model
+    properties:
+      error:
+        description: Error limited message
+        type: string
+    required:
+    - error
+    title: Error limited
+    type: object
+  unauthorized:
+    description: Unauthorized model
+    properties:
+      error:
+        description: Unauthorized message
+        type: string
+    required:
+    - error
+    title: Unauthorized
+    type: object
+  service_unavailable:
+    description: Service unavailable model
+    properties:
+      error:
+        description: Service unavailable message
+        type: string
+    required:
+    - error
+    title: Service unavailable
+    type: object
+  forbidden:
+    description: Forbidden model
+    properties:
+      error:
+        description: Forbidden message
+        type: string
+      sso_status:
+        description: status code received from SSO
+        type: integer
+    required:
+    - error
+    title: Forbidden
+    type: object
+  bad_request:
+    description: Bad request model
+    properties:
+      error:
+        description: Bad request message
+        type: string
+    required:
+    - error
+    title: Bad request
+    type: object
+  gateway_timeout:
+    description: Gateway timeout model
+    properties:
+      error:
+        description: Gateway timeout message
+        type: string
+      timeout:
+        description: number of seconds the request was given
+        type: integer
+    required:
+    - error
+    title: Gateway timeout
+    type: object
+parameters:
+  alliance_id:
+    description: An EVE alliance ID
+    format: int32
+    in: path
+    minimum: 1
+    name: alliance_id
+    required: true
+    type: integer
+  corporation_id:
+    description: An EVE corporation ID
+    format: int32
+    in: path
+    minimum: 1
+    name: corporation_id
+    required: true
+    type: integer
+  token:
+    description: Access token to use if unable to set a header
+    in: query
+    name: token
+    type: string
+  If-None-Match:
+    description: ETag from a previous request. A 304 will be returned if this matches the current ETag
+    in: header
+    name: If-None-Match
+    type: string
+  character_id:
+    description: An EVE character ID
+    format: int32
+    in: path
+    minimum: 1
+    name: character_id
+    required: true
+    type: integer
+  datasource:
+    default: tranquility
+    description: The server name you would like data from
+    enum:
+    - tranquility
+    in: query
+    name: datasource
+    type: string
+  page:
+    default: 1
+    description: Which page of results to return
+    format: int32
+    in: query
+    minimum: 1
+    name: page
+    type: integer
