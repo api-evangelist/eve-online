@@ -9,6 +9,18 @@ description: >-
   the bulk universe, type, and dogma data that does not change between server downtimes.
 url: https://raw.githubusercontent.com/api-evangelist/eve-online/refs/heads/main/apis.yml
 type: Index
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
 image: https://web.ccpgamescdn.com/eveonlineassets/developers/eve-sso-login-black-large.png
@@ -31,186 +43,1493 @@ x-tier-reason: official-developer-program-public-openapi
 x-source: public-apis/public-apis
 x-category: Games & Comics
 apis:
-  - aid: eve-online:eve-swagger-interface
-    name: EVE Swagger Interface (ESI)
-    description: >-
-      The EVE Swagger Interface (ESI) is the official RESTful HTTP API for EVE Online third-party development. It covers
-      roughly 180 endpoints across 30 resource families including Universe, Corporation, Character, Fleets, Market,
-      Industry, Contracts, Mail, Assets, Wallet, Killmails, Sovereignty, Wars, Planetary Interaction, Faction Warfare,
-      Dogma, and User Interface. Every request can carry an X-Compatibility-Date header (ISO YYYY-MM-DD) so that clients
-      pin themselves to a known API behavior. Authentication is delegated to EVE SSO using fine-grained OAuth 2.0 scopes
-      (one scope per route family, e.g. esi-wallet.read_character_wallet.v1). Public routes are anonymous; authenticated
-      routes require a JWT access token whose scopes must cover the route. The API enforces a sliding-window per-bucket
-      rate limit and an error rate limit, surfaces caching via Expires/Last-Modified/ETag, and pages large collections
-      with X-Pages headers.
-    humanURL: https://developers.eveonline.com/docs/services/esi/
-    baseURL: https://esi.evetech.net/latest
-    version: '1.36'
-    tags:
-      - Alliance
-      - Assets
-      - Calendar
-      - Character
-      - Clones
-      - Contacts
-      - Contracts
-      - Corporation
-      - Dogma
-      - Faction Warfare
-      - Fittings
-      - Fleets
-      - Incursions
-      - Industry
-      - Insurance
-      - Killmails
-      - Location
-      - Loyalty
-      - Mail
-      - Market
-      - Planetary Interaction
-      - REST
-      - Routes
-      - Search
-      - Skills
-      - Sovereignty
-      - Status
-      - Universe
-      - User Interface
-      - Wallet
-      - Wars
-    properties:
-      - type: Documentation
-        url: https://developers.eveonline.com/docs/services/esi/
-      - type: APIExplorer
-        url: https://developers.eveonline.com/api-explorer
-      - type: OpenAPI
-        url: https://esi.evetech.net/latest/swagger.json
-      - type: OpenAPI
-        url: openapi/eve-online-openapi.yml
-      - type: Swagger
-        url: https://esi.evetech.net/ui
-      - type: BestPractices
-        url: https://developers.eveonline.com/docs/services/esi/best-practices/
-      - type: RateLimits
-        url: https://developers.eveonline.com/docs/services/esi/rate-limiting/
-      - type: GitHubRepo
-        url: https://github.com/esi/esi-docs
-      - type: GitHubRepo
-        url: https://github.com/esi/esi-issues
-      - type: GitHubRepo
-        url: https://github.com/esi/esi-routes
-      - type: GitHubRepo
-        url: https://github.com/esi/eve-glue
-      - type: SupportIssues
-        url: https://github.com/esi/esi-issues
-    contact:
-      - FN: ESI Developers
-        url: https://developers.eveonline.com/
-  - aid: eve-online:eve-sso
-    name: EVE Single Sign-On (SSO)
-    description: >-
-      EVE Single Sign-On (SSO) is the OAuth 2.0 authorization service for EVE Online third-party applications, hosted at
-      login.eveonline.com. It supports the Authorization Code flow for confidential (server-side) applications and
-      Authorization Code with PKCE for native and single-page apps that cannot keep a client secret. Access tokens are
-      issued as RS256-signed JWTs whose sub claim is CHARACTER:EVE:<character-id>, whose aud must contain both the
-      application client_id and the literal "EVE Online", and whose scp claim lists the granted ESI scopes. The service
-      publishes RFC 8414 metadata at /.well-known/oauth-authorization-server, including authorization, token,
-      revocation, and JWKS endpoints.
-    humanURL: https://developers.eveonline.com/docs/services/sso/
-    baseURL: https://login.eveonline.com
-    tags:
-      - Authentication
-      - Authorization
-      - JWT
-      - OAuth2
-      - OpenID
-      - PKCE
-      - SSO
-    properties:
-      - type: Documentation
-        url: https://developers.eveonline.com/docs/services/sso/
-      - type: OAuth2Metadata
-        url: https://login.eveonline.com/.well-known/oauth-authorization-server
-        title: OAuth 2.0 Authorization Server Metadata
-      - type: AuthorizationEndpoint
-        url: https://login.eveonline.com/v2/oauth/authorize
-      - type: TokenEndpoint
-        url: https://login.eveonline.com/v2/oauth/token
-      - type: JWKS
-        url: https://login.eveonline.com/oauth/jwks
-      - type: Branding
-        url: https://web.ccpgamescdn.com/eveonlineassets/developers/eve-sso-login-black-large.png
-    contact:
-      - FN: ESI Developers
-        url: https://developers.eveonline.com/
-  - aid: eve-online:image-server
-    name: EVE Image Server (IEC)
-    description: >-
-      The EVE Image Server (also referred to as IEC, the Image Export Collection) is a public, anonymous HTTP service
-      hosted at images.evetech.net that returns portraits and renders for in-game entities. Supported resources include
-      character portraits, corporation and alliance logos, type icons and renders, and faction logos. Image size
-      variants are requested via the size query parameter (32, 64, 128, 256, 512, 1024) and the service is backed by a
-      CDN with strong cache headers.
-    humanURL: https://developers.eveonline.com/docs/services/image-server/
-    baseURL: https://images.evetech.net
-    tags:
-      - CDN
-      - Images
-      - Portraits
-      - Renders
-    properties:
-      - type: Documentation
-        url: https://developers.eveonline.com/docs/services/image-server/
-    contact:
-      - FN: ESI Developers
-        url: https://developers.eveonline.com/
-  - aid: eve-online:static-data-export
-    name: EVE Static Data Export (SDE)
-    description: >-
-      The EVE Static Data Export (SDE) is the bulk download of all the static reference data behind the EVE universe —
-      types, groups, categories, market groups, dogma attributes, blueprints, regions, constellations, solar systems,
-      stations, certificates, and translations. It is the dataset most third-party developers cache locally rather than
-      calling ESI for every universe lookup. CCP publishes the SDE as YAML, with community projects converting it to
-      SQLite, MySQL, PostgreSQL, MS SQL, JSON, and Parquet for different workloads.
-    humanURL: https://developers.eveonline.com/docs/services/sde/
-    baseURL: https://developers.eveonline.com/static-data
-    tags:
-      - Bulk Data
-      - Reference Data
-      - SDE
-      - Static Data
-    properties:
-      - type: Documentation
-        url: https://developers.eveonline.com/docs/services/sde/
-      - type: Download
-        url: https://developers.eveonline.com/static-data
-      - type: CommunityConversions
-        url: https://developers.eveonline.com/docs/community/sde-conversion/
-    contact:
-      - FN: ESI Developers
-        url: https://developers.eveonline.com/
-  - aid: eve-online:eve-online-game
-    name: EVE Online Game Client
-    description: >-
-      EVE Online is the underlying massively multiplayer online (MMO) space game from CCP Games. The game client is the
-      consumer of the third-party developer ecosystem — it is where capsuleers actually fly ships, run corporations, and
-      trade on the market that ESI surfaces. The official launcher, client downloads, account management, and game patch
-      notes live on eveonline.com.
-    humanURL: https://www.eveonline.com
-    tags:
-      - Game
-      - MMO
-      - Space
-    properties:
-      - type: Website
-        url: https://www.eveonline.com
-      - type: Download
-        url: https://www.eveonline.com/download
-      - type: AccountManagement
-        url: https://secure.eveonline.com/account
-    contact:
-      - FN: CCP Games
-        url: https://www.ccpgames.com/
+- aid: eve-online:eve-sso
+  name: EVE Single Sign-On (SSO)
+  description: >-
+    EVE Single Sign-On (SSO) is the OAuth 2.0 authorization service for EVE Online third-party applications,
+    hosted at login.eveonline.com. It supports the Authorization Code flow for confidential (server-side)
+    applications and Authorization Code with PKCE for native and single-page apps that cannot keep a client
+    secret. Access tokens are issued as RS256-signed JWTs whose sub claim is CHARACTER:EVE:<character-id>,
+    whose aud must contain both the application client_id and the literal "EVE Online", and whose scp
+    claim lists the granted ESI scopes. The service publishes RFC 8414 metadata at /.well-known/oauth-authorization-server,
+    including authorization, token, revocation, and JWKS endpoints.
+  humanURL: https://developers.eveonline.com/docs/services/sso/
+  baseURL: https://login.eveonline.com
+  tags:
+  - Authentication
+  - Authorization
+  - JWT
+  - OAuth2
+  - OpenID
+  - PKCE
+  - SSO
+  properties:
+  - type: Documentation
+    url: https://developers.eveonline.com/docs/services/sso/
+  - type: OAuth2Metadata
+    url: https://login.eveonline.com/.well-known/oauth-authorization-server
+    title: OAuth 2.0 Authorization Server Metadata
+  - type: AuthorizationEndpoint
+    url: https://login.eveonline.com/v2/oauth/authorize
+  - type: TokenEndpoint
+    url: https://login.eveonline.com/v2/oauth/token
+  - type: JWKS
+    url: https://login.eveonline.com/oauth/jwks
+  - type: Branding
+    url: https://web.ccpgamescdn.com/eveonlineassets/developers/eve-sso-login-black-large.png
+  contact:
+  - FN: ESI Developers
+    url: https://developers.eveonline.com/
+- aid: eve-online:image-server
+  name: EVE Image Server (IEC)
+  description: >-
+    The EVE Image Server (also referred to as IEC, the Image Export Collection) is a public, anonymous
+    HTTP service hosted at images.evetech.net that returns portraits and renders for in-game entities.
+    Supported resources include character portraits, corporation and alliance logos, type icons and renders,
+    and faction logos. Image size variants are requested via the size query parameter (32, 64, 128, 256,
+    512, 1024) and the service is backed by a CDN with strong cache headers.
+  humanURL: https://developers.eveonline.com/docs/services/image-server/
+  baseURL: https://images.evetech.net
+  tags:
+  - CDN
+  - Images
+  - Portraits
+  - Renders
+  properties:
+  - type: Documentation
+    url: https://developers.eveonline.com/docs/services/image-server/
+  contact:
+  - FN: ESI Developers
+    url: https://developers.eveonline.com/
+- aid: eve-online:static-data-export
+  name: EVE Static Data Export (SDE)
+  description: >-
+    The EVE Static Data Export (SDE) is the bulk download of all the static reference data behind the
+    EVE universe — types, groups, categories, market groups, dogma attributes, blueprints, regions, constellations,
+    solar systems, stations, certificates, and translations. It is the dataset most third-party developers
+    cache locally rather than calling ESI for every universe lookup. CCP publishes the SDE as YAML, with
+    community projects converting it to SQLite, MySQL, PostgreSQL, MS SQL, JSON, and Parquet for different
+    workloads.
+  humanURL: https://developers.eveonline.com/docs/services/sde/
+  baseURL: https://developers.eveonline.com/static-data
+  tags:
+  - Bulk Data
+  - Reference Data
+  - SDE
+  - Static Data
+  properties:
+  - type: Documentation
+    url: https://developers.eveonline.com/docs/services/sde/
+  - type: Download
+    url: https://developers.eveonline.com/static-data
+  - type: CommunityConversions
+    url: https://developers.eveonline.com/docs/community/sde-conversion/
+  contact:
+  - FN: ESI Developers
+    url: https://developers.eveonline.com/
+- aid: eve-online:eve-online-game
+  name: EVE Online Game Client
+  description: >-
+    EVE Online is the underlying massively multiplayer online (MMO) space game from CCP Games. The game
+    client is the consumer of the third-party developer ecosystem — it is where capsuleers actually fly
+    ships, run corporations, and trade on the market that ESI surfaces. The official launcher, client
+    downloads, account management, and game patch notes live on eveonline.com.
+  humanURL: https://www.eveonline.com
+  tags:
+  - Game
+  - MMO
+  - Space
+  properties:
+  - type: Website
+    url: https://www.eveonline.com
+  - type: Download
+    url: https://www.eveonline.com/download
+  - type: AccountManagement
+    url: https://secure.eveonline.com/account
+  contact:
+  - FN: CCP Games
+    url: https://www.ccpgames.com/
+- aid: eve-online:eve-online-agent-api
+  name: EVE Online agent API
+  description: Access to example
+  humanURL: https://developers.eveonline.com/docs/services/esi/
+  baseURL: https://esi.evetech.net/latest
+  tags:
+  - agent
+  properties:
+  - type: OpenAPI
+    url: openapi/eve-online-agent-api-openapi.yml
+  - type: Documentation
+    url: https://developers.eveonline.com/docs/services/esi/
+  - type: APIExplorer
+    url: https://developers.eveonline.com/api-explorer
+  - type: Swagger
+    url: https://esi.evetech.net/ui
+  - type: BestPractices
+    url: https://developers.eveonline.com/docs/services/esi/best-practices/
+  - type: RateLimits
+    url: https://developers.eveonline.com/docs/services/esi/rate-limiting/
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-docs
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-issues
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-routes
+  - type: GitHubRepo
+    url: https://github.com/esi/eve-glue
+  - type: SupportIssues
+    url: https://github.com/esi/esi-issues
+- aid: eve-online:eve-online-alliance-api
+  name: EVE Online Alliance API
+  description: The Alliance API from EVE Online — 8 operation(s) for alliance.
+  humanURL: https://developers.eveonline.com/docs/services/esi/
+  baseURL: https://esi.evetech.net/latest
+  tags:
+  - Alliance
+  properties:
+  - type: OpenAPI
+    url: openapi/eve-online-alliance-api-openapi.yml
+  - type: Documentation
+    url: https://developers.eveonline.com/docs/services/esi/
+  - type: APIExplorer
+    url: https://developers.eveonline.com/api-explorer
+  - type: Swagger
+    url: https://esi.evetech.net/ui
+  - type: BestPractices
+    url: https://developers.eveonline.com/docs/services/esi/best-practices/
+  - type: RateLimits
+    url: https://developers.eveonline.com/docs/services/esi/rate-limiting/
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-docs
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-issues
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-routes
+  - type: GitHubRepo
+    url: https://github.com/esi/eve-glue
+  - type: SupportIssues
+    url: https://github.com/esi/esi-issues
+- aid: eve-online:eve-online-assets-api
+  name: EVE Online Assets API
+  description: The Assets API from EVE Online — 12 operation(s) for assets.
+  humanURL: https://developers.eveonline.com/docs/services/esi/
+  baseURL: https://esi.evetech.net/latest
+  tags:
+  - Assets
+  properties:
+  - type: OpenAPI
+    url: openapi/eve-online-assets-api-openapi.yml
+  - type: Documentation
+    url: https://developers.eveonline.com/docs/services/esi/
+  - type: APIExplorer
+    url: https://developers.eveonline.com/api-explorer
+  - type: Swagger
+    url: https://esi.evetech.net/ui
+  - type: BestPractices
+    url: https://developers.eveonline.com/docs/services/esi/best-practices/
+  - type: RateLimits
+    url: https://developers.eveonline.com/docs/services/esi/rate-limiting/
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-docs
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-issues
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-routes
+  - type: GitHubRepo
+    url: https://github.com/esi/eve-glue
+  - type: SupportIssues
+    url: https://github.com/esi/esi-issues
+- aid: eve-online:eve-online-calendar-api
+  name: EVE Online Calendar API
+  description: The Calendar API from EVE Online — 6 operation(s) for calendar.
+  humanURL: https://developers.eveonline.com/docs/services/esi/
+  baseURL: https://esi.evetech.net/latest
+  tags:
+  - Calendar
+  properties:
+  - type: OpenAPI
+    url: openapi/eve-online-calendar-api-openapi.yml
+  - type: Documentation
+    url: https://developers.eveonline.com/docs/services/esi/
+  - type: APIExplorer
+    url: https://developers.eveonline.com/api-explorer
+  - type: Swagger
+    url: https://esi.evetech.net/ui
+  - type: BestPractices
+    url: https://developers.eveonline.com/docs/services/esi/best-practices/
+  - type: RateLimits
+    url: https://developers.eveonline.com/docs/services/esi/rate-limiting/
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-docs
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-issues
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-routes
+  - type: GitHubRepo
+    url: https://github.com/esi/eve-glue
+  - type: SupportIssues
+    url: https://github.com/esi/esi-issues
+- aid: eve-online:eve-online-character-api
+  name: EVE Online Character API
+  description: The Character API from EVE Online — 28 operation(s) for character.
+  humanURL: https://developers.eveonline.com/docs/services/esi/
+  baseURL: https://esi.evetech.net/latest
+  tags:
+  - Character
+  properties:
+  - type: OpenAPI
+    url: openapi/eve-online-character-api-openapi.yml
+  - type: Documentation
+    url: https://developers.eveonline.com/docs/services/esi/
+  - type: APIExplorer
+    url: https://developers.eveonline.com/api-explorer
+  - type: Swagger
+    url: https://esi.evetech.net/ui
+  - type: BestPractices
+    url: https://developers.eveonline.com/docs/services/esi/best-practices/
+  - type: RateLimits
+    url: https://developers.eveonline.com/docs/services/esi/rate-limiting/
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-docs
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-issues
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-routes
+  - type: GitHubRepo
+    url: https://github.com/esi/eve-glue
+  - type: SupportIssues
+    url: https://github.com/esi/esi-issues
+- aid: eve-online:eve-online-clones-api
+  name: EVE Online Clones API
+  description: The Clones API from EVE Online — 4 operation(s) for clones.
+  humanURL: https://developers.eveonline.com/docs/services/esi/
+  baseURL: https://esi.evetech.net/latest
+  tags:
+  - Clones
+  properties:
+  - type: OpenAPI
+    url: openapi/eve-online-clones-api-openapi.yml
+  - type: Documentation
+    url: https://developers.eveonline.com/docs/services/esi/
+  - type: APIExplorer
+    url: https://developers.eveonline.com/api-explorer
+  - type: Swagger
+    url: https://esi.evetech.net/ui
+  - type: BestPractices
+    url: https://developers.eveonline.com/docs/services/esi/best-practices/
+  - type: RateLimits
+    url: https://developers.eveonline.com/docs/services/esi/rate-limiting/
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-docs
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-issues
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-routes
+  - type: GitHubRepo
+    url: https://github.com/esi/eve-glue
+  - type: SupportIssues
+    url: https://github.com/esi/esi-issues
+- aid: eve-online:eve-online-contacts-api
+  name: EVE Online Contacts API
+  description: The Contacts API from EVE Online — 13 operation(s) for contacts.
+  humanURL: https://developers.eveonline.com/docs/services/esi/
+  baseURL: https://esi.evetech.net/latest
+  tags:
+  - Contacts
+  properties:
+  - type: OpenAPI
+    url: openapi/eve-online-contacts-api-openapi.yml
+  - type: Documentation
+    url: https://developers.eveonline.com/docs/services/esi/
+  - type: APIExplorer
+    url: https://developers.eveonline.com/api-explorer
+  - type: Swagger
+    url: https://esi.evetech.net/ui
+  - type: BestPractices
+    url: https://developers.eveonline.com/docs/services/esi/best-practices/
+  - type: RateLimits
+    url: https://developers.eveonline.com/docs/services/esi/rate-limiting/
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-docs
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-issues
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-routes
+  - type: GitHubRepo
+    url: https://github.com/esi/eve-glue
+  - type: SupportIssues
+    url: https://github.com/esi/esi-issues
+- aid: eve-online:eve-online-contracts-api
+  name: EVE Online Contracts API
+  description: The Contracts API from EVE Online — 18 operation(s) for contracts.
+  humanURL: https://developers.eveonline.com/docs/services/esi/
+  baseURL: https://esi.evetech.net/latest
+  tags:
+  - Contracts
+  properties:
+  - type: OpenAPI
+    url: openapi/eve-online-contracts-api-openapi.yml
+  - type: Documentation
+    url: https://developers.eveonline.com/docs/services/esi/
+  - type: APIExplorer
+    url: https://developers.eveonline.com/api-explorer
+  - type: Swagger
+    url: https://esi.evetech.net/ui
+  - type: BestPractices
+    url: https://developers.eveonline.com/docs/services/esi/best-practices/
+  - type: RateLimits
+    url: https://developers.eveonline.com/docs/services/esi/rate-limiting/
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-docs
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-issues
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-routes
+  - type: GitHubRepo
+    url: https://github.com/esi/eve-glue
+  - type: SupportIssues
+    url: https://github.com/esi/esi-issues
+- aid: eve-online:eve-online-corporation-api
+  name: EVE Online Corporation API
+  description: The Corporation API from EVE Online — 44 operation(s) for corporation.
+  humanURL: https://developers.eveonline.com/docs/services/esi/
+  baseURL: https://esi.evetech.net/latest
+  tags:
+  - Corporation
+  properties:
+  - type: OpenAPI
+    url: openapi/eve-online-corporation-api-openapi.yml
+  - type: Documentation
+    url: https://developers.eveonline.com/docs/services/esi/
+  - type: APIExplorer
+    url: https://developers.eveonline.com/api-explorer
+  - type: Swagger
+    url: https://esi.evetech.net/ui
+  - type: BestPractices
+    url: https://developers.eveonline.com/docs/services/esi/best-practices/
+  - type: RateLimits
+    url: https://developers.eveonline.com/docs/services/esi/rate-limiting/
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-docs
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-issues
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-routes
+  - type: GitHubRepo
+    url: https://github.com/esi/eve-glue
+  - type: SupportIssues
+    url: https://github.com/esi/esi-issues
+- aid: eve-online:eve-online-dogma-api
+  name: EVE Online Dogma API
+  description: The Dogma API from EVE Online — 10 operation(s) for dogma.
+  humanURL: https://developers.eveonline.com/docs/services/esi/
+  baseURL: https://esi.evetech.net/latest
+  tags:
+  - Dogma
+  properties:
+  - type: OpenAPI
+    url: openapi/eve-online-dogma-api-openapi.yml
+  - type: Documentation
+    url: https://developers.eveonline.com/docs/services/esi/
+  - type: APIExplorer
+    url: https://developers.eveonline.com/api-explorer
+  - type: Swagger
+    url: https://esi.evetech.net/ui
+  - type: BestPractices
+    url: https://developers.eveonline.com/docs/services/esi/best-practices/
+  - type: RateLimits
+    url: https://developers.eveonline.com/docs/services/esi/rate-limiting/
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-docs
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-issues
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-routes
+  - type: GitHubRepo
+    url: https://github.com/esi/eve-glue
+  - type: SupportIssues
+    url: https://github.com/esi/esi-issues
+- aid: eve-online:eve-online-emptyvalueparams-api
+  name: EVE Online EmptyValueParams API
+  description: The EmptyValueParams API from EVE Online — 1 operation(s) for emptyvalueparams.
+  humanURL: https://developers.eveonline.com/docs/services/esi/
+  baseURL: https://esi.evetech.net/latest
+  tags:
+  - EmptyValueParams
+  properties:
+  - type: OpenAPI
+    url: openapi/eve-online-emptyvalueparams-api-openapi.yml
+  - type: Documentation
+    url: https://developers.eveonline.com/docs/services/esi/
+  - type: APIExplorer
+    url: https://developers.eveonline.com/api-explorer
+  - type: Swagger
+    url: https://esi.evetech.net/ui
+  - type: BestPractices
+    url: https://developers.eveonline.com/docs/services/esi/best-practices/
+  - type: RateLimits
+    url: https://developers.eveonline.com/docs/services/esi/rate-limiting/
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-docs
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-issues
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-routes
+  - type: GitHubRepo
+    url: https://github.com/esi/eve-glue
+  - type: SupportIssues
+    url: https://github.com/esi/esi-issues
+- aid: eve-online:eve-online-faction-warfare-api
+  name: EVE Online Faction Warfare API
+  description: The Faction Warfare API from EVE Online — 16 operation(s) for faction warfare.
+  humanURL: https://developers.eveonline.com/docs/services/esi/
+  baseURL: https://esi.evetech.net/latest
+  tags:
+  - Faction Warfare
+  properties:
+  - type: OpenAPI
+    url: openapi/eve-online-faction-warfare-api-openapi.yml
+  - type: Documentation
+    url: https://developers.eveonline.com/docs/services/esi/
+  - type: APIExplorer
+    url: https://developers.eveonline.com/api-explorer
+  - type: Swagger
+    url: https://esi.evetech.net/ui
+  - type: BestPractices
+    url: https://developers.eveonline.com/docs/services/esi/best-practices/
+  - type: RateLimits
+    url: https://developers.eveonline.com/docs/services/esi/rate-limiting/
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-docs
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-issues
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-routes
+  - type: GitHubRepo
+    url: https://github.com/esi/eve-glue
+  - type: SupportIssues
+    url: https://github.com/esi/esi-issues
+- aid: eve-online:eve-online-fittings-api
+  name: EVE Online Fittings API
+  description: The Fittings API from EVE Online — 5 operation(s) for fittings.
+  humanURL: https://developers.eveonline.com/docs/services/esi/
+  baseURL: https://esi.evetech.net/latest
+  tags:
+  - Fittings
+  properties:
+  - type: OpenAPI
+    url: openapi/eve-online-fittings-api-openapi.yml
+  - type: Documentation
+    url: https://developers.eveonline.com/docs/services/esi/
+  - type: APIExplorer
+    url: https://developers.eveonline.com/api-explorer
+  - type: Swagger
+    url: https://esi.evetech.net/ui
+  - type: BestPractices
+    url: https://developers.eveonline.com/docs/services/esi/best-practices/
+  - type: RateLimits
+    url: https://developers.eveonline.com/docs/services/esi/rate-limiting/
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-docs
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-issues
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-routes
+  - type: GitHubRepo
+    url: https://github.com/esi/eve-glue
+  - type: SupportIssues
+    url: https://github.com/esi/esi-issues
+- aid: eve-online:eve-online-fleets-api
+  name: EVE Online Fleets API
+  description: The Fleets API from EVE Online — 16 operation(s) for fleets.
+  humanURL: https://developers.eveonline.com/docs/services/esi/
+  baseURL: https://esi.evetech.net/latest
+  tags:
+  - Fleets
+  properties:
+  - type: OpenAPI
+    url: openapi/eve-online-fleets-api-openapi.yml
+  - type: Documentation
+    url: https://developers.eveonline.com/docs/services/esi/
+  - type: APIExplorer
+    url: https://developers.eveonline.com/api-explorer
+  - type: Swagger
+    url: https://esi.evetech.net/ui
+  - type: BestPractices
+    url: https://developers.eveonline.com/docs/services/esi/best-practices/
+  - type: RateLimits
+    url: https://developers.eveonline.com/docs/services/esi/rate-limiting/
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-docs
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-issues
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-routes
+  - type: GitHubRepo
+    url: https://github.com/esi/eve-glue
+  - type: SupportIssues
+    url: https://github.com/esi/esi-issues
+- aid: eve-online:eve-online-incursions-api
+  name: EVE Online Incursions API
+  description: The Incursions API from EVE Online — 2 operation(s) for incursions.
+  humanURL: https://developers.eveonline.com/docs/services/esi/
+  baseURL: https://esi.evetech.net/latest
+  tags:
+  - Incursions
+  properties:
+  - type: OpenAPI
+    url: openapi/eve-online-incursions-api-openapi.yml
+  - type: Documentation
+    url: https://developers.eveonline.com/docs/services/esi/
+  - type: APIExplorer
+    url: https://developers.eveonline.com/api-explorer
+  - type: Swagger
+    url: https://esi.evetech.net/ui
+  - type: BestPractices
+    url: https://developers.eveonline.com/docs/services/esi/best-practices/
+  - type: RateLimits
+    url: https://developers.eveonline.com/docs/services/esi/rate-limiting/
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-docs
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-issues
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-routes
+  - type: GitHubRepo
+    url: https://github.com/esi/eve-glue
+  - type: SupportIssues
+    url: https://github.com/esi/esi-issues
+- aid: eve-online:eve-online-industry-api
+  name: EVE Online Industry API
+  description: The Industry API from EVE Online — 16 operation(s) for industry.
+  humanURL: https://developers.eveonline.com/docs/services/esi/
+  baseURL: https://esi.evetech.net/latest
+  tags:
+  - Industry
+  properties:
+  - type: OpenAPI
+    url: openapi/eve-online-industry-api-openapi.yml
+  - type: Documentation
+    url: https://developers.eveonline.com/docs/services/esi/
+  - type: APIExplorer
+    url: https://developers.eveonline.com/api-explorer
+  - type: Swagger
+    url: https://esi.evetech.net/ui
+  - type: BestPractices
+    url: https://developers.eveonline.com/docs/services/esi/best-practices/
+  - type: RateLimits
+    url: https://developers.eveonline.com/docs/services/esi/rate-limiting/
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-docs
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-issues
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-routes
+  - type: GitHubRepo
+    url: https://github.com/esi/eve-glue
+  - type: SupportIssues
+    url: https://github.com/esi/esi-issues
+- aid: eve-online:eve-online-insurance-api
+  name: EVE Online Insurance API
+  description: The Insurance API from EVE Online — 2 operation(s) for insurance.
+  humanURL: https://developers.eveonline.com/docs/services/esi/
+  baseURL: https://esi.evetech.net/latest
+  tags:
+  - Insurance
+  properties:
+  - type: OpenAPI
+    url: openapi/eve-online-insurance-api-openapi.yml
+  - type: Documentation
+    url: https://developers.eveonline.com/docs/services/esi/
+  - type: APIExplorer
+    url: https://developers.eveonline.com/api-explorer
+  - type: Swagger
+    url: https://esi.evetech.net/ui
+  - type: BestPractices
+    url: https://developers.eveonline.com/docs/services/esi/best-practices/
+  - type: RateLimits
+    url: https://developers.eveonline.com/docs/services/esi/rate-limiting/
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-docs
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-issues
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-routes
+  - type: GitHubRepo
+    url: https://github.com/esi/eve-glue
+  - type: SupportIssues
+    url: https://github.com/esi/esi-issues
+- aid: eve-online:eve-online-killmails-api
+  name: EVE Online Killmails API
+  description: The Killmails API from EVE Online — 6 operation(s) for killmails.
+  humanURL: https://developers.eveonline.com/docs/services/esi/
+  baseURL: https://esi.evetech.net/latest
+  tags:
+  - Killmails
+  properties:
+  - type: OpenAPI
+    url: openapi/eve-online-killmails-api-openapi.yml
+  - type: Documentation
+    url: https://developers.eveonline.com/docs/services/esi/
+  - type: APIExplorer
+    url: https://developers.eveonline.com/api-explorer
+  - type: Swagger
+    url: https://esi.evetech.net/ui
+  - type: BestPractices
+    url: https://developers.eveonline.com/docs/services/esi/best-practices/
+  - type: RateLimits
+    url: https://developers.eveonline.com/docs/services/esi/rate-limiting/
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-docs
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-issues
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-routes
+  - type: GitHubRepo
+    url: https://github.com/esi/eve-glue
+  - type: SupportIssues
+    url: https://github.com/esi/esi-issues
+- aid: eve-online:eve-online-location-api
+  name: EVE Online Location API
+  description: The Location API from EVE Online — 6 operation(s) for location.
+  humanURL: https://developers.eveonline.com/docs/services/esi/
+  baseURL: https://esi.evetech.net/latest
+  tags:
+  - Location
+  properties:
+  - type: OpenAPI
+    url: openapi/eve-online-location-api-openapi.yml
+  - type: Documentation
+    url: https://developers.eveonline.com/docs/services/esi/
+  - type: APIExplorer
+    url: https://developers.eveonline.com/api-explorer
+  - type: Swagger
+    url: https://esi.evetech.net/ui
+  - type: BestPractices
+    url: https://developers.eveonline.com/docs/services/esi/best-practices/
+  - type: RateLimits
+    url: https://developers.eveonline.com/docs/services/esi/rate-limiting/
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-docs
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-issues
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-routes
+  - type: GitHubRepo
+    url: https://github.com/esi/eve-glue
+  - type: SupportIssues
+    url: https://github.com/esi/esi-issues
+- aid: eve-online:eve-online-loyalty-api
+  name: EVE Online Loyalty API
+  description: The Loyalty API from EVE Online — 4 operation(s) for loyalty.
+  humanURL: https://developers.eveonline.com/docs/services/esi/
+  baseURL: https://esi.evetech.net/latest
+  tags:
+  - Loyalty
+  properties:
+  - type: OpenAPI
+    url: openapi/eve-online-loyalty-api-openapi.yml
+  - type: Documentation
+    url: https://developers.eveonline.com/docs/services/esi/
+  - type: APIExplorer
+    url: https://developers.eveonline.com/api-explorer
+  - type: Swagger
+    url: https://esi.evetech.net/ui
+  - type: BestPractices
+    url: https://developers.eveonline.com/docs/services/esi/best-practices/
+  - type: RateLimits
+    url: https://developers.eveonline.com/docs/services/esi/rate-limiting/
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-docs
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-issues
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-routes
+  - type: GitHubRepo
+    url: https://github.com/esi/eve-glue
+  - type: SupportIssues
+    url: https://github.com/esi/esi-issues
+- aid: eve-online:eve-online-mail-api
+  name: EVE Online Mail API
+  description: The Mail API from EVE Online — 13 operation(s) for mail.
+  humanURL: https://developers.eveonline.com/docs/services/esi/
+  baseURL: https://esi.evetech.net/latest
+  tags:
+  - Mail
+  properties:
+  - type: OpenAPI
+    url: openapi/eve-online-mail-api-openapi.yml
+  - type: Documentation
+    url: https://developers.eveonline.com/docs/services/esi/
+  - type: APIExplorer
+    url: https://developers.eveonline.com/api-explorer
+  - type: Swagger
+    url: https://esi.evetech.net/ui
+  - type: BestPractices
+    url: https://developers.eveonline.com/docs/services/esi/best-practices/
+  - type: RateLimits
+    url: https://developers.eveonline.com/docs/services/esi/rate-limiting/
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-docs
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-issues
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-routes
+  - type: GitHubRepo
+    url: https://github.com/esi/eve-glue
+  - type: SupportIssues
+    url: https://github.com/esi/esi-issues
+- aid: eve-online:eve-online-market-api
+  name: EVE Online Market API
+  description: The Market API from EVE Online — 22 operation(s) for market.
+  humanURL: https://developers.eveonline.com/docs/services/esi/
+  baseURL: https://esi.evetech.net/latest
+  tags:
+  - Market
+  properties:
+  - type: OpenAPI
+    url: openapi/eve-online-market-api-openapi.yml
+  - type: Documentation
+    url: https://developers.eveonline.com/docs/services/esi/
+  - type: APIExplorer
+    url: https://developers.eveonline.com/api-explorer
+  - type: Swagger
+    url: https://esi.evetech.net/ui
+  - type: BestPractices
+    url: https://developers.eveonline.com/docs/services/esi/best-practices/
+  - type: RateLimits
+    url: https://developers.eveonline.com/docs/services/esi/rate-limiting/
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-docs
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-issues
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-routes
+  - type: GitHubRepo
+    url: https://github.com/esi/eve-glue
+  - type: SupportIssues
+    url: https://github.com/esi/esi-issues
+- aid: eve-online:eve-online-one-api
+  name: EVE Online One API
+  description: The One API from EVE Online — 1 operation(s) for one.
+  humanURL: https://developers.eveonline.com/docs/services/esi/
+  baseURL: https://esi.evetech.net/latest
+  tags:
+  - One
+  properties:
+  - type: OpenAPI
+    url: openapi/eve-online-one-api-openapi.yml
+  - type: Documentation
+    url: https://developers.eveonline.com/docs/services/esi/
+  - type: APIExplorer
+    url: https://developers.eveonline.com/api-explorer
+  - type: Swagger
+    url: https://esi.evetech.net/ui
+  - type: BestPractices
+    url: https://developers.eveonline.com/docs/services/esi/best-practices/
+  - type: RateLimits
+    url: https://developers.eveonline.com/docs/services/esi/rate-limiting/
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-docs
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-issues
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-routes
+  - type: GitHubRepo
+    url: https://github.com/esi/eve-glue
+  - type: SupportIssues
+    url: https://github.com/esi/esi-issues
+- aid: eve-online:eve-online-pet-api
+  name: EVE Online pet API
+  description: Everything about your Pets
+  humanURL: https://developers.eveonline.com/docs/services/esi/
+  baseURL: https://esi.evetech.net/latest
+  tags:
+  - pet
+  properties:
+  - type: OpenAPI
+    url: openapi/eve-online-pet-api-openapi.yml
+  - type: Documentation
+    url: https://developers.eveonline.com/docs/services/esi/
+  - type: APIExplorer
+    url: https://developers.eveonline.com/api-explorer
+  - type: Swagger
+    url: https://esi.evetech.net/ui
+  - type: BestPractices
+    url: https://developers.eveonline.com/docs/services/esi/best-practices/
+  - type: RateLimits
+    url: https://developers.eveonline.com/docs/services/esi/rate-limiting/
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-docs
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-issues
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-routes
+  - type: GitHubRepo
+    url: https://github.com/esi/eve-glue
+  - type: SupportIssues
+    url: https://github.com/esi/esi-issues
+- aid: eve-online:eve-online-planetary-interaction-api
+  name: EVE Online Planetary Interaction API
+  description: >-
+    The Planetary Interaction API from EVE Online — 8 operation(s) for planetary interaction.
+  humanURL: https://developers.eveonline.com/docs/services/esi/
+  baseURL: https://esi.evetech.net/latest
+  tags:
+  - Planetary Interaction
+  properties:
+  - type: OpenAPI
+    url: openapi/eve-online-planetary-interaction-api-openapi.yml
+  - type: Documentation
+    url: https://developers.eveonline.com/docs/services/esi/
+  - type: APIExplorer
+    url: https://developers.eveonline.com/api-explorer
+  - type: Swagger
+    url: https://esi.evetech.net/ui
+  - type: BestPractices
+    url: https://developers.eveonline.com/docs/services/esi/best-practices/
+  - type: RateLimits
+    url: https://developers.eveonline.com/docs/services/esi/rate-limiting/
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-docs
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-issues
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-routes
+  - type: GitHubRepo
+    url: https://github.com/esi/eve-glue
+  - type: SupportIssues
+    url: https://github.com/esi/esi-issues
+- aid: eve-online:eve-online-regularparams-api
+  name: EVE Online RegularParams API
+  description: The RegularParams API from EVE Online — 1 operation(s) for regularparams.
+  humanURL: https://developers.eveonline.com/docs/services/esi/
+  baseURL: https://esi.evetech.net/latest
+  tags:
+  - RegularParams
+  properties:
+  - type: OpenAPI
+    url: openapi/eve-online-regularparams-api-openapi.yml
+  - type: Documentation
+    url: https://developers.eveonline.com/docs/services/esi/
+  - type: APIExplorer
+    url: https://developers.eveonline.com/api-explorer
+  - type: Swagger
+    url: https://esi.evetech.net/ui
+  - type: BestPractices
+    url: https://developers.eveonline.com/docs/services/esi/best-practices/
+  - type: RateLimits
+    url: https://developers.eveonline.com/docs/services/esi/rate-limiting/
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-docs
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-issues
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-routes
+  - type: GitHubRepo
+    url: https://github.com/esi/eve-glue
+  - type: SupportIssues
+    url: https://github.com/esi/esi-issues
+- aid: eve-online:eve-online-report-api
+  name: EVE Online Report API
+  description: The Report API from EVE Online — 1 operation(s) for report.
+  humanURL: https://developers.eveonline.com/docs/services/esi/
+  baseURL: https://esi.evetech.net/latest
+  tags:
+  - Report
+  properties:
+  - type: OpenAPI
+    url: openapi/eve-online-report-api-openapi.yml
+  - type: Documentation
+    url: https://developers.eveonline.com/docs/services/esi/
+  - type: APIExplorer
+    url: https://developers.eveonline.com/api-explorer
+  - type: Swagger
+    url: https://esi.evetech.net/ui
+  - type: BestPractices
+    url: https://developers.eveonline.com/docs/services/esi/best-practices/
+  - type: RateLimits
+    url: https://developers.eveonline.com/docs/services/esi/rate-limiting/
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-docs
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-issues
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-routes
+  - type: GitHubRepo
+    url: https://github.com/esi/eve-glue
+  - type: SupportIssues
+    url: https://github.com/esi/esi-issues
+- aid: eve-online:eve-online-routes-api
+  name: EVE Online Routes API
+  description: The Routes API from EVE Online — 2 operation(s) for routes.
+  humanURL: https://developers.eveonline.com/docs/services/esi/
+  baseURL: https://esi.evetech.net/latest
+  tags:
+  - Routes
+  properties:
+  - type: OpenAPI
+    url: openapi/eve-online-routes-api-openapi.yml
+  - type: Documentation
+    url: https://developers.eveonline.com/docs/services/esi/
+  - type: APIExplorer
+    url: https://developers.eveonline.com/api-explorer
+  - type: Swagger
+    url: https://esi.evetech.net/ui
+  - type: BestPractices
+    url: https://developers.eveonline.com/docs/services/esi/best-practices/
+  - type: RateLimits
+    url: https://developers.eveonline.com/docs/services/esi/rate-limiting/
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-docs
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-issues
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-routes
+  - type: GitHubRepo
+    url: https://github.com/esi/eve-glue
+  - type: SupportIssues
+    url: https://github.com/esi/esi-issues
+- aid: eve-online:eve-online-search-api
+  name: EVE Online Search API
+  description: The Search API from EVE Online — 2 operation(s) for search.
+  humanURL: https://developers.eveonline.com/docs/services/esi/
+  baseURL: https://esi.evetech.net/latest
+  tags:
+  - Search
+  properties:
+  - type: OpenAPI
+    url: openapi/eve-online-search-api-openapi.yml
+  - type: Documentation
+    url: https://developers.eveonline.com/docs/services/esi/
+  - type: APIExplorer
+    url: https://developers.eveonline.com/api-explorer
+  - type: Swagger
+    url: https://esi.evetech.net/ui
+  - type: BestPractices
+    url: https://developers.eveonline.com/docs/services/esi/best-practices/
+  - type: RateLimits
+    url: https://developers.eveonline.com/docs/services/esi/rate-limiting/
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-docs
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-issues
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-routes
+  - type: GitHubRepo
+    url: https://github.com/esi/eve-glue
+  - type: SupportIssues
+    url: https://github.com/esi/esi-issues
+- aid: eve-online:eve-online-session-api
+  name: EVE Online session API
+  description: The session API from EVE Online — 1 operation(s) for session.
+  humanURL: https://developers.eveonline.com/docs/services/esi/
+  baseURL: https://esi.evetech.net/latest
+  tags:
+  - session
+  properties:
+  - type: OpenAPI
+    url: openapi/eve-online-session-api-openapi.yml
+  - type: Documentation
+    url: https://developers.eveonline.com/docs/services/esi/
+  - type: APIExplorer
+    url: https://developers.eveonline.com/api-explorer
+  - type: Swagger
+    url: https://esi.evetech.net/ui
+  - type: BestPractices
+    url: https://developers.eveonline.com/docs/services/esi/best-practices/
+  - type: RateLimits
+    url: https://developers.eveonline.com/docs/services/esi/rate-limiting/
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-docs
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-issues
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-routes
+  - type: GitHubRepo
+    url: https://github.com/esi/eve-glue
+  - type: SupportIssues
+    url: https://github.com/esi/esi-issues
+- aid: eve-online:eve-online-skills-api
+  name: EVE Online Skills API
+  description: The Skills API from EVE Online — 6 operation(s) for skills.
+  humanURL: https://developers.eveonline.com/docs/services/esi/
+  baseURL: https://esi.evetech.net/latest
+  tags:
+  - Skills
+  properties:
+  - type: OpenAPI
+    url: openapi/eve-online-skills-api-openapi.yml
+  - type: Documentation
+    url: https://developers.eveonline.com/docs/services/esi/
+  - type: APIExplorer
+    url: https://developers.eveonline.com/api-explorer
+  - type: Swagger
+    url: https://esi.evetech.net/ui
+  - type: BestPractices
+    url: https://developers.eveonline.com/docs/services/esi/best-practices/
+  - type: RateLimits
+    url: https://developers.eveonline.com/docs/services/esi/rate-limiting/
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-docs
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-issues
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-routes
+  - type: GitHubRepo
+    url: https://github.com/esi/eve-glue
+  - type: SupportIssues
+    url: https://github.com/esi/esi-issues
+- aid: eve-online:eve-online-sovereignty-api
+  name: EVE Online Sovereignty API
+  description: The Sovereignty API from EVE Online — 6 operation(s) for sovereignty.
+  humanURL: https://developers.eveonline.com/docs/services/esi/
+  baseURL: https://esi.evetech.net/latest
+  tags:
+  - Sovereignty
+  properties:
+  - type: OpenAPI
+    url: openapi/eve-online-sovereignty-api-openapi.yml
+  - type: Documentation
+    url: https://developers.eveonline.com/docs/services/esi/
+  - type: APIExplorer
+    url: https://developers.eveonline.com/api-explorer
+  - type: Swagger
+    url: https://esi.evetech.net/ui
+  - type: BestPractices
+    url: https://developers.eveonline.com/docs/services/esi/best-practices/
+  - type: RateLimits
+    url: https://developers.eveonline.com/docs/services/esi/rate-limiting/
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-docs
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-issues
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-routes
+  - type: GitHubRepo
+    url: https://github.com/esi/eve-glue
+  - type: SupportIssues
+    url: https://github.com/esi/esi-issues
+- aid: eve-online:eve-online-sql-api
+  name: EVE Online sql API
+  description: The sql API from EVE Online — 1 operation(s) for sql.
+  humanURL: https://developers.eveonline.com/docs/services/esi/
+  baseURL: https://esi.evetech.net/latest
+  tags:
+  - sql
+  properties:
+  - type: OpenAPI
+    url: openapi/eve-online-sql-api-openapi.yml
+  - type: Documentation
+    url: https://developers.eveonline.com/docs/services/esi/
+  - type: APIExplorer
+    url: https://developers.eveonline.com/api-explorer
+  - type: Swagger
+    url: https://esi.evetech.net/ui
+  - type: BestPractices
+    url: https://developers.eveonline.com/docs/services/esi/best-practices/
+  - type: RateLimits
+    url: https://developers.eveonline.com/docs/services/esi/rate-limiting/
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-docs
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-issues
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-routes
+  - type: GitHubRepo
+    url: https://github.com/esi/eve-glue
+  - type: SupportIssues
+    url: https://github.com/esi/esi-issues
+- aid: eve-online:eve-online-status-api
+  name: EVE Online Status API
+  description: The Status API from EVE Online — 2 operation(s) for status.
+  humanURL: https://developers.eveonline.com/docs/services/esi/
+  baseURL: https://esi.evetech.net/latest
+  tags:
+  - Status
+  properties:
+  - type: OpenAPI
+    url: openapi/eve-online-status-api-openapi.yml
+  - type: Documentation
+    url: https://developers.eveonline.com/docs/services/esi/
+  - type: APIExplorer
+    url: https://developers.eveonline.com/api-explorer
+  - type: Swagger
+    url: https://esi.evetech.net/ui
+  - type: BestPractices
+    url: https://developers.eveonline.com/docs/services/esi/best-practices/
+  - type: RateLimits
+    url: https://developers.eveonline.com/docs/services/esi/rate-limiting/
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-docs
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-issues
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-routes
+  - type: GitHubRepo
+    url: https://github.com/esi/eve-glue
+  - type: SupportIssues
+    url: https://github.com/esi/esi-issues
+- aid: eve-online:eve-online-store-api
+  name: EVE Online store API
+  description: Access to Petstore orders
+  humanURL: https://developers.eveonline.com/docs/services/esi/
+  baseURL: https://esi.evetech.net/latest
+  tags:
+  - store
+  properties:
+  - type: OpenAPI
+    url: openapi/eve-online-store-api-openapi.yml
+  - type: Documentation
+    url: https://developers.eveonline.com/docs/services/esi/
+  - type: APIExplorer
+    url: https://developers.eveonline.com/api-explorer
+  - type: Swagger
+    url: https://esi.evetech.net/ui
+  - type: BestPractices
+    url: https://developers.eveonline.com/docs/services/esi/best-practices/
+  - type: RateLimits
+    url: https://developers.eveonline.com/docs/services/esi/rate-limiting/
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-docs
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-issues
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-routes
+  - type: GitHubRepo
+    url: https://github.com/esi/eve-glue
+  - type: SupportIssues
+    url: https://github.com/esi/esi-issues
+- aid: eve-online:eve-online-streams-api
+  name: EVE Online Streams API
+  description: The Streams API from EVE Online — 1 operation(s) for streams.
+  humanURL: https://developers.eveonline.com/docs/services/esi/
+  baseURL: https://esi.evetech.net/latest
+  tags:
+  - Streams
+  properties:
+  - type: OpenAPI
+    url: openapi/eve-online-streams-api-openapi.yml
+  - type: Documentation
+    url: https://developers.eveonline.com/docs/services/esi/
+  - type: APIExplorer
+    url: https://developers.eveonline.com/api-explorer
+  - type: Swagger
+    url: https://esi.evetech.net/ui
+  - type: BestPractices
+    url: https://developers.eveonline.com/docs/services/esi/best-practices/
+  - type: RateLimits
+    url: https://developers.eveonline.com/docs/services/esi/rate-limiting/
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-docs
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-issues
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-routes
+  - type: GitHubRepo
+    url: https://github.com/esi/eve-glue
+  - type: SupportIssues
+    url: https://github.com/esi/esi-issues
+- aid: eve-online:eve-online-test-api-1-api
+  name: EVE Online Test Api 1 API
+  description: The Test Api 1 API from EVE Online — 1 operation(s) for test api 1.
+  humanURL: https://developers.eveonline.com/docs/services/esi/
+  baseURL: https://esi.evetech.net/latest
+  tags:
+  - Test Api 1
+  properties:
+  - type: OpenAPI
+    url: openapi/eve-online-test-api-1-api-openapi.yml
+  - type: Documentation
+    url: https://developers.eveonline.com/docs/services/esi/
+  - type: APIExplorer
+    url: https://developers.eveonline.com/api-explorer
+  - type: Swagger
+    url: https://esi.evetech.net/ui
+  - type: BestPractices
+    url: https://developers.eveonline.com/docs/services/esi/best-practices/
+  - type: RateLimits
+    url: https://developers.eveonline.com/docs/services/esi/rate-limiting/
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-docs
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-issues
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-routes
+  - type: GitHubRepo
+    url: https://github.com/esi/eve-glue
+  - type: SupportIssues
+    url: https://github.com/esi/esi-issues
+- aid: eve-online:eve-online-test-api-2-api
+  name: EVE Online Test Api 2 API
+  description: The Test Api 2 API from EVE Online — 1 operation(s) for test api 2.
+  humanURL: https://developers.eveonline.com/docs/services/esi/
+  baseURL: https://esi.evetech.net/latest
+  tags:
+  - Test Api 2
+  properties:
+  - type: OpenAPI
+    url: openapi/eve-online-test-api-2-api-openapi.yml
+  - type: Documentation
+    url: https://developers.eveonline.com/docs/services/esi/
+  - type: APIExplorer
+    url: https://developers.eveonline.com/api-explorer
+  - type: Swagger
+    url: https://esi.evetech.net/ui
+  - type: BestPractices
+    url: https://developers.eveonline.com/docs/services/esi/best-practices/
+  - type: RateLimits
+    url: https://developers.eveonline.com/docs/services/esi/rate-limiting/
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-docs
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-issues
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-routes
+  - type: GitHubRepo
+    url: https://github.com/esi/eve-glue
+  - type: SupportIssues
+    url: https://github.com/esi/esi-issues
+- aid: eve-online:eve-online-test-api
+  name: EVE Online Test API
+  description: The Test API from EVE Online — 1 operation(s) for test.
+  humanURL: https://developers.eveonline.com/docs/services/esi/
+  baseURL: https://esi.evetech.net/latest
+  tags:
+  - Test
+  properties:
+  - type: OpenAPI
+    url: openapi/eve-online-test-api-openapi.yml
+  - type: Documentation
+    url: https://developers.eveonline.com/docs/services/esi/
+  - type: APIExplorer
+    url: https://developers.eveonline.com/api-explorer
+  - type: Swagger
+    url: https://esi.evetech.net/ui
+  - type: BestPractices
+    url: https://developers.eveonline.com/docs/services/esi/best-practices/
+  - type: RateLimits
+    url: https://developers.eveonline.com/docs/services/esi/rate-limiting/
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-docs
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-issues
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-routes
+  - type: GitHubRepo
+    url: https://github.com/esi/eve-glue
+  - type: SupportIssues
+    url: https://github.com/esi/esi-issues
+- aid: eve-online:eve-online-test-api-with-schema-api
+  name: EVE Online Test API with Schema API
+  description: Test API with Schema
+  humanURL: https://developers.eveonline.com/docs/services/esi/
+  baseURL: https://esi.evetech.net/latest
+  tags:
+  - Test API with Schema
+  properties:
+  - type: OpenAPI
+    url: openapi/eve-online-test-api-with-schema-api-openapi.yml
+  - type: Documentation
+    url: https://developers.eveonline.com/docs/services/esi/
+  - type: APIExplorer
+    url: https://developers.eveonline.com/api-explorer
+  - type: Swagger
+    url: https://esi.evetech.net/ui
+  - type: BestPractices
+    url: https://developers.eveonline.com/docs/services/esi/best-practices/
+  - type: RateLimits
+    url: https://developers.eveonline.com/docs/services/esi/rate-limiting/
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-docs
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-issues
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-routes
+  - type: GitHubRepo
+    url: https://github.com/esi/eve-glue
+  - type: SupportIssues
+    url: https://github.com/esi/esi-issues
+- aid: eve-online:eve-online-universe-api
+  name: EVE Online Universe API
+  description: The Universe API from EVE Online — 79 operation(s) for universe.
+  humanURL: https://developers.eveonline.com/docs/services/esi/
+  baseURL: https://esi.evetech.net/latest
+  tags:
+  - Universe
+  properties:
+  - type: OpenAPI
+    url: openapi/eve-online-universe-api-openapi.yml
+  - type: Documentation
+    url: https://developers.eveonline.com/docs/services/esi/
+  - type: APIExplorer
+    url: https://developers.eveonline.com/api-explorer
+  - type: Swagger
+    url: https://esi.evetech.net/ui
+  - type: BestPractices
+    url: https://developers.eveonline.com/docs/services/esi/best-practices/
+  - type: RateLimits
+    url: https://developers.eveonline.com/docs/services/esi/rate-limiting/
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-docs
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-issues
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-routes
+  - type: GitHubRepo
+    url: https://github.com/esi/eve-glue
+  - type: SupportIssues
+    url: https://github.com/esi/esi-issues
+- aid: eve-online:eve-online-user-api
+  name: EVE Online user API
+  description: Operations about user
+  humanURL: https://developers.eveonline.com/docs/services/esi/
+  baseURL: https://esi.evetech.net/latest
+  tags:
+  - user
+  properties:
+  - type: OpenAPI
+    url: openapi/eve-online-user-api-openapi.yml
+  - type: Documentation
+    url: https://developers.eveonline.com/docs/services/esi/
+  - type: APIExplorer
+    url: https://developers.eveonline.com/api-explorer
+  - type: Swagger
+    url: https://esi.evetech.net/ui
+  - type: BestPractices
+    url: https://developers.eveonline.com/docs/services/esi/best-practices/
+  - type: RateLimits
+    url: https://developers.eveonline.com/docs/services/esi/rate-limiting/
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-docs
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-issues
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-routes
+  - type: GitHubRepo
+    url: https://github.com/esi/eve-glue
+  - type: SupportIssues
+    url: https://github.com/esi/esi-issues
+- aid: eve-online:eve-online-user-interface-api
+  name: EVE Online User Interface API
+  description: The User Interface API from EVE Online — 10 operation(s) for user interface.
+  humanURL: https://developers.eveonline.com/docs/services/esi/
+  baseURL: https://esi.evetech.net/latest
+  tags:
+  - User Interface
+  properties:
+  - type: OpenAPI
+    url: openapi/eve-online-user-interface-api-openapi.yml
+  - type: Documentation
+    url: https://developers.eveonline.com/docs/services/esi/
+  - type: APIExplorer
+    url: https://developers.eveonline.com/api-explorer
+  - type: Swagger
+    url: https://esi.evetech.net/ui
+  - type: BestPractices
+    url: https://developers.eveonline.com/docs/services/esi/best-practices/
+  - type: RateLimits
+    url: https://developers.eveonline.com/docs/services/esi/rate-limiting/
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-docs
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-issues
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-routes
+  - type: GitHubRepo
+    url: https://github.com/esi/eve-glue
+  - type: SupportIssues
+    url: https://github.com/esi/esi-issues
+- aid: eve-online:eve-online-wallet-api
+  name: EVE Online Wallet API
+  description: The Wallet API from EVE Online — 12 operation(s) for wallet.
+  humanURL: https://developers.eveonline.com/docs/services/esi/
+  baseURL: https://esi.evetech.net/latest
+  tags:
+  - Wallet
+  properties:
+  - type: OpenAPI
+    url: openapi/eve-online-wallet-api-openapi.yml
+  - type: Documentation
+    url: https://developers.eveonline.com/docs/services/esi/
+  - type: APIExplorer
+    url: https://developers.eveonline.com/api-explorer
+  - type: Swagger
+    url: https://esi.evetech.net/ui
+  - type: BestPractices
+    url: https://developers.eveonline.com/docs/services/esi/best-practices/
+  - type: RateLimits
+    url: https://developers.eveonline.com/docs/services/esi/rate-limiting/
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-docs
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-issues
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-routes
+  - type: GitHubRepo
+    url: https://github.com/esi/eve-glue
+  - type: SupportIssues
+    url: https://github.com/esi/esi-issues
+- aid: eve-online:eve-online-wars-api
+  name: EVE Online Wars API
+  description: The Wars API from EVE Online — 6 operation(s) for wars.
+  humanURL: https://developers.eveonline.com/docs/services/esi/
+  baseURL: https://esi.evetech.net/latest
+  tags:
+  - Wars
+  properties:
+  - type: OpenAPI
+    url: openapi/eve-online-wars-api-openapi.yml
+  - type: Documentation
+    url: https://developers.eveonline.com/docs/services/esi/
+  - type: APIExplorer
+    url: https://developers.eveonline.com/api-explorer
+  - type: Swagger
+    url: https://esi.evetech.net/ui
+  - type: BestPractices
+    url: https://developers.eveonline.com/docs/services/esi/best-practices/
+  - type: RateLimits
+    url: https://developers.eveonline.com/docs/services/esi/rate-limiting/
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-docs
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-issues
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-routes
+  - type: GitHubRepo
+    url: https://github.com/esi/eve-glue
+  - type: SupportIssues
+    url: https://github.com/esi/esi-issues
+- aid: eve-online:eve-online-zero-api
+  name: EVE Online Zero API
+  description: The Zero API from EVE Online — 1 operation(s) for zero.
+  humanURL: https://developers.eveonline.com/docs/services/esi/
+  baseURL: https://esi.evetech.net/latest
+  tags:
+  - Zero
+  properties:
+  - type: OpenAPI
+    url: openapi/eve-online-zero-api-openapi.yml
+  - type: Documentation
+    url: https://developers.eveonline.com/docs/services/esi/
+  - type: APIExplorer
+    url: https://developers.eveonline.com/api-explorer
+  - type: Swagger
+    url: https://esi.evetech.net/ui
+  - type: BestPractices
+    url: https://developers.eveonline.com/docs/services/esi/best-practices/
+  - type: RateLimits
+    url: https://developers.eveonline.com/docs/services/esi/rate-limiting/
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-docs
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-issues
+  - type: GitHubRepo
+    url: https://github.com/esi/esi-routes
+  - type: GitHubRepo
+    url: https://github.com/esi/eve-glue
+  - type: SupportIssues
+    url: https://github.com/esi/esi-issues
 maintainers:
   - FN: Kin Lane
     url: http://apievangelist.com
