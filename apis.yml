@@ -1537,6 +1537,8 @@ maintainers:
   - FN: CCP Games
     url: https://www.ccpgames.com/
 common:
+  - type: IssueTracker
+    url: https://github.com/esi/esi-docs/issues
   - type: AgenticAccess
     url: agentic-access/eve-online-agentic-access.yml
   - type: VulnerabilityDisclosure
