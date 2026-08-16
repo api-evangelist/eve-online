@@ -10,12 +10,9 @@
     },
     {
       "source": "https://esi.evetech.net/latest/swagger.json",
-      "feed_url": "https://esi.evetech.net/latest/swagger.json",
-      "title": "",
-      "saved": 0,
-      "method": "none"
+      "error": "HTTPError"
     }
   ],
   "post_count": 53,
-  "fetched": "2026-08-06T14:08:46Z"
+  "fetched": "2026-08-15T12:22:01Z"
 }
