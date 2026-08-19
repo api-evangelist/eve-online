@@ -1,0 +1,3716 @@
+{
+  "item": [
+    {
+      "id": "3f7fe281-e992-45a5-a5d5-9781cc9c43c8",
+      "name": "Location",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8a134bd9-ec61-4fcc-b167-6b95527c0a73",
+          "name": "EVE Online Get Character Location",
+          "request": {
+            "name": "EVE Online Get Character Location",
+            "description": {
+              "content": "Information about the characters current location. Returns the current solar system id, and also the current station or structure ID if applicable\n\n---\nAlternate route: `/dev/characters/{character_id}/location/`\n\nAlternate route: `/legacy/characters/{character_id}/location/`\n\nAlternate route: `/v1/characters/{character_id}/location/`\n\nAlternate route: `/v2/characters/{character_id}/location/`\n\n---\nThis route is cached for up to 5 seconds",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "characters",
+                ":character_id",
+                "location",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "datasource",
+                  "value": "tranquility",
+                  "description": "The server name you would like data from"
+                },
+                {
+                  "disabled": false,
+                  "key": "token",
+                  "value": "<string>",
+                  "description": "Access token to use if unable to set a header"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "character_id",
+                  "description": "(Required) An EVE character ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                "key": "If-None-Match",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "esi-alliances.read_contacts.v1 esi-assets.read_assets.v1 esi-assets.read_corporation_assets.v1 esi-calendar.read_calendar_events.v1 esi-calendar.respond_calendar_events.v1 esi-characters.read_agents_research.v1 esi-characters.read_blueprints.v1 esi-characters.read_contacts.v1 esi-characters.read_corporation_roles.v1 esi-characters.read_fatigue.v1 esi-characters.read_fw_stats.v1 esi-characters.read_loyalty.v1 esi-characters.read_medals.v1 esi-characters.read_notifications.v1 esi-characters.read_standings.v1 esi-characters.read_titles.v1 esi-characters.write_contacts.v1 esi-clones.read_clones.v1 esi-clones.read_implants.v1 esi-contracts.read_character_contracts.v1 esi-contracts.read_corporation_contracts.v1 esi-corporations.read_blueprints.v1 esi-corporations.read_contacts.v1 esi-corporations.read_container_logs.v1 esi-corporations.read_corporation_membership.v1 esi-corporations.read_divisions.v1 esi-corporations.read_facilities.v1 esi-corporations.read_fw_stats.v1 esi-corporations.read_medals.v1 esi-corporations.read_standings.v1 esi-corporations.read_starbases.v1 esi-corporations.read_structures.v1 esi-corporations.read_titles.v1 esi-corporations.track_members.v1 esi-fittings.read_fittings.v1 esi-fittings.write_fittings.v1 esi-fleets.read_fleet.v1 esi-fleets.write_fleet.v1 esi-industry.read_character_jobs.v1 esi-industry.read_character_mining.v1 esi-industry.read_corporation_jobs.v1 esi-industry.read_corporation_mining.v1 esi-killmails.read_corporation_killmails.v1 esi-killmails.read_killmails.v1 esi-location.read_location.v1 esi-location.read_online.v1 esi-location.read_ship_type.v1 esi-mail.organize_mail.v1 esi-mail.read_mail.v1 esi-mail.send_mail.v1 esi-markets.read_character_orders.v1 esi-markets.read_corporation_orders.v1 esi-markets.structure_markets.v1 esi-planets.manage_planets.v1 esi-planets.read_customs_offices.v1 esi-search.search_structures.v1 esi-skills.read_skillqueue.v1 esi-skills.read_skills.v1 esi-ui.open_window.v1 esi-ui.write_waypoint.v1 esi-universe.read_structures.v1 esi-wallet.read_character_wallet.v1 esi-wallet.read_corporation_wallets.v1"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://login.eveonline.com/v2/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "951f2c9f-9487-489a-a9de-636b1ef4c67a",
+              "name": "Information about the characters current location. Returns the current solar system id, and also the current station or structure ID if applicable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "characters",
+                    ":character_id",
+                    "location",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "character_id",
+                      "description": "(Required) An EVE character ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The caching mechanism used",
+                  "key": "Cache-Control",
+                  "value": "string"
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7232 compliant entity tag",
+                  "key": "ETag",
+                  "value": "string"
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Expires",
+                  "value": "string"
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Last-Modified",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"solar_system_id\": 30002505,\n  \"structure_id\": 1000000016989\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f57a2687-5746-46d7-b3a5-1c0ef2d63b4b",
+              "name": "Not modified",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "characters",
+                    ":character_id",
+                    "location",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "character_id",
+                      "description": "(Required) An EVE character ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Modified",
+              "code": 304,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The caching mechanism used",
+                  "key": "Cache-Control",
+                  "value": "string"
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7232 compliant entity tag",
+                  "key": "ETag",
+                  "value": "string"
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Expires",
+                  "value": "string"
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Last-Modified",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1af86f90-2321-415c-8748-c46a58e75bd2",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "characters",
+                    ":character_id",
+                    "location",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "character_id",
+                      "description": "(Required) An EVE character ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Bad request message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "970769f1-84e1-4d9a-9e77-e8ebc2f0d7f4",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "characters",
+                    ":character_id",
+                    "location",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "character_id",
+                      "description": "(Required) An EVE character ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Unauthorized message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "043d11d0-b4d2-4029-be01-a141487771d3",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "characters",
+                    ":character_id",
+                    "location",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "character_id",
+                      "description": "(Required) An EVE character ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Forbidden message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6769a530-849b-4d4f-b9af-88ea7ee27b3c",
+              "name": "Error limited",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "characters",
+                    ":character_id",
+                    "location",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "character_id",
+                      "description": "(Required) An EVE character ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "code": 420,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Error limited message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "784a479a-5c06-4f2a-a473-381c9ce52da4",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "characters",
+                    ":character_id",
+                    "location",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "character_id",
+                      "description": "(Required) An EVE character ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Internal server error message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "49cbc42b-e364-417b-906e-7652604352a6",
+              "name": "Service unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "characters",
+                    ":character_id",
+                    "location",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "character_id",
+                      "description": "(Required) An EVE character ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Service unavailable message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fd0d21b0-d264-4153-ac80-ab90ee577cfe",
+              "name": "Gateway timeout",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "characters",
+                    ":character_id",
+                    "location",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "character_id",
+                      "description": "(Required) An EVE character ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Gateway Timeout",
+              "code": 504,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Gateway timeout message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e9f14f2f-c90f-4e9a-aeda-6c0753d7e80c",
+          "name": "EVE Online Get Character Online",
+          "request": {
+            "name": "EVE Online Get Character Online",
+            "description": {
+              "content": "Checks if the character is currently online\n\n---\nAlternate route: `/dev/characters/{character_id}/online/`\n\nAlternate route: `/v2/characters/{character_id}/online/`\n\nAlternate route: `/v3/characters/{character_id}/online/`\n\n---\nThis route is cached for up to 60 seconds",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "characters",
+                ":character_id",
+                "online",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "datasource",
+                  "value": "tranquility",
+                  "description": "The server name you would like data from"
+                },
+                {
+                  "disabled": false,
+                  "key": "token",
+                  "value": "<string>",
+                  "description": "Access token to use if unable to set a header"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "character_id",
+                  "description": "(Required) An EVE character ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                "key": "If-None-Match",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "esi-alliances.read_contacts.v1 esi-assets.read_assets.v1 esi-assets.read_corporation_assets.v1 esi-calendar.read_calendar_events.v1 esi-calendar.respond_calendar_events.v1 esi-characters.read_agents_research.v1 esi-characters.read_blueprints.v1 esi-characters.read_contacts.v1 esi-characters.read_corporation_roles.v1 esi-characters.read_fatigue.v1 esi-characters.read_fw_stats.v1 esi-characters.read_loyalty.v1 esi-characters.read_medals.v1 esi-characters.read_notifications.v1 esi-characters.read_standings.v1 esi-characters.read_titles.v1 esi-characters.write_contacts.v1 esi-clones.read_clones.v1 esi-clones.read_implants.v1 esi-contracts.read_character_contracts.v1 esi-contracts.read_corporation_contracts.v1 esi-corporations.read_blueprints.v1 esi-corporations.read_contacts.v1 esi-corporations.read_container_logs.v1 esi-corporations.read_corporation_membership.v1 esi-corporations.read_divisions.v1 esi-corporations.read_facilities.v1 esi-corporations.read_fw_stats.v1 esi-corporations.read_medals.v1 esi-corporations.read_standings.v1 esi-corporations.read_starbases.v1 esi-corporations.read_structures.v1 esi-corporations.read_titles.v1 esi-corporations.track_members.v1 esi-fittings.read_fittings.v1 esi-fittings.write_fittings.v1 esi-fleets.read_fleet.v1 esi-fleets.write_fleet.v1 esi-industry.read_character_jobs.v1 esi-industry.read_character_mining.v1 esi-industry.read_corporation_jobs.v1 esi-industry.read_corporation_mining.v1 esi-killmails.read_corporation_killmails.v1 esi-killmails.read_killmails.v1 esi-location.read_location.v1 esi-location.read_online.v1 esi-location.read_ship_type.v1 esi-mail.organize_mail.v1 esi-mail.read_mail.v1 esi-mail.send_mail.v1 esi-markets.read_character_orders.v1 esi-markets.read_corporation_orders.v1 esi-markets.structure_markets.v1 esi-planets.manage_planets.v1 esi-planets.read_customs_offices.v1 esi-search.search_structures.v1 esi-skills.read_skillqueue.v1 esi-skills.read_skills.v1 esi-ui.open_window.v1 esi-ui.write_waypoint.v1 esi-universe.read_structures.v1 esi-wallet.read_character_wallet.v1 esi-wallet.read_corporation_wallets.v1"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://login.eveonline.com/v2/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "0dadf531-580d-4c23-af64-dfeb9aeb8ffb",
+              "name": "Object describing the character's online status",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "characters",
+                    ":character_id",
+                    "online",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "character_id",
+                      "description": "(Required) An EVE character ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The caching mechanism used",
+                  "key": "Cache-Control",
+                  "value": "string"
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7232 compliant entity tag",
+                  "key": "ETag",
+                  "value": "string"
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Expires",
+                  "value": "string"
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Last-Modified",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"last_login\": \"2017-01-02 03:04:05+00:00\",\n  \"last_logout\": \"2017-01-02 04:05:06+00:00\",\n  \"logins\": 9001,\n  \"online\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b6bbab05-7ceb-453b-b337-0d1db7d24e0f",
+              "name": "Not modified",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "characters",
+                    ":character_id",
+                    "online",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "character_id",
+                      "description": "(Required) An EVE character ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Modified",
+              "code": 304,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The caching mechanism used",
+                  "key": "Cache-Control",
+                  "value": "string"
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7232 compliant entity tag",
+                  "key": "ETag",
+                  "value": "string"
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Expires",
+                  "value": "string"
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Last-Modified",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0d976b9a-6dfc-4f8f-a37f-1fdbb8fb553c",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "characters",
+                    ":character_id",
+                    "online",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "character_id",
+                      "description": "(Required) An EVE character ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Bad request message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cf862293-0c9d-41bc-85fb-ccb6f3a81a03",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "characters",
+                    ":character_id",
+                    "online",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "character_id",
+                      "description": "(Required) An EVE character ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Unauthorized message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3efa0ba0-26dd-4984-b2ad-190d2056e08e",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "characters",
+                    ":character_id",
+                    "online",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "character_id",
+                      "description": "(Required) An EVE character ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Forbidden message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f97027fd-a290-4e5e-aa68-5c4471a1645b",
+              "name": "Error limited",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "characters",
+                    ":character_id",
+                    "online",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "character_id",
+                      "description": "(Required) An EVE character ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "code": 420,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Error limited message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1437204c-f27f-4c68-a5c9-bbf8a07f68ba",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "characters",
+                    ":character_id",
+                    "online",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "character_id",
+                      "description": "(Required) An EVE character ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Internal server error message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2005a71a-eb56-47a0-9072-1c00f291f4c5",
+              "name": "Service unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "characters",
+                    ":character_id",
+                    "online",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "character_id",
+                      "description": "(Required) An EVE character ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Service unavailable message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "72e1973c-4ac2-4090-a708-d428a06f3293",
+              "name": "Gateway timeout",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "characters",
+                    ":character_id",
+                    "online",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "character_id",
+                      "description": "(Required) An EVE character ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Gateway Timeout",
+              "code": 504,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Gateway timeout message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "56d8fe62-ceb9-4f44-9d12-cb603d47e3e5",
+          "name": "EVE Online Get Current Ship",
+          "request": {
+            "name": "EVE Online Get Current Ship",
+            "description": {
+              "content": "Get the current ship type, name and id\n\n---\nAlternate route: `/dev/characters/{character_id}/ship/`\n\nAlternate route: `/legacy/characters/{character_id}/ship/`\n\nAlternate route: `/v1/characters/{character_id}/ship/`\n\nAlternate route: `/v2/characters/{character_id}/ship/`\n\n---\nThis route is cached for up to 5 seconds",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "characters",
+                ":character_id",
+                "ship",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "datasource",
+                  "value": "tranquility",
+                  "description": "The server name you would like data from"
+                },
+                {
+                  "disabled": false,
+                  "key": "token",
+                  "value": "<string>",
+                  "description": "Access token to use if unable to set a header"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "character_id",
+                  "description": "(Required) An EVE character ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                "key": "If-None-Match",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "esi-alliances.read_contacts.v1 esi-assets.read_assets.v1 esi-assets.read_corporation_assets.v1 esi-calendar.read_calendar_events.v1 esi-calendar.respond_calendar_events.v1 esi-characters.read_agents_research.v1 esi-characters.read_blueprints.v1 esi-characters.read_contacts.v1 esi-characters.read_corporation_roles.v1 esi-characters.read_fatigue.v1 esi-characters.read_fw_stats.v1 esi-characters.read_loyalty.v1 esi-characters.read_medals.v1 esi-characters.read_notifications.v1 esi-characters.read_standings.v1 esi-characters.read_titles.v1 esi-characters.write_contacts.v1 esi-clones.read_clones.v1 esi-clones.read_implants.v1 esi-contracts.read_character_contracts.v1 esi-contracts.read_corporation_contracts.v1 esi-corporations.read_blueprints.v1 esi-corporations.read_contacts.v1 esi-corporations.read_container_logs.v1 esi-corporations.read_corporation_membership.v1 esi-corporations.read_divisions.v1 esi-corporations.read_facilities.v1 esi-corporations.read_fw_stats.v1 esi-corporations.read_medals.v1 esi-corporations.read_standings.v1 esi-corporations.read_starbases.v1 esi-corporations.read_structures.v1 esi-corporations.read_titles.v1 esi-corporations.track_members.v1 esi-fittings.read_fittings.v1 esi-fittings.write_fittings.v1 esi-fleets.read_fleet.v1 esi-fleets.write_fleet.v1 esi-industry.read_character_jobs.v1 esi-industry.read_character_mining.v1 esi-industry.read_corporation_jobs.v1 esi-industry.read_corporation_mining.v1 esi-killmails.read_corporation_killmails.v1 esi-killmails.read_killmails.v1 esi-location.read_location.v1 esi-location.read_online.v1 esi-location.read_ship_type.v1 esi-mail.organize_mail.v1 esi-mail.read_mail.v1 esi-mail.send_mail.v1 esi-markets.read_character_orders.v1 esi-markets.read_corporation_orders.v1 esi-markets.structure_markets.v1 esi-planets.manage_planets.v1 esi-planets.read_customs_offices.v1 esi-search.search_structures.v1 esi-skills.read_skillqueue.v1 esi-skills.read_skills.v1 esi-ui.open_window.v1 esi-ui.write_waypoint.v1 esi-universe.read_structures.v1 esi-wallet.read_character_wallet.v1 esi-wallet.read_corporation_wallets.v1"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://login.eveonline.com/v2/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "04c180b1-cc45-44d1-93a0-ba2479aed3ee",
+              "name": "Get the current ship type, name and id",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "characters",
+                    ":character_id",
+                    "ship",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "character_id",
+                      "description": "(Required) An EVE character ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The caching mechanism used",
+                  "key": "Cache-Control",
+                  "value": "string"
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7232 compliant entity tag",
+                  "key": "ETag",
+                  "value": "string"
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Expires",
+                  "value": "string"
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Last-Modified",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ship_item_id\": 1000000016991,\n  \"ship_name\": \"SPACESHIPS!!!\",\n  \"ship_type_id\": 1233\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "98cb66af-f14a-47bb-b345-c7740a70b79f",
+              "name": "Not modified",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "characters",
+                    ":character_id",
+                    "ship",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "character_id",
+                      "description": "(Required) An EVE character ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Modified",
+              "code": 304,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The caching mechanism used",
+                  "key": "Cache-Control",
+                  "value": "string"
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7232 compliant entity tag",
+                  "key": "ETag",
+                  "value": "string"
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Expires",
+                  "value": "string"
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Last-Modified",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "838e97c4-18ab-4974-a063-f50179a2c1f7",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "characters",
+                    ":character_id",
+                    "ship",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "character_id",
+                      "description": "(Required) An EVE character ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Bad request message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9df0c112-01f0-4e96-b472-58f5904440a7",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "characters",
+                    ":character_id",
+                    "ship",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "character_id",
+                      "description": "(Required) An EVE character ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Unauthorized message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3d038c3a-34b8-4e18-b3f7-58965c66bcb3",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "characters",
+                    ":character_id",
+                    "ship",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "character_id",
+                      "description": "(Required) An EVE character ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Forbidden message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "488e8ed7-e9c7-4689-984a-a835c70c9397",
+              "name": "Error limited",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "characters",
+                    ":character_id",
+                    "ship",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "character_id",
+                      "description": "(Required) An EVE character ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "code": 420,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Error limited message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f965c0e6-0367-42bb-85a8-315d61123a06",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "characters",
+                    ":character_id",
+                    "ship",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "character_id",
+                      "description": "(Required) An EVE character ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Internal server error message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2f43a581-36cb-4a09-92a8-bafa8025a1eb",
+              "name": "Service unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "characters",
+                    ":character_id",
+                    "ship",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "character_id",
+                      "description": "(Required) An EVE character ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Service unavailable message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c669aa49-ae02-4809-8f6c-39fd9a398a6c",
+              "name": "Gateway timeout",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "characters",
+                    ":character_id",
+                    "ship",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "character_id",
+                      "description": "(Required) An EVE character ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Gateway Timeout",
+              "code": 504,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Gateway timeout message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "256142e4-73c0-4721-8efb-1782a018bdae",
+          "name": "Get character location",
+          "request": {
+            "name": "Get character location",
+            "description": {
+              "content": "Information about the characters current location. Returns the current solar system id, and also the current station or structure ID if applicable\n\n---\n\nThis route is cached for up to 5 seconds",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "characters",
+                ":character_id",
+                "location",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "esi-alliances.read_contacts.v1 esi-assets.read_assets.v1 esi-assets.read_corporation_assets.v1 esi-calendar.read_calendar_events.v1 esi-calendar.respond_calendar_events.v1 esi-characters.read_agents_research.v1 esi-characters.read_blueprints.v1 esi-characters.read_contacts.v1 esi-characters.read_corporation_roles.v1 esi-characters.read_fatigue.v1 esi-characters.read_fw_stats.v1 esi-characters.read_loyalty.v1 esi-characters.read_medals.v1 esi-characters.read_notifications.v1 esi-characters.read_standings.v1 esi-characters.read_titles.v1 esi-characters.write_contacts.v1 esi-clones.read_clones.v1 esi-clones.read_implants.v1 esi-contracts.read_character_contracts.v1 esi-contracts.read_corporation_contracts.v1 esi-corporations.read_blueprints.v1 esi-corporations.read_contacts.v1 esi-corporations.read_container_logs.v1 esi-corporations.read_corporation_membership.v1 esi-corporations.read_divisions.v1 esi-corporations.read_facilities.v1 esi-corporations.read_fw_stats.v1 esi-corporations.read_medals.v1 esi-corporations.read_standings.v1 esi-corporations.read_starbases.v1 esi-corporations.read_structures.v1 esi-corporations.read_titles.v1 esi-corporations.track_members.v1 esi-fittings.read_fittings.v1 esi-fittings.write_fittings.v1 esi-fleets.read_fleet.v1 esi-fleets.write_fleet.v1 esi-industry.read_character_jobs.v1 esi-industry.read_character_mining.v1 esi-industry.read_corporation_jobs.v1 esi-industry.read_corporation_mining.v1 esi-killmails.read_corporation_killmails.v1 esi-killmails.read_killmails.v1 esi-location.read_location.v1 esi-location.read_online.v1 esi-location.read_ship_type.v1 esi-mail.organize_mail.v1 esi-mail.read_mail.v1 esi-mail.send_mail.v1 esi-markets.read_character_orders.v1 esi-markets.read_corporation_orders.v1 esi-markets.structure_markets.v1 esi-planets.manage_planets.v1 esi-planets.read_customs_offices.v1 esi-search.search_structures.v1 esi-skills.read_skillqueue.v1 esi-skills.read_skills.v1 esi-ui.open_window.v1 esi-ui.write_waypoint.v1 esi-universe.read_structures.v1 esi-wallet.read_character_wallet.v1 esi-wallet.read_corporation_wallets.v1"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://login.eveonline.com/v2/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ec57789f-42dd-4515-b59e-d573b5b5fc97",
+              "name": "Information about the characters current location. Returns the current solar system id, and also the current station or structure ID if applicable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "characters",
+                    ":character_id",
+                    "location",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The caching mechanism used",
+                  "key": "Cache-Control",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7232 compliant entity tag",
+                  "key": "ETag",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Expires",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Last-Modified",
+                  "value": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "98b2a33b-c528-4609-93f6-c68f234470f3",
+              "name": "Not modified",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "characters",
+                    ":character_id",
+                    "location",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Modified",
+              "code": 304,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The caching mechanism used",
+                  "key": "Cache-Control",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7232 compliant entity tag",
+                  "key": "ETag",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Expires",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Last-Modified",
+                  "value": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8f832882-6202-40ee-bc44-18166313af3e",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "characters",
+                    ":character_id",
+                    "location",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a1420d3e-18c1-4c69-a5ae-aeb5830917cb",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "characters",
+                    ":character_id",
+                    "location",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f572707d-17ac-433e-a7a1-5290ac65f103",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "characters",
+                    ":character_id",
+                    "location",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ae2ce6a7-77bb-43c7-8808-be8b1392ff6f",
+              "name": "Error limited",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "characters",
+                    ":character_id",
+                    "location",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "code": 420,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b934fd98-8371-4aae-a01f-a53644f14188",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "characters",
+                    ":character_id",
+                    "location",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "72aa6d4a-aeb8-4e8a-98f5-353628f79cc9",
+              "name": "Service unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "characters",
+                    ":character_id",
+                    "location",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "28065c6f-0233-4a88-8170-03409e02b1ea",
+              "name": "Gateway timeout",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "characters",
+                    ":character_id",
+                    "location",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Gateway Timeout",
+              "code": 504,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b47b9bf0-a5c5-461c-9492-730247c0100c",
+          "name": "Get current ship",
+          "request": {
+            "name": "Get current ship",
+            "description": {
+              "content": "Get the current ship type, name and id\n\n---\n\nThis route is cached for up to 5 seconds",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "characters",
+                ":character_id",
+                "ship",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "esi-alliances.read_contacts.v1 esi-assets.read_assets.v1 esi-assets.read_corporation_assets.v1 esi-calendar.read_calendar_events.v1 esi-calendar.respond_calendar_events.v1 esi-characters.read_agents_research.v1 esi-characters.read_blueprints.v1 esi-characters.read_contacts.v1 esi-characters.read_corporation_roles.v1 esi-characters.read_fatigue.v1 esi-characters.read_fw_stats.v1 esi-characters.read_loyalty.v1 esi-characters.read_medals.v1 esi-characters.read_notifications.v1 esi-characters.read_standings.v1 esi-characters.read_titles.v1 esi-characters.write_contacts.v1 esi-clones.read_clones.v1 esi-clones.read_implants.v1 esi-contracts.read_character_contracts.v1 esi-contracts.read_corporation_contracts.v1 esi-corporations.read_blueprints.v1 esi-corporations.read_contacts.v1 esi-corporations.read_container_logs.v1 esi-corporations.read_corporation_membership.v1 esi-corporations.read_divisions.v1 esi-corporations.read_facilities.v1 esi-corporations.read_fw_stats.v1 esi-corporations.read_medals.v1 esi-corporations.read_standings.v1 esi-corporations.read_starbases.v1 esi-corporations.read_structures.v1 esi-corporations.read_titles.v1 esi-corporations.track_members.v1 esi-fittings.read_fittings.v1 esi-fittings.write_fittings.v1 esi-fleets.read_fleet.v1 esi-fleets.write_fleet.v1 esi-industry.read_character_jobs.v1 esi-industry.read_character_mining.v1 esi-industry.read_corporation_jobs.v1 esi-industry.read_corporation_mining.v1 esi-killmails.read_corporation_killmails.v1 esi-killmails.read_killmails.v1 esi-location.read_location.v1 esi-location.read_online.v1 esi-location.read_ship_type.v1 esi-mail.organize_mail.v1 esi-mail.read_mail.v1 esi-mail.send_mail.v1 esi-markets.read_character_orders.v1 esi-markets.read_corporation_orders.v1 esi-markets.structure_markets.v1 esi-planets.manage_planets.v1 esi-planets.read_customs_offices.v1 esi-search.search_structures.v1 esi-skills.read_skillqueue.v1 esi-skills.read_skills.v1 esi-ui.open_window.v1 esi-ui.write_waypoint.v1 esi-universe.read_structures.v1 esi-wallet.read_character_wallet.v1 esi-wallet.read_corporation_wallets.v1"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://login.eveonline.com/v2/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e966e324-8a2a-461c-8c4c-af4244e9d2fe",
+              "name": "Get the current ship type, name and id",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "characters",
+                    ":character_id",
+                    "ship",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The caching mechanism used",
+                  "key": "Cache-Control",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7232 compliant entity tag",
+                  "key": "ETag",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Expires",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Last-Modified",
+                  "value": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3a167a34-0ae0-478c-89b0-e5bef38bb67f",
+              "name": "Not modified",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "characters",
+                    ":character_id",
+                    "ship",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Modified",
+              "code": 304,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The caching mechanism used",
+                  "key": "Cache-Control",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7232 compliant entity tag",
+                  "key": "ETag",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Expires",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Last-Modified",
+                  "value": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6d67002c-c677-4ad2-bb6b-2a99c92e93a1",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "characters",
+                    ":character_id",
+                    "ship",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a456fa68-b653-4771-8fad-2c16ef5da236",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "characters",
+                    ":character_id",
+                    "ship",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e1f353d5-e20f-4c6b-b12a-7034c3e403d1",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "characters",
+                    ":character_id",
+                    "ship",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "72499e2f-93be-48df-8f01-b4789e49a03b",
+              "name": "Error limited",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "characters",
+                    ":character_id",
+                    "ship",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "code": 420,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1e0ecb94-af01-406f-b6a7-ad3d57ecd397",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "characters",
+                    ":character_id",
+                    "ship",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6355e44f-b35f-4cf8-ae2b-c87f26085e07",
+              "name": "Service unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "characters",
+                    ":character_id",
+                    "ship",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ac53e5da-6dd3-4e0e-abc3-2ce04238afd0",
+              "name": "Gateway timeout",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "characters",
+                    ":character_id",
+                    "ship",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Gateway Timeout",
+              "code": 504,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6ce69138-98d4-4a33-98f5-a38ff5bcfd06",
+          "name": "Get character online",
+          "request": {
+            "name": "Get character online",
+            "description": {
+              "content": "Checks if the character is currently online\n\n---\n\nThis route is cached for up to 60 seconds",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "characters",
+                ":character_id",
+                "online",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "esi-alliances.read_contacts.v1 esi-assets.read_assets.v1 esi-assets.read_corporation_assets.v1 esi-calendar.read_calendar_events.v1 esi-calendar.respond_calendar_events.v1 esi-characters.read_agents_research.v1 esi-characters.read_blueprints.v1 esi-characters.read_contacts.v1 esi-characters.read_corporation_roles.v1 esi-characters.read_fatigue.v1 esi-characters.read_fw_stats.v1 esi-characters.read_loyalty.v1 esi-characters.read_medals.v1 esi-characters.read_notifications.v1 esi-characters.read_standings.v1 esi-characters.read_titles.v1 esi-characters.write_contacts.v1 esi-clones.read_clones.v1 esi-clones.read_implants.v1 esi-contracts.read_character_contracts.v1 esi-contracts.read_corporation_contracts.v1 esi-corporations.read_blueprints.v1 esi-corporations.read_contacts.v1 esi-corporations.read_container_logs.v1 esi-corporations.read_corporation_membership.v1 esi-corporations.read_divisions.v1 esi-corporations.read_facilities.v1 esi-corporations.read_fw_stats.v1 esi-corporations.read_medals.v1 esi-corporations.read_standings.v1 esi-corporations.read_starbases.v1 esi-corporations.read_structures.v1 esi-corporations.read_titles.v1 esi-corporations.track_members.v1 esi-fittings.read_fittings.v1 esi-fittings.write_fittings.v1 esi-fleets.read_fleet.v1 esi-fleets.write_fleet.v1 esi-industry.read_character_jobs.v1 esi-industry.read_character_mining.v1 esi-industry.read_corporation_jobs.v1 esi-industry.read_corporation_mining.v1 esi-killmails.read_corporation_killmails.v1 esi-killmails.read_killmails.v1 esi-location.read_location.v1 esi-location.read_online.v1 esi-location.read_ship_type.v1 esi-mail.organize_mail.v1 esi-mail.read_mail.v1 esi-mail.send_mail.v1 esi-markets.read_character_orders.v1 esi-markets.read_corporation_orders.v1 esi-markets.structure_markets.v1 esi-planets.manage_planets.v1 esi-planets.read_customs_offices.v1 esi-search.search_structures.v1 esi-skills.read_skillqueue.v1 esi-skills.read_skills.v1 esi-ui.open_window.v1 esi-ui.write_waypoint.v1 esi-universe.read_structures.v1 esi-wallet.read_character_wallet.v1 esi-wallet.read_corporation_wallets.v1"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://login.eveonline.com/v2/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "42b3672c-e853-4727-8fa7-dabd310fe7fc",
+              "name": "Object describing the character's online status",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "characters",
+                    ":character_id",
+                    "online",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The caching mechanism used",
+                  "key": "Cache-Control",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7232 compliant entity tag",
+                  "key": "ETag",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Expires",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Last-Modified",
+                  "value": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5d5114be-f298-4d67-83eb-df06c802baf0",
+              "name": "Not modified",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "characters",
+                    ":character_id",
+                    "online",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Modified",
+              "code": 304,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The caching mechanism used",
+                  "key": "Cache-Control",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7232 compliant entity tag",
+                  "key": "ETag",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Expires",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Last-Modified",
+                  "value": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7566e3c5-375c-4dcc-90a3-1ae5e3e1c222",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "characters",
+                    ":character_id",
+                    "online",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "76e38282-7318-4cfc-817a-a64ea88ea905",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "characters",
+                    ":character_id",
+                    "online",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7dfd0762-7c54-4ef5-8c7b-d24cefec5bd6",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "characters",
+                    ":character_id",
+                    "online",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6286a4fe-79ca-440b-8c4b-81b1829f77ea",
+              "name": "Error limited",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "characters",
+                    ":character_id",
+                    "online",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "code": 420,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "11409d4a-ac38-48f8-b49a-f113fb5939a1",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "characters",
+                    ":character_id",
+                    "online",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b039a021-48b2-400c-9ffd-dc13b2cd8d8e",
+              "name": "Service unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "characters",
+                    ":character_id",
+                    "online",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "62f3c451-bc39-44eb-95f1-5cae42194a03",
+              "name": "Gateway timeout",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "characters",
+                    ":character_id",
+                    "online",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Gateway Timeout",
+              "code": 504,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://esi.evetech.net/latest",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "46bd4ac7-fb38-488a-9be5-1a07219239ae",
+    "name": "EVE Swagger Interface Alliance Location API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "An OpenAPI for EVE Online",
+      "type": "text/plain"
+    }
+  }
+}

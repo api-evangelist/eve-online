@@ -1,0 +1,2228 @@
+{
+  "item": [
+    {
+      "id": "7e6ae01d-6473-4ce7-a4ee-49858e141b4a",
+      "name": "Sovereignty",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cd764965-b8ac-40b8-818a-f533bc4bebfc",
+          "name": "EVE Online List Sovereignty Campaigns",
+          "request": {
+            "name": "EVE Online List Sovereignty Campaigns",
+            "description": {
+              "content": "Shows sovereignty data for campaigns.\n\n---\nAlternate route: `/dev/sovereignty/campaigns/`\n\nAlternate route: `/legacy/sovereignty/campaigns/`\n\nAlternate route: `/v1/sovereignty/campaigns/`\n\n---\nThis route is cached for up to 5 seconds",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sovereignty",
+                "campaigns",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "datasource",
+                  "value": "tranquility",
+                  "description": "The server name you would like data from"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                "key": "If-None-Match",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "94a14ff0-6e1a-4d50-a1c4-74305a859ed5",
+              "name": "A list of sovereignty campaigns",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sovereignty",
+                    "campaigns",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The caching mechanism used",
+                  "key": "Cache-Control",
+                  "value": "string"
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7232 compliant entity tag",
+                  "key": "ETag",
+                  "value": "string"
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Expires",
+                  "value": "string"
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Last-Modified",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"attackers_score\": 0.4,\n    \"campaign_id\": 32833,\n    \"constellation_id\": 20000125,\n    \"defender_id\": 1695357456,\n    \"defender_score\": 0.6,\n    \"event_type\": \"station_defense\",\n    \"solar_system_id\": 30000856,\n    \"start_time\": \"2016-10-29 14:34:40+00:00\",\n    \"structure_id\": 61001096\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0b06763c-85f4-42cc-9445-e747bf24f19c",
+              "name": "Not modified",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sovereignty",
+                    "campaigns",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Modified",
+              "code": 304,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The caching mechanism used",
+                  "key": "Cache-Control",
+                  "value": "string"
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7232 compliant entity tag",
+                  "key": "ETag",
+                  "value": "string"
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Expires",
+                  "value": "string"
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Last-Modified",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a4569453-6236-4add-b597-c1982f578326",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sovereignty",
+                    "campaigns",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Bad request message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "30042b77-0e97-4882-a0ee-e5cae4fb0244",
+              "name": "Error limited",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sovereignty",
+                    "campaigns",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "code": 420,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Error limited message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c2305553-5a48-41b4-a460-a4807803d55b",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sovereignty",
+                    "campaigns",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Internal server error message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b452d7d4-a8ac-4292-bf87-6b81828119f9",
+              "name": "Service unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sovereignty",
+                    "campaigns",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Service unavailable message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7fbb57dd-118a-4881-b714-cbc102354d2d",
+              "name": "Gateway timeout",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sovereignty",
+                    "campaigns",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Gateway Timeout",
+              "code": 504,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Gateway timeout message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "68cb1369-ff21-4d1b-8bba-6be4699654c7",
+          "name": "EVE Online List Sovereignty of Systems",
+          "request": {
+            "name": "EVE Online List Sovereignty of Systems",
+            "description": {
+              "content": "Shows sovereignty information for solar systems\n\n---\nAlternate route: `/dev/sovereignty/map/`\n\nAlternate route: `/legacy/sovereignty/map/`\n\nAlternate route: `/v1/sovereignty/map/`\n\n---\nThis route is cached for up to 3600 seconds",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sovereignty",
+                "map",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "datasource",
+                  "value": "tranquility",
+                  "description": "The server name you would like data from"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                "key": "If-None-Match",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1eb3eb46-de05-4b7e-83d2-30017409de22",
+              "name": "A list of sovereignty information for solar systems in New Eden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sovereignty",
+                    "map",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The caching mechanism used",
+                  "key": "Cache-Control",
+                  "value": "string"
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7232 compliant entity tag",
+                  "key": "ETag",
+                  "value": "string"
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Expires",
+                  "value": "string"
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Last-Modified",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"faction_id\": 500001,\n    \"system_id\": 30045334\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4281e884-cbd8-4e89-8839-c1a6af87a679",
+              "name": "Not modified",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sovereignty",
+                    "map",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Modified",
+              "code": 304,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The caching mechanism used",
+                  "key": "Cache-Control",
+                  "value": "string"
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7232 compliant entity tag",
+                  "key": "ETag",
+                  "value": "string"
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Expires",
+                  "value": "string"
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Last-Modified",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5198c262-ae9d-46a0-b2ec-5c99aafa5215",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sovereignty",
+                    "map",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Bad request message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1721c7ab-8d45-41a7-95e1-253dbeaf7107",
+              "name": "Error limited",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sovereignty",
+                    "map",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "code": 420,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Error limited message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2e4d618c-8885-4762-be19-2dd544f9f9dc",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sovereignty",
+                    "map",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Internal server error message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "baec45f5-81bd-4b41-a2a1-b03c8d6bcd43",
+              "name": "Service unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sovereignty",
+                    "map",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Service unavailable message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c4ab2f09-fc35-4222-9a04-e28161c5ad20",
+              "name": "Gateway timeout",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sovereignty",
+                    "map",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Gateway Timeout",
+              "code": 504,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Gateway timeout message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "71d743c3-8343-4a61-b33b-a5abe6957564",
+          "name": "EVE Online List Sovereignty Structures",
+          "request": {
+            "name": "EVE Online List Sovereignty Structures",
+            "description": {
+              "content": "Shows sovereignty data for structures.\n\n---\nAlternate route: `/dev/sovereignty/structures/`\n\nAlternate route: `/legacy/sovereignty/structures/`\n\nAlternate route: `/v1/sovereignty/structures/`\n\n---\nThis route is cached for up to 120 seconds",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sovereignty",
+                "structures",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "datasource",
+                  "value": "tranquility",
+                  "description": "The server name you would like data from"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                "key": "If-None-Match",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c3e721e2-4b7b-420b-ba4e-91d5e0315e56",
+              "name": "A list of sovereignty structures",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sovereignty",
+                    "structures",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The caching mechanism used",
+                  "key": "Cache-Control",
+                  "value": "string"
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7232 compliant entity tag",
+                  "key": "ETag",
+                  "value": "string"
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Expires",
+                  "value": "string"
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Last-Modified",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"alliance_id\": 498125261,\n    \"solar_system_id\": 30000570,\n    \"structure_id\": 1018253388776,\n    \"structure_type_id\": 32226,\n    \"vulnerability_occupancy_level\": 2,\n    \"vulnerable_end_time\": \"2016-10-29 05:30:00+00:00\",\n    \"vulnerable_start_time\": \"2016-10-28 20:30:00+00:00\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "28c81ad8-1e92-4cfb-9792-eb1ad6643859",
+              "name": "Not modified",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sovereignty",
+                    "structures",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Modified",
+              "code": 304,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The caching mechanism used",
+                  "key": "Cache-Control",
+                  "value": "string"
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7232 compliant entity tag",
+                  "key": "ETag",
+                  "value": "string"
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Expires",
+                  "value": "string"
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Last-Modified",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6bacfbb8-085b-41e0-b3b5-859c26ae4b90",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sovereignty",
+                    "structures",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Bad request message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "49aa5949-216a-4b38-9944-830ac874675f",
+              "name": "Error limited",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sovereignty",
+                    "structures",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "code": 420,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Error limited message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "60822563-28f6-4f33-86e5-059c7a504e47",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sovereignty",
+                    "structures",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Internal server error message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9313fbe6-eb4e-4f66-90e1-8ca8ca3a2ea8",
+              "name": "Service unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sovereignty",
+                    "structures",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Service unavailable message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "76e3bf78-477a-414a-90f3-47629089d6ca",
+              "name": "Gateway timeout",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sovereignty",
+                    "structures",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Gateway Timeout",
+              "code": 504,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Gateway timeout message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "079c6d2a-301a-4ebe-8722-0a2a6b77d1dc",
+          "name": "List sovereignty campaigns",
+          "request": {
+            "name": "List sovereignty campaigns",
+            "description": {
+              "content": "Shows sovereignty data for campaigns.\n\n---\n\nThis route is cached for up to 5 seconds",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "sovereignty",
+                "campaigns",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b60136b8-b932-43cb-acc7-5538de942f1f",
+              "name": "A list of sovereignty campaigns",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "sovereignty",
+                    "campaigns",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The caching mechanism used",
+                  "key": "Cache-Control",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7232 compliant entity tag",
+                  "key": "ETag",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Expires",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Last-Modified",
+                  "value": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cb2afcd9-e07e-44f9-b0a0-f5022087d8be",
+              "name": "Not modified",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "sovereignty",
+                    "campaigns",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Modified",
+              "code": 304,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The caching mechanism used",
+                  "key": "Cache-Control",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7232 compliant entity tag",
+                  "key": "ETag",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Expires",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Last-Modified",
+                  "value": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "80b90e17-52a8-4817-83b2-c93afafb849c",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "sovereignty",
+                    "campaigns",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5f1a3edc-21ac-4e4d-8684-4727273b738b",
+              "name": "Error limited",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "sovereignty",
+                    "campaigns",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "code": 420,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b4b14b68-fe67-460e-bddd-17c5d587fed7",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "sovereignty",
+                    "campaigns",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "62f8c8c9-4372-4e1b-b659-013f85ce3884",
+              "name": "Service unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "sovereignty",
+                    "campaigns",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "335f91f1-9a7b-4fb4-90af-1a530b6d4b19",
+              "name": "Gateway timeout",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "sovereignty",
+                    "campaigns",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Gateway Timeout",
+              "code": 504,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1fa906ef-bd99-4b1b-8136-d494613a17c2",
+          "name": "List sovereignty of systems",
+          "request": {
+            "name": "List sovereignty of systems",
+            "description": {
+              "content": "Shows sovereignty information for solar systems\n\n---\n\nThis route is cached for up to 3600 seconds",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "sovereignty",
+                "map",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "229c0f59-884f-4152-bf1c-bc92c610ea46",
+              "name": "A list of sovereignty information for solar systems in New Eden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "sovereignty",
+                    "map",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The caching mechanism used",
+                  "key": "Cache-Control",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7232 compliant entity tag",
+                  "key": "ETag",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Expires",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Last-Modified",
+                  "value": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "948b4d14-c1ba-4f68-82d6-8357e990f2e1",
+              "name": "Not modified",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "sovereignty",
+                    "map",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Modified",
+              "code": 304,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The caching mechanism used",
+                  "key": "Cache-Control",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7232 compliant entity tag",
+                  "key": "ETag",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Expires",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Last-Modified",
+                  "value": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "674ae082-e7cb-42fc-973c-70144f2fff88",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "sovereignty",
+                    "map",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e03ec99a-531b-4846-b057-9466dd9a2ebc",
+              "name": "Error limited",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "sovereignty",
+                    "map",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "code": 420,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5023742d-8662-4053-9b37-b61c91a011f0",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "sovereignty",
+                    "map",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bb4de34d-2151-4680-8f70-66d83db4a540",
+              "name": "Service unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "sovereignty",
+                    "map",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d4b9b9cb-0274-4e2f-a21f-aecbb352d428",
+              "name": "Gateway timeout",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "sovereignty",
+                    "map",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Gateway Timeout",
+              "code": 504,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b6a20fee-89d5-4213-9130-78214f918d31",
+          "name": "List sovereignty structures",
+          "request": {
+            "name": "List sovereignty structures",
+            "description": {
+              "content": "Shows sovereignty data for structures.\n\n---\n\nThis route is cached for up to 120 seconds",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "sovereignty",
+                "structures",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "88cb353a-1b1e-45fa-a3e2-b8d49df276a4",
+              "name": "A list of sovereignty structures",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "sovereignty",
+                    "structures",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The caching mechanism used",
+                  "key": "Cache-Control",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7232 compliant entity tag",
+                  "key": "ETag",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Expires",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Last-Modified",
+                  "value": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "496ab324-5d50-41d8-bda9-11983dedeaf6",
+              "name": "Not modified",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "sovereignty",
+                    "structures",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Modified",
+              "code": 304,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The caching mechanism used",
+                  "key": "Cache-Control",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7232 compliant entity tag",
+                  "key": "ETag",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Expires",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Last-Modified",
+                  "value": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1da51d6a-9f48-4e96-888f-adf654745df0",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "sovereignty",
+                    "structures",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ce1a5c0e-69f7-4add-975e-dbd31ed013bb",
+              "name": "Error limited",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "sovereignty",
+                    "structures",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "code": 420,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "46a967d5-36a0-4de4-96ea-a5ff91375cd2",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "sovereignty",
+                    "structures",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5d067ad9-6398-4866-90b6-5286b554f0ae",
+              "name": "Service unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "sovereignty",
+                    "structures",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5dac55dd-ce12-4969-983f-afcfb150dd32",
+              "name": "Gateway timeout",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "sovereignty",
+                    "structures",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Gateway Timeout",
+              "code": 504,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://esi.evetech.net/latest",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b2d1a300-9c8d-4528-b06f-b1a8dbb7d90a",
+    "name": "EVE Swagger Interface Alliance Sovereignty API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "An OpenAPI for EVE Online",
+      "type": "text/plain"
+    }
+  }
+}

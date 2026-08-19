@@ -1,0 +1,942 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EVE Swagger Interface Alliance Mail API",
+    "version": "1.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Mail",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "EVE Online Return Mail Headers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/characters/:character_id/mail/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "labels",
+                "value": "1",
+                "type": "query",
+                "description": "Fetch only mails that match one or more of the given labels"
+              },
+              {
+                "name": "last_mail_id",
+                "value": "1001",
+                "type": "query",
+                "description": "List only mail with an ID lower than the given ID, if present"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Return the 50 most recent mail headers belonging to the character that match the query criteria. Queries can be filtered by label, and last_mail_id can be used to paginate backwards\n\n---\nAlternate route: `/dev/characters/{character_id}/mail/`\n\nAlternate route: `/legacy/characters/{character_id}/mail/`\n\nAlternate route: `/v1/characters/{character_id}/mail/`\n\n---\nThis route is cached for up to 30 seconds"
+        },
+        {
+          "info": {
+            "name": "EVE Online Send a New Mail",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://esi.evetech.net/latest/characters/:character_id/mail/",
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Create and send a new mail\n\n---\nAlternate route: `/dev/characters/{character_id}/mail/`\n\nAlternate route: `/legacy/characters/{character_id}/mail/`\n\nAlternate route: `/v1/characters/{character_id}/mail/`\n"
+        },
+        {
+          "info": {
+            "name": "EVE Online Get Mail Labels and Unread Counts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/characters/:character_id/mail/labels/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Return a list of the users mail labels, unread counts for each label and a total unread count.\n\n---\nAlternate route: `/dev/characters/{character_id}/mail/labels/`\n\nAlternate route: `/v3/characters/{character_id}/mail/labels/`\n\n---\nThis route is cached for up to 30 seconds"
+        },
+        {
+          "info": {
+            "name": "EVE Online Create a Mail Label",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://esi.evetech.net/latest/characters/:character_id/mail/labels/",
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Create a mail label\n\n---\nAlternate route: `/dev/characters/{character_id}/mail/labels/`\n\nAlternate route: `/legacy/characters/{character_id}/mail/labels/`\n\nAlternate route: `/v2/characters/{character_id}/mail/labels/`\n"
+        },
+        {
+          "info": {
+            "name": "EVE Online Delete a Mail Label",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://esi.evetech.net/latest/characters/:character_id/mail/labels/:label_id/",
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "label_id",
+                "value": "1001",
+                "type": "path",
+                "description": "An EVE label id"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Delete a mail label\n\n---\nAlternate route: `/dev/characters/{character_id}/mail/labels/{label_id}/`\n\nAlternate route: `/legacy/characters/{character_id}/mail/labels/{label_id}/`\n\nAlternate route: `/v1/characters/{character_id}/mail/labels/{label_id}/`\n"
+        },
+        {
+          "info": {
+            "name": "EVE Online Return Mailing List Subscriptions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/characters/:character_id/mail/lists/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Return all mailing lists that the character is subscribed to\n\n---\nAlternate route: `/dev/characters/{character_id}/mail/lists/`\n\nAlternate route: `/legacy/characters/{character_id}/mail/lists/`\n\nAlternate route: `/v1/characters/{character_id}/mail/lists/`\n\n---\nThis route is cached for up to 120 seconds"
+        },
+        {
+          "info": {
+            "name": "EVE Online Return a Mail",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/characters/:character_id/mail/:mail_id/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "mail_id",
+                "value": "1001",
+                "type": "path",
+                "description": "An EVE mail ID"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Return the contents of an EVE mail\n\n---\nAlternate route: `/dev/characters/{character_id}/mail/{mail_id}/`\n\nAlternate route: `/legacy/characters/{character_id}/mail/{mail_id}/`\n\nAlternate route: `/v1/characters/{character_id}/mail/{mail_id}/`\n\n---\nThis route is cached for up to 30 seconds"
+        },
+        {
+          "info": {
+            "name": "EVE Online Update Metadata About a Mail",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://esi.evetech.net/latest/characters/:character_id/mail/:mail_id/",
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "mail_id",
+                "value": "1001",
+                "type": "path",
+                "description": "An EVE mail ID"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Update metadata about a mail\n\n---\nAlternate route: `/dev/characters/{character_id}/mail/{mail_id}/`\n\nAlternate route: `/legacy/characters/{character_id}/mail/{mail_id}/`\n\nAlternate route: `/v1/characters/{character_id}/mail/{mail_id}/`\n"
+        },
+        {
+          "info": {
+            "name": "EVE Online Delete a Mail",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://esi.evetech.net/latest/characters/:character_id/mail/:mail_id/",
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "mail_id",
+                "value": "1001",
+                "type": "path",
+                "description": "An EVE mail ID"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Delete a mail\n\n---\nAlternate route: `/dev/characters/{character_id}/mail/{mail_id}/`\n\nAlternate route: `/legacy/characters/{character_id}/mail/{mail_id}/`\n\nAlternate route: `/v1/characters/{character_id}/mail/{mail_id}/`\n"
+        },
+        {
+          "info": {
+            "name": "Return mail headers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/characters/:character_id/mail/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "labels",
+                "value": "",
+                "type": "query",
+                "description": "Fetch only mails that match one or more of the given labels"
+              },
+              {
+                "name": "last_mail_id",
+                "value": "",
+                "type": "query",
+                "description": "List only mail with an ID lower than the given ID, if present"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Return the 50 most recent mail headers belonging to the character that match the query criteria. Queries can be filtered by label, and last_mail_id can be used to paginate backwards\n\n---\n\nThis route is cached for up to 30 seconds"
+        },
+        {
+          "info": {
+            "name": "Send a new mail",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://esi.evetech.net/latest/v1/characters/:character_id/mail/",
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Create and send a new mail\n\n---\n"
+        },
+        {
+          "info": {
+            "name": "Delete a mail label",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://esi.evetech.net/latest/v1/characters/:character_id/mail/labels/:label_id/",
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "label_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE label id"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Delete a mail label\n\n---\n"
+        },
+        {
+          "info": {
+            "name": "Return mailing list subscriptions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/characters/:character_id/mail/lists/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Return all mailing lists that the character is subscribed to\n\n---\n\nThis route is cached for up to 120 seconds"
+        },
+        {
+          "info": {
+            "name": "Return a mail",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/characters/:character_id/mail/:mail_id/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "mail_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE mail ID"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Return the contents of an EVE mail\n\n---\n\nThis route is cached for up to 30 seconds"
+        },
+        {
+          "info": {
+            "name": "Update metadata about a mail",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://esi.evetech.net/latest/v1/characters/:character_id/mail/:mail_id/",
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "mail_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE mail ID"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Update metadata about a mail\n\n---\n"
+        },
+        {
+          "info": {
+            "name": "Delete a mail",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://esi.evetech.net/latest/v1/characters/:character_id/mail/:mail_id/",
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "mail_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE mail ID"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Delete a mail\n\n---\n"
+        },
+        {
+          "info": {
+            "name": "Create a mail label",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://esi.evetech.net/latest/v2/characters/:character_id/mail/labels/",
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Create a mail label\n\n---\n"
+        },
+        {
+          "info": {
+            "name": "Get mail labels and unread counts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v3/characters/:character_id/mail/labels/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Return a list of the users mail labels, unread counts for each label and a total unread count.\n\n---\n\nThis route is cached for up to 30 seconds"
+        },
+        {
+          "info": {
+            "name": "Return the number of unread mails",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/characters/:character_id/mail/unread/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Return the number of unread mails for the character\n\n---\nAlternate route: `/v1/characters/{character_id}/mail/unread/`\n\n---\nThis route is cached for up to 5 seconds\n\n---\nWarning: This route is deprecated as of 2016-10-10\n\n---\n[Diff of the upcoming changes](https://esi.evetech.net/diff/legacy/latest/#GET-/characters/{character_id}/mail/unread/)"
+        },
+        {
+          "info": {
+            "name": "Return the number of unread mails",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/characters/:character_id/mail/unread/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Return the number of unread mails for the character\n\n---\n\nThis route is cached for up to 5 seconds\n\n---\nWarning: This route is deprecated as of 2016-10-10\n\n---\n[Diff of the upcoming changes](https://esi.evetech.net/diff/legacy/latest/#GET-/characters/{character_id}/mail/unread/)"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

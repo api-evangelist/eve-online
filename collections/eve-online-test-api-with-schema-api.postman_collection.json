@@ -1,0 +1,90 @@
+{
+  "item": [
+    {
+      "id": "2ee60fd4-a306-4237-a61a-a0935c63d3ce",
+      "name": "Test API with Schema",
+      "description": {
+        "content": "Test API with Schema",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4765ab9b-b560-4499-beba-11167cc0e585",
+          "name": "Test API with Schema",
+          "request": {
+            "name": "Test API with Schema",
+            "description": {
+              "content": "Returns documents",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "myApi"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c9d9c3f7-20d7-48cd-9355-fa85d8a2c3b8",
+              "name": "Returns documents",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "myApi"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://esi.evetech.net/latest",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c20945fc-eb15-4771-8d3f-d9756d593b4c",
+    "name": "EVE Swagger Interface Alliance Test API with Schema API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "An OpenAPI for EVE Online",
+      "type": "text/plain"
+    }
+  }
+}

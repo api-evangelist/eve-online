@@ -1,0 +1,99 @@
+{
+  "item": [
+    {
+      "id": "152e99be-cff4-4bc2-b1fc-5bc9c074b4e8",
+      "name": "Test Api 1",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "194e6d03-2f38-44c0-9bd9-82d0bda55344",
+          "name": "Api 1",
+          "request": {
+            "name": "Api 1",
+            "description": {},
+            "url": {
+              "path": [
+                "test-api-1"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "44763c30-ed42-4ba6-bbd0-4016b810dfb7",
+              "name": "api 2 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "test-api-1"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api1prop\": \"api1prop-value\",\n  \"api2prop\": {\n    \"value\": \"reference api2.yaml#/components/schemas/Api2Prop not found in the OpenAPI spec\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://esi.evetech.net/latest",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "acefbbd0-a185-4ef7-b7ab-442c5c9968ed",
+    "name": "EVE Swagger Interface Alliance Test Api 1 API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "An OpenAPI for EVE Online",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,1150 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EVE Swagger Interface Alliance Character API",
+    "version": "1.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Character",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "EVE Online Character Affiliation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://esi.evetech.net/latest/characters/affiliation/",
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Bulk lookup of character IDs to corporation, alliance and faction\n\n---\nAlternate route: `/dev/characters/affiliation/`\n\nAlternate route: `/legacy/characters/affiliation/`\n\nAlternate route: `/v1/characters/affiliation/`\n\nAlternate route: `/v2/characters/affiliation/`\n\n---\nThis route is cached for up to 3600 seconds"
+        },
+        {
+          "info": {
+            "name": "EVE Online Get Character's Public Information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/characters/:character_id/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Public information about a character\n\n---\nAlternate route: `/dev/characters/{character_id}/`\n\nAlternate route: `/legacy/characters/{character_id}/`\n\nAlternate route: `/v5/characters/{character_id}/`\n\n---\nThis route is cached for up to 604800 seconds"
+        },
+        {
+          "info": {
+            "name": "EVE Online Get Agents Research",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/characters/:character_id/agents_research/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Return a list of agents research information for a character. The formula for finding the current research points with an agent is: currentPoints = remainderPoints + pointsPerDay * days(currentTime - researchStartDate)\n\n---\nAlternate route: `/dev/characters/{character_id}/agents_research/`\n\nAlternate route: `/legacy/characters/{character_id}/agents_research/`\n\nAlternate route: `/v1/characters/{character_id}/agents_research/`\n\nAlternate route: `/v2/characters/{character_id}/agents_research/`\n\n---"
+        },
+        {
+          "info": {
+            "name": "EVE Online Get Blueprints",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/characters/:character_id/blueprints/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Which page of results to return"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Return a list of blueprints the character owns\n\n---\nAlternate route: `/dev/characters/{character_id}/blueprints/`\n\nAlternate route: `/legacy/characters/{character_id}/blueprints/`\n\nAlternate route: `/v2/characters/{character_id}/blueprints/`\n\nAlternate route: `/v3/characters/{character_id}/blueprints/`\n\n---\nThis route is cached for up to 3600 seconds"
+        },
+        {
+          "info": {
+            "name": "EVE Online Get Corporation History",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/characters/:character_id/corporationhistory/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Get a list of all the corporations a character has been a member of\n\n---\nAlternate route: `/dev/characters/{character_id}/corporationhistory/`\n\nAlternate route: `/legacy/characters/{character_id}/corporationhistory/`\n\nAlternate route: `/v1/characters/{character_id}/corporationhistory/`\n\nAlternate route: `/v2/characters/{character_id}/corporationhistory/`\n\n---\nThis route is cached for up to 86400 seconds"
+        },
+        {
+          "info": {
+            "name": "EVE Online Calculate a CSPA Charge Cost",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://esi.evetech.net/latest/characters/:character_id/cspa/",
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Takes a source character ID in the url and a set of target character ID's in the body, returns a CSPA charge cost\n\n---\nAlternate route: `/dev/characters/{character_id}/cspa/`\n\nAlternate route: `/legacy/characters/{character_id}/cspa/`\n\nAlternate route: `/v4/characters/{character_id}/cspa/`\n\nAlternate route: `/v5/characters/{character_id}/cspa/`\n"
+        },
+        {
+          "info": {
+            "name": "EVE Online Get Jump Fatigue",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/characters/:character_id/fatigue/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Return a character's jump activation and fatigue information\n\n---\nAlternate route: `/dev/characters/{character_id}/fatigue/`\n\nAlternate route: `/legacy/characters/{character_id}/fatigue/`\n\nAlternate route: `/v1/characters/{character_id}/fatigue/`\n\nAlternate route: `/v2/characters/{character_id}/fatigue/`\n\n---\nThis route is cached for up to 300 seconds"
+        },
+        {
+          "info": {
+            "name": "EVE Online Get Medals",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/characters/:character_id/medals/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Return a list of medals the character has\n\n---\nAlternate route: `/dev/characters/{character_id}/medals/`\n\nAlternate route: `/legacy/characters/{character_id}/medals/`\n\nAlternate route: `/v1/characters/{character_id}/medals/`\n\nAlternate route: `/v2/characters/{character_id}/medals/`\n\n---\nThis route is cached for up to 3600 seconds"
+        },
+        {
+          "info": {
+            "name": "EVE Online Get Character Notifications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/characters/:character_id/notifications/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Return character notifications\n\n---\nAlternate route: `/dev/characters/{character_id}/notifications/`\n\nAlternate route: `/legacy/characters/{character_id}/notifications/`\n\nAlternate route: `/v4/characters/{character_id}/notifications/`\n\nAlternate route: `/v5/characters/{character_id}/notifications/`\n\nAlternate route: `/v6/characters/{character_id}/notifications/`\n\n---\nThis route is cached for up to 600 seconds"
+        },
+        {
+          "info": {
+            "name": "EVE Online Get New Contact Notifications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/characters/:character_id/notifications/contacts/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Return notifications about having been added to someone's contact list\n\n---\nAlternate route: `/dev/characters/{character_id}/notifications/contacts/`\n\nAlternate route: `/legacy/characters/{character_id}/notifications/contacts/`\n\nAlternate route: `/v1/characters/{character_id}/notifications/contacts/`\n\nAlternate route: `/v2/characters/{character_id}/notifications/contacts/`\n\n---\nThis route is cached for up to 600 seconds"
+        },
+        {
+          "info": {
+            "name": "EVE Online Get Character Portraits",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/characters/:character_id/portrait/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Get portrait urls for a character\n\n---\nAlternate route: `/dev/characters/{character_id}/portrait/`\n\nAlternate route: `/v2/characters/{character_id}/portrait/`\n\nAlternate route: `/v3/characters/{character_id}/portrait/`\n\n---\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "EVE Online Get Character Corporation Roles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/characters/:character_id/roles/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Returns a character's corporation roles\n\n---\nAlternate route: `/dev/characters/{character_id}/roles/`\n\nAlternate route: `/legacy/characters/{character_id}/roles/`\n\nAlternate route: `/v2/characters/{character_id}/roles/`\n\nAlternate route: `/v3/characters/{character_id}/roles/`\n\n---\nThis route is cached for up to 3600 seconds"
+        },
+        {
+          "info": {
+            "name": "EVE Online Get Standings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/characters/:character_id/standings/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Return character standings from agents, NPC corporations, and factions\n\n---\nAlternate route: `/dev/characters/{character_id}/standings/`\n\nAlternate route: `/legacy/characters/{character_id}/standings/`\n\nAlternate route: `/v1/characters/{character_id}/standings/`\n\nAlternate route: `/v2/characters/{character_id}/standings/`\n\n---\nThis route is cached for up to 3600 seconds"
+        },
+        {
+          "info": {
+            "name": "EVE Online Get Character Corporation Titles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/characters/:character_id/titles/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Returns a character's titles\n\n---\nAlternate route: `/dev/characters/{character_id}/titles/`\n\nAlternate route: `/legacy/characters/{character_id}/titles/`\n\nAlternate route: `/v1/characters/{character_id}/titles/`\n\nAlternate route: `/v2/characters/{character_id}/titles/`\n\n---\nThis route is cached for up to 3600 seconds"
+        },
+        {
+          "info": {
+            "name": "Character affiliation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://esi.evetech.net/latest/v1/characters/affiliation/",
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Bulk lookup of character IDs to corporation, alliance and faction\n\n---\n\nThis route is cached for up to 3600 seconds"
+        },
+        {
+          "info": {
+            "name": "Get agents research",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/characters/:character_id/agents_research/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Return a list of agents research information for a character. The formula for finding the current research points with an agent is: currentPoints = remainderPoints + pointsPerDay * days(currentTime - researchStartDate)\n\n---\n\nThis route is cached for up to 3600 seconds"
+        },
+        {
+          "info": {
+            "name": "Get corporation history",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/characters/:character_id/corporationhistory/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Get a list of all the corporations a character has been a member of\n\n---\n\nThis route is cached for up to 86400 seconds"
+        },
+        {
+          "info": {
+            "name": "Get jump fatigue",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/characters/:character_id/fatigue/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Return a character's jump activation and fatigue information\n\n---\n\nThis route is cached for up to 300 seconds"
+        },
+        {
+          "info": {
+            "name": "Get medals",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/characters/:character_id/medals/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Return a list of medals the character has\n\n---\n\nThis route is cached for up to 3600 seconds"
+        },
+        {
+          "info": {
+            "name": "Get new contact notifications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/characters/:character_id/notifications/contacts/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Return notifications about having been added to someone's contact list\n\n---\n\nThis route is cached for up to 600 seconds"
+        },
+        {
+          "info": {
+            "name": "Get standings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/characters/:character_id/standings/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Return character standings from agents, NPC corporations, and factions\n\n---\n\nThis route is cached for up to 3600 seconds"
+        },
+        {
+          "info": {
+            "name": "Get character corporation titles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/characters/:character_id/titles/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Returns a character's titles\n\n---\n\nThis route is cached for up to 3600 seconds"
+        },
+        {
+          "info": {
+            "name": "Get blueprints",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v2/characters/:character_id/blueprints/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Which page of results to return"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Return a list of blueprints the character owns\n\n---\n\nThis route is cached for up to 3600 seconds"
+        },
+        {
+          "info": {
+            "name": "Get character portraits",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v2/characters/:character_id/portrait/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Get portrait urls for a character\n\n---\n\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "Get character corporation roles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v2/characters/:character_id/roles/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Returns a character's corporation roles\n\n---\n\nThis route is cached for up to 3600 seconds"
+        },
+        {
+          "info": {
+            "name": "Calculate a CSPA charge cost",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://esi.evetech.net/latest/v4/characters/:character_id/cspa/",
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Takes a source character ID in the url and a set of target character ID's in the body, returns a CSPA charge cost\n\n---\n"
+        },
+        {
+          "info": {
+            "name": "Get character notifications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v4/characters/:character_id/notifications/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Return character notifications\n\n---\n\nThis route is cached for up to 600 seconds"
+        },
+        {
+          "info": {
+            "name": "Get character's public information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v5/characters/:character_id/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Public information about a character\n\n---\n\nThis route is cached for up to 604800 seconds"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

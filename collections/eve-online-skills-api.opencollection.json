@@ -1,0 +1,288 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EVE Swagger Interface Alliance Skills API",
+    "version": "1.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Skills",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "EVE Online Get Character Attributes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/characters/:character_id/attributes/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Return attributes of a character\n\n---\nAlternate route: `/dev/characters/{character_id}/attributes/`\n\nAlternate route: `/legacy/characters/{character_id}/attributes/`\n\nAlternate route: `/v1/characters/{character_id}/attributes/`\n\n---\nThis route is cached for up to 120 seconds"
+        },
+        {
+          "info": {
+            "name": "EVE Online Get Character's Skill Queue",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/characters/:character_id/skillqueue/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "List the configured skill queue for the given character\n\n---\nAlternate route: `/dev/characters/{character_id}/skillqueue/`\n\nAlternate route: `/legacy/characters/{character_id}/skillqueue/`\n\nAlternate route: `/v2/characters/{character_id}/skillqueue/`\n\n---\nThis route is cached for up to 120 seconds"
+        },
+        {
+          "info": {
+            "name": "EVE Online Get Character Skills",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/characters/:character_id/skills/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "List all trained skills for the given character\n\n---\nAlternate route: `/dev/characters/{character_id}/skills/`\n\nAlternate route: `/v4/characters/{character_id}/skills/`\n\n---\nThis route is cached for up to 120 seconds"
+        },
+        {
+          "info": {
+            "name": "Get character attributes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/characters/:character_id/attributes/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Return attributes of a character\n\n---\n\nThis route is cached for up to 120 seconds"
+        },
+        {
+          "info": {
+            "name": "Get character's skill queue",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v2/characters/:character_id/skillqueue/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "List the configured skill queue for the given character\n\n---\n\nThis route is cached for up to 120 seconds"
+        },
+        {
+          "info": {
+            "name": "Get character skills",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v4/characters/:character_id/skills/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "List all trained skills for the given character\n\n---\n\nThis route is cached for up to 120 seconds"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

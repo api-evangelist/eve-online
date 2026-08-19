@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EVE Swagger Interface Alliance Streams API",
+    "version": "1.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Streams",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "POST /streams",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://esi.evetech.net/latest/streams",
+            "params": [
+              {
+                "name": "callbackUrl",
+                "value": "",
+                "type": "query",
+                "description": "the location where data will be sent.  Must be network accessible\nby the source server\n"
+              }
+            ]
+          },
+          "docs": "subscribes a client to receive out-of-band data"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

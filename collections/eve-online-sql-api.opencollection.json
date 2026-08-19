@@ -1,0 +1,35 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EVE Swagger Interface Alliance sql API",
+    "version": "1.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "sql",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "execute sql",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/sql/",
+            "headers": [
+              {
+                "name": "x-irest-conn",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Prepare and execute SQL statements"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

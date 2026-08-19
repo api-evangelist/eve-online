@@ -1,0 +1,424 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EVE Swagger Interface Alliance User Interface API",
+    "version": "1.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "User Interface",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "EVE Online Set Autopilot Waypoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://esi.evetech.net/latest/ui/autopilot/waypoint/",
+            "params": [
+              {
+                "name": "add_to_beginning",
+                "value": "false",
+                "type": "query",
+                "description": "Whether this solar system should be added to the beginning of all waypoints"
+              },
+              {
+                "name": "clear_other_waypoints",
+                "value": "false",
+                "type": "query",
+                "description": "Whether clean other waypoints beforing adding this one"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "destination_id",
+                "value": "1001",
+                "type": "query",
+                "description": "The destination to travel to, can be solar system, station or structure's id"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Set a solar system as autopilot waypoint\n\n---\nAlternate route: `/dev/ui/autopilot/waypoint/`\n\nAlternate route: `/legacy/ui/autopilot/waypoint/`\n\nAlternate route: `/v2/ui/autopilot/waypoint/`\n"
+        },
+        {
+          "info": {
+            "name": "EVE Online Open Contract Window",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://esi.evetech.net/latest/ui/openwindow/contract/",
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "1001",
+                "type": "query",
+                "description": "The contract to open"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Open the contract window inside the client\n\n---\nAlternate route: `/dev/ui/openwindow/contract/`\n\nAlternate route: `/legacy/ui/openwindow/contract/`\n\nAlternate route: `/v1/ui/openwindow/contract/`\n"
+        },
+        {
+          "info": {
+            "name": "EVE Online Open Information Window",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://esi.evetech.net/latest/ui/openwindow/information/",
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "target_id",
+                "value": "1001",
+                "type": "query",
+                "description": "The target to open"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Open the information window for a character, corporation or alliance inside the client\n\n---\nAlternate route: `/dev/ui/openwindow/information/`\n\nAlternate route: `/legacy/ui/openwindow/information/`\n\nAlternate route: `/v1/ui/openwindow/information/`\n"
+        },
+        {
+          "info": {
+            "name": "EVE Online Open Market Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://esi.evetech.net/latest/ui/openwindow/marketdetails/",
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              },
+              {
+                "name": "type_id",
+                "value": "587",
+                "type": "query",
+                "description": "The item type to open in market window"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Open the market details window for a specific typeID inside the client\n\n---\nAlternate route: `/dev/ui/openwindow/marketdetails/`\n\nAlternate route: `/legacy/ui/openwindow/marketdetails/`\n\nAlternate route: `/v1/ui/openwindow/marketdetails/`\n"
+        },
+        {
+          "info": {
+            "name": "EVE Online Open New Mail Window",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://esi.evetech.net/latest/ui/openwindow/newmail/",
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Open the New Mail window, according to settings from the request if applicable\n\n---\nAlternate route: `/dev/ui/openwindow/newmail/`\n\nAlternate route: `/legacy/ui/openwindow/newmail/`\n\nAlternate route: `/v1/ui/openwindow/newmail/`\n"
+        },
+        {
+          "info": {
+            "name": "Open Contract Window",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://esi.evetech.net/latest/v1/ui/openwindow/contract/",
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "query",
+                "description": "The contract to open"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Open the contract window inside the client\n\n---\n"
+        },
+        {
+          "info": {
+            "name": "Open Information Window",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://esi.evetech.net/latest/v1/ui/openwindow/information/",
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "target_id",
+                "value": "",
+                "type": "query",
+                "description": "The target to open"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Open the information window for a character, corporation or alliance inside the client\n\n---\n"
+        },
+        {
+          "info": {
+            "name": "Open Market Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://esi.evetech.net/latest/v1/ui/openwindow/marketdetails/",
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              },
+              {
+                "name": "type_id",
+                "value": "",
+                "type": "query",
+                "description": "The item type to open in market window"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Open the market details window for a specific typeID inside the client\n\n---\n"
+        },
+        {
+          "info": {
+            "name": "Open New Mail Window",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://esi.evetech.net/latest/v1/ui/openwindow/newmail/",
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Open the New Mail window, according to settings from the request if applicable\n\n---\n"
+        },
+        {
+          "info": {
+            "name": "Set Autopilot Waypoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://esi.evetech.net/latest/v2/ui/autopilot/waypoint/",
+            "params": [
+              {
+                "name": "add_to_beginning",
+                "value": "",
+                "type": "query",
+                "description": "Whether this solar system should be added to the beginning of all waypoints"
+              },
+              {
+                "name": "clear_other_waypoints",
+                "value": "",
+                "type": "query",
+                "description": "Whether clean other waypoints beforing adding this one"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "destination_id",
+                "value": "",
+                "type": "query",
+                "description": "The destination to travel to, can be solar system, station or structure's id"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Set a solar system as autopilot waypoint\n\n---\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,143 @@
+{
+  "item": [
+    {
+      "id": "6e6f6fa2-cfed-4c29-8479-dcbbb277e26a",
+      "name": "RegularParams",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ee6eb681-7f58-475d-b7a6-fe9a0d20b9f2",
+          "name": "/regularParams",
+          "request": {
+            "name": "/regularParams",
+            "description": {},
+            "url": {
+              "path": [
+                "regularParams"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "int",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "str",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "num",
+                  "value": "<number>"
+                },
+                {
+                  "disabled": false,
+                  "key": "bool",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "arr",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "arr",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0614ae75-5880-4718-8ca4-44fbee248179",
+              "name": "ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "regularParams"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "int",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "str",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "num",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "bool",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "arr",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "arr",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://esi.evetech.net/latest",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "359f586f-d441-4add-b530-75eca8cfbf76",
+    "name": "EVE Swagger Interface Alliance RegularParams API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "An OpenAPI for EVE Online",
+      "type": "text/plain"
+    }
+  }
+}

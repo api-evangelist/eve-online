@@ -1,0 +1,1302 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EVE Swagger Interface Alliance Fleets API",
+    "version": "1.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Fleets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "EVE Online Get Character Fleet Info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/characters/:character_id/fleet/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Return the fleet ID the character is in, if any.\n\n---\nAlternate route: `/dev/characters/{character_id}/fleet/`\n\nAlternate route: `/legacy/characters/{character_id}/fleet/`\n\nAlternate route: `/v1/characters/{character_id}/fleet/`\n\nAlternate route: `/v2/characters/{character_id}/fleet/`\n\n---\nThis route is cached for up to 60 seconds"
+        },
+        {
+          "info": {
+            "name": "EVE Online Get Fleet Information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/fleets/:fleet_id/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "fleet_id",
+                "value": "1001",
+                "type": "path",
+                "description": "ID for a fleet"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Return details about a fleet\n\n---\nAlternate route: `/dev/fleets/{fleet_id}/`\n\nAlternate route: `/legacy/fleets/{fleet_id}/`\n\nAlternate route: `/v1/fleets/{fleet_id}/`\n\n---\nThis route is cached for up to 5 seconds"
+        },
+        {
+          "info": {
+            "name": "EVE Online Update Fleet",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://esi.evetech.net/latest/fleets/:fleet_id/",
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "fleet_id",
+                "value": "1001",
+                "type": "path",
+                "description": "ID for a fleet"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Update settings about a fleet\n\n---\nAlternate route: `/dev/fleets/{fleet_id}/`\n\nAlternate route: `/legacy/fleets/{fleet_id}/`\n\nAlternate route: `/v1/fleets/{fleet_id}/`\n"
+        },
+        {
+          "info": {
+            "name": "EVE Online Get Fleet Members",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/fleets/:fleet_id/members/",
+            "headers": [
+              {
+                "name": "Accept-Language",
+                "value": ""
+              },
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "fleet_id",
+                "value": "1001",
+                "type": "path",
+                "description": "ID for a fleet"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language to use in the response, takes precedence over Accept-Language"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Return information about fleet members\n\n---\nAlternate route: `/dev/fleets/{fleet_id}/members/`\n\nAlternate route: `/legacy/fleets/{fleet_id}/members/`\n\nAlternate route: `/v1/fleets/{fleet_id}/members/`\n\n---\nThis route is cached for up to 5 seconds"
+        },
+        {
+          "info": {
+            "name": "EVE Online Create Fleet Invitation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://esi.evetech.net/latest/fleets/:fleet_id/members/",
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "fleet_id",
+                "value": "1001",
+                "type": "path",
+                "description": "ID for a fleet"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Invite a character into the fleet. If a character has a CSPA charge set it is not possible to invite them to the fleet using ESI\n\n---\nAlternate route: `/dev/fleets/{fleet_id}/members/`\n\nAlternate route: `/legacy/fleets/{fleet_id}/members/`\n\nAlternate route: `/v1/fleets/{fleet_id}/members/`\n"
+        },
+        {
+          "info": {
+            "name": "EVE Online Move Fleet Member",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://esi.evetech.net/latest/fleets/:fleet_id/members/:member_id/",
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "fleet_id",
+                "value": "1001",
+                "type": "path",
+                "description": "ID for a fleet"
+              },
+              {
+                "name": "member_id",
+                "value": "1001",
+                "type": "path",
+                "description": "The character ID of a member in this fleet"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Move a fleet member around\n\n---\nAlternate route: `/dev/fleets/{fleet_id}/members/{member_id}/`\n\nAlternate route: `/legacy/fleets/{fleet_id}/members/{member_id}/`\n\nAlternate route: `/v1/fleets/{fleet_id}/members/{member_id}/`\n"
+        },
+        {
+          "info": {
+            "name": "EVE Online Kick Fleet Member",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://esi.evetech.net/latest/fleets/:fleet_id/members/:member_id/",
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "fleet_id",
+                "value": "1001",
+                "type": "path",
+                "description": "ID for a fleet"
+              },
+              {
+                "name": "member_id",
+                "value": "1001",
+                "type": "path",
+                "description": "The character ID of a member in this fleet"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Kick a fleet member\n\n---\nAlternate route: `/dev/fleets/{fleet_id}/members/{member_id}/`\n\nAlternate route: `/legacy/fleets/{fleet_id}/members/{member_id}/`\n\nAlternate route: `/v1/fleets/{fleet_id}/members/{member_id}/`\n"
+        },
+        {
+          "info": {
+            "name": "EVE Online Rename Fleet Squad",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://esi.evetech.net/latest/fleets/:fleet_id/squads/:squad_id/",
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "fleet_id",
+                "value": "1001",
+                "type": "path",
+                "description": "ID for a fleet"
+              },
+              {
+                "name": "squad_id",
+                "value": "1001",
+                "type": "path",
+                "description": "The squad to rename"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Rename a fleet squad\n\n---\nAlternate route: `/dev/fleets/{fleet_id}/squads/{squad_id}/`\n\nAlternate route: `/legacy/fleets/{fleet_id}/squads/{squad_id}/`\n\nAlternate route: `/v1/fleets/{fleet_id}/squads/{squad_id}/`\n"
+        },
+        {
+          "info": {
+            "name": "EVE Online Delete Fleet Squad",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://esi.evetech.net/latest/fleets/:fleet_id/squads/:squad_id/",
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "fleet_id",
+                "value": "1001",
+                "type": "path",
+                "description": "ID for a fleet"
+              },
+              {
+                "name": "squad_id",
+                "value": "1001",
+                "type": "path",
+                "description": "The squad to delete"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Delete a fleet squad, only empty squads can be deleted\n\n---\nAlternate route: `/dev/fleets/{fleet_id}/squads/{squad_id}/`\n\nAlternate route: `/legacy/fleets/{fleet_id}/squads/{squad_id}/`\n\nAlternate route: `/v1/fleets/{fleet_id}/squads/{squad_id}/`\n"
+        },
+        {
+          "info": {
+            "name": "EVE Online Get Fleet Wings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/fleets/:fleet_id/wings/",
+            "headers": [
+              {
+                "name": "Accept-Language",
+                "value": ""
+              },
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "fleet_id",
+                "value": "1001",
+                "type": "path",
+                "description": "ID for a fleet"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language to use in the response, takes precedence over Accept-Language"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Return information about wings in a fleet\n\n---\nAlternate route: `/dev/fleets/{fleet_id}/wings/`\n\nAlternate route: `/legacy/fleets/{fleet_id}/wings/`\n\nAlternate route: `/v1/fleets/{fleet_id}/wings/`\n\n---\nThis route is cached for up to 5 seconds"
+        },
+        {
+          "info": {
+            "name": "EVE Online Create Fleet Wing",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://esi.evetech.net/latest/fleets/:fleet_id/wings/",
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "fleet_id",
+                "value": "1001",
+                "type": "path",
+                "description": "ID for a fleet"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Create a new wing in a fleet\n\n---\nAlternate route: `/dev/fleets/{fleet_id}/wings/`\n\nAlternate route: `/legacy/fleets/{fleet_id}/wings/`\n\nAlternate route: `/v1/fleets/{fleet_id}/wings/`\n"
+        },
+        {
+          "info": {
+            "name": "EVE Online Rename Fleet Wing",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://esi.evetech.net/latest/fleets/:fleet_id/wings/:wing_id/",
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "fleet_id",
+                "value": "1001",
+                "type": "path",
+                "description": "ID for a fleet"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              },
+              {
+                "name": "wing_id",
+                "value": "1001",
+                "type": "path",
+                "description": "The wing to rename"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Rename a fleet wing\n\n---\nAlternate route: `/dev/fleets/{fleet_id}/wings/{wing_id}/`\n\nAlternate route: `/legacy/fleets/{fleet_id}/wings/{wing_id}/`\n\nAlternate route: `/v1/fleets/{fleet_id}/wings/{wing_id}/`\n"
+        },
+        {
+          "info": {
+            "name": "EVE Online Delete Fleet Wing",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://esi.evetech.net/latest/fleets/:fleet_id/wings/:wing_id/",
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "fleet_id",
+                "value": "1001",
+                "type": "path",
+                "description": "ID for a fleet"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              },
+              {
+                "name": "wing_id",
+                "value": "1001",
+                "type": "path",
+                "description": "The wing to delete"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Delete a fleet wing, only empty wings can be deleted. The wing may contain squads, but the squads must be empty\n\n---\nAlternate route: `/dev/fleets/{fleet_id}/wings/{wing_id}/`\n\nAlternate route: `/legacy/fleets/{fleet_id}/wings/{wing_id}/`\n\nAlternate route: `/v1/fleets/{fleet_id}/wings/{wing_id}/`\n"
+        },
+        {
+          "info": {
+            "name": "EVE Online Create Fleet Squad",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://esi.evetech.net/latest/fleets/:fleet_id/wings/:wing_id/squads/",
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "fleet_id",
+                "value": "1001",
+                "type": "path",
+                "description": "ID for a fleet"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              },
+              {
+                "name": "wing_id",
+                "value": "1001",
+                "type": "path",
+                "description": "The wing_id to create squad in"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Create a new squad in a fleet\n\n---\nAlternate route: `/dev/fleets/{fleet_id}/wings/{wing_id}/squads/`\n\nAlternate route: `/legacy/fleets/{fleet_id}/wings/{wing_id}/squads/`\n\nAlternate route: `/v1/fleets/{fleet_id}/wings/{wing_id}/squads/`\n"
+        },
+        {
+          "info": {
+            "name": "Get character fleet info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/characters/:character_id/fleet/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Return the fleet ID the character is in, if any.\n\n---\n\nThis route is cached for up to 60 seconds"
+        },
+        {
+          "info": {
+            "name": "Get fleet information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/fleets/:fleet_id/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "fleet_id",
+                "value": "",
+                "type": "path",
+                "description": "ID for a fleet"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Return details about a fleet\n\n---\n\nThis route is cached for up to 5 seconds"
+        },
+        {
+          "info": {
+            "name": "Update fleet",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://esi.evetech.net/latest/v1/fleets/:fleet_id/",
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "fleet_id",
+                "value": "",
+                "type": "path",
+                "description": "ID for a fleet"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Update settings about a fleet\n\n---\n"
+        },
+        {
+          "info": {
+            "name": "Get fleet members",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/fleets/:fleet_id/members/",
+            "headers": [
+              {
+                "name": "Accept-Language",
+                "value": ""
+              },
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "fleet_id",
+                "value": "",
+                "type": "path",
+                "description": "ID for a fleet"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language to use in the response, takes precedence over Accept-Language"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Return information about fleet members\n\n---\n\nThis route is cached for up to 5 seconds"
+        },
+        {
+          "info": {
+            "name": "Create fleet invitation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://esi.evetech.net/latest/v1/fleets/:fleet_id/members/",
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "fleet_id",
+                "value": "",
+                "type": "path",
+                "description": "ID for a fleet"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Invite a character into the fleet. If a character has a CSPA charge set it is not possible to invite them to the fleet using ESI\n\n---\n"
+        },
+        {
+          "info": {
+            "name": "Move fleet member",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://esi.evetech.net/latest/v1/fleets/:fleet_id/members/:member_id/",
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "fleet_id",
+                "value": "",
+                "type": "path",
+                "description": "ID for a fleet"
+              },
+              {
+                "name": "member_id",
+                "value": "",
+                "type": "path",
+                "description": "The character ID of a member in this fleet"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Move a fleet member around\n\n---\n"
+        },
+        {
+          "info": {
+            "name": "Kick fleet member",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://esi.evetech.net/latest/v1/fleets/:fleet_id/members/:member_id/",
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "fleet_id",
+                "value": "",
+                "type": "path",
+                "description": "ID for a fleet"
+              },
+              {
+                "name": "member_id",
+                "value": "",
+                "type": "path",
+                "description": "The character ID of a member in this fleet"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Kick a fleet member\n\n---\n"
+        },
+        {
+          "info": {
+            "name": "Rename fleet squad",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://esi.evetech.net/latest/v1/fleets/:fleet_id/squads/:squad_id/",
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "fleet_id",
+                "value": "",
+                "type": "path",
+                "description": "ID for a fleet"
+              },
+              {
+                "name": "squad_id",
+                "value": "",
+                "type": "path",
+                "description": "The squad to rename"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Rename a fleet squad\n\n---\n"
+        },
+        {
+          "info": {
+            "name": "Delete fleet squad",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://esi.evetech.net/latest/v1/fleets/:fleet_id/squads/:squad_id/",
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "fleet_id",
+                "value": "",
+                "type": "path",
+                "description": "ID for a fleet"
+              },
+              {
+                "name": "squad_id",
+                "value": "",
+                "type": "path",
+                "description": "The squad to delete"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Delete a fleet squad, only empty squads can be deleted\n\n---\n"
+        },
+        {
+          "info": {
+            "name": "Get fleet wings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/fleets/:fleet_id/wings/",
+            "headers": [
+              {
+                "name": "Accept-Language",
+                "value": ""
+              },
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "fleet_id",
+                "value": "",
+                "type": "path",
+                "description": "ID for a fleet"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language to use in the response, takes precedence over Accept-Language"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Return information about wings in a fleet\n\n---\n\nThis route is cached for up to 5 seconds"
+        },
+        {
+          "info": {
+            "name": "Create fleet wing",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://esi.evetech.net/latest/v1/fleets/:fleet_id/wings/",
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "fleet_id",
+                "value": "",
+                "type": "path",
+                "description": "ID for a fleet"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Create a new wing in a fleet\n\n---\n"
+        },
+        {
+          "info": {
+            "name": "Rename fleet wing",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://esi.evetech.net/latest/v1/fleets/:fleet_id/wings/:wing_id/",
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "fleet_id",
+                "value": "",
+                "type": "path",
+                "description": "ID for a fleet"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              },
+              {
+                "name": "wing_id",
+                "value": "",
+                "type": "path",
+                "description": "The wing to rename"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Rename a fleet wing\n\n---\n"
+        },
+        {
+          "info": {
+            "name": "Delete fleet wing",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://esi.evetech.net/latest/v1/fleets/:fleet_id/wings/:wing_id/",
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "fleet_id",
+                "value": "",
+                "type": "path",
+                "description": "ID for a fleet"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              },
+              {
+                "name": "wing_id",
+                "value": "",
+                "type": "path",
+                "description": "The wing to delete"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Delete a fleet wing, only empty wings can be deleted. The wing may contain squads, but the squads must be empty\n\n---\n"
+        },
+        {
+          "info": {
+            "name": "Create fleet squad",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://esi.evetech.net/latest/v1/fleets/:fleet_id/wings/:wing_id/squads/",
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "fleet_id",
+                "value": "",
+                "type": "path",
+                "description": "ID for a fleet"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              },
+              {
+                "name": "wing_id",
+                "value": "",
+                "type": "path",
+                "description": "The wing_id to create squad in"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Create a new squad in a fleet\n\n---\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

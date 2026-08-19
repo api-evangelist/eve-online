@@ -1,0 +1,128 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EVE Swagger Interface Alliance Routes API",
+    "version": "1.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Routes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "EVE Online Get Route",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/route/:origin/:destination/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "avoid",
+                "value": "1",
+                "type": "query",
+                "description": "avoid solar system ID(s)"
+              },
+              {
+                "name": "connections",
+                "value": "1",
+                "type": "query",
+                "description": "connected solar system pairs"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "destination",
+                "value": "1",
+                "type": "path",
+                "description": "destination solar system ID"
+              },
+              {
+                "name": "flag",
+                "value": "shortest",
+                "type": "query",
+                "description": "route security preference"
+              },
+              {
+                "name": "origin",
+                "value": "1",
+                "type": "path",
+                "description": "origin solar system ID"
+              }
+            ]
+          },
+          "docs": "Get the systems between origin and destination\n\n---\nAlternate route: `/dev/route/{origin}/{destination}/`\n\nAlternate route: `/legacy/route/{origin}/{destination}/`\n\nAlternate route: `/v1/route/{origin}/{destination}/`\n\n---\nThis route is cached for up to 86400 seconds"
+        },
+        {
+          "info": {
+            "name": "Get route",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/route/:origin/:destination/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "avoid",
+                "value": "",
+                "type": "query",
+                "description": "avoid solar system ID(s)"
+              },
+              {
+                "name": "connections",
+                "value": "",
+                "type": "query",
+                "description": "connected solar system pairs"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "destination",
+                "value": "",
+                "type": "path",
+                "description": "destination solar system ID"
+              },
+              {
+                "name": "flag",
+                "value": "",
+                "type": "query",
+                "description": "route security preference"
+              },
+              {
+                "name": "origin",
+                "value": "",
+                "type": "path",
+                "description": "origin solar system ID"
+              }
+            ]
+          },
+          "docs": "Get the systems between origin and destination\n\n---\n\nThis route is cached for up to 86400 seconds"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

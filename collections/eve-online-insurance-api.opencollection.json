@@ -1,0 +1,88 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EVE Swagger Interface Alliance Insurance API",
+    "version": "1.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Insurance",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "EVE Online List Insurance Levels",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/insurance/prices/",
+            "headers": [
+              {
+                "name": "Accept-Language",
+                "value": ""
+              },
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language to use in the response, takes precedence over Accept-Language"
+              }
+            ]
+          },
+          "docs": "Return available insurance levels for all ship types\n\n---\nAlternate route: `/dev/insurance/prices/`\n\nAlternate route: `/legacy/insurance/prices/`\n\nAlternate route: `/v1/insurance/prices/`\n\n---\nThis route is cached for up to 3600 seconds"
+        },
+        {
+          "info": {
+            "name": "List insurance levels",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/insurance/prices/",
+            "headers": [
+              {
+                "name": "Accept-Language",
+                "value": ""
+              },
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language to use in the response, takes precedence over Accept-Language"
+              }
+            ]
+          },
+          "docs": "Return available insurance levels for all ship types\n\n---\n\nThis route is cached for up to 3600 seconds"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

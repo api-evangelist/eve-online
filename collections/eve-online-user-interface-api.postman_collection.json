@@ -1,0 +1,5189 @@
+{
+  "item": [
+    {
+      "id": "047ec36a-1dd2-4c5c-b3c2-1a1de1c3dd87",
+      "name": "User Interface",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "26871122-1314-454f-9411-f86778ffc530",
+          "name": "EVE Online Set Autopilot Waypoint",
+          "request": {
+            "name": "EVE Online Set Autopilot Waypoint",
+            "description": {
+              "content": "Set a solar system as autopilot waypoint\n\n---\nAlternate route: `/dev/ui/autopilot/waypoint/`\n\nAlternate route: `/legacy/ui/autopilot/waypoint/`\n\nAlternate route: `/v2/ui/autopilot/waypoint/`\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ui",
+                "autopilot",
+                "waypoint",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "add_to_beginning",
+                  "value": "false",
+                  "description": "(Required) Whether this solar system should be added to the beginning of all waypoints"
+                },
+                {
+                  "disabled": false,
+                  "key": "clear_other_waypoints",
+                  "value": "false",
+                  "description": "(Required) Whether clean other waypoints beforing adding this one"
+                },
+                {
+                  "disabled": false,
+                  "key": "datasource",
+                  "value": "tranquility",
+                  "description": "The server name you would like data from"
+                },
+                {
+                  "disabled": false,
+                  "key": "destination_id",
+                  "value": "<long>",
+                  "description": "(Required) The destination to travel to, can be solar system, station or structure's id"
+                },
+                {
+                  "disabled": false,
+                  "key": "token",
+                  "value": "<string>",
+                  "description": "Access token to use if unable to set a header"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "esi-alliances.read_contacts.v1 esi-assets.read_assets.v1 esi-assets.read_corporation_assets.v1 esi-calendar.read_calendar_events.v1 esi-calendar.respond_calendar_events.v1 esi-characters.read_agents_research.v1 esi-characters.read_blueprints.v1 esi-characters.read_contacts.v1 esi-characters.read_corporation_roles.v1 esi-characters.read_fatigue.v1 esi-characters.read_fw_stats.v1 esi-characters.read_loyalty.v1 esi-characters.read_medals.v1 esi-characters.read_notifications.v1 esi-characters.read_standings.v1 esi-characters.read_titles.v1 esi-characters.write_contacts.v1 esi-clones.read_clones.v1 esi-clones.read_implants.v1 esi-contracts.read_character_contracts.v1 esi-contracts.read_corporation_contracts.v1 esi-corporations.read_blueprints.v1 esi-corporations.read_contacts.v1 esi-corporations.read_container_logs.v1 esi-corporations.read_corporation_membership.v1 esi-corporations.read_divisions.v1 esi-corporations.read_facilities.v1 esi-corporations.read_fw_stats.v1 esi-corporations.read_medals.v1 esi-corporations.read_standings.v1 esi-corporations.read_starbases.v1 esi-corporations.read_structures.v1 esi-corporations.read_titles.v1 esi-corporations.track_members.v1 esi-fittings.read_fittings.v1 esi-fittings.write_fittings.v1 esi-fleets.read_fleet.v1 esi-fleets.write_fleet.v1 esi-industry.read_character_jobs.v1 esi-industry.read_character_mining.v1 esi-industry.read_corporation_jobs.v1 esi-industry.read_corporation_mining.v1 esi-killmails.read_corporation_killmails.v1 esi-killmails.read_killmails.v1 esi-location.read_location.v1 esi-location.read_online.v1 esi-location.read_ship_type.v1 esi-mail.organize_mail.v1 esi-mail.read_mail.v1 esi-mail.send_mail.v1 esi-markets.read_character_orders.v1 esi-markets.read_corporation_orders.v1 esi-markets.structure_markets.v1 esi-planets.manage_planets.v1 esi-planets.read_customs_offices.v1 esi-search.search_structures.v1 esi-skills.read_skillqueue.v1 esi-skills.read_skills.v1 esi-ui.open_window.v1 esi-ui.write_waypoint.v1 esi-universe.read_structures.v1 esi-wallet.read_character_wallet.v1 esi-wallet.read_corporation_wallets.v1"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://login.eveonline.com/v2/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4f01f37d-71f8-4c2a-a06a-625d65192c9d",
+              "name": "Open window request received",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ui",
+                    "autopilot",
+                    "waypoint",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "add_to_beginning",
+                      "value": "false"
+                    },
+                    {
+                      "key": "clear_other_waypoints",
+                      "value": "false"
+                    },
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "destination_id",
+                      "value": "1001"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "75ce92f3-3180-43c3-83cc-97c310c56e62",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ui",
+                    "autopilot",
+                    "waypoint",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "add_to_beginning",
+                      "value": "false"
+                    },
+                    {
+                      "key": "clear_other_waypoints",
+                      "value": "false"
+                    },
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "destination_id",
+                      "value": "1001"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Bad request message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d27bab16-d206-4362-a8bb-f33d57dbb2f7",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ui",
+                    "autopilot",
+                    "waypoint",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "add_to_beginning",
+                      "value": "false"
+                    },
+                    {
+                      "key": "clear_other_waypoints",
+                      "value": "false"
+                    },
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "destination_id",
+                      "value": "1001"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Unauthorized message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3aa2cd0b-30f9-4845-8563-ee885d9d03bc",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ui",
+                    "autopilot",
+                    "waypoint",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "add_to_beginning",
+                      "value": "false"
+                    },
+                    {
+                      "key": "clear_other_waypoints",
+                      "value": "false"
+                    },
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "destination_id",
+                      "value": "1001"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Forbidden message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0a47f09a-5c48-43e9-b74d-cf5c04ffb4af",
+              "name": "Error limited",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ui",
+                    "autopilot",
+                    "waypoint",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "add_to_beginning",
+                      "value": "false"
+                    },
+                    {
+                      "key": "clear_other_waypoints",
+                      "value": "false"
+                    },
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "destination_id",
+                      "value": "1001"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "code": 420,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Error limited message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d22bdbfd-1160-4d7e-93c9-e210d96264c3",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ui",
+                    "autopilot",
+                    "waypoint",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "add_to_beginning",
+                      "value": "false"
+                    },
+                    {
+                      "key": "clear_other_waypoints",
+                      "value": "false"
+                    },
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "destination_id",
+                      "value": "1001"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Internal server error message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d4a4a045-2d57-4851-b8d6-72a328c9df84",
+              "name": "Service unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ui",
+                    "autopilot",
+                    "waypoint",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "add_to_beginning",
+                      "value": "false"
+                    },
+                    {
+                      "key": "clear_other_waypoints",
+                      "value": "false"
+                    },
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "destination_id",
+                      "value": "1001"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Service unavailable message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8f6079d4-2c50-4eb3-9298-610c3e4480f7",
+              "name": "Gateway timeout",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ui",
+                    "autopilot",
+                    "waypoint",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "add_to_beginning",
+                      "value": "false"
+                    },
+                    {
+                      "key": "clear_other_waypoints",
+                      "value": "false"
+                    },
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "destination_id",
+                      "value": "1001"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Gateway Timeout",
+              "code": 504,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Gateway timeout message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "70162d23-90ea-4f67-aeb0-57b58c9cd730",
+          "name": "EVE Online Open Contract Window",
+          "request": {
+            "name": "EVE Online Open Contract Window",
+            "description": {
+              "content": "Open the contract window inside the client\n\n---\nAlternate route: `/dev/ui/openwindow/contract/`\n\nAlternate route: `/legacy/ui/openwindow/contract/`\n\nAlternate route: `/v1/ui/openwindow/contract/`\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ui",
+                "openwindow",
+                "contract",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "contract_id",
+                  "value": "<integer>",
+                  "description": "(Required) The contract to open"
+                },
+                {
+                  "disabled": false,
+                  "key": "datasource",
+                  "value": "tranquility",
+                  "description": "The server name you would like data from"
+                },
+                {
+                  "disabled": false,
+                  "key": "token",
+                  "value": "<string>",
+                  "description": "Access token to use if unable to set a header"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "esi-alliances.read_contacts.v1 esi-assets.read_assets.v1 esi-assets.read_corporation_assets.v1 esi-calendar.read_calendar_events.v1 esi-calendar.respond_calendar_events.v1 esi-characters.read_agents_research.v1 esi-characters.read_blueprints.v1 esi-characters.read_contacts.v1 esi-characters.read_corporation_roles.v1 esi-characters.read_fatigue.v1 esi-characters.read_fw_stats.v1 esi-characters.read_loyalty.v1 esi-characters.read_medals.v1 esi-characters.read_notifications.v1 esi-characters.read_standings.v1 esi-characters.read_titles.v1 esi-characters.write_contacts.v1 esi-clones.read_clones.v1 esi-clones.read_implants.v1 esi-contracts.read_character_contracts.v1 esi-contracts.read_corporation_contracts.v1 esi-corporations.read_blueprints.v1 esi-corporations.read_contacts.v1 esi-corporations.read_container_logs.v1 esi-corporations.read_corporation_membership.v1 esi-corporations.read_divisions.v1 esi-corporations.read_facilities.v1 esi-corporations.read_fw_stats.v1 esi-corporations.read_medals.v1 esi-corporations.read_standings.v1 esi-corporations.read_starbases.v1 esi-corporations.read_structures.v1 esi-corporations.read_titles.v1 esi-corporations.track_members.v1 esi-fittings.read_fittings.v1 esi-fittings.write_fittings.v1 esi-fleets.read_fleet.v1 esi-fleets.write_fleet.v1 esi-industry.read_character_jobs.v1 esi-industry.read_character_mining.v1 esi-industry.read_corporation_jobs.v1 esi-industry.read_corporation_mining.v1 esi-killmails.read_corporation_killmails.v1 esi-killmails.read_killmails.v1 esi-location.read_location.v1 esi-location.read_online.v1 esi-location.read_ship_type.v1 esi-mail.organize_mail.v1 esi-mail.read_mail.v1 esi-mail.send_mail.v1 esi-markets.read_character_orders.v1 esi-markets.read_corporation_orders.v1 esi-markets.structure_markets.v1 esi-planets.manage_planets.v1 esi-planets.read_customs_offices.v1 esi-search.search_structures.v1 esi-skills.read_skillqueue.v1 esi-skills.read_skills.v1 esi-ui.open_window.v1 esi-ui.write_waypoint.v1 esi-universe.read_structures.v1 esi-wallet.read_character_wallet.v1 esi-wallet.read_corporation_wallets.v1"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://login.eveonline.com/v2/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "64d63d50-e822-4080-8381-dbe7ee55e75e",
+              "name": "Open window request received",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ui",
+                    "openwindow",
+                    "contract",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "contract_id",
+                      "value": "1001"
+                    },
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e28816b7-a15c-4ae8-ab79-a8d8f9cedad9",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ui",
+                    "openwindow",
+                    "contract",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "contract_id",
+                      "value": "1001"
+                    },
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Bad request message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c23cdd4c-2e9b-4f19-b462-018e9aeda7cb",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ui",
+                    "openwindow",
+                    "contract",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "contract_id",
+                      "value": "1001"
+                    },
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Unauthorized message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "01a87da0-7ccf-4016-82e6-e8773efc894c",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ui",
+                    "openwindow",
+                    "contract",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "contract_id",
+                      "value": "1001"
+                    },
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Forbidden message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4af3ca66-e7b0-4015-a50a-8dc0283c6c58",
+              "name": "Error limited",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ui",
+                    "openwindow",
+                    "contract",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "contract_id",
+                      "value": "1001"
+                    },
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "code": 420,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Error limited message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5c6393cf-813f-43fc-a822-38b5a275ed3b",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ui",
+                    "openwindow",
+                    "contract",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "contract_id",
+                      "value": "1001"
+                    },
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Internal server error message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "15d1526a-cba9-49c0-889a-f6b630cf81d7",
+              "name": "Service unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ui",
+                    "openwindow",
+                    "contract",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "contract_id",
+                      "value": "1001"
+                    },
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Service unavailable message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "02593f0c-dd53-41a6-905c-f13555e6df28",
+              "name": "Gateway timeout",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ui",
+                    "openwindow",
+                    "contract",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "contract_id",
+                      "value": "1001"
+                    },
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Gateway Timeout",
+              "code": 504,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Gateway timeout message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "aeee1c40-72ca-4d51-a269-884c2dd97c24",
+          "name": "EVE Online Open Information Window",
+          "request": {
+            "name": "EVE Online Open Information Window",
+            "description": {
+              "content": "Open the information window for a character, corporation or alliance inside the client\n\n---\nAlternate route: `/dev/ui/openwindow/information/`\n\nAlternate route: `/legacy/ui/openwindow/information/`\n\nAlternate route: `/v1/ui/openwindow/information/`\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ui",
+                "openwindow",
+                "information",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "datasource",
+                  "value": "tranquility",
+                  "description": "The server name you would like data from"
+                },
+                {
+                  "disabled": false,
+                  "key": "target_id",
+                  "value": "<integer>",
+                  "description": "(Required) The target to open"
+                },
+                {
+                  "disabled": false,
+                  "key": "token",
+                  "value": "<string>",
+                  "description": "Access token to use if unable to set a header"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "esi-alliances.read_contacts.v1 esi-assets.read_assets.v1 esi-assets.read_corporation_assets.v1 esi-calendar.read_calendar_events.v1 esi-calendar.respond_calendar_events.v1 esi-characters.read_agents_research.v1 esi-characters.read_blueprints.v1 esi-characters.read_contacts.v1 esi-characters.read_corporation_roles.v1 esi-characters.read_fatigue.v1 esi-characters.read_fw_stats.v1 esi-characters.read_loyalty.v1 esi-characters.read_medals.v1 esi-characters.read_notifications.v1 esi-characters.read_standings.v1 esi-characters.read_titles.v1 esi-characters.write_contacts.v1 esi-clones.read_clones.v1 esi-clones.read_implants.v1 esi-contracts.read_character_contracts.v1 esi-contracts.read_corporation_contracts.v1 esi-corporations.read_blueprints.v1 esi-corporations.read_contacts.v1 esi-corporations.read_container_logs.v1 esi-corporations.read_corporation_membership.v1 esi-corporations.read_divisions.v1 esi-corporations.read_facilities.v1 esi-corporations.read_fw_stats.v1 esi-corporations.read_medals.v1 esi-corporations.read_standings.v1 esi-corporations.read_starbases.v1 esi-corporations.read_structures.v1 esi-corporations.read_titles.v1 esi-corporations.track_members.v1 esi-fittings.read_fittings.v1 esi-fittings.write_fittings.v1 esi-fleets.read_fleet.v1 esi-fleets.write_fleet.v1 esi-industry.read_character_jobs.v1 esi-industry.read_character_mining.v1 esi-industry.read_corporation_jobs.v1 esi-industry.read_corporation_mining.v1 esi-killmails.read_corporation_killmails.v1 esi-killmails.read_killmails.v1 esi-location.read_location.v1 esi-location.read_online.v1 esi-location.read_ship_type.v1 esi-mail.organize_mail.v1 esi-mail.read_mail.v1 esi-mail.send_mail.v1 esi-markets.read_character_orders.v1 esi-markets.read_corporation_orders.v1 esi-markets.structure_markets.v1 esi-planets.manage_planets.v1 esi-planets.read_customs_offices.v1 esi-search.search_structures.v1 esi-skills.read_skillqueue.v1 esi-skills.read_skills.v1 esi-ui.open_window.v1 esi-ui.write_waypoint.v1 esi-universe.read_structures.v1 esi-wallet.read_character_wallet.v1 esi-wallet.read_corporation_wallets.v1"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://login.eveonline.com/v2/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "25712784-2d1d-49ec-a7bd-d0d605ba4974",
+              "name": "Open window request received",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ui",
+                    "openwindow",
+                    "information",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "target_id",
+                      "value": "1001"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4c35d897-e887-4268-a7a5-7d3a1266ce21",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ui",
+                    "openwindow",
+                    "information",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "target_id",
+                      "value": "1001"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Bad request message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fc0d96d6-fa4e-4228-992f-a0b408e2bee8",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ui",
+                    "openwindow",
+                    "information",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "target_id",
+                      "value": "1001"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Unauthorized message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2133714e-a345-464c-85d6-af088e962908",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ui",
+                    "openwindow",
+                    "information",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "target_id",
+                      "value": "1001"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Forbidden message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cb5e111c-9a44-4f67-b6fc-f6d4c4f769ac",
+              "name": "Error limited",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ui",
+                    "openwindow",
+                    "information",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "target_id",
+                      "value": "1001"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "code": 420,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Error limited message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "63e7d99d-5717-428f-99c8-259e39aeff47",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ui",
+                    "openwindow",
+                    "information",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "target_id",
+                      "value": "1001"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Internal server error message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "be43c08c-0845-433b-8424-5c84140c71b1",
+              "name": "Service unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ui",
+                    "openwindow",
+                    "information",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "target_id",
+                      "value": "1001"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Service unavailable message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6df2c9c4-eb19-42e5-9eb2-0c122190db65",
+              "name": "Gateway timeout",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ui",
+                    "openwindow",
+                    "information",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "target_id",
+                      "value": "1001"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Gateway Timeout",
+              "code": 504,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Gateway timeout message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e00ae249-cc10-4c96-9f48-c05e73b4c499",
+          "name": "EVE Online Open Market Details",
+          "request": {
+            "name": "EVE Online Open Market Details",
+            "description": {
+              "content": "Open the market details window for a specific typeID inside the client\n\n---\nAlternate route: `/dev/ui/openwindow/marketdetails/`\n\nAlternate route: `/legacy/ui/openwindow/marketdetails/`\n\nAlternate route: `/v1/ui/openwindow/marketdetails/`\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ui",
+                "openwindow",
+                "marketdetails",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "datasource",
+                  "value": "tranquility",
+                  "description": "The server name you would like data from"
+                },
+                {
+                  "disabled": false,
+                  "key": "token",
+                  "value": "<string>",
+                  "description": "Access token to use if unable to set a header"
+                },
+                {
+                  "disabled": false,
+                  "key": "type_id",
+                  "value": "<integer>",
+                  "description": "(Required) The item type to open in market window"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "esi-alliances.read_contacts.v1 esi-assets.read_assets.v1 esi-assets.read_corporation_assets.v1 esi-calendar.read_calendar_events.v1 esi-calendar.respond_calendar_events.v1 esi-characters.read_agents_research.v1 esi-characters.read_blueprints.v1 esi-characters.read_contacts.v1 esi-characters.read_corporation_roles.v1 esi-characters.read_fatigue.v1 esi-characters.read_fw_stats.v1 esi-characters.read_loyalty.v1 esi-characters.read_medals.v1 esi-characters.read_notifications.v1 esi-characters.read_standings.v1 esi-characters.read_titles.v1 esi-characters.write_contacts.v1 esi-clones.read_clones.v1 esi-clones.read_implants.v1 esi-contracts.read_character_contracts.v1 esi-contracts.read_corporation_contracts.v1 esi-corporations.read_blueprints.v1 esi-corporations.read_contacts.v1 esi-corporations.read_container_logs.v1 esi-corporations.read_corporation_membership.v1 esi-corporations.read_divisions.v1 esi-corporations.read_facilities.v1 esi-corporations.read_fw_stats.v1 esi-corporations.read_medals.v1 esi-corporations.read_standings.v1 esi-corporations.read_starbases.v1 esi-corporations.read_structures.v1 esi-corporations.read_titles.v1 esi-corporations.track_members.v1 esi-fittings.read_fittings.v1 esi-fittings.write_fittings.v1 esi-fleets.read_fleet.v1 esi-fleets.write_fleet.v1 esi-industry.read_character_jobs.v1 esi-industry.read_character_mining.v1 esi-industry.read_corporation_jobs.v1 esi-industry.read_corporation_mining.v1 esi-killmails.read_corporation_killmails.v1 esi-killmails.read_killmails.v1 esi-location.read_location.v1 esi-location.read_online.v1 esi-location.read_ship_type.v1 esi-mail.organize_mail.v1 esi-mail.read_mail.v1 esi-mail.send_mail.v1 esi-markets.read_character_orders.v1 esi-markets.read_corporation_orders.v1 esi-markets.structure_markets.v1 esi-planets.manage_planets.v1 esi-planets.read_customs_offices.v1 esi-search.search_structures.v1 esi-skills.read_skillqueue.v1 esi-skills.read_skills.v1 esi-ui.open_window.v1 esi-ui.write_waypoint.v1 esi-universe.read_structures.v1 esi-wallet.read_character_wallet.v1 esi-wallet.read_corporation_wallets.v1"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://login.eveonline.com/v2/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a8c6896d-0553-4644-86aa-6c52cad94181",
+              "name": "Open window request received",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ui",
+                    "openwindow",
+                    "marketdetails",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type_id",
+                      "value": "587"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e65776f5-945d-4020-b356-3ed7d990db76",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ui",
+                    "openwindow",
+                    "marketdetails",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type_id",
+                      "value": "587"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Bad request message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "90787156-20a0-4946-9a5c-35d60b67af0d",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ui",
+                    "openwindow",
+                    "marketdetails",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type_id",
+                      "value": "587"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Unauthorized message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cff769e7-ed43-481f-bb27-9bfe18ba6195",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ui",
+                    "openwindow",
+                    "marketdetails",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type_id",
+                      "value": "587"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Forbidden message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "81510b6a-3fed-4ada-978f-d12f902428e0",
+              "name": "Error limited",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ui",
+                    "openwindow",
+                    "marketdetails",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type_id",
+                      "value": "587"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "code": 420,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Error limited message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "24ee2d37-9158-4bae-af9e-b25ce02483bc",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ui",
+                    "openwindow",
+                    "marketdetails",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type_id",
+                      "value": "587"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Internal server error message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1f3d38db-2047-4aa3-98dc-3626f994ac48",
+              "name": "Service unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ui",
+                    "openwindow",
+                    "marketdetails",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type_id",
+                      "value": "587"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Service unavailable message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fc36d92d-afd6-4d70-a6e9-78eab3f4ac20",
+              "name": "Gateway timeout",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ui",
+                    "openwindow",
+                    "marketdetails",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type_id",
+                      "value": "587"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Gateway Timeout",
+              "code": 504,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Gateway timeout message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6cba2fa2-0e3f-4012-bf3f-fdced4ac4369",
+          "name": "EVE Online Open New Mail Window",
+          "request": {
+            "name": "EVE Online Open New Mail Window",
+            "description": {
+              "content": "Open the New Mail window, according to settings from the request if applicable\n\n---\nAlternate route: `/dev/ui/openwindow/newmail/`\n\nAlternate route: `/legacy/ui/openwindow/newmail/`\n\nAlternate route: `/v1/ui/openwindow/newmail/`\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ui",
+                "openwindow",
+                "newmail",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "datasource",
+                  "value": "tranquility",
+                  "description": "The server name you would like data from"
+                },
+                {
+                  "disabled": false,
+                  "key": "token",
+                  "value": "<string>",
+                  "description": "Access token to use if unable to set a header"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "esi-alliances.read_contacts.v1 esi-assets.read_assets.v1 esi-assets.read_corporation_assets.v1 esi-calendar.read_calendar_events.v1 esi-calendar.respond_calendar_events.v1 esi-characters.read_agents_research.v1 esi-characters.read_blueprints.v1 esi-characters.read_contacts.v1 esi-characters.read_corporation_roles.v1 esi-characters.read_fatigue.v1 esi-characters.read_fw_stats.v1 esi-characters.read_loyalty.v1 esi-characters.read_medals.v1 esi-characters.read_notifications.v1 esi-characters.read_standings.v1 esi-characters.read_titles.v1 esi-characters.write_contacts.v1 esi-clones.read_clones.v1 esi-clones.read_implants.v1 esi-contracts.read_character_contracts.v1 esi-contracts.read_corporation_contracts.v1 esi-corporations.read_blueprints.v1 esi-corporations.read_contacts.v1 esi-corporations.read_container_logs.v1 esi-corporations.read_corporation_membership.v1 esi-corporations.read_divisions.v1 esi-corporations.read_facilities.v1 esi-corporations.read_fw_stats.v1 esi-corporations.read_medals.v1 esi-corporations.read_standings.v1 esi-corporations.read_starbases.v1 esi-corporations.read_structures.v1 esi-corporations.read_titles.v1 esi-corporations.track_members.v1 esi-fittings.read_fittings.v1 esi-fittings.write_fittings.v1 esi-fleets.read_fleet.v1 esi-fleets.write_fleet.v1 esi-industry.read_character_jobs.v1 esi-industry.read_character_mining.v1 esi-industry.read_corporation_jobs.v1 esi-industry.read_corporation_mining.v1 esi-killmails.read_corporation_killmails.v1 esi-killmails.read_killmails.v1 esi-location.read_location.v1 esi-location.read_online.v1 esi-location.read_ship_type.v1 esi-mail.organize_mail.v1 esi-mail.read_mail.v1 esi-mail.send_mail.v1 esi-markets.read_character_orders.v1 esi-markets.read_corporation_orders.v1 esi-markets.structure_markets.v1 esi-planets.manage_planets.v1 esi-planets.read_customs_offices.v1 esi-search.search_structures.v1 esi-skills.read_skillqueue.v1 esi-skills.read_skills.v1 esi-ui.open_window.v1 esi-ui.write_waypoint.v1 esi-universe.read_structures.v1 esi-wallet.read_character_wallet.v1 esi-wallet.read_corporation_wallets.v1"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://login.eveonline.com/v2/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"subject\": \"<string>\",\n  \"body\": \"<string>\",\n  \"recipients\": [\n    \"<integer>\"\n  ],\n  \"to_corp_or_alliance_id\": \"<integer>\",\n  \"to_mailing_list_id\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "10217cd8-5c1e-480b-bbb2-ea40807ef34d",
+              "name": "Open window request received",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ui",
+                    "openwindow",
+                    "newmail",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"body\": \"example\",\n  \"recipients\": [\n    1\n  ],\n  \"subject\": \"example\",\n  \"to_corp_or_alliance_id\": 99005338,\n  \"to_mailing_list_id\": 1001\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bc61e7bb-dec4-45c9-be00-4872b038ae5c",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ui",
+                    "openwindow",
+                    "newmail",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"body\": \"example\",\n  \"recipients\": [\n    1\n  ],\n  \"subject\": \"example\",\n  \"to_corp_or_alliance_id\": 99005338,\n  \"to_mailing_list_id\": 1001\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Bad request message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "826633f3-694f-492c-945d-35d1335a59d8",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ui",
+                    "openwindow",
+                    "newmail",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"body\": \"example\",\n  \"recipients\": [\n    1\n  ],\n  \"subject\": \"example\",\n  \"to_corp_or_alliance_id\": 99005338,\n  \"to_mailing_list_id\": 1001\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Unauthorized message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "da68434a-242f-46fb-a991-f5e88db8d6c1",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ui",
+                    "openwindow",
+                    "newmail",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"body\": \"example\",\n  \"recipients\": [\n    1\n  ],\n  \"subject\": \"example\",\n  \"to_corp_or_alliance_id\": 99005338,\n  \"to_mailing_list_id\": 1001\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Forbidden message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1ebf05e1-483a-4238-8046-d49bf07b1701",
+              "name": "Error limited",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ui",
+                    "openwindow",
+                    "newmail",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"body\": \"example\",\n  \"recipients\": [\n    1\n  ],\n  \"subject\": \"example\",\n  \"to_corp_or_alliance_id\": 99005338,\n  \"to_mailing_list_id\": 1001\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "code": 420,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Error limited message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b8d51181-58cd-46bf-99e3-a7a7c9f14313",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ui",
+                    "openwindow",
+                    "newmail",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"body\": \"example\",\n  \"recipients\": [\n    1\n  ],\n  \"subject\": \"example\",\n  \"to_corp_or_alliance_id\": 99005338,\n  \"to_mailing_list_id\": 1001\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Unprocessable entity message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5561eae8-f803-41ae-9991-4506c56e971e",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ui",
+                    "openwindow",
+                    "newmail",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"body\": \"example\",\n  \"recipients\": [\n    1\n  ],\n  \"subject\": \"example\",\n  \"to_corp_or_alliance_id\": 99005338,\n  \"to_mailing_list_id\": 1001\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Internal server error message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "059685cf-cab2-4e1a-b20f-dbee04e4a253",
+              "name": "Service unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ui",
+                    "openwindow",
+                    "newmail",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"body\": \"example\",\n  \"recipients\": [\n    1\n  ],\n  \"subject\": \"example\",\n  \"to_corp_or_alliance_id\": 99005338,\n  \"to_mailing_list_id\": 1001\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Service unavailable message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ea838b56-6e9a-4516-a7f0-621f46a91c57",
+              "name": "Gateway timeout",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ui",
+                    "openwindow",
+                    "newmail",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"body\": \"example\",\n  \"recipients\": [\n    1\n  ],\n  \"subject\": \"example\",\n  \"to_corp_or_alliance_id\": 99005338,\n  \"to_mailing_list_id\": 1001\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Gateway Timeout",
+              "code": 504,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Gateway timeout message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e6ec86af-e0fa-4a41-969f-b0521b891556",
+          "name": "Open Contract Window",
+          "request": {
+            "name": "Open Contract Window",
+            "description": {
+              "content": "Open the contract window inside the client\n\n---\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "ui",
+                "openwindow",
+                "contract",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "description": {
+                    "content": "(Required) The contract to open",
+                    "type": "text/plain"
+                  },
+                  "key": "contract_id",
+                  "value": ""
+                }
+              ],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "esi-alliances.read_contacts.v1 esi-assets.read_assets.v1 esi-assets.read_corporation_assets.v1 esi-calendar.read_calendar_events.v1 esi-calendar.respond_calendar_events.v1 esi-characters.read_agents_research.v1 esi-characters.read_blueprints.v1 esi-characters.read_contacts.v1 esi-characters.read_corporation_roles.v1 esi-characters.read_fatigue.v1 esi-characters.read_fw_stats.v1 esi-characters.read_loyalty.v1 esi-characters.read_medals.v1 esi-characters.read_notifications.v1 esi-characters.read_standings.v1 esi-characters.read_titles.v1 esi-characters.write_contacts.v1 esi-clones.read_clones.v1 esi-clones.read_implants.v1 esi-contracts.read_character_contracts.v1 esi-contracts.read_corporation_contracts.v1 esi-corporations.read_blueprints.v1 esi-corporations.read_contacts.v1 esi-corporations.read_container_logs.v1 esi-corporations.read_corporation_membership.v1 esi-corporations.read_divisions.v1 esi-corporations.read_facilities.v1 esi-corporations.read_fw_stats.v1 esi-corporations.read_medals.v1 esi-corporations.read_standings.v1 esi-corporations.read_starbases.v1 esi-corporations.read_structures.v1 esi-corporations.read_titles.v1 esi-corporations.track_members.v1 esi-fittings.read_fittings.v1 esi-fittings.write_fittings.v1 esi-fleets.read_fleet.v1 esi-fleets.write_fleet.v1 esi-industry.read_character_jobs.v1 esi-industry.read_character_mining.v1 esi-industry.read_corporation_jobs.v1 esi-industry.read_corporation_mining.v1 esi-killmails.read_corporation_killmails.v1 esi-killmails.read_killmails.v1 esi-location.read_location.v1 esi-location.read_online.v1 esi-location.read_ship_type.v1 esi-mail.organize_mail.v1 esi-mail.read_mail.v1 esi-mail.send_mail.v1 esi-markets.read_character_orders.v1 esi-markets.read_corporation_orders.v1 esi-markets.structure_markets.v1 esi-planets.manage_planets.v1 esi-planets.read_customs_offices.v1 esi-search.search_structures.v1 esi-skills.read_skillqueue.v1 esi-skills.read_skills.v1 esi-ui.open_window.v1 esi-ui.write_waypoint.v1 esi-universe.read_structures.v1 esi-wallet.read_character_wallet.v1 esi-wallet.read_corporation_wallets.v1"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://login.eveonline.com/v2/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "568d17af-50c4-486d-a7ab-20626e586f76",
+              "name": "Open window request received",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "ui",
+                    "openwindow",
+                    "contract",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "contract_id",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "20af24c7-0355-4c35-a475-ea7f8010f76a",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "ui",
+                    "openwindow",
+                    "contract",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "contract_id",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3b2a5e00-c0bf-4aae-99ca-3f0c0d83b990",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "ui",
+                    "openwindow",
+                    "contract",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "contract_id",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b92b0381-8453-436c-80fb-3625249b3f2f",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "ui",
+                    "openwindow",
+                    "contract",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "contract_id",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "aca157a6-8e62-48e4-ae2a-be2c3c92c143",
+              "name": "Error limited",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "ui",
+                    "openwindow",
+                    "contract",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "contract_id",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "code": 420,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b91fbe80-3493-456f-82d1-f4adfe40bdc7",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "ui",
+                    "openwindow",
+                    "contract",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "contract_id",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "48b3390d-c370-44ba-97d6-e71de1d00bbd",
+              "name": "Service unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "ui",
+                    "openwindow",
+                    "contract",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "contract_id",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b864235a-b6ef-4bce-a537-d0933cb54aa5",
+              "name": "Gateway timeout",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "ui",
+                    "openwindow",
+                    "contract",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "contract_id",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Gateway Timeout",
+              "code": 504,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "77d78d92-a8ee-447a-8a6f-560512def1fc",
+          "name": "Open Information Window",
+          "request": {
+            "name": "Open Information Window",
+            "description": {
+              "content": "Open the information window for a character, corporation or alliance inside the client\n\n---\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "ui",
+                "openwindow",
+                "information",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "description": {
+                    "content": "(Required) The target to open",
+                    "type": "text/plain"
+                  },
+                  "key": "target_id",
+                  "value": ""
+                }
+              ],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "esi-alliances.read_contacts.v1 esi-assets.read_assets.v1 esi-assets.read_corporation_assets.v1 esi-calendar.read_calendar_events.v1 esi-calendar.respond_calendar_events.v1 esi-characters.read_agents_research.v1 esi-characters.read_blueprints.v1 esi-characters.read_contacts.v1 esi-characters.read_corporation_roles.v1 esi-characters.read_fatigue.v1 esi-characters.read_fw_stats.v1 esi-characters.read_loyalty.v1 esi-characters.read_medals.v1 esi-characters.read_notifications.v1 esi-characters.read_standings.v1 esi-characters.read_titles.v1 esi-characters.write_contacts.v1 esi-clones.read_clones.v1 esi-clones.read_implants.v1 esi-contracts.read_character_contracts.v1 esi-contracts.read_corporation_contracts.v1 esi-corporations.read_blueprints.v1 esi-corporations.read_contacts.v1 esi-corporations.read_container_logs.v1 esi-corporations.read_corporation_membership.v1 esi-corporations.read_divisions.v1 esi-corporations.read_facilities.v1 esi-corporations.read_fw_stats.v1 esi-corporations.read_medals.v1 esi-corporations.read_standings.v1 esi-corporations.read_starbases.v1 esi-corporations.read_structures.v1 esi-corporations.read_titles.v1 esi-corporations.track_members.v1 esi-fittings.read_fittings.v1 esi-fittings.write_fittings.v1 esi-fleets.read_fleet.v1 esi-fleets.write_fleet.v1 esi-industry.read_character_jobs.v1 esi-industry.read_character_mining.v1 esi-industry.read_corporation_jobs.v1 esi-industry.read_corporation_mining.v1 esi-killmails.read_corporation_killmails.v1 esi-killmails.read_killmails.v1 esi-location.read_location.v1 esi-location.read_online.v1 esi-location.read_ship_type.v1 esi-mail.organize_mail.v1 esi-mail.read_mail.v1 esi-mail.send_mail.v1 esi-markets.read_character_orders.v1 esi-markets.read_corporation_orders.v1 esi-markets.structure_markets.v1 esi-planets.manage_planets.v1 esi-planets.read_customs_offices.v1 esi-search.search_structures.v1 esi-skills.read_skillqueue.v1 esi-skills.read_skills.v1 esi-ui.open_window.v1 esi-ui.write_waypoint.v1 esi-universe.read_structures.v1 esi-wallet.read_character_wallet.v1 esi-wallet.read_corporation_wallets.v1"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://login.eveonline.com/v2/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ecf944fe-d01f-4d81-90f8-7612e8068b7f",
+              "name": "Open window request received",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "ui",
+                    "openwindow",
+                    "information",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "target_id",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7d796e43-6a0b-467b-8f02-8aaeab75c0c1",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "ui",
+                    "openwindow",
+                    "information",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "target_id",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d419e649-7dd4-413c-8d3c-3481e9a3d83a",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "ui",
+                    "openwindow",
+                    "information",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "target_id",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d258737b-e144-49c6-85fb-dcb89972a3dd",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "ui",
+                    "openwindow",
+                    "information",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "target_id",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "51659288-9299-4ec3-b6b9-0e666124be69",
+              "name": "Error limited",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "ui",
+                    "openwindow",
+                    "information",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "target_id",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "code": 420,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f372f26a-1405-42fe-afec-b0bcd773b2a8",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "ui",
+                    "openwindow",
+                    "information",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "target_id",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6b1a51da-1a27-4ea8-909c-aafdf90d1319",
+              "name": "Service unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "ui",
+                    "openwindow",
+                    "information",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "target_id",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "eeef45b3-4940-491b-8b6b-b2a15c219a99",
+              "name": "Gateway timeout",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "ui",
+                    "openwindow",
+                    "information",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "target_id",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Gateway Timeout",
+              "code": 504,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "846b993d-f476-4405-a527-476e2d665c2f",
+          "name": "Open Market Details",
+          "request": {
+            "name": "Open Market Details",
+            "description": {
+              "content": "Open the market details window for a specific typeID inside the client\n\n---\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "ui",
+                "openwindow",
+                "marketdetails",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "description": {
+                    "content": "(Required) The item type to open in market window",
+                    "type": "text/plain"
+                  },
+                  "key": "type_id",
+                  "value": ""
+                }
+              ],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "esi-alliances.read_contacts.v1 esi-assets.read_assets.v1 esi-assets.read_corporation_assets.v1 esi-calendar.read_calendar_events.v1 esi-calendar.respond_calendar_events.v1 esi-characters.read_agents_research.v1 esi-characters.read_blueprints.v1 esi-characters.read_contacts.v1 esi-characters.read_corporation_roles.v1 esi-characters.read_fatigue.v1 esi-characters.read_fw_stats.v1 esi-characters.read_loyalty.v1 esi-characters.read_medals.v1 esi-characters.read_notifications.v1 esi-characters.read_standings.v1 esi-characters.read_titles.v1 esi-characters.write_contacts.v1 esi-clones.read_clones.v1 esi-clones.read_implants.v1 esi-contracts.read_character_contracts.v1 esi-contracts.read_corporation_contracts.v1 esi-corporations.read_blueprints.v1 esi-corporations.read_contacts.v1 esi-corporations.read_container_logs.v1 esi-corporations.read_corporation_membership.v1 esi-corporations.read_divisions.v1 esi-corporations.read_facilities.v1 esi-corporations.read_fw_stats.v1 esi-corporations.read_medals.v1 esi-corporations.read_standings.v1 esi-corporations.read_starbases.v1 esi-corporations.read_structures.v1 esi-corporations.read_titles.v1 esi-corporations.track_members.v1 esi-fittings.read_fittings.v1 esi-fittings.write_fittings.v1 esi-fleets.read_fleet.v1 esi-fleets.write_fleet.v1 esi-industry.read_character_jobs.v1 esi-industry.read_character_mining.v1 esi-industry.read_corporation_jobs.v1 esi-industry.read_corporation_mining.v1 esi-killmails.read_corporation_killmails.v1 esi-killmails.read_killmails.v1 esi-location.read_location.v1 esi-location.read_online.v1 esi-location.read_ship_type.v1 esi-mail.organize_mail.v1 esi-mail.read_mail.v1 esi-mail.send_mail.v1 esi-markets.read_character_orders.v1 esi-markets.read_corporation_orders.v1 esi-markets.structure_markets.v1 esi-planets.manage_planets.v1 esi-planets.read_customs_offices.v1 esi-search.search_structures.v1 esi-skills.read_skillqueue.v1 esi-skills.read_skills.v1 esi-ui.open_window.v1 esi-ui.write_waypoint.v1 esi-universe.read_structures.v1 esi-wallet.read_character_wallet.v1 esi-wallet.read_corporation_wallets.v1"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://login.eveonline.com/v2/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "718990e9-0ea0-4916-bb7a-0e827c7ff162",
+              "name": "Open window request received",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "ui",
+                    "openwindow",
+                    "marketdetails",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "type_id",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "42972c45-8d62-434e-a172-3d299c6adb41",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "ui",
+                    "openwindow",
+                    "marketdetails",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "type_id",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ee51a976-e243-4a32-b985-fabafd7d76b7",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "ui",
+                    "openwindow",
+                    "marketdetails",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "type_id",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1b76ec27-c697-4def-92e2-8c196fcef295",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "ui",
+                    "openwindow",
+                    "marketdetails",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "type_id",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6212dbad-103e-4c84-aa69-083d03aab6ae",
+              "name": "Error limited",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "ui",
+                    "openwindow",
+                    "marketdetails",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "type_id",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "code": 420,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7ef43a28-e6dc-4770-9689-bf6510a5f107",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "ui",
+                    "openwindow",
+                    "marketdetails",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "type_id",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "15cbdf38-6897-42d3-a85c-0044eab6952d",
+              "name": "Service unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "ui",
+                    "openwindow",
+                    "marketdetails",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "type_id",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6c58a1f3-1f4c-4841-87ad-a504dcdf0e4b",
+              "name": "Gateway timeout",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "ui",
+                    "openwindow",
+                    "marketdetails",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "type_id",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Gateway Timeout",
+              "code": 504,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8e2fb189-6c11-4838-bc8d-ad06ea960da7",
+          "name": "Open New Mail Window",
+          "request": {
+            "name": "Open New Mail Window",
+            "description": {
+              "content": "Open the New Mail window, according to settings from the request if applicable\n\n---\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "ui",
+                "openwindow",
+                "newmail",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "esi-alliances.read_contacts.v1 esi-assets.read_assets.v1 esi-assets.read_corporation_assets.v1 esi-calendar.read_calendar_events.v1 esi-calendar.respond_calendar_events.v1 esi-characters.read_agents_research.v1 esi-characters.read_blueprints.v1 esi-characters.read_contacts.v1 esi-characters.read_corporation_roles.v1 esi-characters.read_fatigue.v1 esi-characters.read_fw_stats.v1 esi-characters.read_loyalty.v1 esi-characters.read_medals.v1 esi-characters.read_notifications.v1 esi-characters.read_standings.v1 esi-characters.read_titles.v1 esi-characters.write_contacts.v1 esi-clones.read_clones.v1 esi-clones.read_implants.v1 esi-contracts.read_character_contracts.v1 esi-contracts.read_corporation_contracts.v1 esi-corporations.read_blueprints.v1 esi-corporations.read_contacts.v1 esi-corporations.read_container_logs.v1 esi-corporations.read_corporation_membership.v1 esi-corporations.read_divisions.v1 esi-corporations.read_facilities.v1 esi-corporations.read_fw_stats.v1 esi-corporations.read_medals.v1 esi-corporations.read_standings.v1 esi-corporations.read_starbases.v1 esi-corporations.read_structures.v1 esi-corporations.read_titles.v1 esi-corporations.track_members.v1 esi-fittings.read_fittings.v1 esi-fittings.write_fittings.v1 esi-fleets.read_fleet.v1 esi-fleets.write_fleet.v1 esi-industry.read_character_jobs.v1 esi-industry.read_character_mining.v1 esi-industry.read_corporation_jobs.v1 esi-industry.read_corporation_mining.v1 esi-killmails.read_corporation_killmails.v1 esi-killmails.read_killmails.v1 esi-location.read_location.v1 esi-location.read_online.v1 esi-location.read_ship_type.v1 esi-mail.organize_mail.v1 esi-mail.read_mail.v1 esi-mail.send_mail.v1 esi-markets.read_character_orders.v1 esi-markets.read_corporation_orders.v1 esi-markets.structure_markets.v1 esi-planets.manage_planets.v1 esi-planets.read_customs_offices.v1 esi-search.search_structures.v1 esi-skills.read_skillqueue.v1 esi-skills.read_skills.v1 esi-ui.open_window.v1 esi-ui.write_waypoint.v1 esi-universe.read_structures.v1 esi-wallet.read_character_wallet.v1 esi-wallet.read_corporation_wallets.v1"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://login.eveonline.com/v2/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "db09bbbd-d84b-4aea-8ff0-36507fa5fc98",
+              "name": "Open window request received",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "ui",
+                    "openwindow",
+                    "newmail",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b57927e7-1ee4-4752-85f9-974b46762238",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "ui",
+                    "openwindow",
+                    "newmail",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "171a31fa-e90b-42c9-ba2c-79c128c567c1",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "ui",
+                    "openwindow",
+                    "newmail",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1bedcd9a-62f6-4cab-a1f7-8df25a783605",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "ui",
+                    "openwindow",
+                    "newmail",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d855edec-cb77-477a-b61e-296d97018a0a",
+              "name": "Error limited",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "ui",
+                    "openwindow",
+                    "newmail",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "code": 420,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "625be455-e8a4-4c32-9a04-8ef0e00a010d",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "ui",
+                    "openwindow",
+                    "newmail",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e9bd8761-d3dd-4d9c-a54c-a357aa05173b",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "ui",
+                    "openwindow",
+                    "newmail",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "563b8fc3-0946-47ae-abdb-55a270452f50",
+              "name": "Service unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "ui",
+                    "openwindow",
+                    "newmail",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "17d9bc46-33cd-4112-b815-c9de66f5764a",
+              "name": "Gateway timeout",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "ui",
+                    "openwindow",
+                    "newmail",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Gateway Timeout",
+              "code": 504,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "93d9725b-1b19-47df-80d8-83d076f92f4f",
+          "name": "Set Autopilot Waypoint",
+          "request": {
+            "name": "Set Autopilot Waypoint",
+            "description": {
+              "content": "Set a solar system as autopilot waypoint\n\n---\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ui",
+                "autopilot",
+                "waypoint",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "description": {
+                    "content": "(Required) Whether this solar system should be added to the beginning of all waypoints",
+                    "type": "text/plain"
+                  },
+                  "key": "add_to_beginning",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "(Required) Whether clean other waypoints beforing adding this one",
+                    "type": "text/plain"
+                  },
+                  "key": "clear_other_waypoints",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "(Required) The destination to travel to, can be solar system, station or structure's id",
+                    "type": "text/plain"
+                  },
+                  "key": "destination_id",
+                  "value": ""
+                }
+              ],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "esi-alliances.read_contacts.v1 esi-assets.read_assets.v1 esi-assets.read_corporation_assets.v1 esi-calendar.read_calendar_events.v1 esi-calendar.respond_calendar_events.v1 esi-characters.read_agents_research.v1 esi-characters.read_blueprints.v1 esi-characters.read_contacts.v1 esi-characters.read_corporation_roles.v1 esi-characters.read_fatigue.v1 esi-characters.read_fw_stats.v1 esi-characters.read_loyalty.v1 esi-characters.read_medals.v1 esi-characters.read_notifications.v1 esi-characters.read_standings.v1 esi-characters.read_titles.v1 esi-characters.write_contacts.v1 esi-clones.read_clones.v1 esi-clones.read_implants.v1 esi-contracts.read_character_contracts.v1 esi-contracts.read_corporation_contracts.v1 esi-corporations.read_blueprints.v1 esi-corporations.read_contacts.v1 esi-corporations.read_container_logs.v1 esi-corporations.read_corporation_membership.v1 esi-corporations.read_divisions.v1 esi-corporations.read_facilities.v1 esi-corporations.read_fw_stats.v1 esi-corporations.read_medals.v1 esi-corporations.read_standings.v1 esi-corporations.read_starbases.v1 esi-corporations.read_structures.v1 esi-corporations.read_titles.v1 esi-corporations.track_members.v1 esi-fittings.read_fittings.v1 esi-fittings.write_fittings.v1 esi-fleets.read_fleet.v1 esi-fleets.write_fleet.v1 esi-industry.read_character_jobs.v1 esi-industry.read_character_mining.v1 esi-industry.read_corporation_jobs.v1 esi-industry.read_corporation_mining.v1 esi-killmails.read_corporation_killmails.v1 esi-killmails.read_killmails.v1 esi-location.read_location.v1 esi-location.read_online.v1 esi-location.read_ship_type.v1 esi-mail.organize_mail.v1 esi-mail.read_mail.v1 esi-mail.send_mail.v1 esi-markets.read_character_orders.v1 esi-markets.read_corporation_orders.v1 esi-markets.structure_markets.v1 esi-planets.manage_planets.v1 esi-planets.read_customs_offices.v1 esi-search.search_structures.v1 esi-skills.read_skillqueue.v1 esi-skills.read_skills.v1 esi-ui.open_window.v1 esi-ui.write_waypoint.v1 esi-universe.read_structures.v1 esi-wallet.read_character_wallet.v1 esi-wallet.read_corporation_wallets.v1"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://login.eveonline.com/v2/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "656a15aa-efc6-4d75-8984-51d4bc2d3ca7",
+              "name": "Open window request received",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ui",
+                    "autopilot",
+                    "waypoint",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "add_to_beginning",
+                      "value": ""
+                    },
+                    {
+                      "key": "clear_other_waypoints",
+                      "value": ""
+                    },
+                    {
+                      "key": "destination_id",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "31e8c4ac-ca47-4e80-b907-18677f1cdf84",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ui",
+                    "autopilot",
+                    "waypoint",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "add_to_beginning",
+                      "value": ""
+                    },
+                    {
+                      "key": "clear_other_waypoints",
+                      "value": ""
+                    },
+                    {
+                      "key": "destination_id",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f362e740-6be8-4586-b3a9-e4d80876547a",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ui",
+                    "autopilot",
+                    "waypoint",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "add_to_beginning",
+                      "value": ""
+                    },
+                    {
+                      "key": "clear_other_waypoints",
+                      "value": ""
+                    },
+                    {
+                      "key": "destination_id",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "34d53ebb-5706-4d2e-82ef-d96a340d4027",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ui",
+                    "autopilot",
+                    "waypoint",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "add_to_beginning",
+                      "value": ""
+                    },
+                    {
+                      "key": "clear_other_waypoints",
+                      "value": ""
+                    },
+                    {
+                      "key": "destination_id",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8cce5d1d-2c9d-457b-a651-6e8a122e30c7",
+              "name": "Error limited",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ui",
+                    "autopilot",
+                    "waypoint",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "add_to_beginning",
+                      "value": ""
+                    },
+                    {
+                      "key": "clear_other_waypoints",
+                      "value": ""
+                    },
+                    {
+                      "key": "destination_id",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "code": 420,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c29a5019-5446-4f88-abf9-95422f244f90",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ui",
+                    "autopilot",
+                    "waypoint",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "add_to_beginning",
+                      "value": ""
+                    },
+                    {
+                      "key": "clear_other_waypoints",
+                      "value": ""
+                    },
+                    {
+                      "key": "destination_id",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "62bd6c52-2bd3-4840-bf18-ca5e5f046058",
+              "name": "Service unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ui",
+                    "autopilot",
+                    "waypoint",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "add_to_beginning",
+                      "value": ""
+                    },
+                    {
+                      "key": "clear_other_waypoints",
+                      "value": ""
+                    },
+                    {
+                      "key": "destination_id",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "48a100b0-3f05-459b-8584-d711f2b9bd17",
+              "name": "Gateway timeout",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ui",
+                    "autopilot",
+                    "waypoint",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "add_to_beginning",
+                      "value": ""
+                    },
+                    {
+                      "key": "clear_other_waypoints",
+                      "value": ""
+                    },
+                    {
+                      "key": "destination_id",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Gateway Timeout",
+              "code": 504,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://esi.evetech.net/latest",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c2f2c563-b145-47c7-aa8d-a3de77c98d88",
+    "name": "EVE Swagger Interface Alliance User Interface API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "An OpenAPI for EVE Online",
+      "type": "text/plain"
+    }
+  }
+}

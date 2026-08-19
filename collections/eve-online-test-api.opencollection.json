@@ -1,0 +1,36 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EVE Swagger Interface Alliance Test API",
+    "version": "1.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Test",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Test get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/test",
+            "params": [
+              {
+                "name": "fields",
+                "value": "friends,family",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Test get"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,2200 @@
+{
+  "item": [
+    {
+      "id": "bd8f89cc-a743-46b9-ba2f-016498b44f18",
+      "name": "Loyalty",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5d8c4f0f-4445-4893-b828-d49b7b2b41fa",
+          "name": "EVE Online Get Loyalty Points",
+          "request": {
+            "name": "EVE Online Get Loyalty Points",
+            "description": {
+              "content": "Return a list of loyalty points for all corporations the character has worked for\n\n---\nAlternate route: `/dev/characters/{character_id}/loyalty/points/`\n\nAlternate route: `/legacy/characters/{character_id}/loyalty/points/`\n\nAlternate route: `/v1/characters/{character_id}/loyalty/points/`\n\n---\nThis route is cached for up to 3600 seconds",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "characters",
+                ":character_id",
+                "loyalty",
+                "points",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "datasource",
+                  "value": "tranquility",
+                  "description": "The server name you would like data from"
+                },
+                {
+                  "disabled": false,
+                  "key": "token",
+                  "value": "<string>",
+                  "description": "Access token to use if unable to set a header"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "character_id",
+                  "description": "(Required) An EVE character ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                "key": "If-None-Match",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "esi-alliances.read_contacts.v1 esi-assets.read_assets.v1 esi-assets.read_corporation_assets.v1 esi-calendar.read_calendar_events.v1 esi-calendar.respond_calendar_events.v1 esi-characters.read_agents_research.v1 esi-characters.read_blueprints.v1 esi-characters.read_contacts.v1 esi-characters.read_corporation_roles.v1 esi-characters.read_fatigue.v1 esi-characters.read_fw_stats.v1 esi-characters.read_loyalty.v1 esi-characters.read_medals.v1 esi-characters.read_notifications.v1 esi-characters.read_standings.v1 esi-characters.read_titles.v1 esi-characters.write_contacts.v1 esi-clones.read_clones.v1 esi-clones.read_implants.v1 esi-contracts.read_character_contracts.v1 esi-contracts.read_corporation_contracts.v1 esi-corporations.read_blueprints.v1 esi-corporations.read_contacts.v1 esi-corporations.read_container_logs.v1 esi-corporations.read_corporation_membership.v1 esi-corporations.read_divisions.v1 esi-corporations.read_facilities.v1 esi-corporations.read_fw_stats.v1 esi-corporations.read_medals.v1 esi-corporations.read_standings.v1 esi-corporations.read_starbases.v1 esi-corporations.read_structures.v1 esi-corporations.read_titles.v1 esi-corporations.track_members.v1 esi-fittings.read_fittings.v1 esi-fittings.write_fittings.v1 esi-fleets.read_fleet.v1 esi-fleets.write_fleet.v1 esi-industry.read_character_jobs.v1 esi-industry.read_character_mining.v1 esi-industry.read_corporation_jobs.v1 esi-industry.read_corporation_mining.v1 esi-killmails.read_corporation_killmails.v1 esi-killmails.read_killmails.v1 esi-location.read_location.v1 esi-location.read_online.v1 esi-location.read_ship_type.v1 esi-mail.organize_mail.v1 esi-mail.read_mail.v1 esi-mail.send_mail.v1 esi-markets.read_character_orders.v1 esi-markets.read_corporation_orders.v1 esi-markets.structure_markets.v1 esi-planets.manage_planets.v1 esi-planets.read_customs_offices.v1 esi-search.search_structures.v1 esi-skills.read_skillqueue.v1 esi-skills.read_skills.v1 esi-ui.open_window.v1 esi-ui.write_waypoint.v1 esi-universe.read_structures.v1 esi-wallet.read_character_wallet.v1 esi-wallet.read_corporation_wallets.v1"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://login.eveonline.com/v2/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d3b7b042-196e-4b65-87eb-eb9a4cd023d4",
+              "name": "A list of loyalty points",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "characters",
+                    ":character_id",
+                    "loyalty",
+                    "points",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "character_id",
+                      "description": "(Required) An EVE character ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The caching mechanism used",
+                  "key": "Cache-Control",
+                  "value": "string"
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7232 compliant entity tag",
+                  "key": "ETag",
+                  "value": "string"
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Expires",
+                  "value": "string"
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Last-Modified",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"corporation_id\": 123,\n    \"loyalty_points\": 100\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "da4b7cea-8d3b-4856-ad71-f959dfeacf42",
+              "name": "Not modified",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "characters",
+                    ":character_id",
+                    "loyalty",
+                    "points",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "character_id",
+                      "description": "(Required) An EVE character ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Modified",
+              "code": 304,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The caching mechanism used",
+                  "key": "Cache-Control",
+                  "value": "string"
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7232 compliant entity tag",
+                  "key": "ETag",
+                  "value": "string"
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Expires",
+                  "value": "string"
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Last-Modified",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9f02995d-2747-4b9e-90a0-9c5fd07a4fc7",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "characters",
+                    ":character_id",
+                    "loyalty",
+                    "points",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "character_id",
+                      "description": "(Required) An EVE character ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Bad request message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6a3e60b7-fdb2-490d-b48e-7f259f35fe42",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "characters",
+                    ":character_id",
+                    "loyalty",
+                    "points",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "character_id",
+                      "description": "(Required) An EVE character ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Unauthorized message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "37956ef9-7a08-44f9-ae46-6170a5c68c6e",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "characters",
+                    ":character_id",
+                    "loyalty",
+                    "points",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "character_id",
+                      "description": "(Required) An EVE character ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Forbidden message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5d8623d3-f8a8-4580-b989-cf588b728453",
+              "name": "Error limited",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "characters",
+                    ":character_id",
+                    "loyalty",
+                    "points",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "character_id",
+                      "description": "(Required) An EVE character ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "code": 420,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Error limited message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7874778f-773f-4c71-b867-d0388e348758",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "characters",
+                    ":character_id",
+                    "loyalty",
+                    "points",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "character_id",
+                      "description": "(Required) An EVE character ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Internal server error message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f3461766-29ef-42e6-b26a-b887c30fe2e5",
+              "name": "Service unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "characters",
+                    ":character_id",
+                    "loyalty",
+                    "points",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "character_id",
+                      "description": "(Required) An EVE character ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Service unavailable message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "02e460b4-9d8e-4452-b5c3-8796e04617c1",
+              "name": "Gateway timeout",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "characters",
+                    ":character_id",
+                    "loyalty",
+                    "points",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "character_id",
+                      "description": "(Required) An EVE character ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Gateway Timeout",
+              "code": 504,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Gateway timeout message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0f125159-6a0b-4a11-b58f-3d9aa5eacaa5",
+          "name": "EVE Online List Loyalty Store Offers",
+          "request": {
+            "name": "EVE Online List Loyalty Store Offers",
+            "description": {
+              "content": "Return a list of offers from a specific corporation's loyalty store\n\n---\nAlternate route: `/dev/loyalty/stores/{corporation_id}/offers/`\n\nAlternate route: `/legacy/loyalty/stores/{corporation_id}/offers/`\n\nAlternate route: `/v1/loyalty/stores/{corporation_id}/offers/`\n\n---\nThis route expires daily at 11:05",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "loyalty",
+                "stores",
+                ":corporation_id",
+                "offers",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "datasource",
+                  "value": "tranquility",
+                  "description": "The server name you would like data from"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "corporation_id",
+                  "description": "(Required) An EVE corporation ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                "key": "If-None-Match",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d5555996-cfde-499b-8b9f-067e9b950b1f",
+              "name": "A list of offers",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "loyalty",
+                    "stores",
+                    ":corporation_id",
+                    "offers",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "corporation_id",
+                      "description": "(Required) An EVE corporation ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The caching mechanism used",
+                  "key": "Cache-Control",
+                  "value": "string"
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7232 compliant entity tag",
+                  "key": "ETag",
+                  "value": "string"
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Expires",
+                  "value": "string"
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Last-Modified",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"ak_cost\": 35000,\n    \"isk_cost\": 0,\n    \"lp_cost\": 100,\n    \"offer_id\": 1,\n    \"quantity\": 1,\n    \"required_items\": [],\n    \"type_id\": 123\n  },\n  {\n    \"isk_cost\": 1000,\n    \"lp_cost\": 100,\n    \"offer_id\": 2,\n    \"quantity\": 10,\n    \"required_items\": [\n      {\n        \"quantity\": 10,\n        \"type_id\": 1234\n      }\n    ],\n    \"type_id\": 1235\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "25476ca7-d5bc-40ea-8ad9-360a28944d02",
+              "name": "Not modified",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "loyalty",
+                    "stores",
+                    ":corporation_id",
+                    "offers",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "corporation_id",
+                      "description": "(Required) An EVE corporation ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Modified",
+              "code": 304,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The caching mechanism used",
+                  "key": "Cache-Control",
+                  "value": "string"
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7232 compliant entity tag",
+                  "key": "ETag",
+                  "value": "string"
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Expires",
+                  "value": "string"
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Last-Modified",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "dc979b22-1c25-4cd9-bc4d-fadbd77942e4",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "loyalty",
+                    "stores",
+                    ":corporation_id",
+                    "offers",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "corporation_id",
+                      "description": "(Required) An EVE corporation ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Bad request message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4e5a3b96-38f0-491d-b014-f6be16121c02",
+              "name": "No loyalty point store found for the provided corporation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "loyalty",
+                    "stores",
+                    ":corporation_id",
+                    "offers",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "corporation_id",
+                      "description": "(Required) An EVE corporation ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Not found message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "41b08216-365f-42ef-a0ec-0dc1b2b79311",
+              "name": "Error limited",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "loyalty",
+                    "stores",
+                    ":corporation_id",
+                    "offers",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "corporation_id",
+                      "description": "(Required) An EVE corporation ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "code": 420,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Error limited message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8b484375-02e7-4ba8-9205-1294c8fb1299",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "loyalty",
+                    "stores",
+                    ":corporation_id",
+                    "offers",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "corporation_id",
+                      "description": "(Required) An EVE corporation ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Internal server error message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d2fc9b1d-e528-4e55-8f82-7440aa792d75",
+              "name": "Service unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "loyalty",
+                    "stores",
+                    ":corporation_id",
+                    "offers",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "corporation_id",
+                      "description": "(Required) An EVE corporation ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Service unavailable message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8048e328-d855-45d8-9d2a-b4a6ac49a645",
+              "name": "Gateway timeout",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "loyalty",
+                    "stores",
+                    ":corporation_id",
+                    "offers",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datasource",
+                      "value": "tranquility"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "corporation_id",
+                      "description": "(Required) An EVE corporation ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "ETag from a previous request. A 304 will be returned if this matches the current ETag",
+                    "key": "If-None-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Gateway Timeout",
+              "code": 504,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Gateway timeout message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f1a81624-63f5-4553-bb87-a183630966a1",
+          "name": "Get loyalty points",
+          "request": {
+            "name": "Get loyalty points",
+            "description": {
+              "content": "Return a list of loyalty points for all corporations the character has worked for\n\n---\n\nThis route is cached for up to 3600 seconds",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "characters",
+                ":character_id",
+                "loyalty",
+                "points",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "esi-alliances.read_contacts.v1 esi-assets.read_assets.v1 esi-assets.read_corporation_assets.v1 esi-calendar.read_calendar_events.v1 esi-calendar.respond_calendar_events.v1 esi-characters.read_agents_research.v1 esi-characters.read_blueprints.v1 esi-characters.read_contacts.v1 esi-characters.read_corporation_roles.v1 esi-characters.read_fatigue.v1 esi-characters.read_fw_stats.v1 esi-characters.read_loyalty.v1 esi-characters.read_medals.v1 esi-characters.read_notifications.v1 esi-characters.read_standings.v1 esi-characters.read_titles.v1 esi-characters.write_contacts.v1 esi-clones.read_clones.v1 esi-clones.read_implants.v1 esi-contracts.read_character_contracts.v1 esi-contracts.read_corporation_contracts.v1 esi-corporations.read_blueprints.v1 esi-corporations.read_contacts.v1 esi-corporations.read_container_logs.v1 esi-corporations.read_corporation_membership.v1 esi-corporations.read_divisions.v1 esi-corporations.read_facilities.v1 esi-corporations.read_fw_stats.v1 esi-corporations.read_medals.v1 esi-corporations.read_standings.v1 esi-corporations.read_starbases.v1 esi-corporations.read_structures.v1 esi-corporations.read_titles.v1 esi-corporations.track_members.v1 esi-fittings.read_fittings.v1 esi-fittings.write_fittings.v1 esi-fleets.read_fleet.v1 esi-fleets.write_fleet.v1 esi-industry.read_character_jobs.v1 esi-industry.read_character_mining.v1 esi-industry.read_corporation_jobs.v1 esi-industry.read_corporation_mining.v1 esi-killmails.read_corporation_killmails.v1 esi-killmails.read_killmails.v1 esi-location.read_location.v1 esi-location.read_online.v1 esi-location.read_ship_type.v1 esi-mail.organize_mail.v1 esi-mail.read_mail.v1 esi-mail.send_mail.v1 esi-markets.read_character_orders.v1 esi-markets.read_corporation_orders.v1 esi-markets.structure_markets.v1 esi-planets.manage_planets.v1 esi-planets.read_customs_offices.v1 esi-search.search_structures.v1 esi-skills.read_skillqueue.v1 esi-skills.read_skills.v1 esi-ui.open_window.v1 esi-ui.write_waypoint.v1 esi-universe.read_structures.v1 esi-wallet.read_character_wallet.v1 esi-wallet.read_corporation_wallets.v1"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://login.eveonline.com/v2/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "dd4090e9-330f-4536-a161-29d1923cbaf4",
+              "name": "A list of loyalty points",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "characters",
+                    ":character_id",
+                    "loyalty",
+                    "points",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The caching mechanism used",
+                  "key": "Cache-Control",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7232 compliant entity tag",
+                  "key": "ETag",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Expires",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Last-Modified",
+                  "value": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f31b7d88-b38d-4b14-ab9b-bd66a74aa8db",
+              "name": "Not modified",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "characters",
+                    ":character_id",
+                    "loyalty",
+                    "points",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Modified",
+              "code": 304,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The caching mechanism used",
+                  "key": "Cache-Control",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7232 compliant entity tag",
+                  "key": "ETag",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Expires",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Last-Modified",
+                  "value": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2b30a0f5-bea6-40b9-8ae3-9b04292aecc3",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "characters",
+                    ":character_id",
+                    "loyalty",
+                    "points",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e0c1a7fb-900e-4a87-869f-c3e0a3baabb8",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "characters",
+                    ":character_id",
+                    "loyalty",
+                    "points",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3ccc094c-a912-43f0-827e-55ac1ef7cc3f",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "characters",
+                    ":character_id",
+                    "loyalty",
+                    "points",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1c3e9ac6-3222-4cc8-8397-7247dbca9919",
+              "name": "Error limited",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "characters",
+                    ":character_id",
+                    "loyalty",
+                    "points",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "code": 420,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4eb7ac88-7469-4697-be06-dfde2ef21f1a",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "characters",
+                    ":character_id",
+                    "loyalty",
+                    "points",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "aac133c3-63b3-4f84-8562-4b0cf82664be",
+              "name": "Service unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "characters",
+                    ":character_id",
+                    "loyalty",
+                    "points",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "dc3338b4-7e45-485e-8425-632c1e8a25e9",
+              "name": "Gateway timeout",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "characters",
+                    ":character_id",
+                    "loyalty",
+                    "points",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Gateway Timeout",
+              "code": 504,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4ff14f44-3948-468b-a61a-d6b2e75a9d9d",
+          "name": "List loyalty store offers",
+          "request": {
+            "name": "List loyalty store offers",
+            "description": {
+              "content": "Return a list of offers from a specific corporation's loyalty store\n\n---\n\nThis route expires daily at 11:05",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "loyalty",
+                "stores",
+                ":corporation_id",
+                "offers",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b10a52ce-41cf-4de4-99fd-9eb8c6dfd239",
+              "name": "A list of offers",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "loyalty",
+                    "stores",
+                    ":corporation_id",
+                    "offers",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The caching mechanism used",
+                  "key": "Cache-Control",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7232 compliant entity tag",
+                  "key": "ETag",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Expires",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Last-Modified",
+                  "value": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "20970ba2-fcef-404a-84f6-30f5fe2dfebc",
+              "name": "Not modified",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "loyalty",
+                    "stores",
+                    ":corporation_id",
+                    "offers",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Modified",
+              "code": 304,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The caching mechanism used",
+                  "key": "Cache-Control",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7232 compliant entity tag",
+                  "key": "ETag",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Expires",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC7231 formatted datetime string",
+                  "key": "Last-Modified",
+                  "value": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4f94fa6d-4c0a-4533-8c52-fbca7b9a800f",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "loyalty",
+                    "stores",
+                    ":corporation_id",
+                    "offers",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "63893eb5-e496-4a3e-b74b-e0ed6fb44885",
+              "name": "No loyalty point store found for the provided corporation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "loyalty",
+                    "stores",
+                    ":corporation_id",
+                    "offers",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "600df734-e643-4553-94bf-8d2ea781686c",
+              "name": "Error limited",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "loyalty",
+                    "stores",
+                    ":corporation_id",
+                    "offers",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "code": 420,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "244044d9-397c-4536-be1e-32b82f4ac9c4",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "loyalty",
+                    "stores",
+                    ":corporation_id",
+                    "offers",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8778a421-cf37-4b06-9f61-1abb81d42c7b",
+              "name": "Service unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "loyalty",
+                    "stores",
+                    ":corporation_id",
+                    "offers",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "12375ce1-d3e5-4dc4-829e-080b2335d62a",
+              "name": "Gateway timeout",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "loyalty",
+                    "stores",
+                    ":corporation_id",
+                    "offers",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Gateway Timeout",
+              "code": 504,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://esi.evetech.net/latest",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "14cae2ea-80c5-4dae-af27-f7b1d5f0f1d0",
+    "name": "EVE Swagger Interface Alliance Loyalty API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "An OpenAPI for EVE Online",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EVE Swagger Interface Alliance Incursions API",
+    "version": "1.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Incursions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "EVE Online List Incursions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/incursions/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Return a list of current incursions\n\n---\nAlternate route: `/dev/incursions/`\n\nAlternate route: `/legacy/incursions/`\n\nAlternate route: `/v1/incursions/`\n\n---\nThis route is cached for up to 300 seconds"
+        },
+        {
+          "info": {
+            "name": "List incursions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/incursions/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Return a list of current incursions\n\n---\n\nThis route is cached for up to 300 seconds"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

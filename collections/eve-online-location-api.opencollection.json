@@ -1,0 +1,288 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EVE Swagger Interface Alliance Location API",
+    "version": "1.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Location",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "EVE Online Get Character Location",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/characters/:character_id/location/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Information about the characters current location. Returns the current solar system id, and also the current station or structure ID if applicable\n\n---\nAlternate route: `/dev/characters/{character_id}/location/`\n\nAlternate route: `/legacy/characters/{character_id}/location/`\n\nAlternate route: `/v1/characters/{character_id}/location/`\n\nAlternate route: `/v2/characters/{character_id}/location/`\n\n---\nThis route is cached for up to 5 seconds"
+        },
+        {
+          "info": {
+            "name": "EVE Online Get Character Online",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/characters/:character_id/online/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Checks if the character is currently online\n\n---\nAlternate route: `/dev/characters/{character_id}/online/`\n\nAlternate route: `/v2/characters/{character_id}/online/`\n\nAlternate route: `/v3/characters/{character_id}/online/`\n\n---\nThis route is cached for up to 60 seconds"
+        },
+        {
+          "info": {
+            "name": "EVE Online Get Current Ship",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/characters/:character_id/ship/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Get the current ship type, name and id\n\n---\nAlternate route: `/dev/characters/{character_id}/ship/`\n\nAlternate route: `/legacy/characters/{character_id}/ship/`\n\nAlternate route: `/v1/characters/{character_id}/ship/`\n\nAlternate route: `/v2/characters/{character_id}/ship/`\n\n---\nThis route is cached for up to 5 seconds"
+        },
+        {
+          "info": {
+            "name": "Get character location",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/characters/:character_id/location/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Information about the characters current location. Returns the current solar system id, and also the current station or structure ID if applicable\n\n---\n\nThis route is cached for up to 5 seconds"
+        },
+        {
+          "info": {
+            "name": "Get current ship",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/characters/:character_id/ship/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Get the current ship type, name and id\n\n---\n\nThis route is cached for up to 5 seconds"
+        },
+        {
+          "info": {
+            "name": "Get character online",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v2/characters/:character_id/online/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Checks if the character is currently online\n\n---\n\nThis route is cached for up to 60 seconds"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,754 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EVE Swagger Interface Alliance Industry API",
+    "version": "1.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Industry",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "EVE Online List Character Industry Jobs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/characters/:character_id/industry/jobs/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "include_completed",
+                "value": "false",
+                "type": "query",
+                "description": "Whether to retrieve completed character industry jobs. Only includes jobs from the past 90 days"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "List industry jobs placed by a character\n\n---\nAlternate route: `/dev/characters/{character_id}/industry/jobs/`\n\nAlternate route: `/legacy/characters/{character_id}/industry/jobs/`\n\nAlternate route: `/v1/characters/{character_id}/industry/jobs/`\n\n---\nThis route is cached for up to 300 seconds"
+        },
+        {
+          "info": {
+            "name": "EVE Online Character Mining Ledger",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/characters/:character_id/mining/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Which page of results to return"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Paginated record of all mining done by a character for the past 30 days\n\n\n---\nAlternate route: `/dev/characters/{character_id}/mining/`\n\nAlternate route: `/legacy/characters/{character_id}/mining/`\n\nAlternate route: `/v1/characters/{character_id}/mining/`\n\n---\nThis route is cached for up to 600 seconds"
+        },
+        {
+          "info": {
+            "name": "EVE Online Moon Extraction Timers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/corporation/:corporation_id/mining/extractions/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "corporation_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE corporation ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Which page of results to return"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Extraction timers for all moon chunks being extracted by refineries belonging to a corporation.\n\n\n---\nAlternate route: `/dev/corporation/{corporation_id}/mining/extractions/`\n\nAlternate route: `/legacy/corporation/{corporation_id}/mining/extractions/`\n\nAlternate route: `/v1/corporation/{corporation_id}/mining/extractions/`\n\n---\nThis route is cached for up to 1800 seconds\n\n---\nRequires one of the following EVE corporation role(s): Station_Manager\n"
+        },
+        {
+          "info": {
+            "name": "EVE Online Corporation Mining Observers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/corporation/:corporation_id/mining/observers/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "corporation_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE corporation ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Which page of results to return"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Paginated list of all entities capable of observing and recording mining for a corporation\n\n\n---\nAlternate route: `/dev/corporation/{corporation_id}/mining/observers/`\n\nAlternate route: `/legacy/corporation/{corporation_id}/mining/observers/`\n\nAlternate route: `/v1/corporation/{corporation_id}/mining/observers/`\n\n---\nThis route is cached for up to 3600 seconds\n\n---\nRequires one of the following EVE corporation role(s): Accountant\n"
+        },
+        {
+          "info": {
+            "name": "EVE Online Observed Corporation Mining",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/corporation/:corporation_id/mining/observers/:observer_id/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "corporation_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE corporation ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "observer_id",
+                "value": "1001",
+                "type": "path",
+                "description": "A mining observer id"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Which page of results to return"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Paginated record of all mining seen by an observer\n\n\n---\nAlternate route: `/dev/corporation/{corporation_id}/mining/observers/{observer_id}/`\n\nAlternate route: `/legacy/corporation/{corporation_id}/mining/observers/{observer_id}/`\n\nAlternate route: `/v1/corporation/{corporation_id}/mining/observers/{observer_id}/`\n\n---\nThis route is cached for up to 3600 seconds\n\n---\nRequires one of the following EVE corporation role(s): Accountant\n"
+        },
+        {
+          "info": {
+            "name": "EVE Online List Corporation Industry Jobs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/corporations/:corporation_id/industry/jobs/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "corporation_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE corporation ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "include_completed",
+                "value": "false",
+                "type": "query",
+                "description": "Whether to retrieve completed corporation industry jobs. Only includes jobs from the past 90 days"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Which page of results to return"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "List industry jobs run by a corporation\n\n---\nAlternate route: `/dev/corporations/{corporation_id}/industry/jobs/`\n\nAlternate route: `/legacy/corporations/{corporation_id}/industry/jobs/`\n\nAlternate route: `/v1/corporations/{corporation_id}/industry/jobs/`\n\n---\nThis route is cached for up to 300 seconds\n\n---\nRequires one of the following EVE corporation role(s): Factory_Manager\n"
+        },
+        {
+          "info": {
+            "name": "EVE Online List Industry Facilities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/industry/facilities/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Return a list of industry facilities\n\n---\nAlternate route: `/dev/industry/facilities/`\n\nAlternate route: `/legacy/industry/facilities/`\n\nAlternate route: `/v1/industry/facilities/`\n\n---\nThis route is cached for up to 3600 seconds"
+        },
+        {
+          "info": {
+            "name": "EVE Online List Solar System Cost Indices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/industry/systems/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Return cost indices for solar systems\n\n---\nAlternate route: `/dev/industry/systems/`\n\nAlternate route: `/legacy/industry/systems/`\n\nAlternate route: `/v1/industry/systems/`\n\n---\nThis route is cached for up to 3600 seconds"
+        },
+        {
+          "info": {
+            "name": "List character industry jobs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/characters/:character_id/industry/jobs/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "include_completed",
+                "value": "",
+                "type": "query",
+                "description": "Whether to retrieve completed character industry jobs. Only includes jobs from the past 90 days"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "List industry jobs placed by a character\n\n---\n\nThis route is cached for up to 300 seconds"
+        },
+        {
+          "info": {
+            "name": "Character mining ledger",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/characters/:character_id/mining/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Which page of results to return"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Paginated record of all mining done by a character for the past 30 days\n\n---\n\nThis route is cached for up to 600 seconds"
+        },
+        {
+          "info": {
+            "name": "Moon extraction timers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/corporation/:corporation_id/mining/extractions/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "corporation_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE corporation ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Which page of results to return"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Extraction timers for all moon chunks being extracted by refineries belonging to a corporation.\n\n---\n\nThis route is cached for up to 1800 seconds\n\n---\nRequires one of the following EVE corporation role(s): Station_Manager"
+        },
+        {
+          "info": {
+            "name": "Corporation mining observers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/corporation/:corporation_id/mining/observers/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "corporation_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE corporation ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Which page of results to return"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Paginated list of all entities capable of observing and recording mining for a corporation\n\n---\n\nThis route is cached for up to 3600 seconds\n\n---\nRequires one of the following EVE corporation role(s): Accountant"
+        },
+        {
+          "info": {
+            "name": "Observed corporation mining",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/corporation/:corporation_id/mining/observers/:observer_id/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "corporation_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE corporation ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "observer_id",
+                "value": "",
+                "type": "path",
+                "description": "A mining observer id"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Which page of results to return"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Paginated record of all mining seen by an observer\n\n---\n\nThis route is cached for up to 3600 seconds\n\n---\nRequires one of the following EVE corporation role(s): Accountant"
+        },
+        {
+          "info": {
+            "name": "List corporation industry jobs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/corporations/:corporation_id/industry/jobs/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "corporation_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE corporation ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "include_completed",
+                "value": "",
+                "type": "query",
+                "description": "Whether to retrieve completed corporation industry jobs. Only includes jobs from the past 90 days"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Which page of results to return"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "List industry jobs run by a corporation\n\n---\n\nThis route is cached for up to 300 seconds\n\n---\nRequires one of the following EVE corporation role(s): Factory_Manager"
+        },
+        {
+          "info": {
+            "name": "List industry facilities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/industry/facilities/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Return a list of industry facilities\n\n---\n\nThis route is cached for up to 3600 seconds"
+        },
+        {
+          "info": {
+            "name": "List solar system cost indices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/industry/systems/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Return cost indices for solar systems\n\n---\n\nThis route is cached for up to 3600 seconds"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

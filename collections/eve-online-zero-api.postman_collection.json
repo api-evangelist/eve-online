@@ -1,0 +1,101 @@
+{
+  "item": [
+    {
+      "id": "66ef2d4c-384b-44b7-ad78-961cced5ae26",
+      "name": "Zero",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a10b1e99-ad18-4261-90a4-c19d4d516a30",
+          "name": "/zero",
+          "request": {
+            "name": "/zero",
+            "description": {},
+            "url": {
+              "path": [
+                "zero"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "description": {
+                    "content": "(Required)  (This can only be one of 0,1)",
+                    "type": "text/plain"
+                  },
+                  "key": "one",
+                  "value": ""
+                }
+              ],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c699a516-7d59-4f2b-b308-003c50dab4e3",
+              "name": "response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "zero"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "one",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://esi.evetech.net/latest",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "e9df0235-3dee-4656-b037-6a2b05d2c3eb",
+    "name": "EVE Swagger Interface Alliance Zero API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "An OpenAPI for EVE Online",
+      "type": "text/plain"
+    }
+  }
+}

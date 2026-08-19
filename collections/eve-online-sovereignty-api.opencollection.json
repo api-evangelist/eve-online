@@ -1,0 +1,168 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EVE Swagger Interface Alliance Sovereignty API",
+    "version": "1.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Sovereignty",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "EVE Online List Sovereignty Campaigns",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/sovereignty/campaigns/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Shows sovereignty data for campaigns.\n\n---\nAlternate route: `/dev/sovereignty/campaigns/`\n\nAlternate route: `/legacy/sovereignty/campaigns/`\n\nAlternate route: `/v1/sovereignty/campaigns/`\n\n---\nThis route is cached for up to 5 seconds"
+        },
+        {
+          "info": {
+            "name": "EVE Online List Sovereignty of Systems",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/sovereignty/map/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Shows sovereignty information for solar systems\n\n---\nAlternate route: `/dev/sovereignty/map/`\n\nAlternate route: `/legacy/sovereignty/map/`\n\nAlternate route: `/v1/sovereignty/map/`\n\n---\nThis route is cached for up to 3600 seconds"
+        },
+        {
+          "info": {
+            "name": "EVE Online List Sovereignty Structures",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/sovereignty/structures/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Shows sovereignty data for structures.\n\n---\nAlternate route: `/dev/sovereignty/structures/`\n\nAlternate route: `/legacy/sovereignty/structures/`\n\nAlternate route: `/v1/sovereignty/structures/`\n\n---\nThis route is cached for up to 120 seconds"
+        },
+        {
+          "info": {
+            "name": "List sovereignty campaigns",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/sovereignty/campaigns/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Shows sovereignty data for campaigns.\n\n---\n\nThis route is cached for up to 5 seconds"
+        },
+        {
+          "info": {
+            "name": "List sovereignty of systems",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/sovereignty/map/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Shows sovereignty information for solar systems\n\n---\n\nThis route is cached for up to 3600 seconds"
+        },
+        {
+          "info": {
+            "name": "List sovereignty structures",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/sovereignty/structures/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Shows sovereignty data for structures.\n\n---\n\nThis route is cached for up to 120 seconds"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

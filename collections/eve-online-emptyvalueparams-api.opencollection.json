@@ -1,0 +1,55 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EVE Swagger Interface Alliance EmptyValueParams API",
+    "version": "1.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "EmptyValueParams",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GET /emptyValueParams",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/emptyValueParams",
+            "params": [
+              {
+                "name": "int",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "str",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "num",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "bool",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "arr",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

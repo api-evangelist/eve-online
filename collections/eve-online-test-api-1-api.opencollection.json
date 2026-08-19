@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EVE Swagger Interface Alliance Test Api 1 API",
+    "version": "1.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Test Api 1",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Api 1",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/test-api-1"
+          },
+          "docs": "Api 1"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

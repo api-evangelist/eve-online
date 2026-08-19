@@ -1,0 +1,498 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EVE Swagger Interface Alliance Faction Warfare API",
+    "version": "1.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Faction Warfare",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "EVE Online Overview of a Character Involved in Faction Warfare",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/characters/:character_id/fw/stats/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Statistical overview of a character involved in faction warfare\n\n---\nAlternate route: `/dev/characters/{character_id}/fw/stats/`\n\nAlternate route: `/legacy/characters/{character_id}/fw/stats/`\n\nAlternate route: `/v1/characters/{character_id}/fw/stats/`\n\nAlternate route: `/v2/characters/{character_id}/fw/stats/`\n\n---\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "EVE Online Overview of a Corporation Involved in Faction Warfare",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/corporations/:corporation_id/fw/stats/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "corporation_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE corporation ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Statistics about a corporation involved in faction warfare\n\n---\nAlternate route: `/dev/corporations/{corporation_id}/fw/stats/`\n\nAlternate route: `/legacy/corporations/{corporation_id}/fw/stats/`\n\nAlternate route: `/v1/corporations/{corporation_id}/fw/stats/`\n\nAlternate route: `/v2/corporations/{corporation_id}/fw/stats/`\n\n---\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "EVE Online List of the Top Factions in Faction Warfare",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/fw/leaderboards/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Top 4 leaderboard of factions for kills and victory points separated by total, last week and yesterday\n\n---\nAlternate route: `/dev/fw/leaderboards/`\n\nAlternate route: `/legacy/fw/leaderboards/`\n\nAlternate route: `/v1/fw/leaderboards/`\n\nAlternate route: `/v2/fw/leaderboards/`\n\n---\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "EVE Online List of the Top Pilots in Faction Warfare",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/fw/leaderboards/characters/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Top 100 leaderboard of pilots for kills and victory points separated by total, last week and yesterday\n\n---\nAlternate route: `/dev/fw/leaderboards/characters/`\n\nAlternate route: `/legacy/fw/leaderboards/characters/`\n\nAlternate route: `/v1/fw/leaderboards/characters/`\n\nAlternate route: `/v2/fw/leaderboards/characters/`\n\n---\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "EVE Online List of the Top Corporations in Faction Warfare",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/fw/leaderboards/corporations/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Top 10 leaderboard of corporations for kills and victory points separated by total, last week and yesterday\n\n---\nAlternate route: `/dev/fw/leaderboards/corporations/`\n\nAlternate route: `/legacy/fw/leaderboards/corporations/`\n\nAlternate route: `/v1/fw/leaderboards/corporations/`\n\nAlternate route: `/v2/fw/leaderboards/corporations/`\n\n---\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "EVE Online An Overview of Statistics About Factions Involved in Faction Warfare",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/fw/stats/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Statistical overviews of factions involved in faction warfare\n\n---\nAlternate route: `/dev/fw/stats/`\n\nAlternate route: `/legacy/fw/stats/`\n\nAlternate route: `/v1/fw/stats/`\n\nAlternate route: `/v2/fw/stats/`\n\n---\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "EVE Online Ownership of Faction Warfare Systems",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/fw/systems/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "An overview of the current ownership of faction warfare solar systems\n\n---\nAlternate route: `/dev/fw/systems/`\n\nAlternate route: `/legacy/fw/systems/`\n\nAlternate route: `/v2/fw/systems/`\n\nAlternate route: `/v3/fw/systems/`\n\n---\nThis route is cached for up to 1800 seconds"
+        },
+        {
+          "info": {
+            "name": "EVE Online Data About Which NPC Factions Are at War",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/fw/wars/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Data about which NPC factions are at war\n\n---\nAlternate route: `/dev/fw/wars/`\n\nAlternate route: `/legacy/fw/wars/`\n\nAlternate route: `/v1/fw/wars/`\n\nAlternate route: `/v2/fw/wars/`\n\n---\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "Overview of a character involved in faction warfare",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/characters/:character_id/fw/stats/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Statistical overview of a character involved in faction warfare\n\n---\n\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "Overview of a corporation involved in faction warfare",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/corporations/:corporation_id/fw/stats/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "corporation_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE corporation ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Statistics about a corporation involved in faction warfare\n\n---\n\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "List of the top factions in faction warfare",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/fw/leaderboards/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Top 4 leaderboard of factions for kills and victory points separated by total, last week and yesterday\n\n---\n\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "List of the top pilots in faction warfare",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/fw/leaderboards/characters/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Top 100 leaderboard of pilots for kills and victory points separated by total, last week and yesterday\n\n---\n\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "List of the top corporations in faction warfare",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/fw/leaderboards/corporations/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Top 10 leaderboard of corporations for kills and victory points separated by total, last week and yesterday\n\n---\n\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "An overview of statistics about factions involved in faction warfare",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/fw/stats/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Statistical overviews of factions involved in faction warfare\n\n---\n\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "Data about which NPC factions are at war",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/fw/wars/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Data about which NPC factions are at war\n\n---\n\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "Ownership of faction warfare systems",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v2/fw/systems/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "An overview of the current ownership of faction warfare solar systems\n\n---\n\nThis route is cached for up to 1800 seconds"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,59 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EVE Swagger Interface Alliance One API",
+    "version": "1.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "One",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "POST /one",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://esi.evetech.net/latest/one",
+            "params": [
+              {
+                "name": "one",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "PUT /one",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://esi.evetech.net/latest/one",
+            "params": [
+              {
+                "name": "NotValidParam",
+                "value": "12345",
+                "type": "query",
+                "description": "This example **should not** have an effect"
+              },
+              {
+                "name": "ValidParam",
+                "value": "",
+                "type": "query",
+                "description": "This example **should** have an effect"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

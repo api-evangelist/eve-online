@@ -1,0 +1,630 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EVE Swagger Interface Alliance Wallet API",
+    "version": "1.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Wallet",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "EVE Online Get a Character's Wallet Balance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/characters/:character_id/wallet/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Returns a character's wallet balance\n\n---\nAlternate route: `/legacy/characters/{character_id}/wallet/`\n\nAlternate route: `/v1/characters/{character_id}/wallet/`\n\n---\nThis route is cached for up to 120 seconds\n\n---\n[Diff of the upcoming changes](https://esi.evetech.net/diff/latest/dev/#GET-/characters/{character_id}/wallet/)"
+        },
+        {
+          "info": {
+            "name": "EVE Online Get Character Wallet Journal",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/characters/:character_id/wallet/journal/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Which page of results to return"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Retrieve the given character's wallet journal going 30 days back\n\n---\nAlternate route: `/dev/characters/{character_id}/wallet/journal/`\n\nAlternate route: `/legacy/characters/{character_id}/wallet/journal/`\n\nAlternate route: `/v5/characters/{character_id}/wallet/journal/`\n\nAlternate route: `/v6/characters/{character_id}/wallet/journal/`\n\n---\nThis route is cached for up to 3600 seconds"
+        },
+        {
+          "info": {
+            "name": "EVE Online Get Wallet Transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/characters/:character_id/wallet/transactions/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "from_id",
+                "value": "1001",
+                "type": "query",
+                "description": "Only show transactions happened before the one referenced by this id"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Get wallet transactions of a character\n\n---\nAlternate route: `/dev/characters/{character_id}/wallet/transactions/`\n\nAlternate route: `/legacy/characters/{character_id}/wallet/transactions/`\n\nAlternate route: `/v1/characters/{character_id}/wallet/transactions/`\n\n---\nThis route is cached for up to 3600 seconds"
+        },
+        {
+          "info": {
+            "name": "EVE Online Returns a Corporation's Wallet Balance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/corporations/:corporation_id/wallets/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "corporation_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE corporation ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Get a corporation's wallets\n\n---\nAlternate route: `/dev/corporations/{corporation_id}/wallets/`\n\nAlternate route: `/legacy/corporations/{corporation_id}/wallets/`\n\nAlternate route: `/v1/corporations/{corporation_id}/wallets/`\n\n---\nThis route is cached for up to 300 seconds\n\n---\nRequires one of the following EVE corporation role(s): Accountant, Junior_Accountant\n"
+        },
+        {
+          "info": {
+            "name": "EVE Online Get Corporation Wallet Journal",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/corporations/:corporation_id/wallets/:division/journal/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "corporation_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE corporation ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "division",
+                "value": "1",
+                "type": "path",
+                "description": "Wallet key of the division to fetch journals from"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Which page of results to return"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Retrieve the given corporation's wallet journal for the given division going 30 days back\n\n---\nAlternate route: `/dev/corporations/{corporation_id}/wallets/{division}/journal/`\n\nAlternate route: `/legacy/corporations/{corporation_id}/wallets/{division}/journal/`\n\nAlternate route: `/v3/corporations/{corporation_id}/wallets/{division}/journal/`\n\nAlternate route: `/v4/corporations/{corporation_id}/wallets/{division}/journal/`\n\n---\nThis route is cached for up to 3600 seconds\n\n---\nRequires one of the"
+        },
+        {
+          "info": {
+            "name": "EVE Online Get Corporation Wallet Transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/corporations/:corporation_id/wallets/:division/transactions/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "corporation_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE corporation ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "division",
+                "value": "1",
+                "type": "path",
+                "description": "Wallet key of the division to fetch journals from"
+              },
+              {
+                "name": "from_id",
+                "value": "1001",
+                "type": "query",
+                "description": "Only show journal entries happened before the transaction referenced by this id"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Get wallet transactions of a corporation\n\n---\nAlternate route: `/dev/corporations/{corporation_id}/wallets/{division}/transactions/`\n\nAlternate route: `/legacy/corporations/{corporation_id}/wallets/{division}/transactions/`\n\nAlternate route: `/v1/corporations/{corporation_id}/wallets/{division}/transactions/`\n\n---\nThis route is cached for up to 3600 seconds\n\n---\nRequires one of the following EVE corporation role(s): Accountant, Junior_Accountant\n"
+        },
+        {
+          "info": {
+            "name": "Get wallet transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/characters/:character_id/wallet/transactions/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "from_id",
+                "value": "",
+                "type": "query",
+                "description": "Only show transactions happened before the one referenced by this id"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Get wallet transactions of a character\n\n---\n\nThis route is cached for up to 3600 seconds"
+        },
+        {
+          "info": {
+            "name": "Returns a corporation's wallet balance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/corporations/:corporation_id/wallets/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "corporation_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE corporation ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Get a corporation's wallets\n\n---\n\nThis route is cached for up to 300 seconds\n\n---\nRequires one of the following EVE corporation role(s): Accountant, Junior_Accountant"
+        },
+        {
+          "info": {
+            "name": "Get corporation wallet transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/corporations/:corporation_id/wallets/:division/transactions/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "corporation_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE corporation ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "division",
+                "value": "",
+                "type": "path",
+                "description": "Wallet key of the division to fetch journals from"
+              },
+              {
+                "name": "from_id",
+                "value": "",
+                "type": "query",
+                "description": "Only show journal entries happened before the transaction referenced by this id"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Get wallet transactions of a corporation\n\n---\n\nThis route is cached for up to 3600 seconds\n\n---\nRequires one of the following EVE corporation role(s): Accountant, Junior_Accountant"
+        },
+        {
+          "info": {
+            "name": "Get corporation wallet journal",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v3/corporations/:corporation_id/wallets/:division/journal/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "corporation_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE corporation ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "division",
+                "value": "",
+                "type": "path",
+                "description": "Wallet key of the division to fetch journals from"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Which page of results to return"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Retrieve the given corporation's wallet journal for the given division going 30 days back\n\n---\n\nThis route is cached for up to 3600 seconds\n\n---\nRequires one of the following EVE corporation role(s): Accountant, Junior_Accountant"
+        },
+        {
+          "info": {
+            "name": "Get character wallet journal",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v5/characters/:character_id/wallet/journal/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Which page of results to return"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Retrieve the given character's wallet journal going 30 days back\n\n---\n\nThis route is cached for up to 3600 seconds"
+        },
+        {
+          "info": {
+            "name": "Get a character's wallet balance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/characters/:character_id/wallet/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Returns a character's wallet balance\n\n---\n\nThis route is cached for up to 120 seconds\n\n---\n[Diff of the upcoming changes](https://esi.evetech.net/diff/latest/dev/#GET-/characters/{character_id}/wallet/)"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

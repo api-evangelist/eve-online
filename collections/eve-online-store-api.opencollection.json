@@ -1,0 +1,78 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EVE Swagger Interface Alliance store API",
+    "version": "1.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "store",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Returns pet inventories by status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/store/inventory"
+          },
+          "docs": "Returns a map of status codes to quantities"
+        },
+        {
+          "info": {
+            "name": "Place an order for a pet",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://esi.evetech.net/latest/store/order"
+          },
+          "docs": "Place an order for a pet"
+        },
+        {
+          "info": {
+            "name": "Find purchase order by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/store/order/:orderId",
+            "params": [
+              {
+                "name": "orderId",
+                "value": "",
+                "type": "path",
+                "description": "ID of pet that needs to be fetched"
+              }
+            ]
+          },
+          "docs": "For valid response try integer IDs with value >= 1 and <= 10. Other values will generated exceptions"
+        },
+        {
+          "info": {
+            "name": "Delete purchase order by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://esi.evetech.net/latest/store/order/:orderId",
+            "params": [
+              {
+                "name": "orderId",
+                "value": "",
+                "type": "path",
+                "description": "ID of the order that needs to be deleted"
+              }
+            ]
+          },
+          "docs": "For valid response try integer IDs with positive integer value. Negative or non-integer values will generate API errors"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

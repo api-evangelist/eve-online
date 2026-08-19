@@ -1,0 +1,316 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EVE Swagger Interface Alliance Dogma API",
+    "version": "1.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Dogma",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "EVE Online Get Attributes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/dogma/attributes/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Get a list of dogma attribute ids\n\n---\nAlternate route: `/dev/dogma/attributes/`\n\nAlternate route: `/legacy/dogma/attributes/`\n\nAlternate route: `/v1/dogma/attributes/`\n\n---\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "EVE Online Get Attribute Information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/dogma/attributes/:attribute_id/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "attribute_id",
+                "value": "1001",
+                "type": "path",
+                "description": "A dogma attribute ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Get information on a dogma attribute\n\n---\nAlternate route: `/dev/dogma/attributes/{attribute_id}/`\n\nAlternate route: `/legacy/dogma/attributes/{attribute_id}/`\n\nAlternate route: `/v1/dogma/attributes/{attribute_id}/`\n\n---\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "EVE Online Get Dynamic Item Information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/dogma/dynamic/items/:type_id/:item_id/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "item_id",
+                "value": "1001",
+                "type": "path",
+                "description": "item_id integer"
+              },
+              {
+                "name": "type_id",
+                "value": "587",
+                "type": "path",
+                "description": "type_id integer"
+              }
+            ]
+          },
+          "docs": "Returns info about a dynamic item resulting from mutation with a mutaplasmid.\n\n---\nAlternate route: `/dev/dogma/dynamic/items/{type_id}/{item_id}/`\n\nAlternate route: `/legacy/dogma/dynamic/items/{type_id}/{item_id}/`\n\nAlternate route: `/v1/dogma/dynamic/items/{type_id}/{item_id}/`\n\n---\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "EVE Online Get Effects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/dogma/effects/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Get a list of dogma effect ids\n\n---\nAlternate route: `/dev/dogma/effects/`\n\nAlternate route: `/legacy/dogma/effects/`\n\nAlternate route: `/v1/dogma/effects/`\n\n---\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "EVE Online Get Effect Information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/dogma/effects/:effect_id/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "effect_id",
+                "value": "1001",
+                "type": "path",
+                "description": "A dogma effect ID"
+              }
+            ]
+          },
+          "docs": "Get information on a dogma effect\n\n---\nAlternate route: `/dev/dogma/effects/{effect_id}/`\n\nAlternate route: `/v2/dogma/effects/{effect_id}/`\n\n---\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "Get attributes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/dogma/attributes/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Get a list of dogma attribute ids\n\n---\n\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "Get attribute information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/dogma/attributes/:attribute_id/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "attribute_id",
+                "value": "",
+                "type": "path",
+                "description": "A dogma attribute ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Get information on a dogma attribute\n\n---\n\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "Get dynamic item information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/dogma/dynamic/items/:type_id/:item_id/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "item_id",
+                "value": "",
+                "type": "path",
+                "description": "item_id integer"
+              },
+              {
+                "name": "type_id",
+                "value": "",
+                "type": "path",
+                "description": "type_id integer"
+              }
+            ]
+          },
+          "docs": "Returns info about a dynamic item resulting from mutation with a mutaplasmid.\n\n---\n\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "Get effects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/dogma/effects/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Get a list of dogma effect ids\n\n---\n\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "Get effect information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v2/dogma/effects/:effect_id/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "effect_id",
+                "value": "",
+                "type": "path",
+                "description": "A dogma effect ID"
+              }
+            ]
+          },
+          "docs": "Get information on a dogma effect\n\n---\n\nThis route expires daily at 11:05"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

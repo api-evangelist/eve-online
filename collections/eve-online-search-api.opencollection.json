@@ -1,0 +1,164 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EVE Swagger Interface Alliance Search API",
+    "version": "1.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "EVE Online Search on a String",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/characters/:character_id/search/",
+            "headers": [
+              {
+                "name": "Accept-Language",
+                "value": ""
+              },
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "categories",
+                "value": "agent",
+                "type": "query",
+                "description": "Type of entities to search for"
+              },
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language to use in the response, takes precedence over Accept-Language"
+              },
+              {
+                "name": "search",
+                "value": "example",
+                "type": "query",
+                "description": "The string to search on"
+              },
+              {
+                "name": "strict",
+                "value": "false",
+                "type": "query",
+                "description": "Whether the search should be a strict match"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Search for entities that match a given sub-string.\n\n---\nAlternate route: `/dev/characters/{character_id}/search/`\n\nAlternate route: `/legacy/characters/{character_id}/search/`\n\nAlternate route: `/v3/characters/{character_id}/search/`\n\n---\nThis route is cached for up to 3600 seconds"
+        },
+        {
+          "info": {
+            "name": "Search on a string",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v3/characters/:character_id/search/",
+            "headers": [
+              {
+                "name": "Accept-Language",
+                "value": ""
+              },
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "categories",
+                "value": "",
+                "type": "query",
+                "description": "Type of entities to search for"
+              },
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language to use in the response, takes precedence over Accept-Language"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "The string to search on"
+              },
+              {
+                "name": "strict",
+                "value": "",
+                "type": "query",
+                "description": "Whether the search should be a strict match"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Search for entities that match a given sub-string.\n\n---\n\nThis route is cached for up to 3600 seconds"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

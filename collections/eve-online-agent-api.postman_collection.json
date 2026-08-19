@@ -1,0 +1,222 @@
+{
+  "item": [
+    {
+      "id": "2205d6ee-67e2-4369-9560-37e6f4351437",
+      "name": "agent",
+      "description": {
+        "content": "Access to example",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1b499d80-f39f-471a-983c-de6a5acb100e",
+          "name": "Edit agent",
+          "request": {
+            "name": "Edit agent",
+            "description": {},
+            "url": {
+              "path": [
+                "agents",
+                ":agentId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "agentId",
+                  "description": "(Required) Numeric ID of the paper agent to edit"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json_media-type-level"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"code\": \"<string>\",\n  \"name\": \"<string>\"\n}"
+            }
+          },
+          "response": [
+            {
+              "id": "13b38da0-36d8-4a63-8873-aaa1a671e4e1",
+              "name": "media type-level example",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "agents",
+                    ":agentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "agentId",
+                      "description": "(Required) Numeric ID of the paper agent to edit"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"code\": \"AE1\",\n  \"name\": \"Andrew\"\n}"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 200,\n  \"payload\": [\n    {\n      \"id\": 1,\n      \"code\": \"AE2\",\n      \"name\": \"Yono\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4e9ab02c-7a56-45c4-acbf-bcd786935d3b",
+              "name": "schema-level example",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "agents",
+                    ":agentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "agentId",
+                      "description": "(Required) Numeric ID of the paper agent to edit"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"code\": \"AE1\",\n  \"name\": \"Andrew\"\n}"
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 201,\n  \"payload\": [\n    {\n      \"id\": 1,\n      \"code\": \"AE2\",\n      \"name\": \"Yono\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1acb44c4-46d3-4bf7-80d5-8b6be42a674c",
+              "name": "property-level example",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "agents",
+                    ":agentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "agentId",
+                      "description": "(Required) Numeric ID of the paper agent to edit"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"code\": \"AE1\",\n  \"name\": \"Andrew\"\n}"
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 202,\n  \"payload\": [\n    {\n      \"id\": 1,\n      \"code\": \"AE2\",\n      \"name\": \"Yono\"\n    },\n    {\n      \"id\": 1,\n      \"code\": \"AE2\",\n      \"name\": \"Yono\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://esi.evetech.net/latest",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "312d67a8-b1a0-45d6-9b4c-2bff0e314c58",
+    "name": "EVE Swagger Interface Alliance agent API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "An OpenAPI for EVE Online",
+      "type": "text/plain"
+    }
+  }
+}

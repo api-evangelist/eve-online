@@ -1,0 +1,68 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EVE Swagger Interface Alliance Status API",
+    "version": "1.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Status",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "EVE Online Retrieve the Uptime and Player Counts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/status/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "EVE Server status\n\n---\nAlternate route: `/dev/status/`\n\nAlternate route: `/legacy/status/`\n\nAlternate route: `/v1/status/`\n\nAlternate route: `/v2/status/`\n\n---\nThis route is cached for up to 30 seconds"
+        },
+        {
+          "info": {
+            "name": "Retrieve the uptime and player counts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/status/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "EVE Server status\n\n---\n\nThis route is cached for up to 30 seconds"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

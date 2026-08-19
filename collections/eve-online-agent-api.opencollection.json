@@ -1,0 +1,41 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EVE Swagger Interface Alliance agent API",
+    "version": "1.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "agent",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Edit agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://esi.evetech.net/latest/agents/:agentId",
+            "params": [
+              {
+                "name": "agentId",
+                "value": "12345",
+                "type": "path",
+                "description": "Numeric ID of the paper agent to edit"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Edit agent"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

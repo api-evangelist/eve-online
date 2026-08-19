@@ -1,0 +1,2563 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EVE Swagger Interface Alliance Universe API",
+    "version": "1.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Universe",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "EVE Online Get Ancestries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/universe/ancestries/",
+            "headers": [
+              {
+                "name": "Accept-Language",
+                "value": ""
+              },
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language to use in the response, takes precedence over Accept-Language"
+              }
+            ]
+          },
+          "docs": "Get all character ancestries\n\n---\nAlternate route: `/legacy/universe/ancestries/`\n\nAlternate route: `/v1/universe/ancestries/`\n\n---\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "EVE Online Get Asteroid Belt Information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/universe/asteroid_belts/:asteroid_belt_id/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "asteroid_belt_id",
+                "value": "1001",
+                "type": "path",
+                "description": "asteroid_belt_id integer"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Get information on an asteroid belt\n\n---\nAlternate route: `/legacy/universe/asteroid_belts/{asteroid_belt_id}/`\n\nAlternate route: `/v1/universe/asteroid_belts/{asteroid_belt_id}/`\n\n---\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "EVE Online Get Bloodlines",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/universe/bloodlines/",
+            "headers": [
+              {
+                "name": "Accept-Language",
+                "value": ""
+              },
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language to use in the response, takes precedence over Accept-Language"
+              }
+            ]
+          },
+          "docs": "Get a list of bloodlines\n\n---\nAlternate route: `/legacy/universe/bloodlines/`\n\nAlternate route: `/v1/universe/bloodlines/`\n\n---\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "EVE Online Get Item Categories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/universe/categories/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Get a list of item categories\n\n---\nAlternate route: `/legacy/universe/categories/`\n\nAlternate route: `/v1/universe/categories/`\n\n---\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "EVE Online Get Item Category Information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/universe/categories/:category_id/",
+            "headers": [
+              {
+                "name": "Accept-Language",
+                "value": ""
+              },
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "category_id",
+                "value": "1001",
+                "type": "path",
+                "description": "An Eve item category ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language to use in the response, takes precedence over Accept-Language"
+              }
+            ]
+          },
+          "docs": "Get information of an item category\n\n---\nAlternate route: `/legacy/universe/categories/{category_id}/`\n\nAlternate route: `/v1/universe/categories/{category_id}/`\n\n---\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "EVE Online Get Constellations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/universe/constellations/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Get a list of constellations\n\n---\nAlternate route: `/legacy/universe/constellations/`\n\nAlternate route: `/v1/universe/constellations/`\n\n---\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "EVE Online Get Constellation Information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/universe/constellations/:constellation_id/",
+            "headers": [
+              {
+                "name": "Accept-Language",
+                "value": ""
+              },
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "constellation_id",
+                "value": "20000020",
+                "type": "path",
+                "description": "constellation_id integer"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language to use in the response, takes precedence over Accept-Language"
+              }
+            ]
+          },
+          "docs": "Get information on a constellation\n\n---\nAlternate route: `/legacy/universe/constellations/{constellation_id}/`\n\nAlternate route: `/v1/universe/constellations/{constellation_id}/`\n\n---\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "EVE Online Get Factions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/universe/factions/",
+            "headers": [
+              {
+                "name": "Accept-Language",
+                "value": ""
+              },
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language to use in the response, takes precedence over Accept-Language"
+              }
+            ]
+          },
+          "docs": "Get a list of factions\n\n---\nAlternate route: `/dev/universe/factions/`\n\nAlternate route: `/v2/universe/factions/`\n\n---\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "EVE Online Get Graphics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/universe/graphics/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Get a list of graphics\n\n---\nAlternate route: `/legacy/universe/graphics/`\n\nAlternate route: `/v1/universe/graphics/`\n\n---\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "EVE Online Get Graphic Information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/universe/graphics/:graphic_id/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "graphic_id",
+                "value": "1001",
+                "type": "path",
+                "description": "graphic_id integer"
+              }
+            ]
+          },
+          "docs": "Get information on a graphic\n\n---\nAlternate route: `/dev/universe/graphics/{graphic_id}/`\n\nAlternate route: `/legacy/universe/graphics/{graphic_id}/`\n\nAlternate route: `/v1/universe/graphics/{graphic_id}/`\n\n---\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "EVE Online Get Item Groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/universe/groups/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Which page of results to return"
+              }
+            ]
+          },
+          "docs": "Get a list of item groups\n\n---\nAlternate route: `/legacy/universe/groups/`\n\nAlternate route: `/v1/universe/groups/`\n\n---\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "EVE Online Get Item Group Information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/universe/groups/:group_id/",
+            "headers": [
+              {
+                "name": "Accept-Language",
+                "value": ""
+              },
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "group_id",
+                "value": "1001",
+                "type": "path",
+                "description": "An Eve item group ID"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language to use in the response, takes precedence over Accept-Language"
+              }
+            ]
+          },
+          "docs": "Get information on an item group\n\n---\nAlternate route: `/dev/universe/groups/{group_id}/`\n\nAlternate route: `/legacy/universe/groups/{group_id}/`\n\nAlternate route: `/v1/universe/groups/{group_id}/`\n\n---\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "EVE Online Bulk Names to IDs",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://esi.evetech.net/latest/universe/ids/",
+            "headers": [
+              {
+                "name": "Accept-Language",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language to use in the response, takes precedence over Accept-Language"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Resolve a set of names to IDs in the following categories: agents, alliances, characters, constellations, corporations factions, inventory_types, regions, stations, and systems. Only exact matches will be returned. All names searched for are cached for 12 hours\n\n---\nAlternate route: `/dev/universe/ids/`\n\nAlternate route: `/legacy/universe/ids/`\n\nAlternate route: `/v1/universe/ids/`\n"
+        },
+        {
+          "info": {
+            "name": "EVE Online Get Moon Information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/universe/moons/:moon_id/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "moon_id",
+                "value": "1001",
+                "type": "path",
+                "description": "moon_id integer"
+              }
+            ]
+          },
+          "docs": "Get information on a moon\n\n---\nAlternate route: `/legacy/universe/moons/{moon_id}/`\n\nAlternate route: `/v1/universe/moons/{moon_id}/`\n\n---\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "EVE Online Get Names and Categories for a Set of IDs",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://esi.evetech.net/latest/universe/names/",
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Resolve a set of IDs to names and categories. Supported ID's for resolving are: Characters, Corporations, Alliances, Stations, Solar Systems, Constellations, Regions, Types, Factions\n\n---\nAlternate route: `/dev/universe/names/`\n\nAlternate route: `/legacy/universe/names/`\n\nAlternate route: `/v2/universe/names/`\n\nAlternate route: `/v3/universe/names/`\n"
+        },
+        {
+          "info": {
+            "name": "EVE Online Get Planet Information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/universe/planets/:planet_id/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "planet_id",
+                "value": "1001",
+                "type": "path",
+                "description": "planet_id integer"
+              }
+            ]
+          },
+          "docs": "Get information on a planet\n\n---\nAlternate route: `/legacy/universe/planets/{planet_id}/`\n\nAlternate route: `/v1/universe/planets/{planet_id}/`\n\n---\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "EVE Online Get Character Races",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/universe/races/",
+            "headers": [
+              {
+                "name": "Accept-Language",
+                "value": ""
+              },
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language to use in the response, takes precedence over Accept-Language"
+              }
+            ]
+          },
+          "docs": "Get a list of character races\n\n---\nAlternate route: `/dev/universe/races/`\n\nAlternate route: `/legacy/universe/races/`\n\nAlternate route: `/v1/universe/races/`\n\n---\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "EVE Online Get Regions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/universe/regions/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Get a list of regions\n\n---\nAlternate route: `/legacy/universe/regions/`\n\nAlternate route: `/v1/universe/regions/`\n\n---\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "EVE Online Get Region Information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/universe/regions/:region_id/",
+            "headers": [
+              {
+                "name": "Accept-Language",
+                "value": ""
+              },
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language to use in the response, takes precedence over Accept-Language"
+              },
+              {
+                "name": "region_id",
+                "value": "10000002",
+                "type": "path",
+                "description": "region_id integer"
+              }
+            ]
+          },
+          "docs": "Get information on a region\n\n---\nAlternate route: `/legacy/universe/regions/{region_id}/`\n\nAlternate route: `/v1/universe/regions/{region_id}/`\n\n---\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "EVE Online Get Stargate Information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/universe/stargates/:stargate_id/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "stargate_id",
+                "value": "1001",
+                "type": "path",
+                "description": "stargate_id integer"
+              }
+            ]
+          },
+          "docs": "Get information on a stargate\n\n---\nAlternate route: `/legacy/universe/stargates/{stargate_id}/`\n\nAlternate route: `/v1/universe/stargates/{stargate_id}/`\n\n---\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "EVE Online Get Star Information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/universe/stars/:star_id/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "star_id",
+                "value": "1001",
+                "type": "path",
+                "description": "star_id integer"
+              }
+            ]
+          },
+          "docs": "Get information on a star\n\n---\nAlternate route: `/legacy/universe/stars/{star_id}/`\n\nAlternate route: `/v1/universe/stars/{star_id}/`\n\n---\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "EVE Online Get Station Information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/universe/stations/:station_id/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "station_id",
+                "value": "60003760",
+                "type": "path",
+                "description": "station_id integer"
+              }
+            ]
+          },
+          "docs": "Get information on a station\n\n---\nAlternate route: `/dev/universe/stations/{station_id}/`\n\nAlternate route: `/v2/universe/stations/{station_id}/`\n\n---\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "EVE Online List All Public Structures",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/universe/structures/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "filter",
+                "value": "market",
+                "type": "query",
+                "description": "Only list public structures that have this service online"
+              }
+            ]
+          },
+          "docs": "List all public structures\n\n---\nAlternate route: `/dev/universe/structures/`\n\nAlternate route: `/legacy/universe/structures/`\n\nAlternate route: `/v1/universe/structures/`\n\n---\nThis route is cached for up to 3600 seconds"
+        },
+        {
+          "info": {
+            "name": "EVE Online Get Structure Information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/universe/structures/:structure_id/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "structure_id",
+                "value": "1023774736901",
+                "type": "path",
+                "description": "An Eve structure ID"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Returns information on requested structure if you are on the ACL. Otherwise, returns \"Forbidden\" for all inputs.\n\n---\nAlternate route: `/legacy/universe/structures/{structure_id}/`\n\nAlternate route: `/v1/universe/structures/{structure_id}/`\n\nAlternate route: `/v2/universe/structures/{structure_id}/`\n\n---\nThis route is cached for up to 3600 seconds"
+        },
+        {
+          "info": {
+            "name": "EVE Online Get System Jumps",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/universe/system_jumps/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Get the number of jumps in solar systems within the last hour ending at the timestamp of the Last-Modified header, excluding wormhole space. Only systems with jumps will be listed\n\n---\nAlternate route: `/legacy/universe/system_jumps/`\n\nAlternate route: `/v1/universe/system_jumps/`\n\n---\nThis route is cached for up to 3600 seconds"
+        },
+        {
+          "info": {
+            "name": "EVE Online Get System Kills",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/universe/system_kills/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Get the number of ship, pod and NPC kills per solar system within the last hour ending at the timestamp of the Last-Modified header, excluding wormhole space. Only systems with kills will be listed\n\n---\nAlternate route: `/v2/universe/system_kills/`\n\n---\nThis route is cached for up to 3600 seconds"
+        },
+        {
+          "info": {
+            "name": "EVE Online Get Solar Systems",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/universe/systems/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Get a list of solar systems\n\n---\nAlternate route: `/dev/universe/systems/`\n\nAlternate route: `/legacy/universe/systems/`\n\nAlternate route: `/v1/universe/systems/`\n\n---\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "EVE Online Get Solar System Information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/universe/systems/:system_id/",
+            "headers": [
+              {
+                "name": "Accept-Language",
+                "value": ""
+              },
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language to use in the response, takes precedence over Accept-Language"
+              },
+              {
+                "name": "system_id",
+                "value": "30000142",
+                "type": "path",
+                "description": "system_id integer"
+              }
+            ]
+          },
+          "docs": "Get information on a solar system.\n\n---\nAlternate route: `/dev/universe/systems/{system_id}/`\n\nAlternate route: `/v4/universe/systems/{system_id}/`\n\n---\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "EVE Online Get Types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/universe/types/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Which page of results to return"
+              }
+            ]
+          },
+          "docs": "Get a list of type ids\n\n---\nAlternate route: `/legacy/universe/types/`\n\nAlternate route: `/v1/universe/types/`\n\n---\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "EVE Online Get Type Information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/universe/types/:type_id/",
+            "headers": [
+              {
+                "name": "Accept-Language",
+                "value": ""
+              },
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language to use in the response, takes precedence over Accept-Language"
+              },
+              {
+                "name": "type_id",
+                "value": "587",
+                "type": "path",
+                "description": "An Eve item type ID"
+              }
+            ]
+          },
+          "docs": "Get information on a type\n\n---\nAlternate route: `/dev/universe/types/{type_id}/`\n\nAlternate route: `/legacy/universe/types/{type_id}/`\n\nAlternate route: `/v2/universe/types/{type_id}/`\n\nAlternate route: `/v3/universe/types/{type_id}/`\n\n---\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "Get graphic information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/universe/graphics/:graphic_id/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "graphic_id",
+                "value": "",
+                "type": "path",
+                "description": "graphic_id integer"
+              }
+            ]
+          },
+          "docs": "Get information on a graphic\n\n---\n\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "Get item group information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/universe/groups/:group_id/",
+            "headers": [
+              {
+                "name": "Accept-Language",
+                "value": ""
+              },
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "group_id",
+                "value": "",
+                "type": "path",
+                "description": "An Eve item group ID"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language to use in the response, takes precedence over Accept-Language"
+              }
+            ]
+          },
+          "docs": "Get information on an item group\n\n---\n\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "Bulk names to IDs",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://esi.evetech.net/latest/v1/universe/ids/",
+            "headers": [
+              {
+                "name": "Accept-Language",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language to use in the response, takes precedence over Accept-Language"
+              }
+            ]
+          },
+          "docs": "Resolve a set of names to IDs in the following categories: agents, alliances, characters, constellations, corporations factions, inventory_types, regions, stations, and systems. Only exact matches will be returned. All names searched for are cached for 12 hours\n\n---\n"
+        },
+        {
+          "info": {
+            "name": "Get character races",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/universe/races/",
+            "headers": [
+              {
+                "name": "Accept-Language",
+                "value": ""
+              },
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language to use in the response, takes precedence over Accept-Language"
+              }
+            ]
+          },
+          "docs": "Get a list of character races\n\n---\n\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "List all public structures",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/universe/structures/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "Only list public structures that have this service online"
+              }
+            ]
+          },
+          "docs": "List all public structures\n\n---\n\nThis route is cached for up to 3600 seconds"
+        },
+        {
+          "info": {
+            "name": "Get solar systems",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/universe/systems/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Get a list of solar systems\n\n---\n\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "Get ancestries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v2/universe/ancestries/",
+            "headers": [
+              {
+                "name": "Accept-Language",
+                "value": ""
+              },
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language to use in the response, takes precedence over Accept-Language"
+              }
+            ]
+          },
+          "docs": "Get all character ancestries\n\n---\n\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "Get asteroid belt information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v2/universe/asteroid_belts/:asteroid_belt_id/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "asteroid_belt_id",
+                "value": "",
+                "type": "path",
+                "description": "asteroid_belt_id integer"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Get information on an asteroid belt\n\n---\n\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "Get bloodlines",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v2/universe/bloodlines/",
+            "headers": [
+              {
+                "name": "Accept-Language",
+                "value": ""
+              },
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language to use in the response, takes precedence over Accept-Language"
+              }
+            ]
+          },
+          "docs": "Get a list of bloodlines\n\n---\n\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "Get item categories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v2/universe/categories/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Get a list of item categories\n\n---\n\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "Get item category information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v2/universe/categories/:category_id/",
+            "headers": [
+              {
+                "name": "Accept-Language",
+                "value": ""
+              },
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "category_id",
+                "value": "",
+                "type": "path",
+                "description": "An Eve item category ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language to use in the response, takes precedence over Accept-Language"
+              }
+            ]
+          },
+          "docs": "Get information of an item category\n\n---\n\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "Get constellations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v2/universe/constellations/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Get a list of constellations\n\n---\n\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "Get constellation information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v2/universe/constellations/:constellation_id/",
+            "headers": [
+              {
+                "name": "Accept-Language",
+                "value": ""
+              },
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "constellation_id",
+                "value": "",
+                "type": "path",
+                "description": "constellation_id integer"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language to use in the response, takes precedence over Accept-Language"
+              }
+            ]
+          },
+          "docs": "Get information on a constellation\n\n---\n\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "Get factions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v2/universe/factions/",
+            "headers": [
+              {
+                "name": "Accept-Language",
+                "value": ""
+              },
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language to use in the response, takes precedence over Accept-Language"
+              }
+            ]
+          },
+          "docs": "Get a list of factions\n\n---\n\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "Get graphics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v2/universe/graphics/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Get a list of graphics\n\n---\n\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "Get item groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v2/universe/groups/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Which page of results to return"
+              }
+            ]
+          },
+          "docs": "Get a list of item groups\n\n---\n\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "Get moon information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v2/universe/moons/:moon_id/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "moon_id",
+                "value": "",
+                "type": "path",
+                "description": "moon_id integer"
+              }
+            ]
+          },
+          "docs": "Get information on a moon\n\n---\n\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "Get names and categories for a set of IDs",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://esi.evetech.net/latest/v2/universe/names/",
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Resolve a set of IDs to names and categories. Supported ID's for resolving are: Characters, Corporations, Alliances, Stations, Solar Systems, Constellations, Regions, Types, Factions\n\n---\n"
+        },
+        {
+          "info": {
+            "name": "Get planet information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v2/universe/planets/:planet_id/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "planet_id",
+                "value": "",
+                "type": "path",
+                "description": "planet_id integer"
+              }
+            ]
+          },
+          "docs": "Get information on a planet\n\n---\n\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "Get regions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v2/universe/regions/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Get a list of regions\n\n---\n\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "Get region information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v2/universe/regions/:region_id/",
+            "headers": [
+              {
+                "name": "Accept-Language",
+                "value": ""
+              },
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language to use in the response, takes precedence over Accept-Language"
+              },
+              {
+                "name": "region_id",
+                "value": "",
+                "type": "path",
+                "description": "region_id integer"
+              }
+            ]
+          },
+          "docs": "Get information on a region\n\n---\n\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "Get stargate information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v2/universe/stargates/:stargate_id/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "stargate_id",
+                "value": "",
+                "type": "path",
+                "description": "stargate_id integer"
+              }
+            ]
+          },
+          "docs": "Get information on a stargate\n\n---\n\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "Get star information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v2/universe/stars/:star_id/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "star_id",
+                "value": "",
+                "type": "path",
+                "description": "star_id integer"
+              }
+            ]
+          },
+          "docs": "Get information on a star\n\n---\n\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "Get station information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v2/universe/stations/:station_id/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "station_id",
+                "value": "",
+                "type": "path",
+                "description": "station_id integer"
+              }
+            ]
+          },
+          "docs": "Get information on a station\n\n---\n\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "Get system jumps",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v2/universe/system_jumps/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Get the number of jumps in solar systems within the last hour ending at the timestamp of the Last-Modified header, excluding wormhole space. Only systems with jumps will be listed\n\n---\n\nThis route is cached for up to 3600 seconds"
+        },
+        {
+          "info": {
+            "name": "Get types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v2/universe/types/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Which page of results to return"
+              }
+            ]
+          },
+          "docs": "Get a list of type ids\n\n---\n\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "Get type information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v2/universe/types/:type_id/",
+            "headers": [
+              {
+                "name": "Accept-Language",
+                "value": ""
+              },
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language to use in the response, takes precedence over Accept-Language"
+              },
+              {
+                "name": "type_id",
+                "value": "",
+                "type": "path",
+                "description": "An Eve item type ID"
+              }
+            ]
+          },
+          "docs": "Get information on a type\n\n---\n\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "Get structure information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v3/universe/structures/:structure_id/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "structure_id",
+                "value": "",
+                "type": "path",
+                "description": "An Eve structure ID"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Returns information on requested structure if you are on the ACL. Otherwise, returns \"Forbidden\" for all inputs.\n\n---\n\nThis route is cached for up to 3600 seconds"
+        },
+        {
+          "info": {
+            "name": "Get system kills",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v3/universe/system_kills/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Get the number of ship, pod and NPC kills per solar system within the last hour ending at the timestamp of the Last-Modified header, excluding wormhole space. Only systems with kills will be listed\n\n---\n\nThis route is cached for up to 3600 seconds"
+        },
+        {
+          "info": {
+            "name": "Get solar system information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v4/universe/systems/:system_id/",
+            "headers": [
+              {
+                "name": "Accept-Language",
+                "value": ""
+              },
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language to use in the response, takes precedence over Accept-Language"
+              },
+              {
+                "name": "system_id",
+                "value": "",
+                "type": "path",
+                "description": "system_id integer"
+              }
+            ]
+          },
+          "docs": "Get information on a solar system.\n\n---\n\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "Get ancestries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/universe/ancestries/",
+            "headers": [
+              {
+                "name": "Accept-Language",
+                "value": ""
+              },
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language to use in the response, takes precedence over Accept-Language"
+              }
+            ]
+          },
+          "docs": "Get all character ancestries\n\n---\n\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "Get asteroid belt information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/universe/asteroid_belts/:asteroid_belt_id/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "asteroid_belt_id",
+                "value": "",
+                "type": "path",
+                "description": "asteroid_belt_id integer"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Get information on an asteroid belt\n\n---\n\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "Get bloodlines",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/universe/bloodlines/",
+            "headers": [
+              {
+                "name": "Accept-Language",
+                "value": ""
+              },
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language to use in the response, takes precedence over Accept-Language"
+              }
+            ]
+          },
+          "docs": "Get a list of bloodlines\n\n---\n\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "Get item categories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/universe/categories/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Get a list of item categories\n\n---\n\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "Get item category information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/universe/categories/:category_id/",
+            "headers": [
+              {
+                "name": "Accept-Language",
+                "value": ""
+              },
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "category_id",
+                "value": "",
+                "type": "path",
+                "description": "An Eve item category ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language to use in the response, takes precedence over Accept-Language"
+              }
+            ]
+          },
+          "docs": "Get information of an item category\n\n---\n\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "Get constellations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/universe/constellations/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Get a list of constellations\n\n---\n\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "Get constellation information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/universe/constellations/:constellation_id/",
+            "headers": [
+              {
+                "name": "Accept-Language",
+                "value": ""
+              },
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "constellation_id",
+                "value": "",
+                "type": "path",
+                "description": "constellation_id integer"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language to use in the response, takes precedence over Accept-Language"
+              }
+            ]
+          },
+          "docs": "Get information on a constellation\n\n---\n\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "Get graphics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/universe/graphics/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Get a list of graphics\n\n---\n\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "Get item groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/universe/groups/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Which page of results to return"
+              }
+            ]
+          },
+          "docs": "Get a list of item groups\n\n---\n\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "Get moon information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/universe/moons/:moon_id/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "moon_id",
+                "value": "",
+                "type": "path",
+                "description": "moon_id integer"
+              }
+            ]
+          },
+          "docs": "Get information on a moon\n\n---\n\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "Get planet information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/universe/planets/:planet_id/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "planet_id",
+                "value": "",
+                "type": "path",
+                "description": "planet_id integer"
+              }
+            ]
+          },
+          "docs": "Get information on a planet\n\n---\n\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "Get regions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/universe/regions/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Get a list of regions\n\n---\n\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "Get region information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/universe/regions/:region_id/",
+            "headers": [
+              {
+                "name": "Accept-Language",
+                "value": ""
+              },
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language to use in the response, takes precedence over Accept-Language"
+              },
+              {
+                "name": "region_id",
+                "value": "",
+                "type": "path",
+                "description": "region_id integer"
+              }
+            ]
+          },
+          "docs": "Get information on a region\n\n---\n\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "Get stargate information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/universe/stargates/:stargate_id/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "stargate_id",
+                "value": "",
+                "type": "path",
+                "description": "stargate_id integer"
+              }
+            ]
+          },
+          "docs": "Get information on a stargate\n\n---\n\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "Get star information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/universe/stars/:star_id/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "star_id",
+                "value": "",
+                "type": "path",
+                "description": "star_id integer"
+              }
+            ]
+          },
+          "docs": "Get information on a star\n\n---\n\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "Get structure information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/universe/structures/:structure_id/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "structure_id",
+                "value": "",
+                "type": "path",
+                "description": "An Eve structure ID"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Returns information on requested structure if you are on the ACL. Otherwise, returns \"Forbidden\" for all inputs.\n\n---\n\nThis route is cached for up to 3600 seconds"
+        },
+        {
+          "info": {
+            "name": "Get system jumps",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/universe/system_jumps/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Get the number of jumps in solar systems within the last hour ending at the timestamp of the Last-Modified header, excluding wormhole space. Only systems with jumps will be listed\n\n---\n\nThis route is cached for up to 3600 seconds"
+        },
+        {
+          "info": {
+            "name": "Get types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/universe/types/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Which page of results to return"
+              }
+            ]
+          },
+          "docs": "Get a list of type ids\n\n---\n\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "Get system kills",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v2/universe/system_kills/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Get the number of ship, pod and NPC kills per solar system within the last hour ending at the timestamp of the Last-Modified header, excluding wormhole space. Only systems with kills will be listed\n\n---\n\nThis route is cached for up to 3600 seconds"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

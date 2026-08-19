@@ -1,0 +1,944 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EVE Swagger Interface Alliance Market API",
+    "version": "1.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Market",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "EVE Online List Open Orders from a Character",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/characters/:character_id/orders/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "List open market orders placed by a character\n\n---\nAlternate route: `/dev/characters/{character_id}/orders/`\n\nAlternate route: `/v2/characters/{character_id}/orders/`\n\n---\nThis route is cached for up to 1200 seconds"
+        },
+        {
+          "info": {
+            "name": "EVE Online List Historical Orders by a Character",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/characters/:character_id/orders/history/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Which page of results to return"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "List cancelled and expired market orders placed by a character up to 90 days in the past.\n\n---\nAlternate route: `/dev/characters/{character_id}/orders/history/`\n\nAlternate route: `/legacy/characters/{character_id}/orders/history/`\n\nAlternate route: `/v1/characters/{character_id}/orders/history/`\n\n---\nThis route is cached for up to 3600 seconds"
+        },
+        {
+          "info": {
+            "name": "EVE Online List Open Orders from a Corporation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/corporations/:corporation_id/orders/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "corporation_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE corporation ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Which page of results to return"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "List open market orders placed on behalf of a corporation\n\n---\nAlternate route: `/dev/corporations/{corporation_id}/orders/`\n\nAlternate route: `/legacy/corporations/{corporation_id}/orders/`\n\nAlternate route: `/v2/corporations/{corporation_id}/orders/`\n\nAlternate route: `/v3/corporations/{corporation_id}/orders/`\n\n---\nThis route is cached for up to 1200 seconds\n\n---\nRequires one of the following EVE corporation role(s): Accountant, Trader\n"
+        },
+        {
+          "info": {
+            "name": "EVE Online List Historical Orders from a Corporation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/corporations/:corporation_id/orders/history/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "corporation_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE corporation ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Which page of results to return"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "List cancelled and expired market orders placed on behalf of a corporation up to 90 days in the past.\n\n---\nAlternate route: `/dev/corporations/{corporation_id}/orders/history/`\n\nAlternate route: `/legacy/corporations/{corporation_id}/orders/history/`\n\nAlternate route: `/v1/corporations/{corporation_id}/orders/history/`\n\nAlternate route: `/v2/corporations/{corporation_id}/orders/history/`\n\n---\nThis route is cached for up to 3600 seconds\n\n---\nRequires one of the following EVE corporation role(s): "
+        },
+        {
+          "info": {
+            "name": "EVE Online Get Item Groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/markets/groups/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Get a list of item groups\n\n---\nAlternate route: `/dev/markets/groups/`\n\nAlternate route: `/legacy/markets/groups/`\n\nAlternate route: `/v1/markets/groups/`\n\n---\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "EVE Online Get Item Group Information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/markets/groups/:market_group_id/",
+            "headers": [
+              {
+                "name": "Accept-Language",
+                "value": ""
+              },
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language to use in the response, takes precedence over Accept-Language"
+              },
+              {
+                "name": "market_group_id",
+                "value": "1001",
+                "type": "path",
+                "description": "An Eve item group ID"
+              }
+            ]
+          },
+          "docs": "Get information on an item group\n\n---\nAlternate route: `/dev/markets/groups/{market_group_id}/`\n\nAlternate route: `/legacy/markets/groups/{market_group_id}/`\n\nAlternate route: `/v1/markets/groups/{market_group_id}/`\n\n---\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "EVE Online List Market Prices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/markets/prices/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Return a list of prices\n\n---\nAlternate route: `/dev/markets/prices/`\n\nAlternate route: `/legacy/markets/prices/`\n\nAlternate route: `/v1/markets/prices/`\n\n---\nThis route is cached for up to 3600 seconds"
+        },
+        {
+          "info": {
+            "name": "EVE Online List Orders in a Structure",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/markets/structures/:structure_id/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Which page of results to return"
+              },
+              {
+                "name": "structure_id",
+                "value": "1023774736901",
+                "type": "path",
+                "description": "Return orders in this structure"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Return all orders in a structure\n\n---\nAlternate route: `/dev/markets/structures/{structure_id}/`\n\nAlternate route: `/legacy/markets/structures/{structure_id}/`\n\nAlternate route: `/v1/markets/structures/{structure_id}/`\n\n---\nThis route is cached for up to 300 seconds"
+        },
+        {
+          "info": {
+            "name": "EVE Online List Historical Market Statistics in a Region",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/markets/:region_id/history/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "region_id",
+                "value": "10000002",
+                "type": "path",
+                "description": "Return statistics in this region"
+              },
+              {
+                "name": "type_id",
+                "value": "587",
+                "type": "query",
+                "description": "Return statistics for this type"
+              }
+            ]
+          },
+          "docs": "Return a list of historical market statistics for the specified type in a region\n\n---\nAlternate route: `/dev/markets/{region_id}/history/`\n\nAlternate route: `/legacy/markets/{region_id}/history/`\n\nAlternate route: `/v1/markets/{region_id}/history/`\n\n---\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "EVE Online List Orders in a Region",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/markets/:region_id/orders/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "order_type",
+                "value": "buy",
+                "type": "query",
+                "description": "Filter buy/sell orders, return all orders by default. If you query without type_id, we always return both buy and sell orders"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Which page of results to return"
+              },
+              {
+                "name": "region_id",
+                "value": "10000002",
+                "type": "path",
+                "description": "Return orders in this region"
+              },
+              {
+                "name": "type_id",
+                "value": "587",
+                "type": "query",
+                "description": "Return orders only for this type"
+              }
+            ]
+          },
+          "docs": "Return a list of orders in a region\n\n---\nAlternate route: `/dev/markets/{region_id}/orders/`\n\nAlternate route: `/legacy/markets/{region_id}/orders/`\n\nAlternate route: `/v1/markets/{region_id}/orders/`\n\n---\nThis route is cached for up to 300 seconds"
+        },
+        {
+          "info": {
+            "name": "EVE Online List Type IDs Relevant to a Market",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/markets/:region_id/types/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Which page of results to return"
+              },
+              {
+                "name": "region_id",
+                "value": "10000002",
+                "type": "path",
+                "description": "Return statistics in this region"
+              }
+            ]
+          },
+          "docs": "Return a list of type IDs that have active orders in the region, for efficient market indexing.\n\n---\nAlternate route: `/dev/markets/{region_id}/types/`\n\nAlternate route: `/legacy/markets/{region_id}/types/`\n\nAlternate route: `/v1/markets/{region_id}/types/`\n\n---\nThis route is cached for up to 600 seconds"
+        },
+        {
+          "info": {
+            "name": "List historical orders by a character",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/characters/:character_id/orders/history/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Which page of results to return"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "List cancelled and expired market orders placed by a character up to 90 days in the past.\n\n---\n\nThis route is cached for up to 3600 seconds"
+        },
+        {
+          "info": {
+            "name": "List historical orders from a corporation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/corporations/:corporation_id/orders/history/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "corporation_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE corporation ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Which page of results to return"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "List cancelled and expired market orders placed on behalf of a corporation up to 90 days in the past.\n\n---\n\nThis route is cached for up to 3600 seconds\n\n---\nRequires one of the following EVE corporation role(s): Accountant, Trader"
+        },
+        {
+          "info": {
+            "name": "Get item groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/markets/groups/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Get a list of item groups\n\n---\n\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "Get item group information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/markets/groups/:market_group_id/",
+            "headers": [
+              {
+                "name": "Accept-Language",
+                "value": ""
+              },
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language to use in the response, takes precedence over Accept-Language"
+              },
+              {
+                "name": "market_group_id",
+                "value": "",
+                "type": "path",
+                "description": "An Eve item group ID"
+              }
+            ]
+          },
+          "docs": "Get information on an item group\n\n---\n\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "List market prices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/markets/prices/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              }
+            ]
+          },
+          "docs": "Return a list of prices\n\n---\n\nThis route is cached for up to 3600 seconds"
+        },
+        {
+          "info": {
+            "name": "List orders in a structure",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/markets/structures/:structure_id/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Which page of results to return"
+              },
+              {
+                "name": "structure_id",
+                "value": "",
+                "type": "path",
+                "description": "Return orders in this structure"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Return all orders in a structure\n\n---\n\nThis route is cached for up to 300 seconds"
+        },
+        {
+          "info": {
+            "name": "List historical market statistics in a region",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/markets/:region_id/history/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "region_id",
+                "value": "",
+                "type": "path",
+                "description": "Return statistics in this region"
+              },
+              {
+                "name": "type_id",
+                "value": "",
+                "type": "query",
+                "description": "Return statistics for this type"
+              }
+            ]
+          },
+          "docs": "Return a list of historical market statistics for the specified type in a region\n\n---\n\nThis route expires daily at 11:05"
+        },
+        {
+          "info": {
+            "name": "List orders in a region",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/markets/:region_id/orders/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "order_type",
+                "value": "",
+                "type": "query",
+                "description": "Filter buy/sell orders, return all orders by default. If you query without type_id, we always return both buy and sell orders"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Which page of results to return"
+              },
+              {
+                "name": "region_id",
+                "value": "",
+                "type": "path",
+                "description": "Return orders in this region"
+              },
+              {
+                "name": "type_id",
+                "value": "",
+                "type": "query",
+                "description": "Return orders only for this type"
+              }
+            ]
+          },
+          "docs": "Return a list of orders in a region\n\n---\n\nThis route is cached for up to 300 seconds"
+        },
+        {
+          "info": {
+            "name": "List type IDs relevant to a market",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v1/markets/:region_id/types/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Which page of results to return"
+              },
+              {
+                "name": "region_id",
+                "value": "",
+                "type": "path",
+                "description": "Return statistics in this region"
+              }
+            ]
+          },
+          "docs": "Return a list of type IDs that have active orders in the region, for efficient market indexing.\n\n---\n\nThis route is cached for up to 600 seconds"
+        },
+        {
+          "info": {
+            "name": "List open orders from a character",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v2/characters/:character_id/orders/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "character_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE character ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "List open market orders placed by a character\n\n---\n\nThis route is cached for up to 1200 seconds"
+        },
+        {
+          "info": {
+            "name": "List open orders from a corporation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/v2/corporations/:corporation_id/orders/",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "corporation_id",
+                "value": "",
+                "type": "path",
+                "description": "An EVE corporation ID"
+              },
+              {
+                "name": "datasource",
+                "value": "",
+                "type": "query",
+                "description": "The server name you would like data from"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Which page of results to return"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Access token to use if unable to set a header"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://login.eveonline.com/v2/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "List open market orders placed on behalf of a corporation\n\n---\n\nThis route is cached for up to 1200 seconds\n\n---\nRequires one of the following EVE corporation role(s): Accountant, Trader"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

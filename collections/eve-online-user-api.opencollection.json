@@ -1,0 +1,144 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EVE Swagger Interface Alliance user API",
+    "version": "1.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "user",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create user",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://esi.evetech.net/latest/user"
+          },
+          "docs": "This can only be done by the logged in user."
+        },
+        {
+          "info": {
+            "name": "Creates list of users with given input array",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://esi.evetech.net/latest/user/createWithArray"
+          },
+          "docs": "Creates list of users with given input array"
+        },
+        {
+          "info": {
+            "name": "Creates list of users with given input array",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://esi.evetech.net/latest/user/createWithList"
+          },
+          "docs": "Creates list of users with given input array"
+        },
+        {
+          "info": {
+            "name": "Logs user into the system",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/user/login",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "query",
+                "description": "The user name for login"
+              },
+              {
+                "name": "password",
+                "value": "",
+                "type": "query",
+                "description": "The password for login in clear text"
+              }
+            ]
+          },
+          "docs": "Logs user into the system"
+        },
+        {
+          "info": {
+            "name": "Logs out current logged in user session",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/user/logout"
+          },
+          "docs": "Logs out current logged in user session"
+        },
+        {
+          "info": {
+            "name": "Get user by user name",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://esi.evetech.net/latest/user/:username",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "The name that needs to be fetched. Use user1 for testing. "
+              }
+            ]
+          },
+          "docs": "Get user by user name"
+        },
+        {
+          "info": {
+            "name": "Updated user",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://esi.evetech.net/latest/user/:username",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "name that need to be updated"
+              }
+            ]
+          },
+          "docs": "This can only be done by the logged in user."
+        },
+        {
+          "info": {
+            "name": "Delete user",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://esi.evetech.net/latest/user/:username",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "The name that needs to be deleted"
+              }
+            ]
+          },
+          "docs": "This can only be done by the logged in user."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

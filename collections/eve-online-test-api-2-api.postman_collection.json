@@ -1,0 +1,99 @@
+{
+  "item": [
+    {
+      "id": "8e05da3b-e902-46f6-8137-1e4a03d15597",
+      "name": "Test Api 2",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5a3babe4-a08f-43bb-a8c0-dd2be02b67ab",
+          "name": "Api 2",
+          "request": {
+            "name": "Api 2",
+            "description": {},
+            "url": {
+              "path": [
+                "test-api-2"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "42e204f3-d5a0-4347-8ad6-edc04a1562ed",
+              "name": "api 2 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "test-api-2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api2prop\": \"api1prop-value\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://esi.evetech.net/latest",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "8170f1df-28f1-47f0-910a-9f6d0eaca5ab",
+    "name": "EVE Swagger Interface Alliance Test Api 2 API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "An OpenAPI for EVE Online",
+      "type": "text/plain"
+    }
+  }
+}

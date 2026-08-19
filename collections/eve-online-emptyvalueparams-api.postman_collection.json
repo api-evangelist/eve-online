@@ -1,0 +1,143 @@
+{
+  "item": [
+    {
+      "id": "5431e12c-4c9e-426b-9af8-a26a79db3e5b",
+      "name": "EmptyValueParams",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b38d6d9a-f9ae-40b5-992d-b224c0c4f17f",
+          "name": "/emptyValueParams",
+          "request": {
+            "name": "/emptyValueParams",
+            "description": {},
+            "url": {
+              "path": [
+                "emptyValueParams"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "int",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "str",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "num",
+                  "value": "<number>"
+                },
+                {
+                  "disabled": false,
+                  "key": "bool",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "arr",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "arr",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "67c4085a-7fe1-41fb-87e8-6212013f44a7",
+              "name": "ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "emptyValueParams"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "int",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "str",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "num",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "bool",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "arr",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "arr",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://esi.evetech.net/latest",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "01447610-46f1-4e61-bd62-49525bf5cd19",
+    "name": "EVE Swagger Interface Alliance EmptyValueParams API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "An OpenAPI for EVE Online",
+      "type": "text/plain"
+    }
+  }
+}
