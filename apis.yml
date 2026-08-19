@@ -36,7 +36,7 @@ tags:
   - Static Data
 created: '2026-05-28'
 modified: '2026-05-30'
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 x-type: company
 x-tier: 1
 x-tier-reason: official-developer-program-public-openapi
