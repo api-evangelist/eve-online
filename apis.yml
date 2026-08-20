@@ -28,6 +28,15 @@ tags:
   - Authentication
   - Authorization
   - Gaming
+  - Image
+  - MMO
+  - REST
+  - SSO
+  - Static Data
+tags_raw:
+  - Authentication
+  - Authorization
+  - Gaming
   - Images
   - MMO
   - OAuth2
@@ -56,6 +65,13 @@ apis:
   humanURL: https://developers.eveonline.com/docs/services/sso/
   baseURL: https://login.eveonline.com
   tags:
+  - Authentication
+  - Authorization
+  - JWT
+  - OpenID
+  - PKCE
+  - SSO
+  tags_raw:
   - Authentication
   - Authorization
   - JWT
@@ -91,6 +107,11 @@ apis:
   humanURL: https://developers.eveonline.com/docs/services/image-server/
   baseURL: https://images.evetech.net
   tags:
+  - CDN
+  - Image
+  - Portraits
+  - Renders
+  tags_raw:
   - CDN
   - Images
   - Portraits
@@ -155,6 +176,8 @@ apis:
   humanURL: https://developers.eveonline.com/docs/services/esi/
   baseURL: https://esi.evetech.net/latest
   tags:
+  - Agents
+  tags_raw:
   - agent
   properties:
   - type: OpenAPI
@@ -845,6 +868,8 @@ apis:
   humanURL: https://developers.eveonline.com/docs/services/esi/
   baseURL: https://esi.evetech.net/latest
   tags:
+  - Pet
+  tags_raw:
   - pet
   properties:
   - type: OpenAPI
@@ -1026,6 +1051,8 @@ apis:
   humanURL: https://developers.eveonline.com/docs/services/esi/
   baseURL: https://esi.evetech.net/latest
   tags:
+  - Session
+  tags_raw:
   - session
   properties:
   - type: OpenAPI
@@ -1116,6 +1143,8 @@ apis:
   humanURL: https://developers.eveonline.com/docs/services/esi/
   baseURL: https://esi.evetech.net/latest
   tags:
+  - SQL
+  tags_raw:
   - sql
   properties:
   - type: OpenAPI
@@ -1176,6 +1205,8 @@ apis:
   humanURL: https://developers.eveonline.com/docs/services/esi/
   baseURL: https://esi.evetech.net/latest
   tags:
+  - Store
+  tags_raw:
   - store
   properties:
   - type: OpenAPI
@@ -1295,7 +1326,8 @@ apis:
   description: The Test API from EVE Online — 1 operation(s) for test.
   humanURL: https://developers.eveonline.com/docs/services/esi/
   baseURL: https://esi.evetech.net/latest
-  tags:
+  tags: []
+  tags_raw:
   - Test
   properties:
   - type: OpenAPI
@@ -1386,6 +1418,8 @@ apis:
   humanURL: https://developers.eveonline.com/docs/services/esi/
   baseURL: https://esi.evetech.net/latest
   tags:
+  - User
+  tags_raw:
   - user
   properties:
   - type: OpenAPI
@@ -1446,6 +1480,8 @@ apis:
   humanURL: https://developers.eveonline.com/docs/services/esi/
   baseURL: https://esi.evetech.net/latest
   tags:
+  - Wallets
+  tags_raw:
   - Wallet
   properties:
   - type: OpenAPI
