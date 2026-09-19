@@ -519,6 +519,8 @@ apis:
   humanURL: https://developers.eveonline.com/docs/services/esi/
   baseURL: https://esi.evetech.net/latest
   tags:
+  - Fleet
+  tags_raw:
   - Fleets
   properties:
   - type: OpenAPI
@@ -759,6 +761,8 @@ apis:
   humanURL: https://developers.eveonline.com/docs/services/esi/
   baseURL: https://esi.evetech.net/latest
   tags:
+  - Markets
+  tags_raw:
   - Market
   properties:
   - type: OpenAPI
