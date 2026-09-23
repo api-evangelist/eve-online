@@ -2,12 +2,11 @@ openapi: 3.2.0
 info:
   title: Eve Online Wars API
   version: '1.36'
-  description: 'Operations tagged Wars across 7 of this provider''s published API definitions: eve-online-openapi.yml, swagger.json, swagger_2.json, swagger_3.json, swagger_4.json, swagger_5.json, swagger_6.json. Each path carries the servers of the definition it was published in.'
+  description: 'Operations tagged Wars across 5 of this provider''s published API definitions: eve-online-openapi.yml, swagger.json, swagger_2.json, swagger_4.json, swagger_5.json. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://esi.evetech.net/latest
 - url: https://esi.evetech.net
 - url: https://esi.evetech.net/legacy
-- url: https://esi.evetech.net/dev
 tags:
 - name: Wars
 paths:
@@ -1188,385 +1187,16 @@ paths:
     servers:
     - url: https://esi.evetech.net
 components:
-  schemas:
-    service_unavailable:
-      description: Service unavailable model
-      properties:
-        error:
-          description: Service unavailable message
-          type: string
-          example: example
-      required:
-      - error
-      title: Service unavailable
-      type: object
-    error_limited:
-      description: Error limited model
-      properties:
-        error:
-          description: Error limited message
-          type: string
-          example: example
-      required:
-      - error
-      title: Error limited
-      type: object
-    bad_request:
-      description: Bad request model
-      properties:
-        error:
-          description: Bad request message
-          type: string
-          example: example
-      required:
-      - error
-      title: Bad request
-      type: object
-    internal_server_error:
-      description: Internal server error model
-      properties:
-        error:
-          description: Internal server error message
-          type: string
-          example: example
-      required:
-      - error
-      title: Internal server error
-      type: object
-    gateway_timeout:
-      description: Gateway timeout model
-      properties:
-        error:
-          description: Gateway timeout message
-          type: string
-          example: example
-        timeout:
-          description: number of seconds the request was given
-          type: integer
-          example: 1
-      required:
-      - error
-      title: Gateway timeout
-      type: object
-    service_unavailable_2:
-      description: Service unavailable model
-      properties:
-        error:
-          description: Service unavailable message
-          type: string
-      required:
-      - error
-      title: Service unavailable
-      type: object
-    error_limited_2:
-      description: Error limited model
-      properties:
-        error:
-          description: Error limited message
-          type: string
-      required:
-      - error
-      title: Error limited
-      type: object
-    bad_request_2:
-      description: Bad request model
-      properties:
-        error:
-          description: Bad request message
-          type: string
-      required:
-      - error
-      title: Bad request
-      type: object
-    internal_server_error_2:
-      description: Internal server error model
-      properties:
-        error:
-          description: Internal server error message
-          type: string
-      required:
-      - error
-      title: Internal server error
-      type: object
-    gateway_timeout_2:
-      description: Gateway timeout model
-      properties:
-        error:
-          description: Gateway timeout message
-          type: string
-        timeout:
-          description: number of seconds the request was given
-          type: integer
-      required:
-      - error
-      title: Gateway timeout
-      type: object
-    service_unavailable_3:
-      description: Service unavailable model
-      properties:
-        error:
-          description: Service unavailable message
-          type: string
-      required:
-      - error
-      title: Service unavailable
-      type: object
-    error_limited_3:
-      description: Error limited model
-      properties:
-        error:
-          description: Error limited message
-          type: string
-      required:
-      - error
-      title: Error limited
-      type: object
-    bad_request_3:
-      description: Bad request model
-      properties:
-        error:
-          description: Bad request message
-          type: string
-      required:
-      - error
-      title: Bad request
-      type: object
-    internal_server_error_3:
-      description: Internal server error model
-      properties:
-        error:
-          description: Internal server error message
-          type: string
-      required:
-      - error
-      title: Internal server error
-      type: object
-    gateway_timeout_3:
-      description: Gateway timeout model
-      properties:
-        error:
-          description: Gateway timeout message
-          type: string
-        timeout:
-          description: number of seconds the request was given
-          type: integer
-      required:
-      - error
-      title: Gateway timeout
-      type: object
-    service_unavailable_4:
-      description: Service unavailable model
-      properties:
-        error:
-          description: Service unavailable message
-          type: string
-      required:
-      - error
-      title: Service unavailable
-      type: object
-    error_limited_4:
-      description: Error limited model
-      properties:
-        error:
-          description: Error limited message
-          type: string
-      required:
-      - error
-      title: Error limited
-      type: object
-    bad_request_4:
-      description: Bad request model
-      properties:
-        error:
-          description: Bad request message
-          type: string
-      required:
-      - error
-      title: Bad request
-      type: object
-    internal_server_error_4:
-      description: Internal server error model
-      properties:
-        error:
-          description: Internal server error message
-          type: string
-      required:
-      - error
-      title: Internal server error
-      type: object
-    gateway_timeout_4:
-      description: Gateway timeout model
-      properties:
-        error:
-          description: Gateway timeout message
-          type: string
-        timeout:
-          description: number of seconds the request was given
-          type: integer
-      required:
-      - error
-      title: Gateway timeout
-      type: object
-    service_unavailable_5:
-      description: Service unavailable model
-      properties:
-        error:
-          description: Service unavailable message
-          type: string
-      required:
-      - error
-      title: Service unavailable
-      type: object
-    error_limited_5:
-      description: Error limited model
-      properties:
-        error:
-          description: Error limited message
-          type: string
-      required:
-      - error
-      title: Error limited
-      type: object
-    bad_request_5:
-      description: Bad request model
-      properties:
-        error:
-          description: Bad request message
-          type: string
-      required:
-      - error
-      title: Bad request
-      type: object
-    internal_server_error_5:
-      description: Internal server error model
-      properties:
-        error:
-          description: Internal server error message
-          type: string
-      required:
-      - error
-      title: Internal server error
-      type: object
-    gateway_timeout_5:
-      description: Gateway timeout model
-      properties:
-        error:
-          description: Gateway timeout message
-          type: string
-        timeout:
-          description: number of seconds the request was given
-          type: integer
-      required:
-      - error
-      title: Gateway timeout
-      type: object
-    service_unavailable_6:
-      description: Service unavailable model
-      properties:
-        error:
-          description: Service unavailable message
-          type: string
-      required:
-      - error
-      title: Service unavailable
-      type: object
-    error_limited_6:
-      description: Error limited model
-      properties:
-        error:
-          description: Error limited message
-          type: string
-      required:
-      - error
-      title: Error limited
-      type: object
-    bad_request_6:
-      description: Bad request model
-      properties:
-        error:
-          description: Bad request message
-          type: string
-      required:
-      - error
-      title: Bad request
-      type: object
-    internal_server_error_6:
-      description: Internal server error model
-      properties:
-        error:
-          description: Internal server error message
-          type: string
-      required:
-      - error
-      title: Internal server error
-      type: object
-    gateway_timeout_6:
-      description: Gateway timeout model
-      properties:
-        error:
-          description: Gateway timeout message
-          type: string
-        timeout:
-          description: number of seconds the request was given
-          type: integer
-      required:
-      - error
-      title: Gateway timeout
-      type: object
-    service_unavailable_7:
-      description: Service unavailable model
-      properties:
-        error:
-          description: Service unavailable message
-          type: string
-      required:
-      - error
-      title: Service unavailable
-      type: object
-    error_limited_7:
-      description: Error limited model
-      properties:
-        error:
-          description: Error limited message
-          type: string
-      required:
-      - error
-      title: Error limited
-      type: object
-    bad_request_7:
-      description: Bad request model
-      properties:
-        error:
-          description: Bad request message
-          type: string
-      required:
-      - error
-      title: Bad request
-      type: object
-    internal_server_error_7:
-      description: Internal server error model
-      properties:
-        error:
-          description: Internal server error message
-          type: string
-      required:
-      - error
-      title: Internal server error
-      type: object
-    gateway_timeout_7:
-      description: Gateway timeout model
-      properties:
-        error:
-          description: Gateway timeout message
-          type: string
-        timeout:
-          description: number of seconds the request was given
-          type: integer
-      required:
-      - error
-      title: Gateway timeout
-      type: object
   parameters:
+    datasource:
+      description: The server name you would like data from
+      in: query
+      name: datasource
+      schema:
+        type: string
+        enum:
+        - tranquility
+        default: tranquility
     page:
       description: Which page of results to return
       in: query
@@ -1582,15 +1212,278 @@ components:
       name: If-None-Match
       schema:
         type: string
-    datasource:
-      description: The server name you would like data from
-      in: query
-      name: datasource
-      schema:
-        type: string
-        enum:
-        - tranquility
-        default: tranquility
+  schemas:
+    gateway_timeout:
+      description: Gateway timeout model
+      properties:
+        error:
+          description: Gateway timeout message
+          type: string
+          example: example
+        timeout:
+          description: number of seconds the request was given
+          type: integer
+          example: 1
+      required:
+      - error
+      title: Gateway timeout
+      type: object
+    internal_server_error:
+      description: Internal server error model
+      properties:
+        error:
+          description: Internal server error message
+          type: string
+          example: example
+      required:
+      - error
+      title: Internal server error
+      type: object
+    service_unavailable:
+      description: Service unavailable model
+      properties:
+        error:
+          description: Service unavailable message
+          type: string
+          example: example
+      required:
+      - error
+      title: Service unavailable
+      type: object
+    bad_request:
+      description: Bad request model
+      properties:
+        error:
+          description: Bad request message
+          type: string
+          example: example
+      required:
+      - error
+      title: Bad request
+      type: object
+    error_limited:
+      description: Error limited model
+      properties:
+        error:
+          description: Error limited message
+          type: string
+          example: example
+      required:
+      - error
+      title: Error limited
+      type: object
+    gateway_timeout_2:
+      description: Gateway timeout model
+      properties:
+        error:
+          description: Gateway timeout message
+          type: string
+        timeout:
+          description: number of seconds the request was given
+          type: integer
+      required:
+      - error
+      title: Gateway timeout
+      type: object
+    internal_server_error_2:
+      description: Internal server error model
+      properties:
+        error:
+          description: Internal server error message
+          type: string
+      required:
+      - error
+      title: Internal server error
+      type: object
+    service_unavailable_2:
+      description: Service unavailable model
+      properties:
+        error:
+          description: Service unavailable message
+          type: string
+      required:
+      - error
+      title: Service unavailable
+      type: object
+    bad_request_2:
+      description: Bad request model
+      properties:
+        error:
+          description: Bad request message
+          type: string
+      required:
+      - error
+      title: Bad request
+      type: object
+    error_limited_2:
+      description: Error limited model
+      properties:
+        error:
+          description: Error limited message
+          type: string
+      required:
+      - error
+      title: Error limited
+      type: object
+    gateway_timeout_3:
+      description: Gateway timeout model
+      properties:
+        error:
+          description: Gateway timeout message
+          type: string
+        timeout:
+          description: number of seconds the request was given
+          type: integer
+      required:
+      - error
+      title: Gateway timeout
+      type: object
+    internal_server_error_3:
+      description: Internal server error model
+      properties:
+        error:
+          description: Internal server error message
+          type: string
+      required:
+      - error
+      title: Internal server error
+      type: object
+    service_unavailable_3:
+      description: Service unavailable model
+      properties:
+        error:
+          description: Service unavailable message
+          type: string
+      required:
+      - error
+      title: Service unavailable
+      type: object
+    bad_request_3:
+      description: Bad request model
+      properties:
+        error:
+          description: Bad request message
+          type: string
+      required:
+      - error
+      title: Bad request
+      type: object
+    error_limited_3:
+      description: Error limited model
+      properties:
+        error:
+          description: Error limited message
+          type: string
+      required:
+      - error
+      title: Error limited
+      type: object
+    gateway_timeout_4:
+      description: Gateway timeout model
+      properties:
+        error:
+          description: Gateway timeout message
+          type: string
+        timeout:
+          description: number of seconds the request was given
+          type: integer
+      required:
+      - error
+      title: Gateway timeout
+      type: object
+    internal_server_error_4:
+      description: Internal server error model
+      properties:
+        error:
+          description: Internal server error message
+          type: string
+      required:
+      - error
+      title: Internal server error
+      type: object
+    service_unavailable_4:
+      description: Service unavailable model
+      properties:
+        error:
+          description: Service unavailable message
+          type: string
+      required:
+      - error
+      title: Service unavailable
+      type: object
+    bad_request_4:
+      description: Bad request model
+      properties:
+        error:
+          description: Bad request message
+          type: string
+      required:
+      - error
+      title: Bad request
+      type: object
+    error_limited_4:
+      description: Error limited model
+      properties:
+        error:
+          description: Error limited message
+          type: string
+      required:
+      - error
+      title: Error limited
+      type: object
+    gateway_timeout_5:
+      description: Gateway timeout model
+      properties:
+        error:
+          description: Gateway timeout message
+          type: string
+        timeout:
+          description: number of seconds the request was given
+          type: integer
+      required:
+      - error
+      title: Gateway timeout
+      type: object
+    internal_server_error_5:
+      description: Internal server error model
+      properties:
+        error:
+          description: Internal server error message
+          type: string
+      required:
+      - error
+      title: Internal server error
+      type: object
+    service_unavailable_5:
+      description: Service unavailable model
+      properties:
+        error:
+          description: Service unavailable message
+          type: string
+      required:
+      - error
+      title: Service unavailable
+      type: object
+    bad_request_5:
+      description: Bad request model
+      properties:
+        error:
+          description: Bad request message
+          type: string
+      required:
+      - error
+      title: Bad request
+      type: object
+    error_limited_5:
+      description: Error limited model
+      properties:
+        error:
+          description: Error limited message
+          type: string
+      required:
+      - error
+      title: Error limited
+      type: object
   securitySchemes:
     evesso:
       type: oauth2
@@ -1665,7 +1558,5 @@ x-refined-from:
 - eve-online-openapi.yml
 - swagger.json
 - swagger_2.json
-- swagger_3.json
 - swagger_4.json
 - swagger_5.json
-- swagger_6.json
