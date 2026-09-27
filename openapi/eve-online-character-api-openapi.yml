@@ -3344,7 +3344,7 @@ paths:
 
 
         This route is cached for up to 3600 seconds'
-      operationId: post_characters_affiliation
+      operationId: postV1CharactersAffiliation
       parameters:
       - $ref: '#/components/parameters/datasource'
       responses:
@@ -3455,6 +3455,8 @@ paths:
               uniqueItems: true
         description: The character IDs to fetch affiliations for. All characters must exist, or none will be returned
         required: true
+      x-operation-id-source: normalized
+      x-operation-id-original: post_characters_affiliation
     servers:
     - url: https://esi.evetech.net
   /v1/characters/{character_id}/agents_research/:
@@ -3466,7 +3468,7 @@ paths:
 
 
         This route is cached for up to 3600 seconds'
-      operationId: get_characters_character_id_agents_research
+      operationId: getV1CharactersByCharacterIdAgentsResearch
       parameters:
       - $ref: '#/components/parameters/character_id'
       - $ref: '#/components/parameters/datasource'
@@ -3628,6 +3630,8 @@ paths:
       - v1
       - v2
       x-cached-seconds: 3600
+      x-operation-id-source: normalized
+      x-operation-id-original: get_characters_character_id_agents_research
     servers:
     - url: https://esi.evetech.net
   /v1/characters/{character_id}/corporationhistory/:
@@ -3639,7 +3643,7 @@ paths:
 
 
         This route is cached for up to 86400 seconds'
-      operationId: get_characters_character_id_corporationhistory
+      operationId: getV1CharactersByCharacterIdCorporationhistory
       parameters:
       - $ref: '#/components/parameters/character_id'
       - $ref: '#/components/parameters/datasource'
@@ -3775,6 +3779,8 @@ paths:
       - v1
       - v2
       x-cached-seconds: 86400
+      x-operation-id-source: normalized
+      x-operation-id-original: get_characters_character_id_corporationhistory
     servers:
     - url: https://esi.evetech.net
   /v1/characters/{character_id}/fatigue/:
@@ -3786,7 +3792,7 @@ paths:
 
 
         This route is cached for up to 300 seconds'
-      operationId: get_characters_character_id_fatigue
+      operationId: getV1CharactersByCharacterIdFatigue
       parameters:
       - $ref: '#/components/parameters/character_id'
       - $ref: '#/components/parameters/datasource'
@@ -3925,6 +3931,8 @@ paths:
       - v1
       - v2
       x-cached-seconds: 300
+      x-operation-id-source: normalized
+      x-operation-id-original: get_characters_character_id_fatigue
     servers:
     - url: https://esi.evetech.net
   /v1/characters/{character_id}/medals/:
@@ -3936,7 +3944,7 @@ paths:
 
 
         This route is cached for up to 3600 seconds'
-      operationId: get_characters_character_id_medals
+      operationId: getV1CharactersByCharacterIdMedals
       parameters:
       - $ref: '#/components/parameters/character_id'
       - $ref: '#/components/parameters/datasource'
@@ -4166,6 +4174,8 @@ paths:
       - v1
       - v2
       x-cached-seconds: 3600
+      x-operation-id-source: normalized
+      x-operation-id-original: get_characters_character_id_medals
     servers:
     - url: https://esi.evetech.net
   /v1/characters/{character_id}/notifications/contacts/:
@@ -4177,7 +4187,7 @@ paths:
 
 
         This route is cached for up to 600 seconds'
-      operationId: get_characters_character_id_notifications_contacts
+      operationId: getV1CharactersByCharacterIdNotificationsContacts
       parameters:
       - $ref: '#/components/parameters/character_id'
       - $ref: '#/components/parameters/datasource'
@@ -4338,6 +4348,8 @@ paths:
       - v1
       - v2
       x-cached-seconds: 600
+      x-operation-id-source: normalized
+      x-operation-id-original: get_characters_character_id_notifications_contacts
     servers:
     - url: https://esi.evetech.net
   /v1/characters/{character_id}/standings/:
@@ -4349,7 +4361,7 @@ paths:
 
 
         This route is cached for up to 3600 seconds'
-      operationId: get_characters_character_id_standings
+      operationId: getV1CharactersByCharacterIdStandings
       parameters:
       - $ref: '#/components/parameters/character_id'
       - $ref: '#/components/parameters/datasource'
@@ -4506,6 +4518,8 @@ paths:
       - v1
       - v2
       x-cached-seconds: 3600
+      x-operation-id-source: normalized
+      x-operation-id-original: get_characters_character_id_standings
     servers:
     - url: https://esi.evetech.net
   /v1/characters/{character_id}/titles/:
@@ -4517,7 +4531,7 @@ paths:
 
 
         This route is cached for up to 3600 seconds'
-      operationId: get_characters_character_id_titles
+      operationId: getV1CharactersByCharacterIdTitles
       parameters:
       - $ref: '#/components/parameters/character_id'
       - $ref: '#/components/parameters/datasource'
@@ -4654,6 +4668,8 @@ paths:
       - v1
       - v2
       x-cached-seconds: 3600
+      x-operation-id-source: normalized
+      x-operation-id-original: get_characters_character_id_titles
     servers:
     - url: https://esi.evetech.net
   /v2/characters/{character_id}/blueprints/:
@@ -4665,7 +4681,7 @@ paths:
 
 
         This route is cached for up to 3600 seconds'
-      operationId: get_characters_character_id_blueprints
+      operationId: getV2CharactersByCharacterIdBlueprints
       parameters:
       - $ref: '#/components/parameters/character_id'
       - $ref: '#/components/parameters/datasource'
@@ -4937,6 +4953,8 @@ paths:
       - v2
       - v3
       x-cached-seconds: 3600
+      x-operation-id-source: normalized
+      x-operation-id-original: get_characters_character_id_blueprints
     servers:
     - url: https://esi.evetech.net
   /v2/characters/{character_id}/portrait/:
@@ -4948,7 +4966,7 @@ paths:
 
 
         This route expires daily at 11:05'
-      operationId: get_characters_character_id_portrait
+      operationId: getV2CharactersByCharacterIdPortrait
       parameters:
       - $ref: '#/components/parameters/character_id'
       - $ref: '#/components/parameters/datasource'
@@ -5082,6 +5100,8 @@ paths:
       - latest
       - v2
       - v3
+      x-operation-id-source: normalized
+      x-operation-id-original: get_characters_character_id_portrait
     servers:
     - url: https://esi.evetech.net
   /v2/characters/{character_id}/roles/:
@@ -5093,7 +5113,7 @@ paths:
 
 
         This route is cached for up to 3600 seconds'
-      operationId: get_characters_character_id_roles
+      operationId: getV2CharactersByCharacterIdRoles
       parameters:
       - $ref: '#/components/parameters/character_id'
       - $ref: '#/components/parameters/datasource'
@@ -5477,6 +5497,8 @@ paths:
       - v2
       - v3
       x-cached-seconds: 3600
+      x-operation-id-source: normalized
+      x-operation-id-original: get_characters_character_id_roles
     servers:
     - url: https://esi.evetech.net
   /v4/characters/{character_id}/cspa/:
@@ -5485,7 +5507,7 @@ paths:
 
 
         ---'
-      operationId: post_characters_character_id_cspa
+      operationId: postV4CharactersByCharacterIdCspa
       parameters:
       - $ref: '#/components/parameters/character_id'
       - $ref: '#/components/parameters/datasource'
@@ -5585,6 +5607,8 @@ paths:
               uniqueItems: true
         description: The target characters to calculate the charge for
         required: true
+      x-operation-id-source: normalized
+      x-operation-id-original: post_characters_character_id_cspa
     servers:
     - url: https://esi.evetech.net
   /v4/characters/{character_id}/notifications/:
@@ -5596,7 +5620,7 @@ paths:
 
 
         This route is cached for up to 600 seconds'
-      operationId: get_characters_character_id_notifications
+      operationId: getV4CharactersByCharacterIdNotifications
       parameters:
       - $ref: '#/components/parameters/character_id'
       - $ref: '#/components/parameters/datasource'
@@ -6020,6 +6044,8 @@ paths:
       - v5
       - v6
       x-cached-seconds: 600
+      x-operation-id-source: normalized
+      x-operation-id-original: get_characters_character_id_notifications
     servers:
     - url: https://esi.evetech.net
   /v5/characters/{character_id}/:
@@ -6031,7 +6057,7 @@ paths:
 
 
         This route is cached for up to 604800 seconds'
-      operationId: get_characters_character_id
+      operationId: getV5CharactersByCharacterId
       parameters:
       - $ref: '#/components/parameters/character_id'
       - $ref: '#/components/parameters/datasource'
@@ -6217,14 +6243,31 @@ paths:
       - legacy
       - v5
       x-cached-seconds: 604800
+      x-operation-id-source: normalized
+      x-operation-id-original: get_characters_character_id
     servers:
     - url: https://esi.evetech.net
 components:
   parameters:
+    page:
+      description: Which page of results to return
+      in: query
+      name: page
+      schema:
+        type: integer
+        format: int32
+        minimum: 1
+        default: 1
     token:
       description: Access token to use if unable to set a header
       in: query
       name: token
+      schema:
+        type: string
+    If-None-Match:
+      description: ETag from a previous request. A 304 will be returned if this matches the current ETag
+      in: header
+      name: If-None-Match
       schema:
         type: string
     datasource:
@@ -6236,21 +6279,6 @@ components:
         enum:
         - tranquility
         default: tranquility
-    page:
-      description: Which page of results to return
-      in: query
-      name: page
-      schema:
-        type: integer
-        format: int32
-        minimum: 1
-        default: 1
-    If-None-Match:
-      description: ETag from a previous request. A 304 will be returned if this matches the current ETag
-      in: header
-      name: If-None-Match
-      schema:
-        type: string
     character_id:
       description: An EVE character ID
       in: path
@@ -6276,6 +6304,28 @@ components:
       - error
       title: Forbidden
       type: object
+    internal_server_error:
+      description: Internal server error model
+      properties:
+        error:
+          description: Internal server error message
+          type: string
+          example: example
+      required:
+      - error
+      title: Internal server error
+      type: object
+    error_limited:
+      description: Error limited model
+      properties:
+        error:
+          description: Error limited message
+          type: string
+          example: example
+      required:
+      - error
+      title: Error limited
+      type: object
     unauthorized:
       description: Unauthorized model
       properties:
@@ -6286,6 +6336,17 @@ components:
       required:
       - error
       title: Unauthorized
+      type: object
+    bad_request:
+      description: Bad request model
+      properties:
+        error:
+          description: Bad request message
+          type: string
+          example: example
+      required:
+      - error
+      title: Bad request
       type: object
     gateway_timeout:
       description: Gateway timeout model
@@ -6302,17 +6363,6 @@ components:
       - error
       title: Gateway timeout
       type: object
-    internal_server_error:
-      description: Internal server error model
-      properties:
-        error:
-          description: Internal server error message
-          type: string
-          example: example
-      required:
-      - error
-      title: Internal server error
-      type: object
     service_unavailable:
       description: Service unavailable model
       properties:
@@ -6323,28 +6373,6 @@ components:
       required:
       - error
       title: Service unavailable
-      type: object
-    bad_request:
-      description: Bad request model
-      properties:
-        error:
-          description: Bad request message
-          type: string
-          example: example
-      required:
-      - error
-      title: Bad request
-      type: object
-    error_limited:
-      description: Error limited model
-      properties:
-        error:
-          description: Error limited message
-          type: string
-          example: example
-      required:
-      - error
-      title: Error limited
       type: object
     forbidden_2:
       description: Forbidden model
@@ -6359,6 +6387,26 @@ components:
       - error
       title: Forbidden
       type: object
+    internal_server_error_2:
+      description: Internal server error model
+      properties:
+        error:
+          description: Internal server error message
+          type: string
+      required:
+      - error
+      title: Internal server error
+      type: object
+    error_limited_2:
+      description: Error limited model
+      properties:
+        error:
+          description: Error limited message
+          type: string
+      required:
+      - error
+      title: Error limited
+      type: object
     unauthorized_2:
       description: Unauthorized model
       properties:
@@ -6368,6 +6416,16 @@ components:
       required:
       - error
       title: Unauthorized
+      type: object
+    bad_request_2:
+      description: Bad request model
+      properties:
+        error:
+          description: Bad request message
+          type: string
+      required:
+      - error
+      title: Bad request
       type: object
     gateway_timeout_2:
       description: Gateway timeout model
@@ -6382,16 +6440,6 @@ components:
       - error
       title: Gateway timeout
       type: object
-    internal_server_error_2:
-      description: Internal server error model
-      properties:
-        error:
-          description: Internal server error message
-          type: string
-      required:
-      - error
-      title: Internal server error
-      type: object
     service_unavailable_2:
       description: Service unavailable model
       properties:
@@ -6401,26 +6449,6 @@ components:
       required:
       - error
       title: Service unavailable
-      type: object
-    bad_request_2:
-      description: Bad request model
-      properties:
-        error:
-          description: Bad request message
-          type: string
-      required:
-      - error
-      title: Bad request
-      type: object
-    error_limited_2:
-      description: Error limited model
-      properties:
-        error:
-          description: Error limited message
-          type: string
-      required:
-      - error
-      title: Error limited
       type: object
     forbidden_3:
       description: Forbidden model
@@ -6435,6 +6463,26 @@ components:
       - error
       title: Forbidden
       type: object
+    internal_server_error_3:
+      description: Internal server error model
+      properties:
+        error:
+          description: Internal server error message
+          type: string
+      required:
+      - error
+      title: Internal server error
+      type: object
+    error_limited_3:
+      description: Error limited model
+      properties:
+        error:
+          description: Error limited message
+          type: string
+      required:
+      - error
+      title: Error limited
+      type: object
     unauthorized_3:
       description: Unauthorized model
       properties:
@@ -6444,6 +6492,16 @@ components:
       required:
       - error
       title: Unauthorized
+      type: object
+    bad_request_3:
+      description: Bad request model
+      properties:
+        error:
+          description: Bad request message
+          type: string
+      required:
+      - error
+      title: Bad request
       type: object
     gateway_timeout_3:
       description: Gateway timeout model
@@ -6458,16 +6516,6 @@ components:
       - error
       title: Gateway timeout
       type: object
-    internal_server_error_3:
-      description: Internal server error model
-      properties:
-        error:
-          description: Internal server error message
-          type: string
-      required:
-      - error
-      title: Internal server error
-      type: object
     service_unavailable_3:
       description: Service unavailable model
       properties:
@@ -6477,26 +6525,6 @@ components:
       required:
       - error
       title: Service unavailable
-      type: object
-    bad_request_3:
-      description: Bad request model
-      properties:
-        error:
-          description: Bad request message
-          type: string
-      required:
-      - error
-      title: Bad request
-      type: object
-    error_limited_3:
-      description: Error limited model
-      properties:
-        error:
-          description: Error limited message
-          type: string
-      required:
-      - error
-      title: Error limited
       type: object
     forbidden_4:
       description: Forbidden model
@@ -6511,6 +6539,26 @@ components:
       - error
       title: Forbidden
       type: object
+    internal_server_error_4:
+      description: Internal server error model
+      properties:
+        error:
+          description: Internal server error message
+          type: string
+      required:
+      - error
+      title: Internal server error
+      type: object
+    error_limited_4:
+      description: Error limited model
+      properties:
+        error:
+          description: Error limited message
+          type: string
+      required:
+      - error
+      title: Error limited
+      type: object
     unauthorized_4:
       description: Unauthorized model
       properties:
@@ -6520,6 +6568,16 @@ components:
       required:
       - error
       title: Unauthorized
+      type: object
+    bad_request_4:
+      description: Bad request model
+      properties:
+        error:
+          description: Bad request message
+          type: string
+      required:
+      - error
+      title: Bad request
       type: object
     gateway_timeout_4:
       description: Gateway timeout model
@@ -6534,16 +6592,6 @@ components:
       - error
       title: Gateway timeout
       type: object
-    internal_server_error_4:
-      description: Internal server error model
-      properties:
-        error:
-          description: Internal server error message
-          type: string
-      required:
-      - error
-      title: Internal server error
-      type: object
     service_unavailable_4:
       description: Service unavailable model
       properties:
@@ -6553,26 +6601,6 @@ components:
       required:
       - error
       title: Service unavailable
-      type: object
-    bad_request_4:
-      description: Bad request model
-      properties:
-        error:
-          description: Bad request message
-          type: string
-      required:
-      - error
-      title: Bad request
-      type: object
-    error_limited_4:
-      description: Error limited model
-      properties:
-        error:
-          description: Error limited message
-          type: string
-      required:
-      - error
-      title: Error limited
       type: object
     forbidden_5:
       description: Forbidden model
@@ -6587,6 +6615,26 @@ components:
       - error
       title: Forbidden
       type: object
+    internal_server_error_5:
+      description: Internal server error model
+      properties:
+        error:
+          description: Internal server error message
+          type: string
+      required:
+      - error
+      title: Internal server error
+      type: object
+    error_limited_5:
+      description: Error limited model
+      properties:
+        error:
+          description: Error limited message
+          type: string
+      required:
+      - error
+      title: Error limited
+      type: object
     unauthorized_5:
       description: Unauthorized model
       properties:
@@ -6596,6 +6644,16 @@ components:
       required:
       - error
       title: Unauthorized
+      type: object
+    bad_request_5:
+      description: Bad request model
+      properties:
+        error:
+          description: Bad request message
+          type: string
+      required:
+      - error
+      title: Bad request
       type: object
     gateway_timeout_5:
       description: Gateway timeout model
@@ -6610,16 +6668,6 @@ components:
       - error
       title: Gateway timeout
       type: object
-    internal_server_error_5:
-      description: Internal server error model
-      properties:
-        error:
-          description: Internal server error message
-          type: string
-      required:
-      - error
-      title: Internal server error
-      type: object
     service_unavailable_5:
       description: Service unavailable model
       properties:
@@ -6629,26 +6677,6 @@ components:
       required:
       - error
       title: Service unavailable
-      type: object
-    bad_request_5:
-      description: Bad request model
-      properties:
-        error:
-          description: Bad request message
-          type: string
-      required:
-      - error
-      title: Bad request
-      type: object
-    error_limited_5:
-      description: Error limited model
-      properties:
-        error:
-          description: Error limited message
-          type: string
-      required:
-      - error
-      title: Error limited
       type: object
   securitySchemes:
     evesso:

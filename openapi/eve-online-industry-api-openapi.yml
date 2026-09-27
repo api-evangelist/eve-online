@@ -1896,7 +1896,7 @@ paths:
 
 
         This route is cached for up to 300 seconds'
-      operationId: get_characters_character_id_industry_jobs
+      operationId: getV1CharactersByCharacterIdIndustryJobs
       parameters:
       - $ref: '#/components/parameters/character_id'
       - $ref: '#/components/parameters/datasource'
@@ -2174,6 +2174,8 @@ paths:
       - legacy
       - v1
       x-cached-seconds: 300
+      x-operation-id-source: normalized
+      x-operation-id-original: get_characters_character_id_industry_jobs
     servers:
     - url: https://esi.evetech.net
   /v1/characters/{character_id}/mining/:
@@ -2185,7 +2187,7 @@ paths:
 
 
         This route is cached for up to 600 seconds'
-      operationId: get_characters_character_id_mining
+      operationId: getV1CharactersByCharacterIdMining
       parameters:
       - $ref: '#/components/parameters/character_id'
       - $ref: '#/components/parameters/datasource'
@@ -2350,6 +2352,8 @@ paths:
       - legacy
       - v1
       x-cached-seconds: 600
+      x-operation-id-source: normalized
+      x-operation-id-original: get_characters_character_id_mining
     servers:
     - url: https://esi.evetech.net
   /v1/corporation/{corporation_id}/mining/extractions/:
@@ -2366,7 +2370,7 @@ paths:
         ---
 
         Requires one of the following EVE corporation role(s): Station_Manager'
-      operationId: get_corporation_corporation_id_mining_extractions
+      operationId: getV1CorporationByCorporationIdMiningExtractions
       parameters:
       - $ref: '#/components/parameters/corporation_id'
       - $ref: '#/components/parameters/datasource'
@@ -2542,6 +2546,8 @@ paths:
       x-cached-seconds: 1800
       x-required-roles:
       - Station_Manager
+      x-operation-id-source: normalized
+      x-operation-id-original: get_corporation_corporation_id_mining_extractions
     servers:
     - url: https://esi.evetech.net
   /v1/corporation/{corporation_id}/mining/observers/:
@@ -2558,7 +2564,7 @@ paths:
         ---
 
         Requires one of the following EVE corporation role(s): Accountant'
-      operationId: get_corporation_corporation_id_mining_observers
+      operationId: getV1CorporationByCorporationIdMiningObservers
       parameters:
       - $ref: '#/components/parameters/corporation_id'
       - $ref: '#/components/parameters/datasource'
@@ -2717,6 +2723,8 @@ paths:
       x-cached-seconds: 3600
       x-required-roles:
       - Accountant
+      x-operation-id-source: normalized
+      x-operation-id-original: get_corporation_corporation_id_mining_observers
     servers:
     - url: https://esi.evetech.net
   /v1/corporation/{corporation_id}/mining/observers/{observer_id}/:
@@ -2733,7 +2741,7 @@ paths:
         ---
 
         Requires one of the following EVE corporation role(s): Accountant'
-      operationId: get_corporation_corporation_id_mining_observers_observer_id
+      operationId: getV1CorporationByCorporationIdMiningObserversByObserverId
       parameters:
       - $ref: '#/components/parameters/corporation_id'
       - $ref: '#/components/parameters/datasource'
@@ -2914,6 +2922,8 @@ paths:
       x-cached-seconds: 3600
       x-required-roles:
       - Accountant
+      x-operation-id-source: normalized
+      x-operation-id-original: get_corporation_corporation_id_mining_observers_observer_id
     servers:
     - url: https://esi.evetech.net
   /v1/corporations/{corporation_id}/industry/jobs/:
@@ -2930,7 +2940,7 @@ paths:
         ---
 
         Requires one of the following EVE corporation role(s): Factory_Manager'
-      operationId: get_corporations_corporation_id_industry_jobs
+      operationId: getV1CorporationsByCorporationIdIndustryJobs
       parameters:
       - $ref: '#/components/parameters/corporation_id'
       - $ref: '#/components/parameters/datasource'
@@ -3218,6 +3228,8 @@ paths:
       x-cached-seconds: 300
       x-required-roles:
       - Factory_Manager
+      x-operation-id-source: normalized
+      x-operation-id-original: get_corporations_corporation_id_industry_jobs
     servers:
     - url: https://esi.evetech.net
   /v1/industry/facilities/:
@@ -3229,7 +3241,7 @@ paths:
 
 
         This route is cached for up to 3600 seconds'
-      operationId: get_industry_facilities
+      operationId: getV1IndustryFacilities
       parameters:
       - $ref: '#/components/parameters/datasource'
       - $ref: '#/components/parameters/If-None-Match'
@@ -3375,6 +3387,8 @@ paths:
       - legacy
       - v1
       x-cached-seconds: 3600
+      x-operation-id-source: normalized
+      x-operation-id-original: get_industry_facilities
     servers:
     - url: https://esi.evetech.net
   /v1/industry/systems/:
@@ -3386,7 +3400,7 @@ paths:
 
 
         This route is cached for up to 3600 seconds'
-      operationId: get_industry_systems
+      operationId: getV1IndustrySystems
       parameters:
       - $ref: '#/components/parameters/datasource'
       - $ref: '#/components/parameters/If-None-Match'
@@ -3535,25 +3549,12 @@ paths:
       - legacy
       - v1
       x-cached-seconds: 3600
+      x-operation-id-source: normalized
+      x-operation-id-original: get_industry_systems
     servers:
     - url: https://esi.evetech.net
 components:
   parameters:
-    token:
-      description: Access token to use if unable to set a header
-      in: query
-      name: token
-      schema:
-        type: string
-    datasource:
-      description: The server name you would like data from
-      in: query
-      name: datasource
-      schema:
-        type: string
-        enum:
-        - tranquility
-        default: tranquility
     corporation_id:
       description: An EVE corporation ID
       in: path
@@ -3572,12 +3573,21 @@ components:
         format: int32
         minimum: 1
         default: 1
-    If-None-Match:
-      description: ETag from a previous request. A 304 will be returned if this matches the current ETag
-      in: header
-      name: If-None-Match
+    token:
+      description: Access token to use if unable to set a header
+      in: query
+      name: token
       schema:
         type: string
+    datasource:
+      description: The server name you would like data from
+      in: query
+      name: datasource
+      schema:
+        type: string
+        enum:
+        - tranquility
+        default: tranquility
     character_id:
       description: An EVE character ID
       in: path
@@ -3587,7 +3597,46 @@ components:
         type: integer
         format: int32
         minimum: 1
+    If-None-Match:
+      description: ETag from a previous request. A 304 will be returned if this matches the current ETag
+      in: header
+      name: If-None-Match
+      schema:
+        type: string
   schemas:
+    service_unavailable:
+      description: Service unavailable model
+      properties:
+        error:
+          description: Service unavailable message
+          type: string
+          example: example
+      required:
+      - error
+      title: Service unavailable
+      type: object
+    internal_server_error:
+      description: Internal server error model
+      properties:
+        error:
+          description: Internal server error message
+          type: string
+          example: example
+      required:
+      - error
+      title: Internal server error
+      type: object
+    error_limited:
+      description: Error limited model
+      properties:
+        error:
+          description: Error limited message
+          type: string
+          example: example
+      required:
+      - error
+      title: Error limited
+      type: object
     forbidden:
       description: Forbidden model
       properties:
@@ -3614,6 +3663,17 @@ components:
       - error
       title: Unauthorized
       type: object
+    bad_request:
+      description: Bad request model
+      properties:
+        error:
+          description: Bad request message
+          type: string
+          example: example
+      required:
+      - error
+      title: Bad request
+      type: object
     gateway_timeout:
       description: Gateway timeout model
       properties:
@@ -3629,46 +3689,32 @@ components:
       - error
       title: Gateway timeout
       type: object
-    internal_server_error:
-      description: Internal server error model
-      properties:
-        error:
-          description: Internal server error message
-          type: string
-          example: example
-      required:
-      - error
-      title: Internal server error
-      type: object
-    service_unavailable:
+    service_unavailable_2:
       description: Service unavailable model
       properties:
         error:
           description: Service unavailable message
           type: string
-          example: example
       required:
       - error
       title: Service unavailable
       type: object
-    bad_request:
-      description: Bad request model
+    internal_server_error_2:
+      description: Internal server error model
       properties:
         error:
-          description: Bad request message
+          description: Internal server error message
           type: string
-          example: example
       required:
       - error
-      title: Bad request
+      title: Internal server error
       type: object
-    error_limited:
+    error_limited_2:
       description: Error limited model
       properties:
         error:
           description: Error limited message
           type: string
-          example: example
       required:
       - error
       title: Error limited
@@ -3696,6 +3742,16 @@ components:
       - error
       title: Unauthorized
       type: object
+    bad_request_2:
+      description: Bad request model
+      properties:
+        error:
+          description: Bad request message
+          type: string
+      required:
+      - error
+      title: Bad request
+      type: object
     gateway_timeout_2:
       description: Gateway timeout model
       properties:
@@ -3709,17 +3765,7 @@ components:
       - error
       title: Gateway timeout
       type: object
-    internal_server_error_2:
-      description: Internal server error model
-      properties:
-        error:
-          description: Internal server error message
-          type: string
-      required:
-      - error
-      title: Internal server error
-      type: object
-    service_unavailable_2:
+    service_unavailable_3:
       description: Service unavailable model
       properties:
         error:
@@ -3729,17 +3775,17 @@ components:
       - error
       title: Service unavailable
       type: object
-    bad_request_2:
-      description: Bad request model
+    internal_server_error_3:
+      description: Internal server error model
       properties:
         error:
-          description: Bad request message
+          description: Internal server error message
           type: string
       required:
       - error
-      title: Bad request
+      title: Internal server error
       type: object
-    error_limited_2:
+    error_limited_3:
       description: Error limited model
       properties:
         error:
@@ -3772,6 +3818,16 @@ components:
       - error
       title: Unauthorized
       type: object
+    bad_request_3:
+      description: Bad request model
+      properties:
+        error:
+          description: Bad request message
+          type: string
+      required:
+      - error
+      title: Bad request
+      type: object
     gateway_timeout_3:
       description: Gateway timeout model
       properties:
@@ -3785,17 +3841,7 @@ components:
       - error
       title: Gateway timeout
       type: object
-    internal_server_error_3:
-      description: Internal server error model
-      properties:
-        error:
-          description: Internal server error message
-          type: string
-      required:
-      - error
-      title: Internal server error
-      type: object
-    service_unavailable_3:
+    service_unavailable_4:
       description: Service unavailable model
       properties:
         error:
@@ -3805,17 +3851,17 @@ components:
       - error
       title: Service unavailable
       type: object
-    bad_request_3:
-      description: Bad request model
+    internal_server_error_4:
+      description: Internal server error model
       properties:
         error:
-          description: Bad request message
+          description: Internal server error message
           type: string
       required:
       - error
-      title: Bad request
+      title: Internal server error
       type: object
-    error_limited_3:
+    error_limited_4:
       description: Error limited model
       properties:
         error:
@@ -3848,6 +3894,16 @@ components:
       - error
       title: Unauthorized
       type: object
+    bad_request_4:
+      description: Bad request model
+      properties:
+        error:
+          description: Bad request message
+          type: string
+      required:
+      - error
+      title: Bad request
+      type: object
     gateway_timeout_4:
       description: Gateway timeout model
       properties:
@@ -3861,17 +3917,7 @@ components:
       - error
       title: Gateway timeout
       type: object
-    internal_server_error_4:
-      description: Internal server error model
-      properties:
-        error:
-          description: Internal server error message
-          type: string
-      required:
-      - error
-      title: Internal server error
-      type: object
-    service_unavailable_4:
+    service_unavailable_5:
       description: Service unavailable model
       properties:
         error:
@@ -3881,17 +3927,17 @@ components:
       - error
       title: Service unavailable
       type: object
-    bad_request_4:
-      description: Bad request model
+    internal_server_error_5:
+      description: Internal server error model
       properties:
         error:
-          description: Bad request message
+          description: Internal server error message
           type: string
       required:
       - error
-      title: Bad request
+      title: Internal server error
       type: object
-    error_limited_4:
+    error_limited_5:
       description: Error limited model
       properties:
         error:
@@ -3924,6 +3970,16 @@ components:
       - error
       title: Unauthorized
       type: object
+    bad_request_5:
+      description: Bad request model
+      properties:
+        error:
+          description: Bad request message
+          type: string
+      required:
+      - error
+      title: Bad request
+      type: object
     gateway_timeout_5:
       description: Gateway timeout model
       properties:
@@ -3936,46 +3992,6 @@ components:
       required:
       - error
       title: Gateway timeout
-      type: object
-    internal_server_error_5:
-      description: Internal server error model
-      properties:
-        error:
-          description: Internal server error message
-          type: string
-      required:
-      - error
-      title: Internal server error
-      type: object
-    service_unavailable_5:
-      description: Service unavailable model
-      properties:
-        error:
-          description: Service unavailable message
-          type: string
-      required:
-      - error
-      title: Service unavailable
-      type: object
-    bad_request_5:
-      description: Bad request model
-      properties:
-        error:
-          description: Bad request message
-          type: string
-      required:
-      - error
-      title: Bad request
-      type: object
-    error_limited_5:
-      description: Error limited model
-      properties:
-        error:
-          description: Error limited message
-          type: string
-      required:
-      - error
-      title: Error limited
       type: object
   securitySchemes:
     evesso:
