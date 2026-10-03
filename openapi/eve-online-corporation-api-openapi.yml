@@ -11755,41 +11755,12 @@ paths:
     - url: https://esi.evetech.net
 components:
   parameters:
-    corporation_id:
-      description: An EVE corporation ID
-      in: path
-      name: corporation_id
-      required: true
-      schema:
-        type: integer
-        format: int32
-        minimum: 1
-    page:
-      description: Which page of results to return
-      in: query
-      name: page
-      schema:
-        type: integer
-        format: int32
-        minimum: 1
-        default: 1
-    language:
-      description: Language to use in the response, takes precedence over Accept-Language
-      in: query
-      name: language
+    If-None-Match:
+      description: ETag from a previous request. A 304 will be returned if this matches the current ETag
+      in: header
+      name: If-None-Match
       schema:
         type: string
-        enum:
-        - en
-        - en-us
-        - de
-        - fr
-        - ja
-        - ru
-        - zh
-        - ko
-        - es
-        default: en
     Accept-Language:
       description: Language to use in the response
       in: header
@@ -11807,12 +11778,6 @@ components:
         - ko
         - es
         default: en
-    token:
-      description: Access token to use if unable to set a header
-      in: query
-      name: token
-      schema:
-        type: string
     datasource:
       description: The server name you would like data from
       in: query
@@ -11822,12 +11787,47 @@ components:
         enum:
         - tranquility
         default: tranquility
-    If-None-Match:
-      description: ETag from a previous request. A 304 will be returned if this matches the current ETag
-      in: header
-      name: If-None-Match
+    token:
+      description: Access token to use if unable to set a header
+      in: query
+      name: token
       schema:
         type: string
+    language:
+      description: Language to use in the response, takes precedence over Accept-Language
+      in: query
+      name: language
+      schema:
+        type: string
+        enum:
+        - en
+        - en-us
+        - de
+        - fr
+        - ja
+        - ru
+        - zh
+        - ko
+        - es
+        default: en
+    page:
+      description: Which page of results to return
+      in: query
+      name: page
+      schema:
+        type: integer
+        format: int32
+        minimum: 1
+        default: 1
+    corporation_id:
+      description: An EVE corporation ID
+      in: path
+      name: corporation_id
+      required: true
+      schema:
+        type: integer
+        format: int32
+        minimum: 1
   schemas:
     forbidden:
       description: Forbidden model
@@ -11844,16 +11844,31 @@ components:
       - error
       title: Forbidden
       type: object
-    error_limited:
-      description: Error limited model
+    unauthorized:
+      description: Unauthorized model
       properties:
         error:
-          description: Error limited message
+          description: Unauthorized message
           type: string
           example: example
       required:
       - error
-      title: Error limited
+      title: Unauthorized
+      type: object
+    gateway_timeout:
+      description: Gateway timeout model
+      properties:
+        error:
+          description: Gateway timeout message
+          type: string
+          example: example
+        timeout:
+          description: number of seconds the request was given
+          type: integer
+          example: 1
+      required:
+      - error
+      title: Gateway timeout
       type: object
     internal_server_error:
       description: Internal server error model
@@ -11865,17 +11880,6 @@ components:
       required:
       - error
       title: Internal server error
-      type: object
-    unauthorized:
-      description: Unauthorized model
-      properties:
-        error:
-          description: Unauthorized message
-          type: string
-          example: example
-      required:
-      - error
-      title: Unauthorized
       type: object
     service_unavailable:
       description: Service unavailable model
@@ -11899,20 +11903,16 @@ components:
       - error
       title: Bad request
       type: object
-    gateway_timeout:
-      description: Gateway timeout model
+    error_limited:
+      description: Error limited model
       properties:
         error:
-          description: Gateway timeout message
+          description: Error limited message
           type: string
           example: example
-        timeout:
-          description: number of seconds the request was given
-          type: integer
-          example: 1
       required:
       - error
-      title: Gateway timeout
+      title: Error limited
       type: object
     forbidden_2:
       description: Forbidden model
@@ -11927,15 +11927,28 @@ components:
       - error
       title: Forbidden
       type: object
-    error_limited_2:
-      description: Error limited model
+    unauthorized_2:
+      description: Unauthorized model
       properties:
         error:
-          description: Error limited message
+          description: Unauthorized message
           type: string
       required:
       - error
-      title: Error limited
+      title: Unauthorized
+      type: object
+    gateway_timeout_2:
+      description: Gateway timeout model
+      properties:
+        error:
+          description: Gateway timeout message
+          type: string
+        timeout:
+          description: number of seconds the request was given
+          type: integer
+      required:
+      - error
+      title: Gateway timeout
       type: object
     internal_server_error_2:
       description: Internal server error model
@@ -11946,16 +11959,6 @@ components:
       required:
       - error
       title: Internal server error
-      type: object
-    unauthorized_2:
-      description: Unauthorized model
-      properties:
-        error:
-          description: Unauthorized message
-          type: string
-      required:
-      - error
-      title: Unauthorized
       type: object
     service_unavailable_2:
       description: Service unavailable model
@@ -11977,18 +11980,25 @@ components:
       - error
       title: Bad request
       type: object
-    gateway_timeout_2:
-      description: Gateway timeout model
+    error_limited_2:
+      description: Error limited model
       properties:
         error:
-          description: Gateway timeout message
+          description: Error limited message
           type: string
-        timeout:
-          description: number of seconds the request was given
-          type: integer
       required:
       - error
-      title: Gateway timeout
+      title: Error limited
+      type: object
+    unauthorized_3:
+      description: Unauthorized model
+      properties:
+        error:
+          description: Unauthorized message
+          type: string
+      required:
+      - error
+      title: Unauthorized
       type: object
     forbidden_3:
       description: Forbidden model
@@ -12013,46 +12023,6 @@ components:
       - error
       title: Internal server error
       type: object
-    error_limited_3:
-      description: Error limited model
-      properties:
-        error:
-          description: Error limited message
-          type: string
-      required:
-      - error
-      title: Error limited
-      type: object
-    service_unavailable_3:
-      description: Service unavailable model
-      properties:
-        error:
-          description: Service unavailable message
-          type: string
-      required:
-      - error
-      title: Service unavailable
-      type: object
-    unauthorized_3:
-      description: Unauthorized model
-      properties:
-        error:
-          description: Unauthorized message
-          type: string
-      required:
-      - error
-      title: Unauthorized
-      type: object
-    bad_request_3:
-      description: Bad request model
-      properties:
-        error:
-          description: Bad request message
-          type: string
-      required:
-      - error
-      title: Bad request
-      type: object
     gateway_timeout_3:
       description: Gateway timeout model
       properties:
@@ -12065,6 +12035,36 @@ components:
       required:
       - error
       title: Gateway timeout
+      type: object
+    service_unavailable_3:
+      description: Service unavailable model
+      properties:
+        error:
+          description: Service unavailable message
+          type: string
+      required:
+      - error
+      title: Service unavailable
+      type: object
+    bad_request_3:
+      description: Bad request model
+      properties:
+        error:
+          description: Bad request message
+          type: string
+      required:
+      - error
+      title: Bad request
+      type: object
+    error_limited_3:
+      description: Error limited model
+      properties:
+        error:
+          description: Error limited message
+          type: string
+      required:
+      - error
+      title: Error limited
       type: object
     forbidden_4:
       description: Forbidden model
@@ -12079,15 +12079,28 @@ components:
       - error
       title: Forbidden
       type: object
-    error_limited_4:
-      description: Error limited model
+    unauthorized_4:
+      description: Unauthorized model
       properties:
         error:
-          description: Error limited message
+          description: Unauthorized message
           type: string
       required:
       - error
-      title: Error limited
+      title: Unauthorized
+      type: object
+    gateway_timeout_4:
+      description: Gateway timeout model
+      properties:
+        error:
+          description: Gateway timeout message
+          type: string
+        timeout:
+          description: number of seconds the request was given
+          type: integer
+      required:
+      - error
+      title: Gateway timeout
       type: object
     internal_server_error_4:
       description: Internal server error model
@@ -12098,16 +12111,6 @@ components:
       required:
       - error
       title: Internal server error
-      type: object
-    unauthorized_4:
-      description: Unauthorized model
-      properties:
-        error:
-          description: Unauthorized message
-          type: string
-      required:
-      - error
-      title: Unauthorized
       type: object
     service_unavailable_4:
       description: Service unavailable model
@@ -12129,18 +12132,25 @@ components:
       - error
       title: Bad request
       type: object
-    gateway_timeout_4:
-      description: Gateway timeout model
+    error_limited_4:
+      description: Error limited model
       properties:
         error:
-          description: Gateway timeout message
+          description: Error limited message
           type: string
-        timeout:
-          description: number of seconds the request was given
-          type: integer
       required:
       - error
-      title: Gateway timeout
+      title: Error limited
+      type: object
+    unauthorized_5:
+      description: Unauthorized model
+      properties:
+        error:
+          description: Unauthorized message
+          type: string
+      required:
+      - error
+      title: Unauthorized
       type: object
     forbidden_5:
       description: Forbidden model
@@ -12165,46 +12175,6 @@ components:
       - error
       title: Internal server error
       type: object
-    error_limited_5:
-      description: Error limited model
-      properties:
-        error:
-          description: Error limited message
-          type: string
-      required:
-      - error
-      title: Error limited
-      type: object
-    service_unavailable_5:
-      description: Service unavailable model
-      properties:
-        error:
-          description: Service unavailable message
-          type: string
-      required:
-      - error
-      title: Service unavailable
-      type: object
-    unauthorized_5:
-      description: Unauthorized model
-      properties:
-        error:
-          description: Unauthorized message
-          type: string
-      required:
-      - error
-      title: Unauthorized
-      type: object
-    bad_request_5:
-      description: Bad request model
-      properties:
-        error:
-          description: Bad request message
-          type: string
-      required:
-      - error
-      title: Bad request
-      type: object
     gateway_timeout_5:
       description: Gateway timeout model
       properties:
@@ -12217,6 +12187,36 @@ components:
       required:
       - error
       title: Gateway timeout
+      type: object
+    service_unavailable_5:
+      description: Service unavailable model
+      properties:
+        error:
+          description: Service unavailable message
+          type: string
+      required:
+      - error
+      title: Service unavailable
+      type: object
+    bad_request_5:
+      description: Bad request model
+      properties:
+        error:
+          description: Bad request message
+          type: string
+      required:
+      - error
+      title: Bad request
+      type: object
+    error_limited_5:
+      description: Error limited model
+      properties:
+        error:
+          description: Error limited message
+          type: string
+      required:
+      - error
+      title: Error limited
       type: object
   securitySchemes:
     evesso:
