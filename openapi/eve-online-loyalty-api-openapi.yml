@@ -783,84 +783,7 @@ paths:
     servers:
     - url: https://esi.evetech.net
 components:
-  parameters:
-    If-None-Match:
-      description: ETag from a previous request. A 304 will be returned if this matches the current ETag
-      in: header
-      name: If-None-Match
-      schema:
-        type: string
-    datasource:
-      description: The server name you would like data from
-      in: query
-      name: datasource
-      schema:
-        type: string
-        enum:
-        - tranquility
-        default: tranquility
-    token:
-      description: Access token to use if unable to set a header
-      in: query
-      name: token
-      schema:
-        type: string
-    corporation_id:
-      description: An EVE corporation ID
-      in: path
-      name: corporation_id
-      required: true
-      schema:
-        type: integer
-        format: int32
-        minimum: 1
-    character_id:
-      description: An EVE character ID
-      in: path
-      name: character_id
-      required: true
-      schema:
-        type: integer
-        format: int32
-        minimum: 1
   schemas:
-    unauthorized:
-      description: Unauthorized model
-      properties:
-        error:
-          description: Unauthorized message
-          type: string
-          example: example
-      required:
-      - error
-      title: Unauthorized
-      type: object
-    forbidden:
-      description: Forbidden model
-      properties:
-        error:
-          description: Forbidden message
-          type: string
-          example: example
-        sso_status:
-          description: status code received from SSO
-          type: integer
-          example: 1
-      required:
-      - error
-      title: Forbidden
-      type: object
-    internal_server_error:
-      description: Internal server error model
-      properties:
-        error:
-          description: Internal server error message
-          type: string
-          example: example
-      required:
-      - error
-      title: Internal server error
-      type: object
     gateway_timeout:
       description: Gateway timeout model
       properties:
@@ -887,6 +810,21 @@ components:
       - error
       title: Service unavailable
       type: object
+    forbidden:
+      description: Forbidden model
+      properties:
+        error:
+          description: Forbidden message
+          type: string
+          example: example
+        sso_status:
+          description: status code received from SSO
+          type: integer
+          example: 1
+      required:
+      - error
+      title: Forbidden
+      type: object
     bad_request:
       description: Bad request model
       properties:
@@ -909,38 +847,27 @@ components:
       - error
       title: Error limited
       type: object
-    unauthorized_2:
-      description: Unauthorized model
-      properties:
-        error:
-          description: Unauthorized message
-          type: string
-      required:
-      - error
-      title: Unauthorized
-      type: object
-    forbidden_2:
-      description: Forbidden model
-      properties:
-        error:
-          description: Forbidden message
-          type: string
-        sso_status:
-          description: status code received from SSO
-          type: integer
-      required:
-      - error
-      title: Forbidden
-      type: object
-    internal_server_error_2:
+    internal_server_error:
       description: Internal server error model
       properties:
         error:
           description: Internal server error message
           type: string
+          example: example
       required:
       - error
       title: Internal server error
+      type: object
+    unauthorized:
+      description: Unauthorized model
+      properties:
+        error:
+          description: Unauthorized message
+          type: string
+          example: example
+      required:
+      - error
+      title: Unauthorized
       type: object
     gateway_timeout_2:
       description: Gateway timeout model
@@ -965,6 +892,19 @@ components:
       - error
       title: Service unavailable
       type: object
+    forbidden_2:
+      description: Forbidden model
+      properties:
+        error:
+          description: Forbidden message
+          type: string
+        sso_status:
+          description: status code received from SSO
+          type: integer
+      required:
+      - error
+      title: Forbidden
+      type: object
     bad_request_2:
       description: Bad request model
       properties:
@@ -985,30 +925,7 @@ components:
       - error
       title: Error limited
       type: object
-    unauthorized_3:
-      description: Unauthorized model
-      properties:
-        error:
-          description: Unauthorized message
-          type: string
-      required:
-      - error
-      title: Unauthorized
-      type: object
-    forbidden_3:
-      description: Forbidden model
-      properties:
-        error:
-          description: Forbidden message
-          type: string
-        sso_status:
-          description: status code received from SSO
-          type: integer
-      required:
-      - error
-      title: Forbidden
-      type: object
-    internal_server_error_3:
+    internal_server_error_2:
       description: Internal server error model
       properties:
         error:
@@ -1017,6 +934,16 @@ components:
       required:
       - error
       title: Internal server error
+      type: object
+    unauthorized_2:
+      description: Unauthorized model
+      properties:
+        error:
+          description: Unauthorized message
+          type: string
+      required:
+      - error
+      title: Unauthorized
       type: object
     gateway_timeout_3:
       description: Gateway timeout model
@@ -1041,6 +968,19 @@ components:
       - error
       title: Service unavailable
       type: object
+    forbidden_3:
+      description: Forbidden model
+      properties:
+        error:
+          description: Forbidden message
+          type: string
+        sso_status:
+          description: status code received from SSO
+          type: integer
+      required:
+      - error
+      title: Forbidden
+      type: object
     bad_request_3:
       description: Bad request model
       properties:
@@ -1061,30 +1001,7 @@ components:
       - error
       title: Error limited
       type: object
-    unauthorized_4:
-      description: Unauthorized model
-      properties:
-        error:
-          description: Unauthorized message
-          type: string
-      required:
-      - error
-      title: Unauthorized
-      type: object
-    forbidden_4:
-      description: Forbidden model
-      properties:
-        error:
-          description: Forbidden message
-          type: string
-        sso_status:
-          description: status code received from SSO
-          type: integer
-      required:
-      - error
-      title: Forbidden
-      type: object
-    internal_server_error_4:
+    internal_server_error_3:
       description: Internal server error model
       properties:
         error:
@@ -1093,6 +1010,16 @@ components:
       required:
       - error
       title: Internal server error
+      type: object
+    unauthorized_3:
+      description: Unauthorized model
+      properties:
+        error:
+          description: Unauthorized message
+          type: string
+      required:
+      - error
+      title: Unauthorized
       type: object
     gateway_timeout_4:
       description: Gateway timeout model
@@ -1117,6 +1044,19 @@ components:
       - error
       title: Service unavailable
       type: object
+    forbidden_4:
+      description: Forbidden model
+      properties:
+        error:
+          description: Forbidden message
+          type: string
+        sso_status:
+          description: status code received from SSO
+          type: integer
+      required:
+      - error
+      title: Forbidden
+      type: object
     bad_request_4:
       description: Bad request model
       properties:
@@ -1137,30 +1077,7 @@ components:
       - error
       title: Error limited
       type: object
-    unauthorized_5:
-      description: Unauthorized model
-      properties:
-        error:
-          description: Unauthorized message
-          type: string
-      required:
-      - error
-      title: Unauthorized
-      type: object
-    forbidden_5:
-      description: Forbidden model
-      properties:
-        error:
-          description: Forbidden message
-          type: string
-        sso_status:
-          description: status code received from SSO
-          type: integer
-      required:
-      - error
-      title: Forbidden
-      type: object
-    internal_server_error_5:
+    internal_server_error_4:
       description: Internal server error model
       properties:
         error:
@@ -1169,6 +1086,16 @@ components:
       required:
       - error
       title: Internal server error
+      type: object
+    unauthorized_4:
+      description: Unauthorized model
+      properties:
+        error:
+          description: Unauthorized message
+          type: string
+      required:
+      - error
+      title: Unauthorized
       type: object
     gateway_timeout_5:
       description: Gateway timeout model
@@ -1193,6 +1120,19 @@ components:
       - error
       title: Service unavailable
       type: object
+    forbidden_5:
+      description: Forbidden model
+      properties:
+        error:
+          description: Forbidden message
+          type: string
+        sso_status:
+          description: status code received from SSO
+          type: integer
+      required:
+      - error
+      title: Forbidden
+      type: object
     bad_request_5:
       description: Bad request model
       properties:
@@ -1213,6 +1153,66 @@ components:
       - error
       title: Error limited
       type: object
+    internal_server_error_5:
+      description: Internal server error model
+      properties:
+        error:
+          description: Internal server error message
+          type: string
+      required:
+      - error
+      title: Internal server error
+      type: object
+    unauthorized_5:
+      description: Unauthorized model
+      properties:
+        error:
+          description: Unauthorized message
+          type: string
+      required:
+      - error
+      title: Unauthorized
+      type: object
+  parameters:
+    token:
+      description: Access token to use if unable to set a header
+      in: query
+      name: token
+      schema:
+        type: string
+    character_id:
+      description: An EVE character ID
+      in: path
+      name: character_id
+      required: true
+      schema:
+        type: integer
+        format: int32
+        minimum: 1
+    datasource:
+      description: The server name you would like data from
+      in: query
+      name: datasource
+      schema:
+        type: string
+        enum:
+        - tranquility
+        default: tranquility
+    If-None-Match:
+      description: ETag from a previous request. A 304 will be returned if this matches the current ETag
+      in: header
+      name: If-None-Match
+      schema:
+        type: string
+    corporation_id:
+      description: An EVE corporation ID
+      in: path
+      name: corporation_id
+      required: true
+      schema:
+        type: integer
+        format: int32
+        minimum: 1
   securitySchemes:
     evesso:
       type: oauth2
