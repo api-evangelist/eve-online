@@ -1,4 +1,4 @@
-generated: '2026-09-16'
+generated: '2026-09-23'
 method: generated
 source: openapi/eve-online-alliance-api-openapi.yml, openapi/eve-online-assets-api-openapi.yml,
   openapi/eve-online-calendar-api-openapi.yml, openapi/eve-online-character-api-openapi.yml,
@@ -19,11 +19,11 @@ description: Recommended x-agentic-access execution contracts, classified heuris
 summary:
   operations: 411
   by_action_class:
-    connected: 343
-    acting: 68
+    connected: 347
+    acting: 64
   by_consequence:
-    read: 343
-    write: 64
+    read: 347
+    write: 60
     physical: 4
   human_in_the_loop_required: 0
 operations:
@@ -207,74 +207,50 @@ operations:
   method: post
   operationId: post_characters_character_id_assets_names
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
+    action-class: connected
+    consequence: read
+    subject: optional
     scope:
     - esi-assets.read_assets.v1
-    audience: null
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
 - path: /v1/corporations/{corporation_id}/assets/names/
   method: post
   operationId: post_corporations_corporation_id_assets_names
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
+    action-class: connected
+    consequence: read
+    subject: optional
     scope:
     - esi-assets.read_corporation_assets.v1
-    audience: null
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
 - path: /v2/characters/{character_id}/assets/locations/
   method: post
   operationId: post_characters_character_id_assets_locations
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
+    action-class: connected
+    consequence: read
+    subject: optional
     scope:
     - esi-assets.read_assets.v1
-    audience: null
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
 - path: /v2/corporations/{corporation_id}/assets/locations/
   method: post
   operationId: post_corporations_corporation_id_assets_locations
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
+    action-class: connected
+    consequence: read
+    subject: optional
     scope:
     - esi-assets.read_corporation_assets.v1
-    audience: null
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
 - path: /v4/characters/{character_id}/assets/
   method: get
   operationId: get_characters_character_id_assets
